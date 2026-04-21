@@ -1,23 +1,8 @@
 import '../assets/css/home.css';
 import Button from '../components/common/button';
-import nmuLogo from './../assets/img/alien.jpg';
-import mainImgUIPagoda from './../assets/img/chob_web.png';
-import mainImgUILinkme from './../assets/img/web_linkme.png';
-import { DiscountShape, Global, Record, Hashtag, Book1, Profile2User, Activity, Blur, Code, Cd } from 'iconsax-reactjs';
+import { Record, Hashtag, Book1 } from 'iconsax-reactjs';
 import AboutPage from './about';
-import WebsitePage from './website';
 import StoryPage from './story';
-import CreatorPage from './creator';
-// website pagoda images 
-import imgP1 from './../assets/img/web_slider_chob1.png';
-import imgP2 from './../assets/img/web_slider_chob2.png';
-import imgP3 from './../assets/img/web_slider_chob3.png';
-import imgP4 from './../assets/img/web_slider_chob4.png';
-//website linkme images
-import imgL1 from './../assets/img/photo_app_slider1.jpg';
-import imgL2 from './../assets/img/photo_app_slider2.jpg';
-import imgL3 from './../assets/img/photo_app_slider3.jpg';
-import imgL4 from './../assets/img/photo_app_slider4.jpg';
 export default function HomePage()
 {
     return(
