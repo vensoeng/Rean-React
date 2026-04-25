@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/ngalert@0.1.0/:path*",
+      "destination": "/ngalert@0.1.0/:path*"
+    }
+  ]
+}
