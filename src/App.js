@@ -23,7 +23,6 @@ function RoutePage()
       <Route path='/about' element={<AboutPage/>}></Route>
       <Route path='/creator' element={<CreatorPage/>}></Route>
       <Route path='/education' element={<EducationPage/>}></Route>
-      <Route path='/education' element={<EducationPage/>}></Route>
       <Route path='/poster' element={<PosterPage/>}></Route>
       <Route path='/website' element={<WebsitePage/>}></Route>
     </Routes>
