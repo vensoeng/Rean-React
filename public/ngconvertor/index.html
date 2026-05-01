@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>NG Convertor</title>
+     <!-- this is favicon  -->
+    <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
+    <link rel="icon" href="image/favicon.png">
+    <link rel="website icon" href="image/favicon.png">
+    <!-- this is main css website  -->
+    <link rel="stylesheet" href="css/App.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- this is link tailwind css -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- this is google icon and font  -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@450&amp;family=Space+Grotesk:wght@600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- tailwind script config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#dae2fd",
+                        "surface-dim": "#0b1326",
+                        "primary-fixed": "#dbe1ff",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#00174b",
+                        "error-container": "#93000a",
+                        "outline": "#8d90a0",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "surface-container-highest": "#2d3449",
+                        "inverse-on-surface": "#283044",
+                        "on-surface-variant": "#c3c6d7",
+                        "surface-container": "#171f33",
+                        "surface-container-low": "#131b2e",
+                        "on-tertiary": "#581e00",
+                        "primary-container": "#2563eb",
+                        "surface-container-lowest": "#060e20",
+                        "tertiary-container": "#bc4800",
+                        "on-surface": "#dae2fd",
+                        "tertiary": "#ffb596",
+                        "on-primary": "#002a78",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-secondary-fixed-variant": "#3323cc",
+                        "inverse-primary": "#0053db",
+                        "secondary-container": "#3626ce",
+                        "inverse-surface": "#dae2fd",
+                        "on-primary-container": "#eeefff",
+                        "on-secondary-container": "#b3b1ff",
+                        "surface": "#0b1326",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "on-tertiary-fixed": "#360f00",
+                        "surface-variant": "#2d3449",
+                        "on-secondary": "#1d00a5",
+                        "outline-variant": "#434655",
+                        "surface-container-high": "#222a3d",
+                        "on-tertiary-container": "#ffede6",
+                        "secondary": "#c3c0ff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed": "#0f0069",
+                        "primary": "#b4c5ff",
+                        "tertiary-fixed": "#ffdbcd",
+                        "surface-bright": "#31394d",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-tint": "#b4c5ff",
+                        "background": "#0b1326",
+                        "secondary-fixed": "#e2dfff",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "0.5rem",
+                        "2xl": "3rem",
+                        "md": "1rem",
+                        "lg": "1.5rem",
+                        "gutter": "1.5rem",
+                        "xl": "2rem",
+                        "xs": "0.25rem",
+                        "margin": "2rem",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-base": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "h1": ["Inter"],
+                        "h3": ["Inter"],
+                        "h2": ["Inter"],
+                        "code": ["JetBrains Mono"],
+                        "label": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-base": ["1rem", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-sm": ["0.875rem", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "h1": ["3rem", { "lineHeight": "1.1", "letterSpacing": "-0.05em", "fontWeight": "700" }],
+                        "h3": ["1.5rem", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "h2": ["2.25rem", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "code": ["0.875rem", { "lineHeight": "1.7", "fontWeight": "450" }],
+                        "label": ["0.75rem", { "lineHeight": "1", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <!-- init style  -->
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+        }
+
+        .code-block-bg {
+            background-color: #0F172A;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="font-body-base">
+    <!-- TopAppBar -->
+    <header
+        class="sticky top-0 z-50 flex items-center justify-between w-full px-6 py-4 mx-auto bg-white dark:bg-black border-b border-slate-200 dark:border-slate-800 font-sans antialiased text-sm tracking-tight">
+        <div class="flex items-center gap-3">
+            <div class="logo">
+                <img src="image/favicon_.png" alt="NG Convertor" width="75" loading="lazy" style="transition: opacity 0.5s ease-in-out;">
+            </div>
+            <h1 class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50">Convertor</h1>
+        </div>
+        <div class="flex items-center gap-6">
+            <nav class="hidden md:flex gap-6">
+                <a class="text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 pb-1 hover:text-blue-500 dark:hover:text-blue-300 transition-colors duration-150 ease-in-out"
+                    href="#about">Documentation</a>
+                <a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-500 dark:hover:text-blue-300 transition-colors duration-150 ease-in-out"
+                    href="#">GitHub</a>
+            </nav>
+            <button class="active:opacity-80 transition-opacity">
+                <!-- <span class="material-symbols-outlined">code_xml</span> -->
+                <a href="http://facebook.com/vensoeng" target="_blank">
+                    <img src="https://github.com/vensoeng/My-photo/blob/main/vensoeng/favicon.png?raw=true" alt="profile" width="40" loading="lazy" style="transition: opacity 0.5s ease-in-out;">
+                </a>
+            </button>
+        </div>
+    </header>
+    <!-- Aside  -->
+    <div class="max-w-[1280px] mx-auto flex gap-gutter px-6">
+        <!-- NavigationDrawer (Sidebar) -->
+        <aside class="mx-h-[100vh] h-[calc(100% - 90px)] hidden lg:flex flex-col w-64 h-screen sticky top-20 overflow-y-auto pt-8 bg-slate-50 dark:bg-slate-950 border-r border-slate-200 dark:border-slate-800 rounded-r-lg font-sans text-sm font-medium">
+            <div class="px-4 mb-6">
+                <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Documentation</h2>
+            </div>
+            <nav class="flex flex-col gap-1">
+                <a class="text-blue-600 dark:text-blue-400 border-l-2 border-blue-600 pl-4 bg-blue-50/50 dark:bg-blue-900/10 py-2 flex items-center gap-3 active:translate-x-1 transition-transform"
+                    href="#about">
+                    <span class="material-symbols-outlined text-[18px]" data-icon="rocket_launch">rocket_launch</span>
+                    Getting Started
+                </a>
+                <a class="text-slate-500 dark:text-slate-400 pl-4 hover:border-l-2 hover:border-slate-300 dark:hover:border-slate-700 py-2 flex items-center gap-3 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-150 active:translate-x-1"
+                    href="#installation">
+                    <span class="material-symbols-outlined text-[18px]" data-icon="api">api</span>
+                    Installation
+                </a>
+                <a class="text-slate-500 dark:text-slate-400 pl-4 hover:border-l-2 hover:border-slate-300 dark:hover:border-slate-700 py-2 flex items-center gap-3 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-150 active:translate-x-1"
+                    href="#live-converter">
+                   <span class="material-symbols-outlined">wand_stars</span>
+                   Try it live
+                </a>
+                <a class="text-slate-500 dark:text-slate-400 pl-4 hover:border-l-2 hover:border-slate-300 dark:hover:border-slate-700 py-2 flex items-center gap-3 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-150 active:translate-x-1"
+                    href="#downloads">
+                    <span class="material-symbols-outlined text-[18px]" data-icon="payments">download</span>
+                    download
+                </a>
+            </nav>
+        </aside>
+        <!-- Main Content Area -->
+        <main class="flex-1 py-12 min-w-0">
+            <div class="fi inline-flex items-center px-3 py-1 rounded-full border border-outline-variant bg-surface-container-low text-primary font-label text-label mb-8">
+                v0.1.0 RELEASED
+            </div>
+            <!-- Hero / About Section -->
+            <section class="mb-16" id="about">
+                <div class="mb-lg">
+                    <span
+                        class="font-label text-label text-primary uppercase tracking-widest mb-xs inline-block">Introduction</span>
+                    <h1 class="font-h1 text-h1 text-on-surface mb-md">Welcome to NGConvertor</h1>
+                    <p class="font-body-base text-body-base text-on-surface-variant max-w-2xl">
+                       NGConvertor enables developers to seamlessly convert numbers between Khmer and English (Arabic) numerals.
+                        Our mission is to bridge the gap between Latin and Khmer numeral systems and support an inclusive open-source ecosystem for Cambodian
+                         software development.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                    <div class="bg-surface-container border border-outline-variant p-lg rounded-xl">
+                        <div class="flex items-center gap-3 mb-md">
+                            <span class="material-symbols-outlined text-primary"
+                                data-icon="diversity_3">diversity_3</span>
+                            <h3 class="font-h3 text-h3">Open Source</h3>
+                        </div>
+                        <p class="text-body-sm text-on-surface-variant">Our mission is to build an open-source tool for the community, empowering developers to easily work with.</p>
+                    </div>
+                    <div class="bg-surface-container border border-outline-variant p-lg rounded-xl">
+                        <div class="flex items-center gap-3 mb-md">
+                            <span class="material-symbols-outlined text-primary" data-icon="bolt">bolt</span>
+                            <h3 class="font-h3 text-h3">Small size</h3>
+                        </div>
+                        <p class="text-body-sm text-on-surface-variant">Extremely footprint. Optimized for fast loading and high-performance applications.</p>
+                    </div>
+                </div>
+            </section>
+            <!-- Installation Section -->
+            <section class="mb-16" id="installation">
+                <h2 class="font-h2 text-h2 text-on-surface mb-lg">Installation</h2>
+                <div class="space-y-lg">
+                    <!-- npm -->
+                    <!-- <div>
+                        <div class="flex items-center gap-2 mb-sm">
+                            <span class="font-label text-label text-on-surface-variant">PACKAGE MANAGER</span>
+                        </div>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant relative group">
+                            <pre
+                                class="font-code text-code text-on-secondary-container overflow-x-auto max-w-[100%]"><code>&lt;link rel="stylesheet" href="https://vensoeng.vercel.app/ngalert@0.1.0/dist/ngalert.css"&gt;</code></pre>
+                            <button
+                                class="absolute top-4 right-4 p-2 text-on-surface-variant hover:text-on-surface transition-colors bg-surface-container-highest rounded">
+                                <span class="material-symbols-outlined text-[18px]"
+                                    data-icon="content_copy">content_copy</span>
+                            </button>
+                        </div>
+                    </div> -->
+                    <!-- CDN -->
+                    <div>
+                        <div class="flex items-center gap-2 mb-sm">
+                            <span class="font-label text-label text-on-surface-variant">CDN USAGE</span>
+                        </div>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant relative group">
+                            <pre id="CDN-Js" class="font-code text-code text-on-secondary-container overflow-x-auto"><code>&lt;script src="https://cdn.jsdelivr.net/npm/ng-convertor/dist/ng-convertor.min.js"&gt;&lt;/script&gt;</code></pre>
+                            <!-- <button onclick="copyToClipboard('CDN-Js')"
+                                class="absolute top-4 right-4 p-2 text-on-surface-variant hover:text-on-surface transition-colors bg-surface-container-highest rounded">
+                                <span class="material-symbols-outlined text-[18px]"
+                                    data-icon="content_copy">content_copy</span>
+                            </button> -->
+                            <button onclick="copyToClipboard('CDN-Js')" class="absolute top-4 right-4 p-2 opacity-0 group-hover:opacity-100 p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded transition-all text-slate-600 dark:text-slate-400" title="Copy to clipboard">
+                                <span class="material-symbols-outlined text-sm">content_copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Live Converter Demo -->
+            <section class="mb-16" id="live-converter">
+                <h2 class="font-h2 text-h2 text-on-surface mb-lg">Try it live</h2>
+                <div class="glass-card rounded-xl">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <p class="text-on-surface-variant mb-8">Experience the real-time character mapping between English and
+                                Khmer numerals. No API calls, just pure client-side speed.</p>
+                            <div class="space-y-6">
+                                <div class="space-y-2">
+                                    <label class="font-label text-label text-outline uppercase tracking-wider">Input Numerical
+                                        Value</label>
+                                    <input data-id="input" id="input" class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-3 font-code focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                                        placeholder="Please enter number" type="text" />
+                                </div>
+                                <div class="flex flex-wrap gap-3" id="btn-feature">
+                                    <button data-id="auto" class="data-id-active px-4 py-2 bg-primary-container text-primary font-label text-xs flex items-center gap-2 rounded-lg">
+                                        <span class="material-symbols-outlined text-sm" data-icon="auto_fix_high">auto_fix_high</span>
+                                        Auto Convert
+                                    </button>
+                                    <button data-id="to-khmer" class="px-4 py-2 bg-surface-container-high text-primary font-label text-xs flex items-center gap-2 rounded-lg">
+                                        To Khmer
+                                    </button>
+                                    <button data-id="to-english" class="px-4 py-2 bg-surface-container-high text-primary font-label text-xs flex items-center gap-2 rounded-lg">
+                                        To English
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="relative bg-surface-container-lowest rounded-xl border border-outline-variant p-8 aspect-video flex flex-col justify-center items-center overflow-hidden">
+                            <div class="absolute top-4 left-4 font-label text-xs text-outline flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                Resulting Output
+                            </div>
+                            <div data-id="output" id="out-put" class="text-6xl md:text-4xl font-bold text-primary-fixed-dim transition-all duration-300">
+                                __ __ __    
+                            </div>
+                            <button class="absolute bottom-4 right-4 text-outline hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined" data-icon="content_copy">open_run</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- API Reference -->
+            <section class="mb-16" id="api-reference">
+                <h2 class="font-h2 text-h2 text-on-surface mb-lg">API Methods</h2>
+                <div class="space-y-xl">
+                    <!-- toKhmer() -->
+                    <div class="border-l-4 border-primary pl-lg">
+                        <h3 class="font-h3 text-h3 mb-sm">toKhmer(value)</h3>
+                        <p class="text-body-base text-on-surface-variant mb-md">Converts a Latin number string or number
+                            type into Khmer numerals.</p>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
+                            <pre class="font-code text-code text-on-secondary-container"><code>// Returns "១២៣"
+ngConvertor.toKhmer(123);
+ngConvertor.toKhmer("123");</code></pre>
+                        </div>
+                    </div>
+                    <!-- toEnglish() -->
+                    <div class="border-l-4 border-secondary pl-lg">
+                        <h3 class="font-h3 text-h3 mb-sm">toEnglish(value)</h3>
+                        <p class="text-body-base text-on-surface-variant mb-md">Converts Khmer numeral strings back into
+                            standard Latin numbers.</p>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
+                            <pre class="font-code text-code text-on-secondary-container"><code>// Returns "456"
+ngConvertor.toEnglish("៤៥៦");</code></pre>
+                        </div>
+                    </div>
+                    <!-- convert() -->
+                    <div class="border-l-4 border-tertiary pl-lg">
+                        <h3 class="font-h3 text-h3 mb-sm">convert(value, target)</h3>
+                        <p class="text-body-base text-on-surface-variant mb-md">Smart conversion that detects input type
+                            and converts to the specified target ('km' or 'en').</p>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
+                            <pre class="font-code text-code text-on-secondary-container"><code>// Auto-detect and convert to Khmer
+ngConvertor.convert("789", "km"); // "៧៨៩"</code></pre>
+                        </div>
+                    </div>
+                    <!-- isKhmer() / isEnglish() -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+                        <div class="border-l-4 border-outline pl-lg">
+                            <h3 class="font-h3 text-h3 mb-sm">isKhmer(value)</h3>
+                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
+                                only Khmer digits.</p>
+                            <div class="code-block-bg p-md rounded-lg border border-outline-variant">
+                                <pre
+                                    class="font-code text-[12px] text-on-secondary-container"><code>ngConvertor.isKhmer("១២"); // true</code></pre>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-outline pl-lg">
+                            <h3 class="font-h3 text-h3 mb-sm">isEnglish(value)</h3>
+                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
+                                only Latin digits.</p>
+                            <div class="code-block-bg p-md rounded-lg border border-outline-variant">
+                                <pre
+                                    class="font-code text-[12px] text-on-secondary-container"><code>ngConvertor.isEnglish("12"); // true</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Downloads Section -->
+            <section class="mb-16" id="downloads">
+                <h2 class="font-h2 text-h2 text-on-surface mb-lg">Downloads</h2>
+                <div class="flex flex-wrap gap-md">
+                    <a class="flex items-center gap-3 px-lg py-md bg-primary text-on-primary rounded-lg font-label hover:opacity-90 transition-all"
+                        href="#">
+                        <span class="material-symbols-outlined" data-icon="download">download</span>
+                        Download file (.min.js)
+                    </a>
+                    <a class="flex items-center gap-3 px-lg py-md border border-outline-variant text-on-surface rounded-lg font-label hover:bg-surface-container transition-all"
+                        href="#">
+                        <span class="material-symbols-outlined" data-icon="link">link</span>
+                        Copy UNPKG Link
+                    </a>
+                </div>
+            </section>
+            <!-- Design and Development Section -->
+            <section class="mb-16" id="vensoeng">
+                <div class="mt-15 flex flex-col md:flex-row items-center md:items-start gap-8 text-center md:text-left">
+                    <div class="shrink-0">
+                        <div class="w-32 h-32 overflow-hidden shadow-lg rounded-lg border border-outline-variant">
+                            <img alt="Author" class="w-full h-full object-cover" data-alt="Profile picture of VenSoeng"
+                                src="https://avatars.githubusercontent.com/u/126303297?v=4">
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="font-label text-label text-primary uppercase tracking-widest mb-1 block">The
+                                Creator</span>
+                            <h2 class="font-h1 text-h1 text-on-surface">VenSoeng</h2>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant font-medium">Web Developer
+                                &amp; Open Source Advocate</p>
+                        </div>
+                        <p class="font-body-base text-body-base text-on-surface-variant max-w-xl">
+                            Hello! My name is VenSoeng. I'm a developer with a strong passion for creating innovative and effective
+                            technology solutions.
+                        </p>
+                        <div class="flex gap-4 justify-center md:justify-start">
+                            <a class="text-slate-500 hover:text-primary transition-colors" href="https://t.me/vensoeng">
+                                <span class="material-symbols-outlined">3p</span>
+                            </a>
+                            <a class="text-slate-500 hover:text-primary transition-colors" href="http://vensoeng.free.nf/"
+                                target="_blank">
+                                <span class="material-symbols-outlined">language</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!-- Footer -->
+    <footer
+        class="w-full py-12 px-6 mt-20 mx-auto flex flex-col md:flex-row justify-between items-center gap-4 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-black font-sans text-xs text-slate-500">
+        <div class="flex flex-col gap-1 items-center md:items-start">
+            <span class="font-bold text-slate-900 dark:text-slate-100">ngConvertor</span>
+            <p>© 2024 ngConvertor Open Source Project</p>
+        </div>
+        <div class="flex gap-8">
+            <a class="text-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:underline transition-all duration-150"
+                href="#">GitHub</a>
+            <a class="text-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:underline transition-all duration-150"
+                href="#">NPM</a>
+            <a class="text-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:underline transition-all duration-150"
+                href="#">Discord</a>
+            <a class="text-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:underline transition-all duration-150"
+                href="#">Changelog</a>
+        </div>
+    </footer>
+    <!-- this is link CDN of NGConvertor -->
+    <script src="js/ngConvertor.js"></script>
+    <!-- this is the script for ngConvertor -->
+    <script>
+        //this is for make action feature
+        var input = document.querySelector("input[data-id='input']");
+        var output = document.querySelector("div[data-id='output']");
+        const ConvertFn = () => {
+            input.addEventListener("input", () => {
+                if(input.value.trim() === "") {
+                    output.textContent = "__ __ __";
+                    return;
+                }
+
+                let activeBtn = null;
+                btnFeatures.forEach(btn => {
+                    if (btn.classList.contains("data-id-active")) {
+                        activeBtn = btn;
+                    }
+                });
+                if (activeBtn) {
+                    const dataId = activeBtn.getAttribute("data-id");
+                    if (dataId === "to-khmer") {
+                        output.textContent = ngConvertor.toKhmer(input.value);
+                    } else if (dataId === "to-english") {
+                        output.textContent = ngConvertor.toEnglish(input.value);
+                    } else if (dataId === "auto") {
+                        output.textContent = ngConvertor.convert(input.value);
+                    }
+                } else {
+                    output.textContent = "__ __ __";
+                }
+            });
+        }
+        // load the function convert 
+        document.addEventListener("DOMContentLoaded", () => {
+            ConvertFn();
+        });
+        // this is add active to btn action 
+        var btnFeatures = document.querySelectorAll("#btn-feature button");
+        btnFeatures.forEach(btn => {
+            btn.addEventListener("click", () => {
+                btnFeatures.forEach((b) =>{ 
+                    b.classList.remove("data-id-active");
+                    b.classList.remove("bg-primary-container");
+                    b.classList.add("bg-surface-container-high");
+                });
+                btn.classList.add("data-id-active");
+                btn.classList.add("bg-primary-container");
+                btn.classList.remove("bg-surface-container-high");
+                // init convert number 
+                ConvertFn();
+            });
+        });
+        // this is function for copy to clipboard
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard!');
+            }).catch(err => {
+                alert('Failed to copy to clipboard.');
+            });
+        }
+    </script>
+    <!-- this is script of the content  -->
+    <script>
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('aside nav a');
+        const sections = document.querySelectorAll('section[id]');
+
+        // Function to set active link
+        function setActiveLink(link) {
+            navLinks.forEach(l => {
+                l.classList.remove('text-blue-600', 'dark:text-blue-400', 'border-l-2', 'border-blue-600', 'bg-blue-50/50', 'dark:bg-blue-900/10');
+                l.classList.add('text-slate-500', 'dark:text-slate-400', 'hover:border-l-2', 'hover:border-slate-300', 'dark:hover:border-slate-700', 'hover:bg-slate-100', 'dark:hover:bg-slate-900');
+            });
+            
+            link.classList.remove('text-slate-500', 'dark:text-slate-400', 'hover:border-l-2', 'hover:border-slate-300', 'dark:hover:border-slate-700', 'hover:bg-slate-100', 'dark:hover:bg-slate-900');
+            link.classList.add('text-blue-600', 'dark:text-blue-400', 'border-l-2', 'border-blue-600', 'bg-blue-50/50', 'dark:bg-blue-900/10');
+        }
+
+        // Smooth scroll to section with header offset
+        function smoothScrollToSection(targetId) {
+            const target = document.getElementById(targetId);
+            if (target) {
+                const headerHeight = 120; // Adjust based on your sticky header height
+                const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Handle click events
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                const targetId = href.substring(1); // Remove the '#'
+                
+                setActiveLink(link);
+                smoothScrollToSection(targetId);
+            });
+        });
+
+        // Use Intersection Observer for scroll detection
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px -50% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    const activeLink = document.querySelector(`aside nav a[href="#${id}"]`);
+                    if (activeLink) {
+                        setActiveLink(activeLink);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Set initial active link
+        const firstLink = navLinks[0];
+        if (firstLink) {
+            setActiveLink(firstLink);
+        }
+    </script>
+</body>
+
+</html>
