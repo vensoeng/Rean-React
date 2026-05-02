@@ -1,43 +1,18 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en">
+<html class="dark" lang="en">
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>NG Alert - Lightweight Popup Notifications</title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="https://github.com/vensoeng/My-photo/blob/main/vensoeng/favicon.png?raw=true" type="image/png" sizes="307x307" data-id="favicon">
-    <link rel="icon" href="https://github.com/vensoeng/My-photo/blob/main/vensoeng/favicon.png?raw=true" type="image/png" sizes="307x307">
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="NG Alert - Lightweight Popup Notifications">
-    <meta property="og:description" content="NG Alert is a library created to facilitate the creation of Popup Messages or Notifications for display to users (User Interaction) on websites. Designs by vensoeng.">
-    <meta property="og:url" content="">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="km_KH">
-    <meta property="og:site_name" content="NG ALERT">
-    <!-- Image Tags -->
-    <meta property="og:image" content="https://github.com/vensoeng/My-photo/blob/main/vensoeng/ngalert_og.png?raw=true">
-    <meta property="og:image:secure_url" content="https://github.com/vensoeng/My-photo/blob/main/vensoeng/ngalert_og.png?raw=true">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="515">
-    <meta property="og:image:type" content="https://github.com/vensoeng/My-photo/blob/main/vensoeng/ngalert_og.png?raw=true">
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lightweight Popup Notifications">
-    <meta name="twitter:description" content="NG Alert is a library created to facilitate the creation of Popup Messages or Notifications for display to users (User Interaction) on websites. Designs by vensoeng.">
-    <meta name="twitter:image" content="https://github.com/vensoeng/My-photo/blob/main/vensoeng/ngalert_og.png?raw=true">
-    <!-- Other Meta Tags -->
-    <meta property="profile:username" content="Vensoeng">
-    <meta name="msapplication-TileImage" content="https://github.com/vensoeng/My-photo/blob/main/vensoeng/ngalert_og.png?raw=true">
-    <!-- Icons and Animations -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Insert Additional Styles -->
+    <title>NG Convertor</title>
+     <!-- this is favicon  -->
+    <link rel="shortcut icon" href="https://vensoeng.vercel.app/ngconvertor/image/favicon.png" type="image/x-icon">
+    <link rel="icon" href="https://vensoeng.vercel.app/ngconvertor/image/favicon.png">
+    <link rel="website icon" href="https://vensoeng.vercel.app/ngconvertor/image/favicon.png">
+    <!-- this is link tailwind css -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- this is google icon and font  -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@450&amp;family=Space+Grotesk:wght@600&amp;display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -45,202 +20,273 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
+    <!-- tailwind script config -->
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     "colors": {
-                        "surface-container-lowest": "#ffffff",
-                        "on-secondary-fixed": "#1b1b1b",
-                        "on-error": "#ffffff",
-                        "on-secondary": "#ffffff",
-                        "surface-dim": "#cbdbf5",
-                        "on-primary-container": "#fefcff",
-                        "secondary-container": "#e2e2e2",
-                        "tertiary-container": "#b75b00",
-                        "on-primary-fixed-variant": "#004395",
-                        "surface-container-low": "#eff4ff",
-                        "surface-variant": "#d3e4fe",
-                        "primary-fixed-dim": "#adc6ff",
-                        "on-secondary-container": "#646464",
-                        "primary-fixed": "#d8e2ff",
-                        "surface-bright": "#f8f9ff",
-                        "primary-container": "#2170e4",
-                        "on-surface": "#0b1c30",
-                        "surface-container-highest": "#d3e4fe",
-                        "on-tertiary-fixed-variant": "#723600",
-                        "on-surface-variant": "#424754",
-                        "surface-container-high": "#dce9ff",
-                        "on-primary": "#ffffff",
-                        "inverse-primary": "#adc6ff",
-                        "secondary": "#5e5e5e",
-                        "outline-variant": "#c2c6d6",
-                        "on-error-container": "#93000a",
-                        "on-primary-fixed": "#001a42",
-                        "on-tertiary-fixed": "#311400",
-                        "on-background": "#0b1c30",
-                        "on-tertiary": "#ffffff",
-                        "primary": "#0058be",
-                        "tertiary-fixed-dim": "#ffb786",
-                        "outline": "#727785",
-                        "on-secondary-fixed-variant": "#474747",
-                        "surface-container": "#e5eeff",
-                        "error": "#ba1a1a",
-                        "secondary-fixed-dim": "#c6c6c6",
-                        "inverse-surface": "#213145",
-                        "inverse-on-surface": "#eaf1ff",
-                        "tertiary": "#924700",
-                        "secondary-fixed": "#e2e2e2",
-                        "tertiary-fixed": "#ffdcc6",
-                        "surface": "#f8f9ff",
-                        "error-container": "#ffdad6",
-                        "surface-tint": "#005ac2",
-                        "background": "#f8f9ff",
-                        "on-tertiary-container": "#fffbff"
+                        "on-background": "#dae2fd",
+                        "surface-dim": "#0b1326",
+                        "primary-fixed": "#dbe1ff",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005",
+                        "on-primary-fixed": "#00174b",
+                        "error-container": "#93000a",
+                        "outline": "#8d90a0",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "surface-container-highest": "#2d3449",
+                        "inverse-on-surface": "#283044",
+                        "on-surface-variant": "#c3c6d7",
+                        "surface-container": "#171f33",
+                        "surface-container-low": "#131b2e",
+                        "on-tertiary": "#581e00",
+                        "primary-container": "#2563eb",
+                        "surface-container-lowest": "#060e20",
+                        "tertiary-container": "#bc4800",
+                        "on-surface": "#dae2fd",
+                        "tertiary": "#ffb596",
+                        "on-primary": "#002a78",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "on-secondary-fixed-variant": "#3323cc",
+                        "inverse-primary": "#0053db",
+                        "secondary-container": "#3626ce",
+                        "inverse-surface": "#dae2fd",
+                        "on-primary-container": "#eeefff",
+                        "on-secondary-container": "#b3b1ff",
+                        "surface": "#0b1326",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "on-tertiary-fixed": "#360f00",
+                        "surface-variant": "#2d3449",
+                        "on-secondary": "#1d00a5",
+                        "outline-variant": "#434655",
+                        "surface-container-high": "#222a3d",
+                        "on-tertiary-container": "#ffede6",
+                        "secondary": "#c3c0ff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed": "#0f0069",
+                        "primary": "#b4c5ff",
+                        "tertiary-fixed": "#ffdbcd",
+                        "surface-bright": "#31394d",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-tint": "#b4c5ff",
+                        "background": "#0b1326",
+                        "secondary-fixed": "#e2dfff",
+                        "error": "#ffb4ab"
                     },
                     "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
                     },
                     "spacing": {
-                        "sidebar_width": "280px",
-                        "xl": "2rem",
                         "sm": "0.5rem",
-                        "gutter": "1.5rem",
-                        "base": "1rem",
-                        "unit": "4px",
-                        "md": "1rem",
                         "2xl": "3rem",
+                        "md": "1rem",
+                        "lg": "1.5rem",
+                        "gutter": "1.5rem",
+                        "xl": "2rem",
                         "xs": "0.25rem",
-                        "lg": "1.5rem"
+                        "margin": "2rem",
+                        "base": "4px"
                     },
                     "fontFamily": {
-                        "label": ["Inter"],
-                        "code": ["JetBrains Mono"],
-                        "h1": ["Inter"],
-                        "h2": ["Inter"],
                         "body-base": ["Inter"],
-                        "display": ["Inter"],
-                        "body-sm": ["Inter"]
+                        "body-sm": ["Inter"],
+                        "h1": ["Inter"],
+                        "h3": ["Inter"],
+                        "h2": ["Inter"],
+                        "code": ["JetBrains Mono"],
+                        "label": ["Space Grotesk"]
                     },
                     "fontSize": {
-                        "label": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
-                        "code": ["14px", { "lineHeight": "1.7", "fontWeight": "400" }],
-                        "h1": ["30px", { "lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700" }],
-                        "h2": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
-                        "body-base": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
-                        "display": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-                        "body-sm": ["14px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }]
+                        "body-base": ["1rem", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-sm": ["0.875rem", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "h1": ["3rem", { "lineHeight": "1.1", "letterSpacing": "-0.05em", "fontWeight": "700" }],
+                        "h3": ["1.5rem", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "h2": ["2.25rem", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "code": ["0.875rem", { "lineHeight": "1.7", "fontWeight": "450" }],
+                        "label": ["0.75rem", { "lineHeight": "1", "fontWeight": "600" }]
                     }
                 },
             },
         }
     </script>
+    <!-- init style  -->
     <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
         }
 
         body {
-            transition: background-color 0.3s ease, color 0.3s ease;
+            background-color: #0b1326;
+            color: #dae2fd;
         }
 
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 1.5rem;
+        .code-block-bg {
+            background-color: #0F172A;
         }
-
-        .sidebar-transition {
-            transition: transform 0.3s ease;
-        }
-
-        .sidebar-closed {
-            transform: translateX(-100%);
+        body {
+            min-height: max(884px, 100dvh);
         }
     </style>
     <link rel="stylesheet" href="https://vensoeng.vercel.app/ngalert@0.1.0/dist/ngalert.css">
 </head>
 
-<body class="bg-background text-on-background font-body-base antialiased">
-    <!-- this is content  -->
-    <main>
-        <!-- Hero Section -->
-        <section class="h-[100vh] overflow-hidden py-24 md:py-32 bg-surface-container-lowest dark:bg-slate-950" data-aos="zoom-in-up" data-aos-duration="1500">
-            <div class="absolute inset-0 opacity-10 pointer-events-none">
-                <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-[120px]"></div>
-                <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-tertiary rounded-full blur-[120px]"></div>
+<body class="font-body-base">
+    <!-- TopAppBar -->
+    <header
+        class="sticky top-0 z-50 flex items-center justify-between w-full px-6 py-4 mx-auto bg-white dark:bg-black border-b border-slate-200 dark:border-slate-800 font-sans antialiased text-sm tracking-tight">
+        <div class="flex items-center gap-3">
+            <div class="logo">
+                <img src="https://vensoeng.vercel.app/ngconvertor/image/favicon_.png" alt="NG Convertor" width="75" loading="lazy" style="transition: opacity 0.5s ease-in-out;">
             </div>
-            <div class="max-w-[1200px] mx-auto px-6 relative z-10 text-center">
-                <div data-aos="fade-up" data-aos-duration="1500"
-                    class="inline-flex items-center px-3 py-1 rounded-full border border-outline-variant bg-surface-container-low text-primary font-label text-label mb-8">
-                    v0.1.0 RELEASED
-                </div>
-                <h1 data-aos="fade-down" data-aos-duration="1800" class="font-display text-display text-on-surface mb-6 leading-none">
-                    NG Alert
-                </h1>
-                <h2 data-aos="fade-up" data-aos-duration="1900" class="font-h2 text-h2 text-on-surface-variant mb-4 max-w-2xl mx-auto">
-                    Lightweight Popup Notifications for Modern Web Apps
-                </h2>
-                <p data-aos="fade-up" data-aos-duration="2000" class="font-body-base text-body-base text-secondary max-w-xl mx-auto mb-10">
-                    NG Alert is a library created to facilitate the creation of Popup Messages or Notifications for display to users (User Interaction) on websites.
-                    <br>Designs by vensoeng.
-                </p>
-                <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up">
-                    <button
-                        onclick="window.location.href='#live-demo'"
-                        class="px-8 py-4 bg-primary text-on-primary font-semibold rounded-lg hover:shadow-lg transition-all active:scale-95 flex items-center gap-2">
-                        Get Start
-                        <span class="material-symbols-outlined">crown</span>
-                    </button>
-                    <button 
-                            onclick="window.open('https://github.com/vensoeng', '_blank')"
-                        class="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-on-surface font-semibold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex items-center gap-2">
-                       <span class="material-symbols-outlined">code_xml</span>
-                        GitHub
-                    </button>
-                </div>
+            <h1 class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50">Convertor</h1>
+        </div>
+        <div class="flex items-center gap-6">
+            <nav class="hidden md:flex gap-6">
+                <a class="text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 pb-1 hover:text-blue-500 dark:hover:text-blue-300 transition-colors duration-150 ease-in-out"
+                    href="">Documentation</a>
+                <a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-500 dark:hover:text-blue-300 transition-colors duration-150 ease-in-out"
+                    href="https://github.com/vensoeng/ngalert">GitHub</a>
+            </nav>
+            <button class="active:opacity-80 transition-opacity">
+                <!-- <span class="material-symbols-outlined">code_xml</span> -->
+                <a href="http://facebook.com/vensoeng" target="_blank">
+                    <img src="https://github.com/vensoeng/My-photo/blob/main/vensoeng/favicon.png?raw=true" alt="profile" width="40" loading="lazy" style="transition: opacity 0.5s ease-in-out;">
+                </a>
+            </button>
+        </div>
+    </header>
+    <div class="max-w-[1280px] mx-auto flex gap-gutter px-6">
+        <!-- NavigationDrawer (Sidebar) -->
+        <aside class="mx-h-[100vh] h-[calc(100% - 90px)] hidden lg:flex flex-col w-64 h-screen sticky top-20 overflow-y-auto pt-8 bg-slate-50 dark:bg-slate-950 border-r border-slate-200 dark:border-slate-800 rounded-r-lg font-sans text-sm font-medium">
+            <div class="px-4 mb-6">
+                <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100">Documentation</h2>
             </div>
-        </section>
-                <!-- Live Demo Section -->
-        <section id="live-demo"  data-aos="zoom-in-up" data-aos-duration="1500"
-        class="py-24 bg-surface-container-low dark:bg-slate-950 border-y border-outline-variant">
-            <div class="max-w-[1200px] mx-auto px-6">
-                <div class="flex flex-col md:flex-row gap-12 items-center">
-                    <div class="w-full md:w-1/2" data-aos="fade-up" data-aos-duration="1500">
-                        <h2 class="font-h1 text-h1 text-on-surface mb-4">Try it live</h2>
-                        <p class="text-secondary mb-8">Click the buttons below to see the notifications in action. The
-                            library handles queuing, stacking, and animations automatically.</p>
-                        <div class="grid grid-cols-2 gap-4" data-aos="flip-up" data-aos-duration="1550">
-                            <button onclick="ngAlert.success('You have successfully used NG Alert! (អ្នកបានប្រើប្រាស NG Alert ដោយជោគជ័យ)');"
-                                class="flex items-center justify-center gap-2 px-6 py-4 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition-colors shadow-sm">
-                                <span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
-                                Success
-                            </button>
-                            <button onclick="ngAlert.error('An error occurred while using NG Alert! (មានបញ្ហាបានកើតឡើងពេលប្រើប្រាស NG Alert)');"
-                                class="flex items-center justify-center gap-2 px-6 py-4 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-700 transition-colors shadow-sm">
-                                <span class="material-symbols-outlined" data-icon="error">error</span>
-                                Error
-                            </button>
-                            <button onclick="ngAlert.warning('This is a warning from NG Alert! (នេះជាការព្រមានពី NG Alert)');"
-                                class="flex items-center justify-center gap-2 px-6 py-4 bg-amber-500 text-white rounded-lg font-semibold hover:bg-amber-600 transition-colors shadow-sm">
-                                <span class="material-symbols-outlined" data-icon="warning">warning</span>
-                                Warning
-                            </button>
-                            <button onclick="ngAlert.info('This is an info message from NG Alert! (នេះជាការព័ត៌មានពី NG Alert)');"
-                                class="flex items-center justify-center gap-2 px-6 py-4 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors shadow-sm">
-                                <span class="material-symbols-outlined" data-icon="info">info</span>
-                                Info
+            <nav class="flex flex-col gap-1">
+                <a class="text-blue-600 dark:text-blue-400 border-l-2 border-blue-600 pl-4 bg-blue-50/50 dark:bg-blue-900/10 py-2 flex items-center gap-3 active:translate-x-1 transition-transform"
+                    href="#about">
+                    <span class="material-symbols-outlined text-[18px]" data-icon="rocket_launch">rocket_launch</span>
+                    Getting Started
+                </a>
+                <a class="text-slate-500 dark:text-slate-400 pl-4 hover:border-l-2 hover:border-slate-300 dark:hover:border-slate-700 py-2 flex items-center gap-3 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-150 active:translate-x-1"
+                    href="#installation">
+                    <span class="material-symbols-outlined text-[18px]" data-icon="api">api</span>
+                    Installation
+                </a>
+                <a class="text-slate-500 dark:text-slate-400 pl-4 hover:border-l-2 hover:border-slate-300 dark:hover:border-slate-700 py-2 flex items-center gap-3 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-150 active:translate-x-1"
+                    href="#live-converter">
+                   <span class="material-symbols-outlined">wand_stars</span>
+                   Try it live
+                </a>
+                <a class="text-slate-500 dark:text-slate-400 pl-4 hover:border-l-2 hover:border-slate-300 dark:hover:border-slate-700 py-2 flex items-center gap-3 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-150 active:translate-x-1"
+                    href="#reference">
+                   <span class="material-symbols-outlined">book_ribbon</span>
+                   Reference
+                </a>
+                <a class="text-slate-500 dark:text-slate-400 pl-4 hover:border-l-2 hover:border-slate-300 dark:hover:border-slate-700 py-2 flex items-center gap-3 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all duration-150 active:translate-x-1"
+                    href="#downloads">
+                    <span class="material-symbols-outlined text-[18px]" data-icon="payments">download</span>
+                    download
+                </a>
+            </nav>
+        </aside>
+        <!-- Main Content Area -->
+        <main class="flex-1 py-12 min-w-0">
+            <div class="fi inline-flex items-center px-3 py-1 rounded-full border border-outline-variant bg-surface-container-low text-primary font-label text-label mb-8">
+                v0.1.0 RELEASED
+            </div>
+            <!-- Hero / About Section -->
+            <section class="mb-16" id="about">
+                <div class="mb-lg">
+                    <span
+                        class="font-label text-label text-primary uppercase tracking-widest mb-xs inline-block">Introduction</span>
+                    <h1 class="font-h1 text-h1 text-on-surface mb-md">Welcome to NGAlert</h1>
+                    <p class="font-body-base text-body-base text-on-surface-variant max-w-2xl">
+                        NGAlert enables developers to seamlessly display alerts and notifications in their web applications.
+                        Our mission is to provide a simple and customizable solution for handling alert messages in a modern web environment.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                    <div class="bg-surface-container border border-outline-variant p-lg rounded-xl">
+                        <div class="flex items-center gap-3 mb-md">
+                            <span class="material-symbols-outlined text-primary"
+                                data-icon="diversity_3">diversity_3</span>
+                            <h3 class="font-h3 text-h3">Open Source</h3>
+                        </div>
+                        <p class="text-body-sm text-on-surface-variant">Our mission is to build an open-source tool for the community, empowering developers to easily work with.</p>
+                    </div>
+                    <div class="bg-surface-container border border-outline-variant p-lg rounded-xl">
+                        <div class="flex items-center gap-3 mb-md">
+                            <span class="material-symbols-outlined text-primary" data-icon="bolt">bolt</span>
+                            <h3 class="font-h3 text-h3">Small size</h3>
+                        </div>
+                        <p class="text-body-sm text-on-surface-variant">Extremely footprint. Optimized for fast loading and high-performance applications.</p>
+                    </div>
+                </div>
+            </section>
+            <!-- Installation Section -->
+            <section class="mb-16" id="installation">
+                <h2 class="font-h2 text-h2 text-on-surface mb-lg">Installation</h2>
+                <div class="space-y-lg">
+                    <!-- css -->
+                    <div>
+                        <div class="flex items-center gap-2 mb-sm">
+                            <span class="font-label text-label text-on-surface-variant">CDN STYLE</span>
+                        </div>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant relative group">
+                            <pre id="CDN-CSS" class="font-code text-code text-on-secondary-container overflow-x-auto"><code>&lt;link rel="stylesheet" href="https://vensoeng.vercel.app/ngalert@1.0.0/dist/ngalert.css"&gt;</code></pre>
+                            <button onclick="copyToClipboard('CDN-CSS')" class="absolute top-4 right-4 p-2 opacity-0 group-hover:opacity-100 p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded transition-all text-slate-600 dark:text-slate-400" title="Copy to clipboard">
+                                <span class="material-symbols-outlined text-sm">content_copy</span>
                             </button>
                         </div>
                     </div>
-
-                    <div data-aos="flip-up" data-aos-duration="1800"
-                        class="w-full md:w-1/2 bg-slate-950 rounded-xl overflow-hidden border border-slate-800 shadow-2xl">
+                    <!-- js -->
+                    <div>
+                        <div class="flex items-center gap-2 mb-sm">
+                            <span class="font-label text-label text-on-surface-variant">CDN JAVASCRIPT</span>
+                        </div>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant relative group">
+                            <pre id="CDN-Js" class="font-code text-code text-on-secondary-container overflow-x-auto"><code>&lt;script src="https://vensoeng.vercel.app/ngalert@1.0.0/dist/ngalert.js"&gt;&lt;/script&gt;</code></pre>
+                            <button onclick="copyToClipboard('CDN-Js')" class="absolute top-4 right-4 p-2 opacity-0 group-hover:opacity-100 p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded transition-all text-slate-600 dark:text-slate-400" title="Copy to clipboard">
+                                <span class="material-symbols-outlined text-sm">content_copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Live Converter Demo -->
+            <section class="mb-16" id="live-converter">
+                <h2 class="font-h2 text-h2 text-on-surface mb-lg">Try it live</h2>
+                <div class="glass-card rounded-xl">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="">
+                            <p class="text-secondary mb-8">Click the buttons below to see the notifications in action. The
+                                library handles queuing, stacking, and animations automatically.</p>
+                            <div class="grid grid-cols-2 gap-4 aos-init aos-animate" data-aos="flip-up" data-aos-duration="1550">
+                                <button onclick="ngAlert.success('You have successfully used NG Alert! (អ្នកបានប្រើប្រាស NG Alert ដោយជោគជ័យ)');" class="flex items-center justify-center gap-2 px-6 py-4 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition-colors shadow-sm">
+                                    <span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                                    Success
+                                </button>
+                                <button onclick="ngAlert.error('An error occurred while using NG Alert! (មានបញ្ហាបានកើតឡើងពេលប្រើប្រាស NG Alert)');" class="flex items-center justify-center gap-2 px-6 py-4 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-700 transition-colors shadow-sm">
+                                    <span class="material-symbols-outlined" data-icon="error">error</span>
+                                    Error
+                                </button>
+                                <button onclick="ngAlert.warning('This is a warning from NG Alert! (នេះជាការព្រមានពី NG Alert)');" class="flex items-center justify-center gap-2 px-6 py-4 bg-amber-500 text-white rounded-lg font-semibold hover:bg-amber-600 transition-colors shadow-sm">
+                                    <span class="material-symbols-outlined" data-icon="warning">warning</span>
+                                    Warning
+                                </button>
+                                <button onclick="ngAlert.info('This is an info message from NG Alert! (នេះជាការព័ត៌មានពី NG Alert)');" class="flex items-center justify-center gap-2 px-6 py-4 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors shadow-sm">
+                                    <span class="material-symbols-outlined" data-icon="info">info</span>
+                                    Info
+                                </button>
+                            </div>
+                        </div>
+                        <div data-aos="flip-up" 
+                        class="w-full bg-slate-950 rounded-xl overflow-hidden border border-slate-800 shadow-2xl">
                         <div class="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800">
                             <div class="flex gap-1.5">
                                 <div class="w-3 h-3 rounded-full bg-rose-500"></div>
@@ -271,149 +317,210 @@
 <span class="text-purple-400">ngAlert.</span>success<span class="text-emerald-400">('You have successfully used NG Alert! (អ្នកបានប្រើប្រាស NG Alert ដោយជោគជ័យ)')</span>;</code></pre>
                         </div>
                     </div>
+                    </div>
                 </div>
-            </div>
-        <script>
-            function copyCodeBlock(elementId) {
-                const code = document.getElementById(elementId).innerText;
-                navigator.clipboard.writeText(code).then(() => {
-                    // Optional: Visual feedback
-                    ngAlert.success('Code copied to clipboard!');
-                }).catch(err => {
-                    ngAlert.error('Failed to copy code.');
-                });
-            }
-        </script>
-        </section>
-        <!-- Code/Installation Section -->
-        <section class="py-24 bg-white dark:bg-slate-900" data-aos="zoom-in-down" data-aos-duration="1500">
-            <div class="max-w-[800px] mx-auto px-6">
-                <div class="text-center mb-12" data-aos="zoom-out-up" data-aos-duration="1800">
-                    <h2 class="font-h2 text-h2 text-on-surface mb-2">Quick Installation</h2>
-                    <p class="text-secondary">Get up and running in seconds.</p>
+            </section>
+            <!-- API Reference -->
+            <section class="mb-16" id="reference">
+                <h2 class="font-h2 text-h2 text-on-surface mb-lg">Reference</h2>
+                <div class="space-y-xl">
+                    <!-- globl config -->
+                    <div class="border-l-4 border-primary pl-lg">
+                        <h3 class="font-h3 text-h3 mb-sm">Global Config</h3>
+                        <p class="text-body-base text-on-surface-variant mb-md">Set defaults once at app startup:</p>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
+                            <pre class="font-code text-code text-on-secondary-container overflow-x-auto">
+<code>ngAlert.init({
+  duration: 4000,
+  closeOnOverlay: false,
+  labels: {
+    success: 'បានជោគជ័យ',
+    error: 'មានបញ្ហាបានកើតឡើង',
+    warning: 'ការព្រមាន',
+    info: 'ព័ត៌មាន'
+  }
+});
+ngAlert.success('សូមស្វាគមន៍មកកាន់ NGAlert!');</code></pre>
+                        </div>
+                    </div>
+                    <!-- isKhmer() / isEnglish() -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+                        <div class="border-outline pl-lg">
+                            <h3 class="font-h3 text-h3 mb-sm">NGAlert.success(msg, options)</h3>
+                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
+                                only Khmer digits.</p>
+                            <div class="code-block-bg p-md rounded-lg border border-outline-variant">
+                                <pre
+                                    class="font-code text-[12px] text-on-secondary-container overflow-x-auto"><code>ngAlert.success('Success message!')</code></pre>
+                            </div>
+                        </div>
+                        <div class="border-outline pl-lg">
+                            <h3 class="font-h3 text-h3 mb-sm">NGAlert.error(msg, options)</h3>
+                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
+                                only Latin digits.</p>
+                            <div class="code-block-bg p-md rounded-lg border border-outline-variant">
+                                <pre
+                                    class="overflow-x-auto font-code text-[12px] text-on-secondary-container"><code>NGAlert.error('An error occurred!');</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- isKhmer() / isEnglish() -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+                        <div class="border-outline pl-lg">
+                            <h3 class="font-h3 text-h3 mb-sm">NGAlert.warning(msg, options)</h3>
+                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
+                                only Khmer digits.</p>
+                            <div class="code-block-bg p-md rounded-lg border border-outline-variant">
+                                <pre
+                                    class="font-code text-[12px] text-on-secondary-container overflow-x-auto"><code>NGAlert.warning('A warning occurred!');</code></pre>
+                            </div>
+                        </div>
+                        <div class="border-outline pl-lg">
+                            <h3 class="font-h3 text-h3 mb-sm">NGAlert.info(message,title,type)</h3>
+                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
+                                only Latin digits.</p>
+                            <div class="code-block-bg p-md rounded-lg border border-outline-variant">
+                                <pre
+                                    class="overflow-x-auto font-code text-[12px] text-on-secondary-container"><code>NGAlert.info('Informational message!');</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- isKhmer() / isEnglish() -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+                        <div class="border-outline pl-lg">
+                            <h3 class="font-h3 text-h3 mb-sm">NGAlert.init(config)</h3>
+                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
+                                only Khmer digits.</p>
+                            <div class="code-block-bg p-md rounded-lg border border-outline-variant">
+                                <pre
+                                    class="font-code text-[12px] text-on-secondary-container overflow-x-auto"><code>NGAlert.init(config)</code></pre>
+                            </div>
+                        </div>
+                        <div class="border-outline pl-lg">
+                            <h3 class="font-h3 text-h3 mb-sm">NGAlert.version</h3>
+                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
+                                only Latin digits.</p>
+                            <div class="code-block-bg p-md rounded-lg border border-outline-variant">
+                                <pre
+                                    class="overflow-x-auto font-code text-[12px] text-on-secondary-container"><code>NGAlert.version   // "0.1.0"</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- toEnglish() -->
+                    <div class="border-l-4 border-secondary pl-lg">
+                        <h3 class="font-h3 text-h3 mb-sm">With custom title and options</h3>
+                        <p class="text-body-base text-on-surface-variant mb-md">Converts Khmer numeral strings back into
+                            standard Latin numbers.</p>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
+                            <pre class="font-code text-code text-on-secondary-container overflow-x-auto">
+<code>NGAlert.success('Invoice #1042 has been sent.', {
+  title: 'Email Sent',
+  duration: 4000
+});</code></pre>
+                        </div>
+                    </div>
+                    <!-- convert() -->
+                    <div class="border-l-4 border-tertiary pl-lg">
+                        <h3 class="font-h3 text-h3 mb-sm">Generic show()</h3>
+                        <p class="text-body-base text-on-surface-variant mb-md">Smart conversion that detects input type
+                            and converts to the specified target ('km' or 'en').</p>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
+                            <pre class="font-code text-code text-on-secondary-container overflow-x-auto">
+<code>NGAlert.show('Message text', 'success', { title: 'Done', duration: 3000 });</code>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="border-l-4 border-primary pl-lg">
+                        <h3 class="font-h3 text-h3 mb-sm">Dismiss programmatically</h3>
+                        <p class="text-body-base text-on-surface-variant mb-md">Converts a Latin number string or number
+                            type into Khmer numerals.</p>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
+                            <pre class="font-code text-code text-on-secondary-container overflow-x-auto">
+<code>const alert = NGAlert.info('Loading…', { duration: 0 }); // duration:0 stays open
+// later...
+alert.dismiss();
+// or dismiss whatever is currently shown:
+NGAlert.dismiss();</code></pre>
+                        </div>
+                    </div>
+                    <!-- thissfjsfjdf -->
+                    <div class="border-l-4 border-primary pl-lg">
+                        <h3 class="font-h3 text-h3 mb-sm">Return Value</h3>
+                        <p class="text-body-base text-on-surface-variant mb-md">Every show() / shorthand call returns an instance object:</p>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
+                            <pre class="font-code text-code text-on-secondary-container overflow-x-auto">
+<code>const instance = NGAlert.success('Hello world!');
+instance.dismiss();    // close it early
+instance.element;      // the root DOM element</code></pre>
+                        </div>
+                    </div>
+                    <div class="border-l-4 border-primary pl-lg">
+                        <h3 class="font-h3 text-h3 mb-sm">CSS Custom Properties</h3>
+                        <p class="text-body-base text-on-surface-variant mb-md">Override these in your own CSS to theme the library:</p>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
+                            <pre class="font-code text-code text-on-secondary-container overflow-x-auto">
+<code>:root {
+  --nga-z-index:       9999;
+  --nga-overlay:       rgba(13, 17, 23, 0.36);
+  --nga-panel-bg:      #ffffff;
+  --nga-panel-text:    #1f2937;
+  --nga-panel-subtext: #4b5563;
+  --nga-shadow:        0 24px 56px rgba(2, 8, 23, 0.22);
+  --nga-radius:        16px;
+  --nga-success:       #10b981;
+  --nga-error:         #ef4444;
+  --nga-warning:       #f59e0b;
+  --nga-info:          #0ea5e9;
+  --nga-bg-success:    #eefaf6;
+  --nga-bg-error:      #ffeded;
+  --nga-bg-warning:    #fff9ed;
+  --nga-bg-info:       #e8f6ff;
+  --nga-font: "Google Sans", sans-serif;
+}</code></pre>
+                        </div>
+                    </div>
+                    <!-- thbfsfsd -->
+                    <div class="border-l-4 border-primary pl-lg">
+                            <h3 class="font-h3 text-h3 mb-sm">API Reference</h3>
+                            <p class="text-body-base text-on-surface-variant mb-md">Every show() / shorthand call returns an instance object:</p>
+                        <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
+                            <pre class="font-code text-code text-on-secondary-container overflow-x-auto">
+<code>NGAlert.version          // "0.1.0"
+NGAlert.init(config)     // set global defaults
+NGAlert.show(msg, type, options)
+NGAlert.success(msg, options)
+NGAlert.error(msg, options)
+NGAlert.warning(msg, options)
+NGAlert.info(msg, options)
+NGAlert.dismiss()        // dismiss the current alert</code></pre>
+                        </div>
+                    </div>
+                    <!-- finnish -->
                 </div>
-               <div class="space-y-4" data-aos="zoom-in-up" data-aos-duration="1800">
-                <div class="p-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg flex items-center justify-between group">
-                    <code id="css-code" class="overflow-hidden font-code text-primary">&lt;link rel="stylesheet" href="https://vensoeng.vercel.app/ngalert@0.1.0/dist/ngalert.css"&gt;</code>
-                    <button 
-                        onclick="copyToClipboard('css-code')"
-                        class="opacity-0 group-hover:opacity-100 p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded transition-all text-slate-600 dark:text-slate-400"
-                        title="Copy to clipboard">
-                        <span class="material-symbols-outlined text-sm">content_copy</span>
-                    </button>
-                </div>
-
-                <div class="p-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg flex items-center justify-between group">
-                    <code id="js-code" class="overflow-hidden font-code text-primary">&lt;script src="https://vensoeng.vercel.app/ngalert@0.1.0/dist/ngalert.js"&gt;&lt;/script&gt;</code>
-                    <button 
-                        onclick="copyToClipboard('js-code')"
-                        class="opacity-0 group-hover:opacity-100 p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded transition-all text-slate-600 dark:text-slate-400"
-                        title="Copy to clipboard">
-                        <span class="material-symbols-outlined text-sm">content_copy</span>
-                    </button>
-                </div>
-            </div>
-
-            <script>
-            function copyToClipboard(elementId) {
-                const text = document.getElementById(elementId).innerText;
-                navigator.clipboard.writeText(text).then(() => {
-                    ngAlert.success('Copied to clipboard!');
-                }).catch(err => {
-                    ngAlert.error('Failed to copy to clipboard.');
-                });
-            }
-            </script>
-            </div>
-            <div class="max-w-[800px] mx-auto px-6 py-4 mt-2" data-aos="zoom-in-up" data-aos-duration="1900">
-                <h2 class="font-h1 text-h1 text-on-surface mb-4">GET IT</h2>
-                <div class="flex flex-wrap justify-left gap-4 aos-init aos-animate" data-aos="fade-up">
-                    <a href="ngalert/ngalert@0.1.0.zip" download="true" class="px-8 py-4 bg-primary text-on-primary font-semibold rounded-lg hover:shadow-lg transition-all active:scale-95 flex items-center gap-2">
-                        Download
-                       <span class="material-symbols-outlined text-[20px]" data-icon="api">download</span>
+            </section>
+            <!-- Downloads Section -->
+            <section class="mb-16" id="downloads">
+                <h2 class="font-h2 text-h2 text-on-surface mb-lg">Downloads</h2>
+                <div class="flex flex-wrap gap-md">
+                    <a class="flex items-center gap-3 px-lg py-md bg-primary text-on-primary rounded-lg font-label hover:opacity-90 transition-all"
+                        href="https://vensoeng.vercel.app/ngalert/ngalert@0.1.0.zip" download="true">
+                        <span class="material-symbols-outlined" data-icon="download">download</span>
+                        Download file
                     </a>
-                    <button onclick="window.open('https://github.com/vensoeng', '_blank')" class="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-on-surface font-semibold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex items-center gap-2">
-                       <span class="material-symbols-outlined">code_xml</span>
-                        GitHub
-                    </button>
+                    <a class="flex items-center gap-3 px-lg py-md border border-outline-variant text-on-surface rounded-lg font-label hover:bg-surface-container transition-all"
+                        href="https://t.me/vensoengcoder/107">
+                        <img class="" src="https://vensoeng.vercel.app/ngconvertor/image/favicon.png" alt="telegram" width="30">
+                        Report about issue
+                    </a>
                 </div>
-            </div>
-        </section>
-        <!-- Features Bento Grid -->
-        <section class="py-24 bg-surface-bright dark:bg-slate-900" data-aos="zoom-in-up" data-aos-duration="1500">
-            <div class="max-w-[1200px] mx-auto px-6">
-                <div class="mb-16 text-center">
-                    <h2 class="font-h1 text-h1 text-on-surface mb-4">Engineered for Precision</h2>
-                    <p class="text-secondary max-w-2xl mx-auto">A minimalist toolset that provides everything you need
-                        and nothing you don't.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Feature 1 -->
-                    <div data-aos="zoom-in" data-aos-duration="1600"
-                        class="p-8 bg-surface-container-lowest dark:bg-slate-800 border border-outline-variant rounded-xl group hover:border-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary mb-6 text-3xl"
-                            data-icon="package">package_2</span>
-                        <h3 class="font-h2 text-body-base font-bold mb-2">Zero dependencies</h3>
-                        <p class="text-body-sm text-secondary">Pure vanilla JavaScript implementation with no external
-                            library requirements or bloat.</p>
-                    </div>
-                    <!-- Feature 2 -->
-                    <div data-aos="zoom-in" data-aos-duration="1700"
-                        class="p-8 bg-surface-container-lowest dark:bg-slate-800 border border-outline-variant rounded-xl group hover:border-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary mb-6 text-3xl"
-                            data-icon="accessibility">accessibility_new</span>
-                        <h3 class="font-h2 text-body-base font-bold mb-2">Accessible (ARIA)</h3>
-                        <p class="text-body-sm text-secondary">Built with accessibility first, including ARIA live
-                            regions and keyboard focus management.</p>
-                    </div>
-                    <!-- Feature 3 -->
-                    <div data-aos="zoom-in" data-aos-duration="1800"
-                        class="p-8 bg-surface-container-lowest dark:bg-slate-800 border border-outline-variant rounded-xl group hover:border-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary mb-6 text-3xl"
-                            data-icon="category">category</span>
-                        <h3 class="font-h2 text-body-base font-bold mb-2">4 Alert types</h3>
-                        <p class="text-body-sm text-secondary">Built-in presets for success, error, warning, and info
-                            messages with semantic styling.</p>
-                    </div>
-                    <!-- Feature 4 -->
-                    <div data-aos="zoom-in" data-aos-duration="1900"
-                        class="p-8 bg-surface-container-lowest dark:bg-slate-800 border border-outline-variant rounded-xl group hover:border-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary mb-6 text-3xl"
-                            data-icon="timer">timer</span>
-                        <h3 class="font-h2 text-body-base font-bold mb-2">Auto-dismiss</h3>
-                        <p class="text-body-sm text-secondary">Intelligent progress bar indicators and configurable
-                            timers for non-blocking UI flow.</p>
-                    </div>
-                    <!-- Feature 5 -->
-                    <div data-aos="zoom-in" data-aos-duration="2000"
-                        class="p-8 bg-surface-container-lowest dark:bg-slate-800 border border-outline-variant rounded-xl group hover:border-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary mb-6 text-3xl"
-                            data-icon="settings">settings_input_component</span>
-                        <h3 class="font-h2 text-body-base font-bold mb-2">Customizable options</h3>
-                        <p class="text-body-sm text-secondary">Extensive API for customizing positioning, themes, icons,
-                            and event callbacks.</p>
-                    </div>
-                    <!-- Feature 6 -->
-                    <div data-aos="zoom-in" data-aos-duration="2100"
-                        class="p-8 bg-surface-container-lowest dark:bg-slate-800 border border-outline-variant rounded-xl group hover:border-primary transition-colors">
-                        <span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="bolt">bolt</span>
-                        <h3 class="font-h2 text-body-base font-bold mb-2">Small size (~4KB)</h3>
-                        <p class="text-body-sm text-secondary">Extremely footprint. Optimized for fast loading and
-                            high-performance applications.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Author Profile -->
-        <div class="max-w-[900px] mx-auto space-y-24 mb-24 dark:bg-slate-900">
-            <section class="py-16 ml-10 mr-25" data-aos="zoom-in-up" data-aos-duration="1500">
+            </section>
+            <!-- Design and Development Section -->
+            <section class="mb-16" id="vensoeng">
                 <div class="mt-15 flex flex-col md:flex-row items-center md:items-start gap-8 text-center md:text-left">
                     <div class="shrink-0">
-                        <div
-                            class="w-32 h-32 rounded-full overflow-hidden border-4 border-surface-container-high shadow-lg">
-                            <img alt="Author" class="w-full h-full object-cover"
-                                data-alt="Profile picture of VenSoeng"
-                                src="https://avatars.githubusercontent.com/u/126303297?v=4" />
+                        <div class="w-32 h-32 overflow-hidden shadow-lg rounded-lg border border-outline-variant">
+                            <img alt="Author" class="w-full h-full object-cover" data-alt="Profile picture of VenSoeng"
+                                src="https://avatars.githubusercontent.com/u/126303297?v=4">
                         </div>
                     </div>
                     <div class="space-y-4">
@@ -425,86 +532,181 @@
                                 &amp; Open Source Advocate</p>
                         </div>
                         <p class="font-body-base text-body-base text-on-surface-variant max-w-xl">
-                           Hello! My name is VenSoeng. I'm a developer with a strong passion for creating innovative and effective technology solutions.
+                            Hello! My name is VenSoeng. I'm a developer with a strong passion for creating innovative and effective
+                            technology solutions.
                         </p>
                         <div class="flex gap-4 justify-center md:justify-start">
                             <a class="text-slate-500 hover:text-primary transition-colors" href="https://t.me/vensoeng">
                                 <span class="material-symbols-outlined">3p</span>
                             </a>
-                            <a class="text-slate-500 hover:text-primary transition-colors" href="http://vensoeng.free.nf/" target="_blank">
+                            <a class="text-slate-500 hover:text-primary transition-colors" href="http://vensoeng.free.nf/"
+                                target="_blank">
                                 <span class="material-symbols-outlined">language</span>
                             </a>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- CTA Section -->
-            <section class="bg-primary-container p-12 rounded-2xl text-center space-y-6 ml-10 mr-10" data-aos="zoom-in-down" data-aos-duration="1700">
-                <h2 class="font-display text-h1 text-on-primary-container">Ready to optimize your UI?</h2>
-                <p class="text-on-primary-container/80 max-w-lg mx-auto font-body-base">Join the thousands of developers
-                    who have simplified their workflow with NG Alert.</p>
-                <div class="flex gap-4 justify-center pt-4">
-                    <button onclick="window.location.href='#live-demo'"
-                        class="bg-surface-container-lowest text-primary font-semibold px-8 py-3 rounded-lg hover:bg-surface-bright transition-all">Get
-                        Started</button>
-                    <button onclick="window.open('github.com/vensoeng/ngalert', '_blank')"
-                        class="border border-on-primary-container/40 text-on-primary-container font-semibold px-8 py-3 rounded-lg hover:bg-white/10 transition-all">View
-                        View GitHub</button>
-                </div>
-            </section>
-        </div>
-    </main>
+        </main>
+    </div>
     <!-- Footer -->
-    <footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
-        <div class="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto py-12 px-6">
-            <div class="mb-6 md:mb-0">
-                <span class="text-sm font-bold text-slate-900 dark:text-slate-50 block mb-2">JS Library</span>
-                <p class="text-xs font-inter text-slate-500 dark:text-slate-400">© 2026 JS Library. MIT License.</p>
-            </div>
-            <div class="flex gap-8">
-                <a class="text-xs font-inter text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors cursor-pointer"
-                    href="https://github.com/vensoeng">GitHub</a>
-                <a class="text-xs font-inter text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors cursor-pointer"
-                    href="http://vensoeng.free.nf/">website</a>
-                <a class="text-xs font-inter text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors cursor-pointer"
-                    href="https://www.facebook.com/vensoeng">Facebook</a>
-                <a class="text-xs font-inter text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors cursor-pointer"
-                    href="https://t.me/vensoengtech">Telegram</a>
-            </div>
+    <footer
+        class="w-full py-12 px-6 mt-20 mx-auto flex flex-col md:flex-row justify-between items-center gap-4 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-black font-sans text-xs text-slate-500">
+        <div class="flex flex-col gap-1 items-center md:items-start">
+            <span class="font-bold text-slate-900 dark:text-slate-100">NGConvertor</span>
+            <p>© 2026 Open Source Project</p>
+        </div>
+        <div class="flex gap-8">
+            <a class="text-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:underline transition-all duration-150"
+                href="https://github.com/vensoeng">GitHub</a>
+            <a class="text-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:underline transition-all duration-150"
+                href="https://t.me/vensoeng">Telegram</a>
+            <a class="text-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:underline transition-all duration-150"
+                href="http://vensoeng.free.nf/">Website</a>
+            <a class="text-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:underline transition-all duration-150"
+                href="https://www.facebook.com/vensoeng">Facebook</a>
         </div>
     </footer>
-    <!-- Decorative background elements -->
-    <div
-        class="fixed top-0 right-0 -z-10 w-[500px] h-[500px] opacity-20 dark:opacity-10 mix-blend-multiply filter blur-3xl pointer-events-none">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary to-blue-300 rounded-full"></div>
-    </div>
+    <!-- this is linl CDN of NGAlert -->
     <script src="https://vensoeng.vercel.app/ngalert@0.1.0/dist/ngalert.js"></script>
+    <!-- this is link CDN of NGConvertor -->
+    <script src="https://vensoeng.vercel.app/ngconvertor@1.0.0/dist/ngConvertor.js"></script>
+    <!-- this is the script for ngConvertor -->
     <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('mainSidebar');
-            const toggleIcon = document.getElementById('sidebarToggleIcon');
-            const toggleButton = document.getElementById('sidebarToggle');
-            const closed = sidebar.classList.toggle('sidebar-closed');
+        //this is for make action feature
+        var input = document.querySelector("input[data-id='input']");
+        var output = document.querySelector("div[data-id='output']");
+        const ConvertFn = () => {
+            input.addEventListener("input", () => {
+                if(input.value.trim() === "") {
+                    output.textContent = "__ __ __";
+                    return;
+                }
 
-            toggleIcon.textContent = closed ? 'menu' : 'close';
-            toggleButton.setAttribute('aria-expanded', String(!closed));
-            toggleButton.setAttribute('aria-label', closed ? 'Open sidebar' : 'Close sidebar');
+                let activeBtn = null;
+                btnFeatures.forEach(btn => {
+                    if (btn.classList.contains("data-id-active")) {
+                        activeBtn = btn;
+                    }
+                });
+                if (activeBtn) {
+                    const dataId = activeBtn.getAttribute("data-id");
+                    if (dataId === "to-khmer") {
+                        output.textContent = ngConvertor.toKhmer(input.value);
+                    } else if (dataId === "to-english") {
+                        output.textContent = ngConvertor.toEnglish(input.value);
+                    } else if (dataId === "auto") {
+                        output.textContent = ngConvertor.convert(input.value);
+                    }
+                } else {
+                    output.textContent = "__ __ __";
+                }
+            });
+        }
+        // load the function convert 
+        document.addEventListener("DOMContentLoaded", () => {
+            ConvertFn();
+        });
+        // this is add active to btn action 
+        var btnFeatures = document.querySelectorAll("#btn-feature button");
+        btnFeatures.forEach(btn => {
+            btn.addEventListener("click", () => {
+                btnFeatures.forEach((b) =>{ 
+                    b.classList.remove("data-id-active");
+                    b.classList.remove("bg-primary-container");
+                    b.classList.add("bg-surface-container-high");
+                });
+                btn.classList.add("data-id-active");
+                btn.classList.add("bg-primary-container");
+                btn.classList.remove("bg-surface-container-high");
+                // init convert number 
+                ConvertFn();
+            });
+        });
+        // this is function for copy to clipboard
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard!');
+            }).catch(err => {
+                alert('Failed to copy to clipboard.');
+            });
+        }
+    </script>
+    <!-- this is script of the content  -->
+    <script>
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('aside nav a');
+        const sections = document.querySelectorAll('section[id]');
+
+        // Function to set active link
+        function setActiveLink(link) {
+            navLinks.forEach(l => {
+                l.classList.remove('text-blue-600', 'dark:text-blue-400', 'border-l-2', 'border-blue-600', 'bg-blue-50/50', 'dark:bg-blue-900/10');
+                l.classList.add('text-slate-500', 'dark:text-slate-400', 'hover:border-l-2', 'hover:border-slate-300', 'dark:hover:border-slate-700', 'hover:bg-slate-100', 'dark:hover:bg-slate-900');
+            });
+            
+            link.classList.remove('text-slate-500', 'dark:text-slate-400', 'hover:border-l-2', 'hover:border-slate-300', 'dark:hover:border-slate-700', 'hover:bg-slate-100', 'dark:hover:bg-slate-900');
+            link.classList.add('text-blue-600', 'dark:text-blue-400', 'border-l-2', 'border-blue-600', 'bg-blue-50/50', 'dark:bg-blue-900/10');
         }
 
-        ngAlert.init({
-            duration: 4000,
-            closeOnOverlay: false,
-            labels: {
-                success: 'Success',
-                error: 'Error',
-                warning: 'Warning',
-                info: 'Info'
+        // Smooth scroll to section with header offset
+        function smoothScrollToSection(targetId) {
+            const target = document.getElementById(targetId);
+            if (target) {
+                const headerHeight = 120; // Adjust based on your sticky header height
+                const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
             }
+        }
+
+        // Handle click events
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                const targetId = href.substring(1); // Remove the '#'
+                
+                setActiveLink(link);
+                smoothScrollToSection(targetId);
+            });
         });
+
+        // Use Intersection Observer for scroll detection
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px -50% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    const activeLink = document.querySelector(`aside nav a[href="#${id}"]`);
+                    if (activeLink) {
+                        setActiveLink(activeLink);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Set initial active link
+        const firstLink = navLinks[0];
+        if (firstLink) {
+            setActiveLink(firstLink);
+        }
     </script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+        // console.log(ngAlert.success('NGAlert is working! (NGAlert កំពុងដំណើរការ)',{title: 'Test Alert', duration: 5000}));
     </script>
 </body>
 
