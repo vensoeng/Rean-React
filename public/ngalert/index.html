@@ -364,12 +364,13 @@
 ngAlert.success('សូមស្វាគមន៍មកកាន់ NGAlert!');</code></pre>
                         </div>
                     </div>
-                    <!-- isKhmer() / isEnglish() -->
+                    <!-- Methods -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
                         <div class="border-outline pl-lg">
                             <h3 class="font-h3 text-h3 mb-sm">NGAlert.success(msg, options)</h3>
-                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
-                                only Khmer digits.</p>
+                            <p class="text-body-sm text-on-surface-variant mb-md">
+                                Displays a success message with a green theme, typically used for completed actions.
+                            </p>
                             <div class="code-block-bg p-md rounded-lg border border-outline-variant">
                                 <pre
                                     class="font-code text-[12px] text-on-secondary-container overflow-x-auto"><code>ngAlert.success('Success message!')</code></pre>
@@ -377,20 +378,22 @@ ngAlert.success('សូមស្វាគមន៍មកកាន់ NGAlert!');
                         </div>
                         <div class="border-outline pl-lg">
                             <h3 class="font-h3 text-h3 mb-sm">NGAlert.error(msg, options)</h3>
-                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
-                                only Latin digits.</p>
+                            <p class="text-body-sm text-on-surface-variant mb-md">
+                                Displays an error message with a red theme to notify the user of a failure or issue.
+                            </p>
                             <div class="code-block-bg p-md rounded-lg border border-outline-variant">
                                 <pre
                                     class="overflow-x-auto font-code text-[12px] text-on-secondary-container"><code>NGAlert.error('An error occurred!');</code></pre>
                             </div>
                         </div>
                     </div>
-                    <!-- isKhmer() / isEnglish() -->
+                    <!-- Methods -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
                         <div class="border-outline pl-lg">
                             <h3 class="font-h3 text-h3 mb-sm">NGAlert.warning(msg, options)</h3>
-                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
-                                only Khmer digits.</p>
+                            <p class="text-body-sm text-on-surface-variant mb-md">
+                                Displays a warning message with an orange theme to alert the user of potential risks.
+                            </p>
                             <div class="code-block-bg p-md rounded-lg border border-outline-variant">
                                 <pre
                                     class="font-code text-[12px] text-on-secondary-container overflow-x-auto"><code>NGAlert.warning('A warning occurred!');</code></pre>
@@ -398,20 +401,22 @@ ngAlert.success('សូមស្វាគមន៍មកកាន់ NGAlert!');
                         </div>
                         <div class="border-outline pl-lg">
                             <h3 class="font-h3 text-h3 mb-sm">NGAlert.info(message,title,type)</h3>
-                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
-                                only Latin digits.</p>
+                            <p class="text-body-sm text-on-surface-variant mb-md">
+                                Displays an informational message with a blue theme for general updates or tips.
+                            </p>
                             <div class="code-block-bg p-md rounded-lg border border-outline-variant">
                                 <pre
                                     class="overflow-x-auto font-code text-[12px] text-on-secondary-container"><code>NGAlert.info('Informational message!');</code></pre>
                             </div>
                         </div>
                     </div>
-                    <!-- isKhmer() / isEnglish() -->
+                    <!-- Methods -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
                         <div class="border-outline pl-lg">
                             <h3 class="font-h3 text-h3 mb-sm">NGAlert.init(config)</h3>
-                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
-                                only Khmer digits.</p>
+                           <p class="text-body-sm text-on-surface-variant mb-md">
+                                Initializes the library with global configuration settings such as default duration or themes.
+                            </p>
                             <div class="code-block-bg p-md rounded-lg border border-outline-variant">
                                 <pre
                                     class="font-code text-[12px] text-on-secondary-container overflow-x-auto"><code>NGAlert.init(config)</code></pre>
@@ -419,8 +424,9 @@ ngAlert.success('សូមស្វាគមន៍មកកាន់ NGAlert!');
                         </div>
                         <div class="border-outline pl-lg">
                             <h3 class="font-h3 text-h3 mb-sm">NGAlert.version</h3>
-                            <p class="text-body-sm text-on-surface-variant mb-md">Validates if the input string contains
-                                only Latin digits.</p>
+                            <p class="text-body-sm text-on-surface-variant mb-md">
+                                A read-only property that returns the current version string of the NGAlert library.
+                            </p>
                             <div class="code-block-bg p-md rounded-lg border border-outline-variant">
                                 <pre
                                     class="overflow-x-auto font-code text-[12px] text-on-secondary-container"><code>NGAlert.version   // "0.1.0"</code></pre>
@@ -430,8 +436,9 @@ ngAlert.success('សូមស្វាគមន៍មកកាន់ NGAlert!');
                     <!-- toEnglish() -->
                     <div class="border-l-4 border-secondary pl-lg">
                         <h3 class="font-h3 text-h3 mb-sm">With custom title and options</h3>
-                        <p class="text-body-base text-on-surface-variant mb-md">Converts Khmer numeral strings back into
-                            standard Latin numbers.</p>
+                        <p class="text-body-base text-on-surface-variant mb-md">
+                            Pass an options object to customize the alert title, visibility duration, and more.
+                        </p>
                         <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
                             <pre class="font-code text-code text-on-secondary-container overflow-x-auto">
 <code>NGAlert.success('Invoice #1042 has been sent.', {
@@ -443,8 +450,9 @@ ngAlert.success('សូមស្វាគមន៍មកកាន់ NGAlert!');
                     <!-- convert() -->
                     <div class="border-l-4 border-tertiary pl-lg">
                         <h3 class="font-h3 text-h3 mb-sm">Generic show()</h3>
-                        <p class="text-body-base text-on-surface-variant mb-md">Smart conversion that detects input type
-                            and converts to the specified target ('km' or 'en').</p>
+                        <p class="text-body-base text-on-surface-variant mb-md">
+                            The base method for creating alerts, allowing you to specify the message, type, and options manually.
+                        </p>
                         <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
                             <pre class="font-code text-code text-on-secondary-container overflow-x-auto">
 <code>NGAlert.show('Message text', 'success', { title: 'Done', duration: 3000 });</code>
@@ -453,8 +461,9 @@ ngAlert.success('សូមស្វាគមន៍មកកាន់ NGAlert!');
                     </div>
                     <div class="border-l-4 border-primary pl-lg">
                         <h3 class="font-h3 text-h3 mb-sm">Dismiss programmatically</h3>
-                        <p class="text-body-base text-on-surface-variant mb-md">Converts a Latin number string or number
-                            type into Khmer numerals.</p>
+                        <p class="text-body-base text-on-surface-variant mb-md">
+                            Manually close an alert instance or clear all active alerts from the screen using code.
+                        </p>
                         <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
                             <pre class="font-code text-code text-on-secondary-container overflow-x-auto">
 <code>const alert = NGAlert.info('Loading…', { duration: 0 }); // duration:0 stays open
@@ -502,8 +511,10 @@ instance.element;      // the root DOM element</code></pre>
                     </div>
                     <!-- thbfsfsd -->
                     <div class="border-l-4 border-primary pl-lg">
-                            <h3 class="font-h3 text-h3 mb-sm">API Reference</h3>
-                            <p class="text-body-base text-on-surface-variant mb-md">Every show() / shorthand call returns an instance object:</p>
+                        <h3 class="font-h3 text-h3 mb-sm">API Reference</h3>
+                        <p class="text-body-base text-on-surface-variant mb-md">
+                            A comprehensive list of all methods and properties available in the NGAlert global object.
+                        </p>
                         <div class="code-block-bg p-lg rounded-lg border border-outline-variant">
                             <pre class="font-code text-code text-on-secondary-container overflow-x-auto">
 <code>NGAlert.version          // "0.1.0"
