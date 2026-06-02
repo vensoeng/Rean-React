@@ -319,8 +319,13 @@
     } */
 }
 @media screen and (max-width: 670px){
+    .webhead .btn-main{
+        gap: 0.1rem;
+    }
     .webhead .btn-main .btn:last-child{
         display: flex;
+        height: 100%;
+        border-radius: 5px;
     }
 }
 /* @media screen and (max-width: 530px) {
