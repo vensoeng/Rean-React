@@ -1,0 +1,137 @@
+<form action="https://watchobveary.free.nf/admin/store/artical" method="POST" enctype="multipart/form-data"
+    onsubmit="syncContent()" id="form-data-artical">
+    <div class="web-form" id="artical-form">
+        <div class="web-form-body" style="max-width: 98%;">
+            <input type="hidden" value="store" name="action">
+            <!-- this is header  -->
+            <div class="head df-s">
+                <a class="df-l">
+                    <span class="icon icon-ra icon-ra-sm">
+                        <img class="img-c" loading="lazy" srcset=", , , , , , "
+                            https://watchobveary.free.nf/public/images/favicon.png?width=100? 100w
+                            https://watchobveary.free.nf/public/images/favicon.png?width=200? 200w
+                            https://watchobveary.free.nf/public/images/favicon.png?width=400? 400w
+                            https://watchobveary.free.nf/public/images/favicon.png?width=800? 800w
+                            https://watchobveary.free.nf/public/images/favicon.png?width=1000? 1000w
+                            https://watchobveary.free.nf/public/images/favicon.png?width=1200? 1200w
+                            sizes="(max-width: 800px) 100vw, 50vw" decoding="async" fetchPriority="high" effect="blur"
+                            alt="favicon">
+                    </span>
+                </a>
+                <a><span>ទម្រង់បញ្ចូលសៀវភៅ</span></a>
+                <div class="icon-ra icon-sm df-c" onclick="toggleClass('#artical-form')">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <!-- this is content  -->
+            <div class="con db-c">
+                <div class="con-body db-c">
+                    <!-- header  -->
+                    <div class="form-head">
+                        <ul class="df-s">
+                            <li class="profile-user df-l">
+                                <div class="profile-img df-c icon icon-ra icon-ra-sm">
+                                    <img class="img-c" loading="lazy" srcset=", , , , , , "
+                                        https://watchobveary.free.nf/storage/upload/favicon.png?width=100? 100w
+                                        https://watchobveary.free.nf/storage/upload/favicon.png?width=200? 200w
+                                        https://watchobveary.free.nf/storage/upload/favicon.png?width=400? 400w
+                                        https://watchobveary.free.nf/storage/upload/favicon.png?width=800? 800w
+                                        https://watchobveary.free.nf/storage/upload/favicon.png?width=1000? 1000w
+                                        https://watchobveary.free.nf/storage/upload/favicon.png?width=1200? 1200w
+                                        sizes="(max-width: 800px) 100vw, 50vw" decoding="async" fetchPriority="high"
+                                        effect="blur" alt="favicon">
+                                </div>
+                                <div class="profile-name left-05">
+                                    <h2>វត្តជប់វារី</h2>
+                                    <p class="taget_date">ថ្ងៃទី២ ខែកុម្ភះ ឆ្នាំ២៥៦៦</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="status df-c">
+                                    <select name="status" id="#">
+                                        <option value="1">សាធារណៈ</option>
+                                        <option value="0">ឯកជនភាព</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- this is content  -->
+                    <div class="main scroll-y">
+                        <div class="box bottom-05">
+                            <!-- thi is title  -->
+                            <div class="txt-title">
+                                <label for="#">ចំណងជើង</label>
+                                <div class="txt-title-box" value="">
+                                    <input name="title" type="text" placeholder="បញ្ចូលចំណងជើងអត្ថបទ">
+                                </div>
+                            </div>
+                            <!-- this  is description about artical  -->
+                            <div class="text-caption">
+                                <label for="#">ពិពណ៌នា</label>
+                                <div class="txt-caption-box">
+                                    <textarea name="des" id="data-text"
+                                        oninput="this.parentNode.dataset.replicatedValue = this.value"
+                                        onblur="this.parentNode.dataset.replicatedValue = null"
+                                        onclick="this.parentNode.dataset.replicatedValue = this.value" cols="30"
+                                        rows="0" placeholder="សរសេរការពិពណ៌នារបស់អ្នក?"></textarea>
+                                </div>
+                            </div>
+                            <!-- this is content photo  -->
+                            <input type="file" id="txt_photo" name="img" onchange="previewImage(event,'.soeng_artical')"
+                                hidden="true">
+                            <div class="txt-photo df-c" onclick="document.querySelector('#txt_photo').click()">
+                                <div class="txt-photo-box soeng_artical">
+                                    <ul>
+                                        <li class="icon-ra-sm"><i class="fa-solid fa-photo-film"></i></li>
+                                        <li>
+                                            <h2>បញ្ចូលរូបភាពព្រះសង្ឃ</h2>
+                                        </li>
+                                        <li>
+                                            <p>រូបភាព(៩០០​X៩០០px)</p>
+                                        </li>
+                                    </ul>
+                                    <img src="" alt="showImage">
+                                </div>
+                            </div>
+                            <!-- {{-- this is description for artical  --}} -->
+                            <div class="text-caption">
+                                <label for="#">សរសេរអត្ថបទ</label>
+                                <textarea name="artical" type="hidden" id="textarea-content"
+                                    style="display: none;"></textarea>
+                                <div class="txt-caption-box txt-editor" style="margin-top: -1.5rem;"></div>
+                            </div>
+                            <div class="txt-title">
+                                <label for="#">បញ្ចូលឯកសារ</label>
+                                <div class="txt-title-box">
+                                    <input type="file" name="text_file" class="text_file">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- this is footer  -->
+                    <div class="foot">
+                        <div class="foot-body df-s">
+                            <h2>ជ្រើសរើសលខ្ខណៈបង្កើត</h2>
+                            <ul class="df-c">
+                                <li class="icon icon-ra-sm text-be" style="--text-: 'ព្រះសង្ឃ'">ព</li>
+                                <li class="icon icon-ra-sm text-be" style="--text-: 'អត្តបទនិងសៀវភៅ'">អ</li>
+                                <li class="icon icon-ra-sm text-be" style="--text-: 'វីឌីអូ'">វ</li>
+                                <li class="icon icon-ra-sm text-be" style="--text-: 'បុណ្យនានា'">ប</li>
+                                <li class="icon icon-ra-sm text-be" style="--text-: 'បន្ថែម'"><i
+                                        class="fa-solid fa-ellipsis"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- this is footer form  -->
+            <div class="submit-form">
+                <div class="box df-c">
+                    <button class="btn icon-ra">បង្ហោះសៀវភៅ</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-b" onclick="toggleClass('#book-form')"></div>
+    </div>
+</form>

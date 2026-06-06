@@ -37,7 +37,7 @@ body:has(.main-login)::after{
 .main-login svg path{
     stroke: var(--sg-color-brand) !important;
 }
-.main{
+.main-login .main{
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
@@ -277,7 +277,7 @@ body:has(.main-login)::after{
     transition: all ease-in-out 0.3s;
 }
 @media (max-width: 900px) {
-    .main{
+    .main-login .main{
         padding: 1.5rem 1rem 2rem;
     }
     .row-blog-text,

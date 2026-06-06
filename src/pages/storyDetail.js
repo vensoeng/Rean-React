@@ -19,6 +19,7 @@ import {
 
 import '../assets/css/storyDetail.css';
 export default function StoryDetail() {
+    
     const navigate = useNavigate();
 
     const { id } = useParams(); 

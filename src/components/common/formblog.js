@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { api } from '../../utils/auth';
 import { Image, DirectNotification, Magicpen, CloseCircle} from 'iconsax-reactjs';
 import '../../assets/css/admin/form.css';
+import '../../assets/css/form.css';
 import WebLoader from './WebLoader';
 
 export default function CreateBlog({ onClose, editData = null }) {

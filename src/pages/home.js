@@ -51,7 +51,7 @@ export default function HomePage() {
                             <p>រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត។</p>
                             <div className='list-btn'>
                                 <div className='df-c'>
-                                    <NavLink to='/service/' className='btn'>ស្វែងរកសេវ៉ាកម្ម</NavLink>
+                                    <NavLink to='/services' className='btn'>ស្វែងរកសេវ៉ាកម្ម</NavLink>
                                     <NavLink to='/storys' className='btn'>
                                         <Book1 />
                                         អានអត្ថបទ

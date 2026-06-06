@@ -43,12 +43,12 @@ export default function Header()
                     {/* <Link to='/login' className="btn">
                         <p>ទំនាក់ទំនង់</p>
                     </Link> */}
-                    <a href="/service/" className="btn">
+                    <NavLink to="/services" className="btn">
                         <p>សេវាកម្ម</p>
                         <div className="icon icon-ra icon-sm ip">
                             <Flash/>
                         </div>
-                    </a>
+                    </NavLink>
                     <button className="btn" type='button' onClick={() => setLoadAside(prev => !prev)}>
                         <div className="icon icon-ra icon-sm ip">
                            {loadAside ? <Add style={{ transform: 'rotate(45deg)' }} /> : <HamburgerMenu />}
