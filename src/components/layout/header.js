@@ -5,45 +5,43 @@ import { Flash, HamburgerMenu, Add } from 'iconsax-reactjs';
 import Pageon from '../common/page';
 import { useState } from 'react';
 
-// Import motion components
 import { motion, AnimatePresence } from 'framer-motion';
 
-const ListRoute = () => {
-
+const ListRoute = ({ onItemClick }) => {
     return(
         <div className="link-box">
             <ul className="df-s">
-                <li className='df-c'><NavLink className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/">ទំព័រដើម</NavLink></li>
-                <li className='df-c'><NavLink className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/storys">ព្រឹត្តិការណ៍</NavLink></li>
-                <li className='df-c'><NavLink className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/poster">ការរចនា</NavLink></li>
-                <li className='df-c'><NavLink className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/creator">មាតិការ</NavLink></li>
-                <li className='df-c'><NavLink className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/lession">មេរៀន</NavLink></li>
-                <li className='df-c'><NavLink className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/about">អំពីខ្ញុំ</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/">ទំព័រដើម</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/storys">ព្រឹត្តិការណ៍</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/poster">ការរចនា</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/creator">មាតិការ</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/lession">មេរៀន</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/about">អំពីខ្ញុំ</NavLink></li>
             </ul>
         </div>
     )
 }
+
 export default function Header()
 {
     const [loadAside, setLoadAside] = useState(false);
     const handleClose = () => setLoadAside(false);
+    
     return(
         <>
         <Pageon />
         <header className="webhead">
             <div className="wh-box df-s scroll-x">
-                <NavLink to="/" className="logo icon icon-ra icon-sm">
-                    {/* <h1>តោះ</h1> */}
+                <NavLink to="/" className="logo icon icon-ra icon-sm" onClick={handleClose}>
                     <img className='img-c' src={favIcon} alt=''/>
                 </NavLink>
-                {/* rander list of route  */}
+                
+                {/* Desktop Menu: No action required on click */}
                 <ListRoute />
-                {/* this is main button */}
+                
+                {/* Main Button layout row */}
                 <div className="btn-main df-r">
-                    {/* <Link to='/login' className="btn">
-                        <p>ទំនាក់ទំនង់</p>
-                    </Link> */}
-                    <NavLink to="/services" className="btn">
+                    <NavLink to="/services" className="btn" onClick={handleClose}>
                         <p>សេវាកម្ម</p>
                         <div className="icon icon-ra icon-sm ip">
                             <Flash/>
@@ -57,7 +55,8 @@ export default function Header()
                 </div>
             </div>
         </header>
-        {/* this is for aside  */}
+
+        {/* Sidebar Panel Drawer */}
         <AnimatePresence>
             {loadAside && (
                 <aside className="web-main-aside web-main-aside-active">
@@ -76,8 +75,6 @@ export default function Header()
                         animate={{ y: 0 }}            
                         exit={{ y: "100%" }}            
                         transition={{ type: "spring", damping: 25, stiffness: 220 }}
-                        
-                        /* Gesture Logic Controls */
                         drag="y"                       
                         dragConstraints={{ top: 0, bottom: 0 }} 
                         dragElastic={{ top: 0.05, bottom: 0.75 }} 
@@ -88,12 +85,12 @@ export default function Header()
                             }
                         }}
                     >
-                        {/* Visual Handle Accent Indicator Strip */}
                         <div className="webmas-drag-handle" />
 
                         <div className='weasc-box scroll-y'>
-                            <ListRoute />
+                            <ListRoute onItemClick={handleClose} />
                         </div>
+
                     </motion.div>
                 </aside>
             )}

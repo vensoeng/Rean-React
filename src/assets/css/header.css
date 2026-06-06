@@ -202,6 +202,31 @@
     background: rgba(0, 0, 0, 0.4);
     z-index: -1;
 }
+.web-main-aside .web-main-aside-overlay::before,
+.web-main-aside .web-main-aside-overlay::after{
+    position: absolute;
+    pointer-events: none;
+    width: 1.8rem;
+    height: 1.8rem;
+    cursor: pointer;
+    left: 50%;
+    top: calc(100vh - 70vh);
+    transform: translate(-50%, -50%);
+    content: "";
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' style='rotate:45deg;' width='40' height='40' viewBox='0 0 24 24' fill='none'><path d='M6 12h12M12 18V6' stroke='rgb(0, 0, 0)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'></path></svg>");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 2;
+}
+.web-main-aside .web-main-aside-overlay::after{
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--sg-bglight);
+    z-index: 1;
+    border-radius: 50rem;
+}
 
 
 .web-main-aside .web-main-aside-overlay{
@@ -253,7 +278,7 @@
 
 }
 .web-main-aside-active .webmas-con .weasc-box{
-    height: calc(100vh - 20vh);
+    height: calc(100vh - 40vh);
 }
 .web-main-aside .webmas-con .link-box ul{
     flex-direction: column !important;
