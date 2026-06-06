@@ -26,7 +26,7 @@ export default function Form({title = 'ទម្រង់ព្រឹត្ត�
                 <div className="web-form-body">
                     {/* this is form header  */}
                     <div className="head df-s">
-                        <a className="df-l">
+                        <div className="h-row df-l">
                             <span className="icon icon-ra icon-ra-sm over-h">
                                 <img className="img-c"
                                 src={ImgAppAvatar}
@@ -36,9 +36,9 @@ export default function Form({title = 'ទម្រង់ព្រឹត្ត�
                                 effect="blur"
                                 alt="favicon" />
                             </span>
-                        </a>
-                        <a><span>{title}</span></a>
-                        <div className="icon-ra icon-sm df-c"  onClick={(e) => { document.querySelector('.web-form').classList.toggle('web-form-active'); }}>
+                        </div>
+                        <div className='h-row-title'><span>{title}</span></div>
+                        <div className=" icon-ra icon-sm df-c"  onClick={(e) => { document.querySelector('.web-form').classList.toggle('web-form-active'); }}>
                             <Add style={{ transform: 'rotate(45deg)' }} />
                         </div>
                     </div>
