@@ -1,7 +1,7 @@
 import './../assets/css/about.css';
 import aboutImg from './../assets/img/vensoeng.png';
 import nmuLogo from './../assets/img/nmu_logo.jpg';
-import Button from '../components/common/button';
+// import Button from '../components/common/button';
 
 import StudyList from '../components/common/ListStudy';
 
@@ -41,10 +41,10 @@ export default function AboutPage({active = true})
                                  </p>
                               </blockquote>
                               <div className="button">
-                                 <Button>
+                                 <a href='/files/vensoeng_resume.pdf' className='btn'>
                                     មើលប្រវត្តិរូបរបស់ខ្ញុំ
                                     <ArrowRight/>
-                                 </Button>
+                                 </a>
                               </div>
                         </div>
                     </div>

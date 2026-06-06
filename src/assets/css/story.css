@@ -56,6 +56,10 @@ body:has(.web-main-active) .me-story .msh-box{
     text-align: center;
     margin-bottom: 0.8rem;
 }
+.me-story .msh-box blockquote p{
+    color: var(--sg-bglight);
+
+}
 .story-main-btn{
     margin-top: 1rem;
     position: sticky;
@@ -162,7 +166,7 @@ body:has(.web-main-active) .me-story .msh-box{
 .my-story-body .box ul li .text h2,
 .web-contact-body .content h2{
     position: relative;
-    font-family: var(--sg-fontKous);
+    /* font-family: var(--sg-fontKous); */
     font-size: 1.8rem;
     font-weight: 800;
     color: var(--sg-main-color-yellow);
