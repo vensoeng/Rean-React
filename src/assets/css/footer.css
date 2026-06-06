@@ -34,11 +34,18 @@
 .footer-container {
   background-color: #000000;
   color: #ffffff;
-  padding: 60px 8% 30px 8%;
+  /* padding: 60px 8% 30px 8%; */
   box-sizing: border-box;
 }
 
-/* 1. Purple CTA Card Styles */
+.footer-container .footc-top{
+  /* border-top: 3rem solid var(--sg-color-def); */
+  background: linear-gradient(180deg, var(--sg-color-brand), var(--sg-color-def));
+  margin-bottom: 4rem;
+}
+.footer-container .footc-top img{
+  /* filter: invert(6); */
+}
 .cta-card {
   background-color: var(--sg-color-light-spec);
   color: #000000;
@@ -115,6 +122,8 @@
 
 /* 2. Grid Links Styles */
 .footer-links-grid {
+  max-width: 1280px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.2fr;
   gap: 40px;
@@ -203,7 +212,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-bottom: 1.5rem;
 }
+
 
 .copyright {
   font-size: 0.9rem;
@@ -225,26 +238,45 @@
 }
 
 .social-icons svg {
-  width: 24px;
-  height: 24px;
+  width: 1.8rem;
+  /* height: 24px; */
 }
 
 /* --- RESPONSIVE MEDIA QUERIES (MOBILE) --- */
 @media (max-width: 992px) {
-  .footer-links-grid {
+  /* .footer-links-grid {
     grid-template-columns: 1fr 1fr;
     gap: 40px 20px;
-  }
+  } */
   
   .newsletter-col {
     grid-column: span 2;
   }
 }
-
+@media (max-width: 1280px) {
+    .footer-links-grid{
+      margin: 0rem 1rem;
+    }
+    .footer-bottom{
+      margin: 0rem 1rem;
+    }
+}
 @media (max-width: 600px) {
-  .footer-container {
-    padding: 40px 5% 20px 5%;
+  .footer-container .footc-top{
+    min-height: 350px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
   }
+  .footer-container .footc-top img{
+      width: max-content;
+      height: 350px;
+      margin: 0 auto;
+      display: block;
+  }
+  /* .footer-container {
+    padding: 40px 5% 20px 5%;
+  } */
 
   .cta-card {
     padding: 35px 25px;

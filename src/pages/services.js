@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 import WebLoader from './../components/common/WebLoader';
-import { useNavigate } from 'react-router-dom';
 
 import {
     TimerStart,
@@ -17,22 +18,23 @@ import imgTest from './../assets/img/logo192.png';
 import servicesBg from './../assets/img/services_bg.jpg';
 import './../assets/css/services.css';
 
+const CATEGORIES_CONFIG = [
+    { slug: 'all', ids: [], name: 'ទាំងអស់' },
+    { slug: 'photo', ids: [1, 2, 3], name: 'រូបថត' },     
+    { slug: 'video', ids: [5, 6], name: 'វីដេអូ' },      
+    { slug: 'design', ids: [4], name: 'ការរចនា' },    
+    { slug: 'web', ids: [7, 8], name: 'គេហទំព័រ' }
+];
+
 export default function Services(){
 
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(true);
-
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [activeCategory, setActiveCategory] = useState('all');
-    const categories = [
-        { slug: 'all', ids: [], name: 'ទាំងអស់' },
-        { slug: 'photo', ids: [1, 2, 3], name: 'រូបថត' },     
-        { slug: 'video', ids: [5, 6], name: 'វីដេអូ' },      
-        { slug: 'design', ids: [4], name: 'ការរចនា' },    
-        { slug: 'web', ids: [7, 8], name: 'គេហទំព័រ' }
-    ];
 
     useEffect(() => {
         const fetchServices = async () => {
@@ -49,7 +51,20 @@ export default function Services(){
         fetchServices();
     }, []);
 
-    const currentCategory = categories.find(cat => cat.slug === activeCategory);
+    useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const categoryParam = queryParams.get('category');
+
+        const isValidCategory = CATEGORIES_CONFIG.some(cat => cat.slug === categoryParam);
+
+        if (categoryParam && isValidCategory) {
+            setActiveCategory(categoryParam);
+        } else {
+            setActiveCategory('all');
+        }
+    }, [location.search]);
+
+    const currentCategory = CATEGORIES_CONFIG.find(cat => cat.slug === activeCategory);
 
     const filteredServices = activeCategory === 'all' 
         ? services 
@@ -59,6 +74,12 @@ export default function Services(){
         if (slug === activeCategory) return;
         setIsTransitioning(true);
         setActiveCategory(slug);
+
+        if (slug === 'all') {
+            navigate('/services');
+        } else {
+            navigate(`/services?category=${slug}`);
+        }
 
         setTimeout(() => {
             setIsTransitioning(false);
@@ -110,7 +131,7 @@ export default function Services(){
                         <div className="smh-row">
                             <h2>ហាងតូចរបស់ Admin</h2>
                             <blockquote>
-                                <p>Professional solutions for your digital needs. រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត។</p>
+                                <p>Professional solutions for your digital needs. រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត。</p>
                             </blockquote>
                         </div>
                     </div>
@@ -120,7 +141,8 @@ export default function Services(){
                 <div className="ms-nav">
                     <div className="smn-box">
                         <ul className='df-l'>
-                            {categories.map((cat, index) => (
+                            {/* 4. FIXED: Loop through CATEGORIES_CONFIG here instead of currentCategory */}
+                            {CATEGORIES_CONFIG.map((cat, index) => (
                                 <li key={index}>
                                     <button 
                                         className={`btn ${activeCategory === cat.slug ? 'active' : ''}`}
@@ -143,7 +165,6 @@ export default function Services(){
                             ) : isTransitioning ? (
                                 renderSkeletons()
                             ) : (
-                                /* 6. Render your fixed list using filteredServices */
                                 filteredServices.map((s, index) => (
                                     <li key={s.id || index} data-category={s?.list_id}>
                                         <div className='service-list'>

@@ -117,10 +117,10 @@ export default function HomePage() {
                                             </div>
                                         </div>
                                         <div className='story-main-btn df-c'>
-                                            <NavLink to='/storys' className="btn">
+                                            <a href='/storys' className="btn">
                                                 មើលបន្ថែមទៀត
                                                 <ArrowRight />
-                                            </NavLink>
+                                            </a>
                                         </div>
                                     </div>
                                     <StarryBackground />
