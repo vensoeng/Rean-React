@@ -11,13 +11,14 @@ import ProjectBackground from '../components/common/ProjectBackground';
 // import AlienBackground from '../components/common/AlienBackground';
 import StoryCard from '../components/common/StoryCard';
 import StarryBackground from '../components/common/StarryBackground';
-import AdvertisementPopup from '../components/common/AdvertisementPopup';
+// import AdvertisementPopup from '../components/common/AdvertisementPopup';
 import StudyList from '../components/common/ListStudy';
 // import Screenslider from '../components/common/Screenslider';
 
 import { Book1, ArrowRight} from 'iconsax-reactjs';
 //webpage add on
 import AboutPage from './about';
+import Questions from './question';
 // import StoryPage from './story';
 
 const fetchBlogsFromServer = async () => {
@@ -38,7 +39,7 @@ export default function HomePage() {
     return (
         <main className="web-main">
             {/* <AlienBackground /> */}
-            <AdvertisementPopup />
+            {/* <AdvertisementPopup /> */}
             <div className="main-body">
                 <div className="mb-box">
                     {/* this is is head of home page  */}
@@ -128,6 +129,8 @@ export default function HomePage() {
                             </div>
                         </div>
                     </section>
+                    {/* this is question webpage  */}
+                    <Questions />
                     {/* 1. Purple CTA Card Section */}
                     {/* <section className="cta-card">
                         <div className="cta-card-box">

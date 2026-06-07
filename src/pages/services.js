@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import WebLoader from './../components/common/WebLoader';
-
+import Questions from './question';
 import {
     TimerStart,
     Location,
@@ -282,6 +282,8 @@ export default function Services(){
                     </div>
                 </div>
             </div>
+            {/* This is question page  */}
+            <Questions/>
        </div> 
     );
 }
