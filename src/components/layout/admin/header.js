@@ -110,12 +110,12 @@ export default function AdminHeader() {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <a href='/service' className='df-l'>
+                                    <NavLink className='df-l' to='/admin/contents'>
                                         <div className='icon icon-sm over-h df-c'>
                                             <VideoOctagon />
                                         </div>
                                         <p>មាតិការ</p>
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li>
                                     <a href='/service' className='df-l'>
@@ -126,12 +126,12 @@ export default function AdminHeader() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='/service' className='df-l'>
+                                    <NavLink  className={({ isActive }) => isActive ? "df-l active" : "df-l"} to="/admin/services">
                                         <div className='icon icon-sm over-h df-c'>
                                             <Dropbox />
                                         </div>
                                         <p>សេវ៉ាកម្ម</p>
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li>
                                     <a href='/service' className='df-l'>

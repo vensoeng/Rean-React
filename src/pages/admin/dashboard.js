@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { API_URL, STORAGE, getAuthUser } from '../../utils/auth';
 import { ExportCircle } from 'iconsax-reactjs';
 
-import Form from '../../components/common/Form';
+// import Form from '../../components/common/Form';
 
 import '../../assets/css/admin/dashboard.css';
 
@@ -20,7 +20,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <Form />
+      {/* <Form /> */}
       <div className='admin-content'>
         <div className='adincard'>
           <div className='box'>

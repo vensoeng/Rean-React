@@ -5,7 +5,7 @@
     height: max-content;
     background: var(--sg-bglight);
     border-bottom: 1px solid var(--colorBorder-00);
-    z-index: 100000000;
+    z-index: 1000;
 }
 .wh-box{
     height: 75px;

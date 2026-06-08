@@ -4,7 +4,7 @@
     position: fixed;
     width: 100%;
     height: 100vh;
-    z-index: 9999999999;
+    z-index: 1000;
     top: -100%;
     left: 0;
     display: flex;
@@ -36,7 +36,7 @@ body:has(.web-form-active){
 .web-form-body {
     position: relative;
     width: 100%;
-    max-width: 500px;
+    max-width: 880px;
     z-index: 100;
     overflow: hidden;
     border-radius: 8px;
@@ -143,20 +143,28 @@ body:has(.web-form-active){
     overflow: hidden;
     min-height: max-content;
 }
+.web-form-body .main .txt-title-box{
+    padding-bottom: 0.5rem;
+}
 .web-form-body .main .txt-title input {
     width: 100%;
-    height: 35px;
+    height: 2.8rem;
     outline: none;
     font-size: 0.9rem;
     font-weight: 500;
     font-family: var(--sg-fontBat), var(--sg-fontNotoKH);
     color: var(--sg-color-text);
     background: none;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     box-sizing: border-box;
     border: 1px solid var(--sg-border-00);
-    text-indent: 0.5rem;
-    transition: all ease-in-out 0.5s;
+    text-indent: 0.8rem;
+    transition: all ease-in-out 0.2s;
+}
+.web-form-body .main .txt-title input:focus{
+    border: 1px solid var(--sg-maincolor-bluedark);
+    outline: 2px solid var(--sg-maincolor-bluelight);
+    outline-offset: 1px;
 }
 .web-form-body .main .txt-title input::placeholder{
     font-family: "Battambang", system-ui, "Bricolage Grotesque";
@@ -275,10 +283,16 @@ body:has(.web-form-active){
     padding: 0rem 0.8rem;
 }
 .web-form-body .main .txt-select ul .txt-select-list-con {
-    height: 35px;
-    border-radius: 5px;
+    height: 2.8rem;
+    border-radius: 0.5rem;
     box-sizing: border-box;
     border: 1px solid var(--sg-border-00);
+    transition: all ease-in-out 0.2s;
+}
+.web-form-body .main .txt-select ul .txt-select-list-con:has(select:focus){
+    border: 1px solid var(--sg-maincolor-bluedark);
+    outline: 2px solid var(--sg-maincolor-bluelight);
+    outline-offset: 1px;
 }
 .web-form-body .main .txt-select ul .txt-select-list-con select {
     display: block;
@@ -471,7 +485,7 @@ body:has(.web-form-active){
     cursor: pointer;
     background-color: white;
     margin-right: 16px;
-    margin-left: 0.5rem;
+    margin-left: 2rem;
     outline: none;
     border: none;
     border-right: 1px solid var(--sg-border-00);

@@ -23,7 +23,8 @@ import RequireAuth from './components/route/RequireAuth';
 import AdminHeader from './components/layout/admin/header';
 // page 
 import Dashboard from './pages/admin/dashboard';
-import AdminBlogs from './pages/admin/blogs'
+import AdminBlogs from './pages/admin/blogs';
+import AdminService from './pages/admin/service';
 
 //Not fould webpage 
 import NotFoundPage from './pages/404';
@@ -75,6 +76,7 @@ function RoutePage() {
       <Route element={<RequireAuth><AdminLayout /></RequireAuth>}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin/blogs" element={<AdminBlogs />} />
+        <Route path='admin/services' element={<AdminService/>} />
       </Route>
       {/* Not Found  */}
       <Route path="*" element={<NotFoundPage />} />

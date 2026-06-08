@@ -39,12 +39,12 @@ a{
     --sg-mainColor-yellow: #ee7a2c;
     --sg-main-color-yellow: rgb(255, 145, 66);
     --sg-outline-colorSpace: #ff6c654d;
-    --sg-mainColor-Bluedark: #005ea9;
+    /* --sg-mainColor-Bluedark: #005ea9; */
     --sg-maincolor-orangdark: #e31305;
     --sg-maincolor-greendark: #319b31;
     --sg-maincolor-bluedark: #005ea9;
     --sg-mainbgcolot-bluedarkhover: #e4e6eb;
-    --sg-maincolor-bluelight: #5b9eee;
+    --sg-maincolor-bluelight: #2c8bff79;
     --sg-maincolor-light: #fff;
     --sg-color-light-spec: #f0f2f5;
     --sg-main-gradientColor: linear-gradient(202deg, #feca14 0%, #ff6c65 74%);
@@ -1063,7 +1063,7 @@ textarea  {
     height: 100%;
     top: 0rem;
     left: 0rem;
-    z-index: 5000000000;
+    z-index: 9999;
     display: flex;
     align-items: end;
 }

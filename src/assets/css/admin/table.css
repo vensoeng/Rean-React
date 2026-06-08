@@ -156,7 +156,7 @@
 #art-books table tr td {
     font-size: 1rem;
     padding: 0.4rem 0.5rem;
-    font-family: "Bricolage Grotesque", "Battambang", system-ui, sans-serif;
+    /* font-family: "Bricolage Grotesque", "Battambang", system-ui, sans-serif; */
 }
 #art-books table tr th {
     padding: 0.8rem 0.7rem;
@@ -170,6 +170,7 @@
     position: relative;
     border-radius: 10px;
     margin-left: 0.5rem;
+    z-index: 3;
 }
 #art-books table tr td:first-child .img img {
     width: 100%;
