@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
+import { API_URL } from '../utils/auth';
+
 import WebLoader from './../components/common/WebLoader';
 import Questions from './question';
 import {
@@ -20,10 +22,10 @@ import './../assets/css/services.css';
 
 const CATEGORIES_CONFIG = [
     { slug: 'all', ids: [], name: 'ទាំងអស់' },
-    { slug: 'photo', ids: [1, 2, 3], name: 'រូបថត' },     
-    { slug: 'video', ids: [5, 6], name: 'វីដេអូ' },      
-    { slug: 'design', ids: [4], name: 'ការរចនា' },    
-    { slug: 'web', ids: [7, 8], name: 'គេហទំព័រ' }
+    { slug: 'photo', ids: [1], name: 'រូបថត' },     
+    { slug: 'video', ids: [2], name: 'វីដេអូ' },      
+    { slug: 'design', ids: [3], name: 'ការរចនា' },    
+    { slug: 'web', ids: [4], name: 'គេហទំព័រ' }
 ];
 
 export default function Services(){
@@ -38,15 +40,28 @@ export default function Services(){
 
     useEffect(() => {
         const fetchServices = async () => {
-          try {
-            const res = await fetch('/service/db/json@1.2.0.json');
-            const data = await res.json();
-            setServices(data);
-          } catch (err) {
+        try {
+            setLoading(true);
+            setIsTransitioning(true);
+            const res = await fetch(`${API_URL}/services?status=true`);
+            const resData = await res.json();
+            
+            if (resData && Array.isArray(resData.data)) {
+                setServices(resData.data);
+            } else if (resData && Array.isArray(resData.services)) {
+                setServices(resData.services);
+            } else if (Array.isArray(resData)) {
+                setServices(resData);
+            } else {
+                setServices([]);
+            }
+        } catch (err) {
             console.error("Error fetching service:", err);
-          } finally {
+            setServices([]);
+        } finally {
             setLoading(false); 
-          }
+            setIsTransitioning(false);
+        }
         };
         fetchServices();
     }, []);
@@ -67,8 +82,8 @@ export default function Services(){
     const currentCategory = CATEGORIES_CONFIG.find(cat => cat.slug === activeCategory);
 
     const filteredServices = activeCategory === 'all' 
-        ? services 
-        : services.filter(s => currentCategory?.ids.includes(Number(s?.list_id)));
+        ? (Array.isArray(services) ? services : [])
+        : (Array.isArray(services) ? services.filter(s => currentCategory?.ids.includes(Number(s?.list_id))) : []);
 
     const handleCategoryChange = (slug) => {
         if (slug === activeCategory) return;
@@ -160,10 +175,13 @@ export default function Services(){
                 <div className='mscon'>
                     <div className='mscon-box'>
                         <ul>
-                            {loading ? (
-                                <WebLoader>រង់ចាំបន្ដិចយើងកំពុងទាញយកទិន្នន័យដើម្បីដំណើរការ</WebLoader>
-                            ) : isTransitioning ? (
-                                renderSkeletons()
+                            {loading || isTransitioning ? (
+                                <>
+                                    <WebLoader>រង់ចាំបន្ដិចយើងកំពុងទាញយកទិន្នន័យដើម្បីដំណើរការ</WebLoader>
+                                    {renderSkeletons()}
+                                </>
+                            ) : filteredServices.length === 0 ? (
+                                <p style={{ textAlign: 'center', padding: '2rem' }}>មិនមានសេវាកម្មឡើយ</p>
                             ) : (
                                 filteredServices.map((s, index) => (
                                     <li key={s.id || index} data-category={s?.list_id}>
@@ -179,8 +197,8 @@ export default function Services(){
                                                         />
                                                     </div>
                                                     <div className='sl-status'>
-                                                        <blockquote className={s.status ? 'btn active' : 'btn'}>
-                                                            <p>{s.status ? 'មានសេវាកម្ម' : 'ផ្អាកដំណើរការ'}</p>
+                                                        <blockquote className={s.status === 'true' ? 'btn active' : 'btn'}>
+                                                            <p>{s.status === 'true' ? 'បើកដំណើរការ' : 'ផ្អាកដំណើរការ'}</p>
                                                         </blockquote>
                                                     </div>
                                                     <div className='slh-bg'>
@@ -204,11 +222,15 @@ export default function Services(){
                                                     
                                                     {/* Tags Section */}
                                                     <div className='sl-sp'>
-                                                        {s.tags_kh && s.tags_kh.map((tag, tagIndex) => (
-                                                            <span key={tagIndex} className='btn'>{tag}</span>
+                                                        {s.tags_kh && (typeof s.tags_kh === 'string' ? s.tags_kh.split(',') : s.tags_kh).map((tag, tagIndex) => (
+                                                            <span key={tagIndex} className='btn'>
+                                                                {tag.trim()}
+                                                            </span>
                                                         ))}
-                                                        {s.tags_active_kh && s.tags_active_kh.map((activeTag, activeIndex) => (
-                                                            <span key={activeIndex} className='btn active'>{activeTag}</span>
+                                                        {s.tags_active_kh && (typeof s.tags_active_kh === 'string' ? s.tags_active_kh.split(',') : s.tags_active_kh).map((activeTag, activeIndex) => (
+                                                            <span key={activeIndex} className='btn active'>
+                                                                {activeTag.trim()}
+                                                            </span>
                                                         ))}
                                                     </div>
 

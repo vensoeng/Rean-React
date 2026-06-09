@@ -178,6 +178,21 @@
     display: block;
     object-fit: cover;
 }
+#art-books table tr td:first-child .img img.img-none{
+    filter:opacity(0.2);
+    position: relative;
+}
+#art-books table tr td:first-child .img:has(img.img-none):before{
+    content: 'រូប!';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0rem;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #art-books table tr td .text {
     line-height: 1.3;
     margin-left: 0.5rem;

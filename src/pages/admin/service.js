@@ -7,6 +7,8 @@ import WebLoader from '../../components/common/WebLoader';
 import '../../assets/css/admin/table.css';
 import '../../assets/css/admin/service.css';
 
+import defaultImg from '../../../src/assets/img/logo192.png'
+
 import FormService from '../../components/form/service_form';
 
 export default function AdminService() {
@@ -185,8 +187,8 @@ export default function AdminService() {
                             <td>
                                 <div className="box df-l">
                                     <div className="img">
-                                        <img 
-                                        src={s.img ? API_URL + STORAGE + s.img : "https://via.placeholder.com/150"} 
+                                        <img className={s.img ? '' : 'img-none'}
+                                        src={s.img ? API_URL + STORAGE + s.img : defaultImg} 
                                         alt="services Cover" 
                                         />
                                     </div>
@@ -196,7 +198,7 @@ export default function AdminService() {
                                             <p>{s.description_kh}</p>
                                         </blockquote>
                                         <div className='icon icon-sm txt-be'>
-                                            {s.status ? <Global /> : <Lock1 />}
+                                            {s.status === 'true' ? <Global /> : <Lock1 />}
                                         </div>
                                     </div>
                                 </div>
