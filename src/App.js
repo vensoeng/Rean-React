@@ -12,7 +12,7 @@ import RegisterPage from './pages/auth/signup';
 import AboutPage from './pages/about';
 import CreatorPage from './pages/creator';
 import EducationPage from './pages/education';
-import PosterPage from './pages/poster';
+import DesignsPage from './pages/designs';
 import WebsitePage from './pages/website';
 import Services from './pages/services';
 import Story from './pages/story';
@@ -25,7 +25,8 @@ import AdminHeader from './components/layout/admin/header';
 import Dashboard from './pages/admin/dashboard';
 import AdminBlogs from './pages/admin/blogs';
 import AdminService from './pages/admin/service';
-
+import AdminDesigns from './pages/admin/designs';
+import AdminStorage from './pages/admin/storage';
 //Not fould webpage 
 import NotFoundPage from './pages/404';
 
@@ -62,7 +63,7 @@ function RoutePage() {
         <Route path='/about' element={<AboutPage />} />
         <Route path='/creator' element={<CreatorPage />} />
         <Route path='/education' element={<EducationPage />} />
-        <Route path='/poster' element={<PosterPage />} />
+        <Route path='/designs' element={<DesignsPage />} />
         <Route path='/storys' element={<Story />} />
         <Route path='/website' element={<WebsitePage />} />
         <Route path='/services' element={<Services />} />
@@ -77,6 +78,8 @@ function RoutePage() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin/blogs" element={<AdminBlogs />} />
         <Route path='admin/services' element={<AdminService/>} />
+        <Route path='admin/designs' element={<AdminDesigns/>}/>
+        <Route path='admin/storage' element={<AdminStorage/>}/>
       </Route>
       {/* Not Found  */}
       <Route path="*" element={<NotFoundPage />} />

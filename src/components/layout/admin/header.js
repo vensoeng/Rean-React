@@ -5,7 +5,16 @@ import '../../../assets/css/admin/header.css';
 import Button from '../../../components/common/button';
 import { NavLink , useLocation } from 'react-router-dom';
 import { getAuthUser } from '../../../utils/auth';
-import { HamburgerMenu, Magicpen, HomeHashtag, VideoOctagon, Designtools, Gift, Dropbox} from 'iconsax-reactjs';
+import { 
+    HamburgerMenu,
+    Magicpen,
+    HomeHashtag,
+    VideoOctagon,
+    Designtools,
+    Gift,
+    Dropbox,
+    Layer
+} from 'iconsax-reactjs';
 export const API_URL = process.env.API_URL || 'https://vensoengapi.vercel.app';
 export const STORAGE = process.env.STORAGE || "/images/storage/";
 
@@ -118,12 +127,12 @@ export default function AdminHeader() {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <a href='/service' className='df-l'>
+                                    <NavLink className={({ isActive }) => isActive ? "df-l active" : "df-l"} to="/admin/designs">
                                         <div className='icon icon-sm over-h df-c'>
                                             <Designtools />
                                         </div>
                                         <p>ការរចនា</p>
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li>
                                     <NavLink  className={({ isActive }) => isActive ? "df-l active" : "df-l"} to="/admin/services">
@@ -140,6 +149,14 @@ export default function AdminHeader() {
                                         </div>
                                         <p>ការផ្ដល់ជូន</p>
                                     </a>
+                                </li>
+                                <li>
+                                    <NavLink className={({ isActive }) => isActive ? "df-l active" : "df-l"} to="/admin/storage">
+                                        <div className='icon icon-sm over-h df-c'>
+                                            <Layer />
+                                        </div>
+                                        <p>ធុងទិន្នន័យ</p>
+                                    </NavLink>
                                 </li>
                             </ul>
                         </div>

@@ -171,6 +171,13 @@
     border-radius: 10px;
     margin-left: 0.5rem;
     z-index: 3;
+    background: var(--sg-bgblack);
+}
+#art-books table tr td .img svg{
+    width: 2rem;
+}
+#art-books table tr td .img path{
+    stroke: var(--sg-button-blueHover);
 }
 #art-books table tr td:first-child .img img {
     width: 100%;
