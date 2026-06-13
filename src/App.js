@@ -15,6 +15,7 @@ import EducationPage from './pages/education';
 import DesignsPage from './pages/designs';
 import WebsitePage from './pages/website';
 import Services from './pages/services';
+import ServicesDetail from './pages/serviceDetail';
 import Story from './pages/story';
 import StoryDetail from './pages/storyDetail';
 import './App.css';
@@ -70,6 +71,7 @@ function RoutePage() {
       </Route>
       {/* user route doesn't layout  */}
       <Route path="/storys/detail/:id" element={<StoryDetail />} />
+      <Route path="/services/detail/:id" element={<ServicesDetail />} />
       {/* register */}
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />

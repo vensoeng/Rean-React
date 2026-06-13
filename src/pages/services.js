@@ -1,5 +1,6 @@
+import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, NavLink } from 'react-router-dom';
 
 import { API_URL } from '../utils/auth';
 
@@ -28,48 +29,36 @@ const CATEGORIES_CONFIG = [
     { slug: 'web', ids: [4], name: 'គេហទំព័រ' }
 ];
 
-export default function Services(){
+const fetchServicesData = async () => {
+    const res = await fetch(`${API_URL}/services?status=true`);
+    if (!res.ok) {
+        throw new Error('Network response was not ok');
+    }
+    const resData = await res.json();
+    
+    if (resData && Array.isArray(resData.data)) return resData.data;
+    if (resData && Array.isArray(resData.services)) return resData.services;
+    if (Array.isArray(resData)) return resData;
+    return [];
+};
 
+export default function Services() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const [services, setServices] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [activeCategory, setActiveCategory] = useState('all');
 
-    useEffect(() => {
-        const fetchServices = async () => {
-        try {
-            setLoading(true);
-            setIsTransitioning(true);
-            const res = await fetch(`${API_URL}/services?status=true`);
-            const resData = await res.json();
-            
-            if (resData && Array.isArray(resData.data)) {
-                setServices(resData.data);
-            } else if (resData && Array.isArray(resData.services)) {
-                setServices(resData.services);
-            } else if (Array.isArray(resData)) {
-                setServices(resData);
-            } else {
-                setServices([]);
-            }
-        } catch (err) {
-            console.error("Error fetching service:", err);
-            setServices([]);
-        } finally {
-            setLoading(false); 
-            setIsTransitioning(false);
-        }
-        };
-        fetchServices();
-    }, []);
+    const { data: services = [], isLoading, isError, error } = useQuery({
+        queryKey: ['services'],
+        queryFn: fetchServicesData,
+        staleTime: 1000 * 60 * 5,
+    });
 
+    // Sync URL search params with activeCategory state
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
         const categoryParam = queryParams.get('category');
-
         const isValidCategory = CATEGORIES_CONFIG.some(cat => cat.slug === categoryParam);
 
         if (categoryParam && isValidCategory) {
@@ -81,9 +70,10 @@ export default function Services(){
 
     const currentCategory = CATEGORIES_CONFIG.find(cat => cat.slug === activeCategory);
 
+    // Compute filtered list safely based on query cache data
     const filteredServices = activeCategory === 'all' 
-        ? (Array.isArray(services) ? services : [])
-        : (Array.isArray(services) ? services.filter(s => currentCategory?.ids.includes(Number(s?.list_id))) : []);
+        ? services
+        : services.filter(s => currentCategory?.ids.includes(Number(s?.list_id)));
 
     const handleCategoryChange = (slug) => {
         if (slug === activeCategory) return;
@@ -124,7 +114,7 @@ export default function Services(){
         ));
     };
     
-    return(
+    return (
         <div className="main-service mser">
             <div className="mser-box">
                 {/* Header */}
@@ -156,7 +146,6 @@ export default function Services(){
                 <div className="ms-nav">
                     <div className="smn-box">
                         <ul className='df-l'>
-                            {/* 4. FIXED: Loop through CATEGORIES_CONFIG here instead of currentCategory */}
                             {CATEGORIES_CONFIG.map((cat, index) => (
                                 <li key={index}>
                                     <button 
@@ -175,11 +164,16 @@ export default function Services(){
                 <div className='mscon'>
                     <div className='mscon-box'>
                         <ul>
-                            {loading || isTransitioning ? (
+                            {/* 3. Combined local animation state with query state */}
+                            {isLoading || isTransitioning ? (
                                 <>
                                     <WebLoader>រង់ចាំបន្ដិចយើងកំពុងទាញយកទិន្នន័យដើម្បីដំណើរការ</WebLoader>
                                     {renderSkeletons()}
                                 </>
+                            ) : isError ? (
+                                <p style={{ textAlign: 'center', padding: '2rem', color: 'red' }}>
+                                    មានបញ្ហាក្នុងការទាញយកទិន្នន័យ: {error.message}
+                                </p>
                             ) : filteredServices.length === 0 ? (
                                 <p style={{ textAlign: 'center', padding: '2rem' }}>មិនមានសេវាកម្មឡើយ</p>
                             ) : (
@@ -190,11 +184,7 @@ export default function Services(){
                                             <div className='sl-h df-l'>
                                                 <div className='sl-box df-s'>
                                                     <div className='sl-avata icon icon-sm over-h'>
-                                                        <img className='img-c'
-                                                            src={imgTest}
-                                                            loading='lazy'
-                                                            alt='profile'
-                                                        />
+                                                        <img className='img-c' src={imgTest} loading='lazy' alt='profile' />
                                                     </div>
                                                     <div className='sl-status'>
                                                         <blockquote className={s.status === 'true' ? 'btn active' : 'btn'}>
@@ -202,12 +192,7 @@ export default function Services(){
                                                         </blockquote>
                                                     </div>
                                                     <div className='slh-bg'>
-                                                        <img 
-                                                            className='img-c'
-                                                            src={servicesBg}
-                                                            loading='lazy'
-                                                            alt='background'
-                                                        />
+                                                        <img className='img-c' src={servicesBg} loading='lazy' alt='background' />
                                                     </div>
                                                 </div>
                                             </div>
@@ -236,44 +221,24 @@ export default function Services(){
 
                                                     <div className='slls-main'>
                                                         <div className='sll-l df-l'>
-                                                            <div className='icon icon-sm icon-ra'>
-                                                                <TimerStart />
-                                                            </div>
-                                                            <blockquote>
-                                                                <p>{s.time_kh}</p>
-                                                            </blockquote>
+                                                            <div className='icon icon-sm icon-ra'><TimerStart /></div>
+                                                            <blockquote><p>{s.time_kh}</p></blockquote>
                                                         </div>
                                                         <div className='sll-l df-l'>
-                                                            <div className='icon icon-sm icon-ra'>
-                                                                <Location />
-                                                            </div>
-                                                            <blockquote>
-                                                                <p>{s.location_kh}</p>
-                                                            </blockquote>
+                                                            <div className='icon icon-sm icon-ra'><Location /></div>
+                                                            <blockquote><p>{s.location_kh}</p></blockquote>
                                                         </div>
                                                         <div className='sll-l df-l'>
-                                                            <div className='icon icon-sm icon-ra'>
-                                                                <DollarCircle />
-                                                            </div>
-                                                            <blockquote>
-                                                                <p>ប្រាក់កក់: {s.deposit}</p>
-                                                            </blockquote>
+                                                            <div className='icon icon-sm icon-ra'><DollarCircle /></div>
+                                                            <blockquote><p>ប្រាក់កក់: {s.deposit}</p></blockquote>
                                                         </div>
                                                         <div className='sll-l df-l'>
-                                                            <div className='icon icon-sm icon-ra'>
-                                                                <BrifecaseTick />
-                                                            </div>
-                                                            <blockquote>
-                                                                <p>ការធានា: {s.warranty_kh}</p>
-                                                            </blockquote>
+                                                            <div className='icon icon-sm icon-ra'><BrifecaseTick /></div>
+                                                            <blockquote><p>ការធានា: {s.warranty_kh}</p></blockquote>
                                                         </div>
                                                         <div className='sll-l df-l'>
-                                                            <div className='icon icon-sm icon-ra'>
-                                                                <Note1 />
-                                                            </div>
-                                                            <blockquote>
-                                                                <p>{s.re_change_kh || 'អាចស្នើប្ដូរបាន'}</p>
-                                                            </blockquote>
+                                                            <div className='icon icon-sm icon-ra'><Note1 /></div>
+                                                            <blockquote><p>{s.re_change_kh || 'អាចស្នើប្ដូរបាន'}</p></blockquote>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -289,10 +254,10 @@ export default function Services(){
                                                         </blockquote>
                                                     </div>
                                                     <div className='slf-row'>
-                                                        <a href='https://t.me/vensoeng' className='btn'>
-                                                            កក់ឥឡូវនេះ
+                                                        <NavLink to={`/services/detail/${s.id}`} className='btn'>
+                                                            ព័ត៌មានលំអិត
                                                             <ArrowRight/>
-                                                        </a>
+                                                        </NavLink>
                                                     </div>
                                                 </div>
                                             </div>
@@ -304,7 +269,6 @@ export default function Services(){
                     </div>
                 </div>
             </div>
-            {/* This is question page  */}
             <Questions/>
        </div> 
     );
