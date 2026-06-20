@@ -119,7 +119,7 @@ export default function AdminHeader() {
                                     </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink className='df-l' to='/admin/contents'>
+                                    <NavLink className='df-l' to='/admin/creator'>
                                         <div className='icon icon-sm over-h df-c'>
                                             <VideoOctagon />
                                         </div>

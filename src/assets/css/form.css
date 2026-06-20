@@ -161,10 +161,22 @@ body:has(.web-form-active){
     text-indent: 0.8rem;
     transition: all ease-in-out 0.2s;
 }
+.web-form-body .main .txt-title input[type='checkbox']{
+    width: 20px;
+    height: 20px;
+    appearance: none;
+}
 .web-form-body .main .txt-title input:focus{
     border: 1px solid var(--sg-maincolor-bluedark);
     outline: 2px solid var(--sg-maincolor-bluelight);
     outline-offset: 1px;
+}
+.web-form-body .main .txt-title input[type='checkbox']:focus{
+    border: none;
+    outline: none;
+}
+.web-form-body .main .txt-title input[type='checkbox']::after{
+    margin-left: -0.4rem;
 }
 .web-form-body .main .txt-title input::placeholder{
     font-family: "Battambang", system-ui, "Bricolage Grotesque";

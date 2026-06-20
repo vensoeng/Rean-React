@@ -127,7 +127,7 @@ export default function Services() {
                             <div className="smh-row">
                                 <a href="mailto:vensoeng.edu.kh@gmail.com" className='btn'>
                                     <Sms/>
-                                    ទាក់ទងមកបង!
+                                    {/* ទាក់ទងមកបង! */}
                                 </a>
                             </div>
                         </div>

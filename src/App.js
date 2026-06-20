@@ -28,6 +28,7 @@ import AdminBlogs from './pages/admin/blogs';
 import AdminService from './pages/admin/service';
 import AdminDesigns from './pages/admin/designs';
 import AdminStorage from './pages/admin/storage';
+import AdminCreator from './pages/admin/creator';
 //Not fould webpage 
 import NotFoundPage from './pages/404';
 
@@ -82,6 +83,7 @@ function RoutePage() {
         <Route path='admin/services' element={<AdminService/>} />
         <Route path='admin/designs' element={<AdminDesigns/>}/>
         <Route path='admin/storage' element={<AdminStorage/>}/>
+        <Route path='admin/creator' element={<AdminCreator/>}/>
       </Route>
       {/* Not Found  */}
       <Route path="*" element={<NotFoundPage />} />

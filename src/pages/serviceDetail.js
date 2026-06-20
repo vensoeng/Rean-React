@@ -61,7 +61,10 @@ export default function ServicesDetail() {
     const [htmlContent, setHtmlContent] = useState('');
     const [loading, setLoading] = useState(true);
 
+    const [designs, setDesigns] = useState([]);
+
     useEffect(() => {
+
         const fetchSingleService = async () => {
             try {
                 setLoading(true);
@@ -74,12 +77,11 @@ export default function ServicesDetail() {
 
                 const result = await res.json();
                 
-                // ⚠️ កែតម្រូវត្រង់នេះ៖ ដោយសារទិន្នន័យពិតនៅក្នុង Object "data"
                 if (result && result.success && result.data) {
                     const actualData = result.data;
                     setService(actualData);
 
-                    // ទាញយក HTML ហ្វាលប្រសិនបើមាន
+                    // Fetch HTML file if it exists
                     if (actualData.file && actualData.file.trim() !== "") {
                         const fileUrl = `${API_URL}/images/storage/${actualData.file}`;
                         const fileRes = await fetch(fileUrl);
@@ -88,10 +90,12 @@ export default function ServicesDetail() {
                             setHtmlContent(htmlText);
                         }
                     }
+                    
+                    await fetchDesigns(actualData);
+
                 } else {
                     setService(null);
                 }
-
             } catch (err) {
                 console.error("Error fetching service or HTML:", err);
                 setService(null);
@@ -100,9 +104,53 @@ export default function ServicesDetail() {
             }
         };
 
+        const fetchDesigns = async (currentService) => {
+            if (!currentService || !currentService.list_id) return;
+
+            const serviceIdMap = [
+                { name: 'photo', list_id: 1, ds_carId: [4, 5] },
+                { name: 'video', list_id: 2, ds_carId: [1] },
+                { name: 'designs', list_id: 3, ds_carId: [1, 2, 3, 4, 5] },
+                { name: 'website', list_id: 4, ds_carId: [6] }
+            ];
+
+            const matchedConfig = serviceIdMap.find(
+                item => String(item.list_id) === String(currentService.list_id)
+            );
+
+            if (!matchedConfig || !matchedConfig.ds_carId || matchedConfig.ds_carId.length === 0) {
+                setDesigns([]);
+                return;
+            }
+
+            try {
+                const catIdsString = matchedConfig.ds_carId.join(',');
+                const response = await fetch(
+                    `${API_URL}/designs?cat_id=${catIdsString}&limit=4&random=true`
+                );
+                
+                if (!response.ok) {
+                    setDesigns([]);
+                    return;
+                }
+
+                const result = await response.json();
+                
+                if (result && result.success && result.data) {
+                    setDesigns(result.data);
+                } else {
+                    setDesigns([]);
+                }
+            } catch (err) {
+                console.error("Error fetching designs:", err);
+                setDesigns([]);
+            }
+        };
+
         if (id) {
             fetchSingleService();
         }
+        
     }, [id]);
 
     if (loading) {
@@ -129,7 +177,6 @@ export default function ServicesDetail() {
         );
     }
 
-    // ពិនិត្យលក្ខខណ្ឌ Status
     if (!service || service.status === false || service.status === 'false' || Number(service.status) === 0) {
         return <NotFoundPage />;
     }
@@ -170,19 +217,21 @@ export default function ServicesDetail() {
                                     />
                                 </div>
                                 
-                                {/* ⚠️ ប្តូរពី service.list_img ទៅជា service.img_slider */}
-                                {service.img_slider && typeof service.img_slider === 'string' && service.img_slider.trim() !== "" && (
+                                {designs && (
                                     <div className="img-slide scroll-x">
                                         <ul className="df-l">
-                                            {service.img_slider.split(',').map((imgUrl, i) => (
+                                            {designs.map((d, i) => (
                                                 <li key={i}>
                                                     <div className="box">
                                                         <div className="btn">
                                                             <ArrowRight />
                                                         </div>
                                                         <div className="img">
-                                                            <img className="img-c" src={`${API_URL}/${imgUrl.trim()}`} alt={`Slide ${i + 1}`} />
+                                                            <img className="img-c" src={`${API_URL}${STORAGE}${d.img}`} alt={`Slide ${i + 1}`} />
                                                         </div>
+                                                        <blockquote>
+                                                            <p>{d.title}</p>
+                                                        </blockquote>
                                                     </div>
                                                 </li>
                                             ))}
