@@ -1,27 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import '../../assets/css/slider.css';
 
 export default function Slider({ images = [] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const timeoutRef = useRef(null);
 
-    const resetTimeout = () => {
+    const resetTimeout = useCallback(() => {
         if (timeoutRef.current) {
             clearTimeout(timeoutRef.current);
         }
-    };
+    }, []);
 
-    const goToSlide = (index) => {
+    const goToSlide = useCallback((index) => {
         setCurrentIndex(index);
-    };
+    }, []);
 
-    const nextSlide = () => {
+    const nextSlide = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
+    }, [images.length]);
 
-    const prevSlide = () => {
+    const prevSlide = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    };
+    }, [images.length]);
 
     useEffect(() => {
         if (images.length <= 1) return;
@@ -32,7 +32,7 @@ export default function Slider({ images = [] }) {
         return () => {
             resetTimeout();
         };
-    }, [currentIndex, images.length]);
+    }, [currentIndex, images.length, nextSlide, resetTimeout]); // Included missing dependencies safely
 
     if (!images || images.length === 0) return null;
 
