@@ -1,0 +1,104 @@
+/* ======= Reusable Slide Styles ======= */
+.wbsh-slide {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.8rem;
+    width: 100%;
+}
+
+.wbsh-slide .wbshs-box {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.wbsh-slide .list-img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.wbsh-slide .li-box {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out; 
+}
+
+.wbsh-slide .img-c {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+    max-height: 450px;
+}
+
+/* ======= Next / Prev Buttons Style ======= */
+.wbsh-slide .slider-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 12;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.wbsh-slide .slider-nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.wbsh-slide .slider-nav-btn:hover svg path {
+    stroke: #ff6a3c; /* Brightens the orange accent on hover */
+}
+
+.wbsh-slide .slider-nav-btn.prev {
+    left: 20px;
+}
+
+.wbsh-slide .slider-nav-btn.next {
+    right: 20px;
+}
+
+/* ======= Pagination Dots Style ======= */
+.wbsh-slide .sgination {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.wbsh-slide .sg-box {
+    display: flex;
+    gap: 10px;
+}
+
+.wbsh-slide .btn-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    padding: 0rem;
+    border-radius: 50rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, width 0.3s ease;
+}
+
+.wbsh-slide .btn-dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.wbsh-slide .btn-dot.active {
+    background-color: #ffffff;
+    width: 1.5rem;
+    transform: scale(1.1);
+}

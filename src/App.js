@@ -18,6 +18,9 @@ import Services from './pages/services';
 import ServicesDetail from './pages/serviceDetail';
 import Story from './pages/story';
 import StoryDetail from './pages/storyDetail';
+//shop
+import Shopping from './pages/shop';
+
 import './App.css';
 import RequireAuth from './components/route/RequireAuth';
 // admin layout 
@@ -29,6 +32,9 @@ import AdminService from './pages/admin/service';
 import AdminDesigns from './pages/admin/designs';
 import AdminStorage from './pages/admin/storage';
 import AdminCreator from './pages/admin/creator';
+//shop
+import AdminCategory from './pages/admin/category';
+import AdminProduct from './pages/admin/product';
 //Not fould webpage 
 import NotFoundPage from './pages/404';
 
@@ -73,6 +79,8 @@ function RoutePage() {
       {/* user route doesn't layout  */}
       <Route path="/storys/detail/:id" element={<StoryDetail />} />
       <Route path="/services/detail/:id" element={<ServicesDetail />} />
+      {/* this is shopping  */}
+      <Route path='/shopping' element={<Shopping />} />
       {/* register */}
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
@@ -84,6 +92,9 @@ function RoutePage() {
         <Route path='admin/designs' element={<AdminDesigns/>}/>
         <Route path='admin/storage' element={<AdminStorage/>}/>
         <Route path='admin/creator' element={<AdminCreator/>}/>
+        {/* shop */}
+        <Route path='admin/category' element={<AdminCategory/>}/>
+        <Route path='admin/product' element={<AdminProduct/>}/>
       </Route>
       {/* Not Found  */}
       <Route path="*" element={<NotFoundPage />} />

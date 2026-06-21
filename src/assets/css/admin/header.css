@@ -124,7 +124,13 @@
     margin: 0 auto;
     width: calc(100% - 1rem );
 }
-.wa-con .wac-box li a{
+.wa-con .wac-box li.list-main-active{
+    box-sizing: border-box;
+    border: 1px solid var(--colorBorder-00);
+    border-radius: 0.6rem;
+}
+.wa-con .wac-box li a,
+.wa-con .wac-box li .btn-main{
     cursor: pointer;
     padding: 0rem 0.8rem;
     margin: 0 auto;
@@ -138,22 +144,54 @@
 .wa-con .wac-box li a:hover,
 .wa-con .wac-box li a.active,
 .wa-con .wac-box li a:active,
-.wa-con .wac-box li a:focus{
+.wa-con .wac-box li a:focus,
+.wa-con .wac-box li .btn-main:hover,
+.wa-con .wac-box li .btn-main.active,
+.wa-con .wac-box li .btn-main:active,
+.wa-con .wac-box li .btn-main:focus{
     color: var(--sg-color-brand);
     background: #e0e9fb2b;
 }
 .wa-con .wac-box li .icon svg{
     width: 27px;
 }
-.wa-con .wac-box li a:active{
+.wa-con .wac-box li .btn-main{
+    position: relative;
+}
+.wa-con .wac-box li a:active,
+.wa-con .wac-box li .btn-main:active{
     scale: 0.95;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 .wa-con .wac-box li a:hover path,
 .wa-con .wac-box li a.active path,
 .wa-con .wac-box li a:active path,
-.wa-con .wac-box li a:focus path{
+.wa-con .wac-box li a:focus path,
+.wa-con .wac-box li .btn-main:hover path,
+.wa-con .wac-box li .btn-main.active path,
+.wa-con .wac-box li .btn-main:active path,
+.wa-con .wac-box li .btn-main:focus path{
     stroke: var(--sg-color-brand);
+}
+.wa-con .wac-box li .btn-main .btn{
+    position: absolute;
+    height: 100%;
+    width: 2rem;
+    right: 0rem;
+    background: transparent;
+    transition: all ease-in-out 0.3s;
+}
+.wa-con .wac-box li.list-main-active .btn-main .btn svg{
+    rotate: 90deg;
+}
+.wa-con .wac-box li .list-rout .lr-box{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+.wa-con .wac-box li .list-rout .lr-box a{
+    width: 100%;
 }
 .wa-foot{
     position: absolute;

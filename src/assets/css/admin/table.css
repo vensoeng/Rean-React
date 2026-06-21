@@ -99,6 +99,8 @@
 /* ===================this is table==============================> */
 .tb-section{
     margin: 2rem auto;
+    position: sticky;
+    top: calc(75px + 0.5rem);
 }
 .web-nav ul li {
     width: 50%;
@@ -109,11 +111,13 @@
     border-radius: 0.8rem;
     background: var(--sg-bglight);
     overflow: hidden;
+    z-index: 99;
 }
 #art-books .tb-section-body > .box{
-    /* max-height: calc(100vh - 61px - 60px - 170px); */
-    /* height: calc(100vh - 300px); */
+    max-height: calc(100vh - 80px);
     height: max-content;
+    overflow: auto;
+    scrollbar-width: thin;
 }
 @media only screen and (max-width: 950px) {
     #art-books{
@@ -125,17 +129,21 @@
 }
 #art-books table {
     width: 100%;
+    min-width: max-content;
     margin: 0 auto;
     height: auto;
     text-align: center;
     border-collapse: collapse;
     text-align: left;
 }
-#art-books table tr:first-child {
+#art-books table thead {
     position: sticky;
-    top: 0px;
+    top: 0rem;
     z-index: 100;
     background: var(--sg-bglight);
+}
+#art-books table thead th{
+    padding: 1rem 0rem;
 }
 #art-books table tr.tr-active{
     -webkit-animation: atop 2s forwards;
@@ -147,6 +155,7 @@
     border-bottom: 1px solid var(--sg-bgblack);
 }
 #art-books table tr th:first-child {
+    padding: 1.5rem 0.5rem;
     text-align: left;
     text-indent: 10px;
     border-radius: 3px 3px 0px 0px;

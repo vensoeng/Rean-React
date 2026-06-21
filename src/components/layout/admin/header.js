@@ -13,7 +13,10 @@ import {
     Designtools,
     Gift,
     Dropbox,
-    Layer
+    Layer,
+    Shop,
+    Add,
+    ArrowRight2,
 } from 'iconsax-reactjs';
 export const API_URL = process.env.API_URL || 'https://vensoengapi.vercel.app';
 export const STORAGE = process.env.STORAGE || "/images/storage/";
@@ -33,6 +36,10 @@ export default function AdminHeader() {
                 return 'ផ្ទាំងគ្រប់គ្រង';
             case '/admin/blogs':
                 return 'ផ្សព្វផ្សាយ';
+            case '/admin/product':
+                return 'ផលិតផល';
+            case '/admin/category':
+                return 'ប្រភេទផលិតផល';
             default:
                 return 'ផ្ទាំងគ្រប់គ្រង';
         }
@@ -118,13 +125,32 @@ export default function AdminHeader() {
                                         <p>ផ្សព្វផ្សាយ</p>
                                     </NavLink>
                                 </li>
-                                <li>
-                                    <NavLink className='df-l' to='/admin/creator'>
+                                <li className='list-main-active'>
+                                    <div className="df-l btn-main">
                                         <div className='icon icon-sm over-h df-c'>
-                                            <VideoOctagon />
+                                            <Shop />
                                         </div>
-                                        <p>មាតិការ</p>
-                                    </NavLink>
+                                        <p>ហាងទំនិញ</p>
+                                        <div className='btn'>
+                                            <ArrowRight2/>
+                                        </div>
+                                    </div>
+                                    <div className='list-rout'>
+                                        <div className='lr-box'>
+                                            <NavLink className={({ isActive }) => isActive ? "df-l active" : "df-l"} to="/admin/product">
+                                                <Add />
+                                                <p>ផលិតផល</p>
+                                            </NavLink>
+                                            <NavLink className={({ isActive }) => isActive ? "df-l active" : "df-l"} to="/admin/category">
+                                                <Add />
+                                                <p>ប្រភេទ</p>
+                                            </NavLink>
+                                            <NavLink className={({ isActive }) => isActive ? "df-l active" : "df-l"} to="/admin/product/slide">
+                                                <Add />
+                                                <p>ស្លាយ</p>
+                                            </NavLink>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>
                                     <NavLink className={({ isActive }) => isActive ? "df-l active" : "df-l"} to="/admin/designs">
@@ -132,6 +158,14 @@ export default function AdminHeader() {
                                             <Designtools />
                                         </div>
                                         <p>ការរចនា</p>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink className='df-l' to='/admin/creator'>
+                                        <div className='icon icon-sm over-h df-c'>
+                                            <VideoOctagon />
+                                        </div>
+                                        <p>មាតិការ</p>
                                     </NavLink>
                                 </li>
                                 <li>
