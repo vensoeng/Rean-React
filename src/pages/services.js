@@ -13,7 +13,7 @@ import {
     BrifecaseTick,
     Note1,
     ArrowRight,
-    Sms,
+    // Sms,
     ArrowLeft
 } from 'iconsax-reactjs';
 
@@ -23,8 +23,8 @@ import './../assets/css/services.css';
 
 const CATEGORIES_CONFIG = [
     { slug: 'all', ids: [], name: 'ទាំងអស់' },
-    { slug: 'photo', ids: [1], name: 'រូបថត' },     
-    { slug: 'video', ids: [2], name: 'វីដេអូ' },      
+    // { slug: 'photo', ids: [1], name: 'រូបថត' },     
+    // { slug: 'video', ids: [2], name: 'វីដេអូ' },      
     { slug: 'design', ids: [3], name: 'ការរចនា' },    
     { slug: 'web', ids: [4], name: 'គេហទំព័រ' }
 ];
@@ -125,9 +125,10 @@ export default function Services() {
                                 <ArrowLeft/>
                             </button>
                             <div className="smh-row">
-                                <a href="mailto:vensoeng.edu.kh@gmail.com" className='btn'>
-                                    <Sms/>
-                                    {/* ទាក់ទងមកបង! */}
+                                <a href="https://t.me/vensoeng" className='btn'>
+                                    {/* <Sms/> */}
+                                    <i class="fa-brands fa-telegram"></i>
+                                    ទាក់ទងមកបង!
                                 </a>
                             </div>
                         </div>

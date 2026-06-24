@@ -47,6 +47,7 @@ export default function Footer()
           <h3>មុីនូផ្សេងៗ</h3>
           <ul>
             <li><a href="/">ទំព័រដើម</a></li>
+            <li><a href="/shopping">ហាងបងស្រី</a></li>
             <li><a href="/storys">ព្រឹត្តិការណ៍</a></li>
             <li><a href="/designs">ការរចនា</a></li>
             <li><a href="/contents">មាតិការ</a></li>
@@ -59,8 +60,8 @@ export default function Footer()
           <ul>
             <li><a href="/services?category=web">Building website</a></li>
             <li><a href="/services?category=design">Desings</a></li>
-            <li><a href="/services?category=video">Video editing</a></li>
-            <li><a href="/services?category=photo">Photographer</a></li>
+            {/* <li><a href="/services?category=video">Video editing</a></li> */}
+            {/* <li><a href="/services?category=photo">Photographer</a></li> */}
           </ul>
         </div>
 
