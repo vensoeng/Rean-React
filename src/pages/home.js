@@ -12,13 +12,14 @@ import ProjectBackground from '../components/common/ProjectBackground';
 import StoryCard from '../components/common/StoryCard';
 import StarryBackground from '../components/common/StarryBackground';
 // import AdvertisementPopup from '../components/common/AdvertisementPopup';
-import StudyList from '../components/common/ListStudy';
+// import StudyList from '../components/common/ListStudy';
 // import Screenslider from '../components/common/Screenslider';
 
 import { Book1, ArrowRight} from 'iconsax-reactjs';
 //webpage add on
-import AboutPage from './about';
+// import AboutPage from './about';
 import Questions from './question';
+import ServiceSuggestion from '../components/web/Service_suggestion';
 // import StoryPage from './story';
 
 const fetchBlogsFromServer = async () => {
@@ -62,12 +63,14 @@ export default function HomePage() {
                             </div>
                         </blockquote>
                     </section>
+                    {/* this is service suggestion */}
+                    <ServiceSuggestion />
                     {/* this is is about my skill  */}
-                    <StudyList />
+                    {/* <StudyList /> */}
                     {/* this is read node */}
                     <ProjectBackground />
                     {/* this is about page  */}
-                    <AboutPage active={false} />
+                    {/* <AboutPage active={false} /> */}
                     {/* ---this is design  */}
                     {/* <Screenslider 
                         mainTitle={"DESIGNS"}
