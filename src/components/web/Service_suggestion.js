@@ -54,7 +54,7 @@ export default function ServiceSuggestion() {
                                     </div>
                                 </div>
                                 <div className="l-img">
-                                    <img src={API_URL + STORAGE + s.image || imgTest } className="img-c" alt="service images" />
+                                    <img src={API_URL + STORAGE + s.img || imgTest } className="img-c" alt="service images" />
                                 </div>
                             </li>
                         ))
