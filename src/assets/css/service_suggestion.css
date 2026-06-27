@@ -16,11 +16,17 @@
     @media screen and (max-width: 830px) {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
+    @media screen and (max-width: 612px) {
+        gap: 0.5rem;
+    }
 }
 .wbsv .wbsvc ul li{
     position: relative;
     width: 100%;
     background: var(--sg-color-def);
+    @media screen and (max-width: 612px) {
+       min-height: 200px;
+    }
 }
 .wbsv .wbsvc ul li::before,
 .wbsv .wbsvc ul li::after{
@@ -33,24 +39,28 @@
     z-index: 2;
 }
 .wbsv .wbsvc ul li::after{
-    background: linear-gradient(0deg, var(--sg-color-brand) 20%, #0000 50%);
+    background: linear-gradient(0deg, var(--sg-color-brand) 20%, #0000 30%);
 }
 .wbsv .wbsvc ul li::before{
-    background: linear-gradient(180deg, var(--sg-color-brand) 15%, #0000 50%);
+    background: linear-gradient(180deg, var(--sg-color-brand) 15%, #0000 30%);
 }
 /* this is first child  */
 .wbsv .wbsvc ul li:first-child{
     background: var(--sg-color-brand);
 }.wbsv .wbsvc ul li:first-child:after{
-    background: linear-gradient(0deg, var(--sg-color-brand) 5%, #0000 50%);
+    background: linear-gradient(0deg, var(--sg-color-brand) 5%, #0000 30%);
 }.wbsv .wbsvc ul li:first-child::before{
-    background: linear-gradient(180deg, var(--sg-color-brand) 15%, #0000 60%);
+    background: linear-gradient(180deg, var(--sg-color-brand) 15%, #0000 30%);
 }
 /* nt child 2 */
 .wbsv .wbsvc ul li:nth-child(2):after{
-    background: linear-gradient(0deg, var(--sg-color-def) 5%, #0000 50%);
+    background: linear-gradient(0deg, var(--sg-color-def) 5%, #0000 30%);
 }.wbsv .wbsvc ul li:nth-child(2)::before{
-    background: linear-gradient(180deg, var(--sg-color-def) 15%, #0000 60%);
+    background: linear-gradient(180deg, var(--sg-color-def) 15%, #0000 30%);
+}
+.wbsv .wbsvc ul .skeleton-wbsvc::before,
+.wbsv .wbsvc ul .skeleton-wbsvc::after{
+    display: none !important;
 }
 /* nt child 3 */
 /* .wbsv .wbsvc ul li:nth-child(3):after {
@@ -71,9 +81,9 @@
     background: var(--sg-color-def);
 }
 .wbsv .wbsvc ul li:nth-child(3):after{
-    background: linear-gradient(0deg, var(--sg-color-def) 5%, #0000 50%);
+    background: linear-gradient(0deg, var(--sg-color-def) 5%, #0000 30%);
 }.wbsv .wbsvc ul li:nth-child(3)::before{
-    background: linear-gradient(180deg, var(--sg-color-def) 15%, #0000 60%);
+    background: linear-gradient(180deg, var(--sg-color-def) 15%, #0000 30%);
 }
 
 /* last child  */
@@ -81,15 +91,21 @@
     grid-column: 1 / -1;
     background: var(--sg-bgblack);
 }.wbsv .wbsvc ul li:last-child:after{
-    background: linear-gradient(0deg, var(--sg-bgblack) 5%, #0000 50%);
+    background: linear-gradient(0deg, var(--sg-bgblack) 5%, #0000 30%);
 }.wbsv .wbsvc ul li:last-child::before{
-    background: linear-gradient(180deg, var(--sg-bgblack) 15%, #0000 60%);
+    background: linear-gradient(180deg, var(--sg-bgblack) 15%, #0000 30%);
 }
 
 .wbsv .wbsvc ul li .box{
-    position: relative;
+    position: absolute;
+    width: 100%;
+    left: 0rem;
+    top: 0rem;
     z-index: 12;
     padding-top: 2.5rem;
+    /* @media screen and (max-width: 612px) {
+       position: relative;
+    } */
 }
 .wbsv .wbsvc ul li blockquote{
     text-align: center;
@@ -137,10 +153,18 @@
 
 .wbsv .wbsvc ul li .l-img{
     position: relative;
-    margin: 2rem 0rem;
-    aspect-ratio: 16 / 9;
+}
+.wbsv .wbsvc ul li .l-img img{
+    width: 100%;
+    object-fit: contain;
 }
 /* ============list block change===== */
+.wbsv .wbsvc ul li:last-child .l-img img{
+    max-width: 350px;
+}
+.wbsv .wbsvc ul li:last-child .box{
+    position: relative;
+}
 .wbsv .wbsvc ul li:first-child .svla-box .btn:first-child{
     color: var(--sg-color-brand);
     background: var(--sg-bglight);
@@ -151,4 +175,8 @@
 }
 .wbsv .wbsvc ul li:last-child blockquote{
     color: var(--sg-color-def);
+}
+
+.wbsv .wbsvc ul .skeleton-wbsvc{
+    background: var(--sg-bgblack) !important;
 }
