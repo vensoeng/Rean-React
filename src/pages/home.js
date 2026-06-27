@@ -59,7 +59,7 @@ export default function HomePage() {
                                         អានអត្ថបទ
                                     </NavLink>
                                 </div>
-                                <p>Open source platform</p>
+                                <p>Waiting for work!</p>
                             </div>
                         </blockquote>
                     </section>
