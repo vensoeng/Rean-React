@@ -24,7 +24,7 @@ export default function ServiceCard({ service, fallbackImg, apiUrl, storageUrl }
             </div>
 
             {/* Image Wrapper Container */}
-            <div className="l-img img-box" style={{ position: 'relative', overflow: 'hidden' }}>
+            <div className="l-img img-box"  style={!isFullyLoaded ? { position: 'relative', overflow: 'hidden', aspectRatio: '1 /1', } : { position: 'relative', overflow: 'hidden' } }  >
                 {!isFullyLoaded && (
                     <div 
                         className="img-loader-placeholder" 

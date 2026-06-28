@@ -26,40 +26,23 @@ export default function ServiceSuggestion() {
             ? responseData.data 
             : [];
 
-    const skeletonStyle = {
-        animation: 'pulse 1.5s infinite ease-in-out',
-        backgroundColor: '#e2e8f0',
-        borderRadius: '4px'
-    };
-
     return (
         <div className="wbsv">
-            <style>{`
-                @keyframes pulse {
-                    0% { opacity: 0.6; }
-                    50% { opacity: 1; }
-                    100% { opacity: 0.6; }
-                }
-            `}</style>
 
             <div className="wbsvc">
                 <ul>
                     {isLoading ? (
                         // Render 4 skeleton items to match your layout grid
                         Array.from({ length: 4 }).map((_, idx) => (
-                            <li className='skeleton-wbsvc' key={`skeleton-${idx}`} style={{ display: 'flex', gap: '20px', marginBottom: '20px', aspectRatio: '1/1' }}>
-                                <div className="box" style={{ flex: 1 }}>
-                                    <div className="svl-action">
-                                        <div className="svla-box df-c" style={{ display: 'flex', gap: '10px' }}>
-                                            {/* Button Skeletons */}
-                                            <div style={{ ...skeletonStyle, width: '100px', height: '35px', borderRadius: '20px' }} />
-                                            <div style={{ ...skeletonStyle, width: '80px', height: '35px', borderRadius: '20px' }} />
-                                        </div>
+                            <li class="wbsl-load-an">
+                                <div class="bla-box">
+                                    <div class="mian-txt"></div>
+                                    <div class="sub-txt"></div>
+                                    <div class="row-btn df-c">
+                                        <div class="btn"></div>
+                                        <div class="btn"></div>
                                     </div>
-                                </div>
-                                {/* Image Skeleton */}
-                                <div className="l-img" style={{ width: '150px', height: '150px',aspectRatio: '1/1' }}>
-                                    <div style={{ ...skeletonStyle, width: '100%', height: '100%', borderRadius: '8px' }} />
+                                    <div class="img-an"></div>
                                 </div>
                             </li>
                         ))
