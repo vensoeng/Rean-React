@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation, NavLink } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { API_URL } from '../utils/auth';
 
@@ -255,10 +255,10 @@ export default function Services() {
                                                         </blockquote>
                                                     </div>
                                                     <div className='slf-row'>
-                                                        <NavLink to={`/services/detail/${s.id}`} className='btn'>
+                                                        <a href={`/services/detail/${s.id}`} className='btn'>
                                                             ព័ត៌មានលំអិត
                                                             <ArrowRight/>
-                                                        </NavLink>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
