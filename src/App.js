@@ -20,6 +20,10 @@ import Story from './pages/story';
 import StoryDetail from './pages/storyDetail';
 //shop
 import Shopping from './pages/shop';
+//this is booking form
+import BookingForm from './pages/bookingForm';
+
+
 
 import './App.css';
 import RequireAuth from './components/route/RequireAuth';
@@ -79,6 +83,7 @@ function RoutePage() {
       {/* user route doesn't layout  */}
       <Route path="/storys/detail/:id" element={<StoryDetail />} />
       <Route path="/services/detail/:id" element={<ServicesDetail />} />
+      <Route path="/booking/service/:id" element={<BookingForm />} />
       {/* this is shopping  */}
       <Route path='/shopping' element={<Shopping />} />
       {/* register */}

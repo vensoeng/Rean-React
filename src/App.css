@@ -60,7 +60,7 @@ a{
     --sg-border-00: #e0e9fb;
     --sg-border-mainApp: #dedfe1;
     --sg-iconboxShadow: 0px 1px 1px 1px rgb(151 151 151 / 10%);
-    --sg-color-def: rgb(0, 0, 0);
+    --sg-color-def: rgb(0, 0, 0); 
     --sg-color-text: rgba(0, 0, 0, 0.829);
     --sg-color-spece: #918a8a;
     --sg-fontBat: "Battambang", system-ui;

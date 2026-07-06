@@ -1,0 +1,212 @@
+.bok-form{
+    display: block;
+    margin: 0 auto;
+}
+.wkf-n{
+    position: sticky;
+    top: 0rem;
+    border: 1px solid var(--colorBorder-00);
+    background: var(--sg-bglight);
+    z-index: 99;
+}
+.wkf-n .box{
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    @media only screen and (max-width: 1200px) {
+        margin: 0rem 0.5rem;
+    }
+}
+.wkf-n .box .row{
+    gap: 0.4rem;
+}
+.wkf-n .box .row .icon{
+    cursor: pointer;
+}
+.wkf-n .box h1{
+    font-size: 1.2rem;
+}
+.wkf-n .box .row button{
+    cursor: pointer;
+}
+.bok-form .wbkm-c{
+    margin: 0 auto;
+    display: block;
+}
+.bok-form .wbkm-c .box{
+    max-width: 760px;
+    margin: 0rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0rem;
+    padding-top: 1.5rem;
+    @media screen and (max-width: 760px) {
+        margin: 0rem 0.5rem;
+    }
+}
+.bok-form .head h2{
+    font-size: 1.2rem;
+}
+.bok-form .head .icon{
+    width: max-content;
+    height: initial;
+    overflow: initial;
+    margin-right: 0.5rem;
+    height: 50px;
+}
+.bok-form .head .icon svg{
+    width: 1.6rem;
+}
+.bok-form .head .icon path{
+    stroke: var(--sg-color-brand);
+}
+.bok-form .infor ul{
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.bok-form .infor ul li .li-box{
+
+}
+.bok-form .infor ul li:last-child,
+.bok-form .ifs ul li:last-child{
+    grid-column: 1 / -1;
+}
+.bok-form .infor ul li label{
+    text-indent: 0.2rem;
+    display: block;
+}
+.bok-form .infor ul li .db-c,
+.bok-form .ifs ul .db-c{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.8rem;
+    border: 1px solid var(--colorBorder-00);
+}
+.bok-form .infor ul li svg,
+.bok-form .ifs ul .db-c svg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 1.5rem;
+    margin-left: 0.5rem;
+    opacity: 0.8;
+}
+.bok-form .infor ul li input,
+.bok-form .ifs ul .db-c select,
+.bok-form .ifs ul li input{
+    flex: 1;
+    background: transparent;
+    height: 3rem;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+}
+.bok-form .other-ct ul{
+    display: grid;
+    gap: 1rem;
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    @media only screen and (max-width: 760px) {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    @media only screen and (max-width: 650px) {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 0.5rem;
+    }
+    @media only screen and (max-width: 370px) {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+.bok-form .other-ct ul .ocl-box{
+    width: initial;
+    height: initial;
+    aspect-ratio: 1 / 1;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sg-bglight);
+    cursor: pointer;
+    border: 1px solid var(--colorBorder-00);
+}
+.bok-form .other-ct ul .ocl-box .db-c{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+}
+.bok-form .other-ct ul .ocl-box svg{
+    width: 2rem;
+    display: block;
+    overflow: initial;
+    margin: 0 auto;
+}
+.bok-form .other-ct ul .ocl-box svg path{
+    stroke-width: 1px;
+    stroke: none;
+}
+.bok-form .other-ct ul li:first-child path{
+    fill: #0088CC;
+}
+.bok-form .other-ct ul li:nth-child(2) path{
+    fill: #00B2FF;
+}
+.bok-form .other-ct ul li:nth-child(3) path{
+    fill: #34C759;
+}
+.bok-form .other-ct ul li:last-child path{
+    fill: #EA4335;
+}
+.bok-form .ifs ul{
+    display: grid;
+    gap: 2rem;
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.bok-form .ifs ul li textarea{
+    padding: 0.5rem;
+    height: 200px;
+}
+.bok-form .foot{
+    max-width: 760px;
+    margin: 0 auto;
+    @media screen and (max-width: 760px) {
+        margin: 0rem 0.5rem;
+    }
+    /* @media screen and (max-width: 550px) {
+        position: sticky;
+        bottom: 0rem;
+        left: 0rem;
+        z-index: 99;
+        background: var(--sg-bglight);
+        margin: 0 auto;
+    } */
+}
+.bok-form .foot .fbox{
+    margin: 2rem auto;
+    /* @media screen and (max-width: 550px) {
+        margin: 0rem 0.5rem;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } */
+}
+.bok-form .foot .fbox .btn{
+    width: 100%;
+    padding: 0rem;
+    margin: 0rem;
+    border-radius: 0.5rem;
+    height: 3rem;
+    color: var(--sg-bglight);
+    font-size: 1.5rem;
+    cursor: pointer;
+}

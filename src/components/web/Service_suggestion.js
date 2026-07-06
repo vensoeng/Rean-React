@@ -33,7 +33,7 @@ export default function ServiceSuggestion() {
                 <ul>
                     {isLoading ? (
                         // Render 4 skeleton items to match your layout grid
-                        Array.from({ length: 4 }).map((_, idx) => (
+                        Array.from({ length: 5 }).map((_, idx) => (
                             <li class="wbsl-load-an">
                                 <div class="bla-box">
                                     <div class="mian-txt"></div>

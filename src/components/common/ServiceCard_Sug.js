@@ -18,7 +18,7 @@ export default function ServiceCard({ service, fallbackImg, apiUrl, storageUrl }
                 <div className="svl-action">
                     <div className="svla-box df-c">
                         <a href={'/services/detail/' + service.id} className="btn">ព័ត៌មានលំអិត</a>
-                        <button className="btn">ការកក់</button>
+                        <a href={'/booking/service/' + service.id} className="btn">ការកក់</a>
                     </div>
                 </div>
             </div>

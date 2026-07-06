@@ -41,12 +41,12 @@ export default function Header()
                 
                 {/* Main Button layout row */}
                 <div className="btn-main df-r">
-                    <NavLink to="/services" className="btn" onClick={handleClose}>
+                    <a href="/services" className="btn" onClick={handleClose}>
                         <p>សេវាកម្ម</p>
                         <div className="icon icon-ra icon-sm ip">
                             <Flash/>
                         </div>
-                    </NavLink>
+                    </a>
                     <button className="btn" type='button' onClick={() => setLoadAside(prev => !prev)}>
                         <div className="icon icon-ra icon-sm ip">
                            {loadAside ? <Add style={{ transform: 'rotate(45deg)' }} /> : <HamburgerMenu />}
