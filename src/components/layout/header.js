@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import '../../assets/css/header.css';
 import favIcon from '../../assets/img/logo192.png';
 import { Flash, HamburgerMenu, Add } from 'iconsax-reactjs';
-import Pageon from '../common/page';
+// import Pageon from '../common/page';
 import { useState } from 'react';
 
 import { motion, AnimatePresence } from 'framer-motion';
@@ -30,7 +30,7 @@ export default function Header()
     
     return(
         <>
-        <Pageon />
+        {/* <Pageon /> */}
         <header className="webhead">
             <div className="wh-box df-s scroll-x">
                 <NavLink to="/" className="logo icon icon-ra icon-sm" onClick={handleClose}>
