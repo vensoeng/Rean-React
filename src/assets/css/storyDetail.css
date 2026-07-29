@@ -257,6 +257,6 @@ body:has(.styde-dark){
     border-radius:10px;
     cursor:pointer;
 }
-.footer-column p{
+body .footer-column p{
     color: var(--sg-bglight) !important;
 }
