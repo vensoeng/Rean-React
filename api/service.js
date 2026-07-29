@@ -1,4 +1,3 @@
-
 import { API_URL, STORAGE } from '../src/utils/auth';
 
 export default async function handler(req, res) {
@@ -15,7 +14,20 @@ export default async function handler(req, res) {
         return res.status(404).send('Service not found');
       }
 
-      const service = await apiRes.json();
+      const json = await apiRes.json();
+      
+      const service = json.data || json; 
+
+      const titleEn = service.title || service.name || '';
+      const titleKh = service.title_kh || '';
+      const titleZh = service.title_zh || '';
+
+      const descEn = service.description || '';
+      const descKh = service.description_kh || '';
+      const descZh = service.description_zh || '';
+
+      const fullTitle = [titleEn, titleKh, titleZh].filter(Boolean).join(' | ') || 'Service Detail';
+      const fullDesc = [descEn, descKh, descZh].filter(Boolean).join(' | ') || 'Check out our service detail.';
 
       const image = service.img
         ? `${API_URL}${STORAGE}${service.img}`
@@ -28,10 +40,10 @@ export default async function handler(req, res) {
           <html>
           <head>
           <meta charset="utf-8">
-          <title>${service.title}</title>
+          <title>${fullTitle}</title>
 
-          <meta property="og:title" content="${service.title} | ${service.title_kh} | ${service.title_zh}" />
-          <meta property="og:description" content="${service.description || ''} | ${service.description_kh || ''} | ${service.description_zh || ''}" />
+          <meta property="og:title" content="${fullTitle}" />
+          <meta property="og:description" content="${fullDesc}" />
           <meta property="og:image" content="${image}" />
           <meta property="og:url" content="${shareUrl}" />
           <meta property="og:type" content="article" />
@@ -41,8 +53,8 @@ export default async function handler(req, res) {
           <meta name="creator" content="VenSoeng - Business" />
 
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="${service.title} | ${service.title_kh} | ${service.title_zh}" />
-          <meta name="twitter:description" content="${service.description || ''} | ${service.description_kh || ''} | ${service.description_zh || ''}" />
+          <meta name="twitter:title" content="${fullTitle}" />
+          <meta name="twitter:description" content="${fullDesc}" />
           <meta name="twitter:image" content="${image}" />
           </head>
           <body>
