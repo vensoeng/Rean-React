@@ -368,3 +368,9 @@
         display: flex;
     }
 } */
+
+@media screen and (max-width: 460px) {
+    .webhead .link-box ul{
+        display: none;
+    }
+}
