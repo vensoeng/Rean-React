@@ -1,216 +1,354 @@
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { API_URL, api } from '../utils/auth';
 
+import WebLoader from '../components/common/WebLoader';
 import './../assets/css/booking-form.css';
+// import flag from './../assets/img/cambodia_flag.webp';
 import { 
     ArrowLeft,
-    Category, 
     SecurityUser,
     User,
     CallCalling,
     Message,
-    Global,
     Box,
     Cd,
-    MoneyRecive,
+    Happyemoji,
     Calendar,
 } from 'iconsax-reactjs';
 
 import Footer from '../components/layout/footer';
+import NotFoundPage from './404';
 
-export default function BookingForm()
-{
+export default function BookingForm() {
+    const { id } = useParams(); 
+    const [service, setService] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [submitting, setSubmitting] = useState(false);
+    const [formData, setFormData] = useState({
+        x_user_name: '',
+        x_company_name: '',
+        x_phone: '',
+        x_email: '',
+        x_service_id: '',
+        x_type_contact: 'កក់សេរវ៉ាកម្ម',
+        x_date: '',
+        x_des: ''
+    });
+
+    useEffect(() => {
+        const fetchSingleService = async () => {
+            try {
+                setLoading(true);
+                const res = await fetch(`${API_URL}/services/${id}`);
+                
+                if (!res.ok) {
+                    setService(null);
+                    return;
+                }
+                const result = await res.json();
+                if (result && result.success && result.data) {
+                    const actualData = result.data;
+                    setService(actualData);
+                    setFormData(prev => ({ ...prev, x_service_id: actualData.id }));
+                } else {
+                    setService(null);
+                }
+            } catch (err) {
+                console.error("Error fetching service or HTML:", err);
+                setService(null);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (id) {
+            fetchSingleService();
+        }
+    }, [id]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            setSubmitting(true);
+            const payload = {
+                ...formData,
+            };
+
+            const url = `http://localhost:5000/booking`;
+
+            const res = await api.post(url, payload, {
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            if (res.status === 200 || res.status === 201) {
+                alert("ការកក់សេវ៉ាកម្មរបស់អ្នកបានជោគជ័យ! យើងនឹងធ្វើការទំនាក់ទំនងទៅកាន់អ្នកឱ្យបានឆាប់តាមដែលអាចធ្វើបាន។ អរគុណច្រើនសម្រាប់ការជ្រើសរើសសេវ៉ាកម្មរបស់យើង🙏។");
+                setFormData({
+                    x_user_name: '',
+                    x_company_name: '',
+                    x_phone: '',
+                    x_email: '',
+                    x_service_id: '',
+                    x_type_contact: 'កក់សេរវ៉ាកម្ម',
+                    x_date: '',
+                    x_des: ''
+                });
+            }
+        } catch (err) {
+            console.error("🔴 Backend Error Response:", err.response?.data);
+            if (err.response?.data?.errors) {
+                const errors = err.response.data.errors;
+                const firstKey = Object.keys(errors)[0];
+                alert(`ទិន្នន័យមិនត្រឹមត្រូវ [${firstKey}]: ${errors[firstKey]}`);
+            } else {
+                const errorMsg = err.response?.data?.message || "មិនអាចរក្សាទុកបានទេ";
+                alert("មានបញ្ហា៖ " + errorMsg);
+            }
+        } finally {
+            setSubmitting(false);
+        }
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
     const handleBack = () => {
         window.history.back();
-    }
-    return (
-    <div className="bok-form">
-        <div className="wbkm-box">
-            {/* <!-- this is nav  --> */}
+    };
+
+    if (loading) {
+        return (
             <nav className="db-c wkf-n">
                 <div className="box df-s">
                     <div className="row df-l">
                         <div className="icon icon-ra icon-sm" onClick={handleBack}>
                             <ArrowLeft />
                         </div>
+                    </div>
+                    <div className="row">
                         <h1>កក់សេវ៉ាកម្ម</h1>
                     </div>
                     <div className="row">
-                        <div className="icon icon-ra icon-sm">
-                            <Category />
-                        </div>
+                        <a href="http://facebook.com/vensoeng" className="icon icon-ra icon-sm">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.5997 2.37562 15.1116 3.04346 16.4525C3.22094 16.8088 3.28001 17.2161 3.17712 17.6006L2.58151 19.8267C2.32295 20.793 3.20701 21.677 4.17335 21.4185L6.39939 20.8229C6.78393 20.72 7.19121 20.7791 7.54753 20.9565C8.88837 21.6244 10.4003 22 12 22Z" fill="#1C274C"></path>
+                                    <path d="M15 12C15 12.5523 15.4477 13 16 13C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11C15.4477 11 15 11.4477 15 12Z" fill="white"></path>
+                                    <path d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z" fill="white"></path>
+                                    <path d="M7 12C7 12.5523 7.44772 13 8 13C8.55228 13 9 12.5523 9 12C9 11.4477 8.55228 11 8 11C7.44772 11 7 11.4477 7 12Z" fill="white"></path>
+                                </g>
+                            </svg>
+                        </a>
                     </div>
                 </div>
+                <WebLoader />
             </nav>
-            {/* <!-- this is cont --> */}
-            <div className="wbkm-c">
-                <div className="box">
-                    {/* this is userinformation */}
-                    <div className="head df-l">
-                        <div className="icon icon-sm icon-ra">
-                            <SecurityUser />
-                        </div>
-                        <h2>ព័ត៌មានទំនាក់ទំនង</h2>
-                    </div>
-                    <div className="infor">
-                        <ul className="if-box">
-                            <li>
-                                <div className="li-box">
-                                    <label for="#">ឈ្មោះរបស់អ្នក</label>
-                                    <div className="db-c">
-                                        <User />
-                                        <input type="text" placeholder="Ex: Vensoeng" />
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="li-box">
-                                    <label for="#">លេខទូរស័ព្ទ</label>
-                                    <div className="db-c">
-                                        <CallCalling />
-                                        <input type="text" placeholder="+855 000-000-000" />
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="li-box">
-                                    <label for="#">គណនីអ៊ីម៉ែល</label>
-                                    <div className="db-c">
-                                        <Message />
-                                        <input type="text" placeholder="example@gmail.com" />
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    {/* this is other contact */}
-                    <div className="head df-l">
-                        <div className="icon icon-sm icon-ra">
-                            <Global />
-                        </div>
-                        <h2>ជ្រើសរើសមធ្យោបាយផ្សេងដើម្បីទំនាក់ទំនង</h2>
-                    </div>
-                    <div className="other-ct">
-                        <ul className="df-s">
-                            <li>
-                                <div className="ocl-box btn">
-                                    <div className="db-c">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-telegram" viewBox="0 0 16 16">
-                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09"/>
-                                        </svg>
-                                        <p>Telegram</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="ocl-box btn">
-                                    <div className="db-c">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-messenger" viewBox="0 0 16 16">
-                                            <path d="M0 7.76C0 3.301 3.493 0 8 0s8 3.301 8 7.76-3.493 7.76-8 7.76c-.81 0-1.586-.107-2.316-.307a.64.64 0 0 0-.427.03l-1.588.702a.64.64 0 0 1-.898-.566l-.044-1.423a.64.64 0 0 0-.215-.456C.956 12.108 0 10.092 0 7.76m5.546-1.459-2.35 3.728c-.225.358.214.761.551.506l2.525-1.916a.48.48 0 0 1 .578-.002l1.869 1.402a1.2 1.2 0 0 0 1.735-.32l2.35-3.728c.226-.358-.214-.761-.551-.506L9.728 7.381a.48.48 0 0 1-.578.002L7.281 5.98a1.2 1.2 0 0 0-1.735.32z"/>
-                                        </svg>
-                                        <p>Facebook</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="ocl-box btn">
-                                    <div className="db-c">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-telephone-outbound" viewBox="0 0 16 16">
-                                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5"/>
-                                        </svg>
-                                        <p>Call me</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="ocl-box btn">
-                                    <div className="db-c">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-envelope" viewBox="0 0 16 16">
-                                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
-                                        </svg>
-                                        <p>Email</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    {/* <!-- this is infor service --> */}
-                    <div className="head df-l">
-                        <div className="icon icon-sm icon-ra">
-                            <Box />
-                        </div>
-                        <h2>ព័ត៌មានសេវ៉ាកម្ម</h2>
-                    </div>
-                    <div className="ifs">
-                        <ul className="ifs-box">
-                            <li>
-                                <div className="li-box">
-                                    <label for="#">ឈ្មោះសេវ៉ាកម្ម</label>
-                                    <div className="db-c">
-                                        <Box />
-                                        <select>
-                                            <option value="#">ការរចនារូបភាព</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="li-box">
-                                    <label for="#">ប្រភេទទាក់ទង</label>
-                                    <div className="db-c">
-                                       <Cd/>
-                                        <select>
-                                            <option value="1">កក់សេរវ៉ាកម្ម</option>
-                                            <option value="0">ពិភាក្សាសេវ៉ាកម្ម</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="li-box">
-                                    <label for="#">តម្លៃសេវ៉ាកម្ម</label>
-                                    <div className="db-c">
-                                       <MoneyRecive />
-                                        <input type="text" placeholder="......." />
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="li-box">
-                                    <label for="#">ថ្ងៃខែកក់</label>
-                                    <div className="db-c">
-                                        <Calendar />
-                                        <input type="date" placeholder="......." />
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="li-box">
-                                    <label for="#">ពិពណ៌នាបន្លែម</label>
-                                    <div className="db-c">
-                                        <textarea name="#" id="#" placeholder=""></textarea>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    {/* <!-- this is check privercy and term --> */}
-                    <div className="txt-prit">
-                        <div className="tpi df-l">
-                            <input type="checkbox" />
-                            <div className="txt">
-                                <p>ខ្ញុំយល់ព្រមតាមលក្ខណប្រើប្រាស និងគោលការណ៍ឯកជនភាព។</p>
+        );
+    }
+
+    if (!service || service.status === false || service.status === 'false' || Number(service.status) === 0) {
+        return <NotFoundPage />;
+    }
+
+    return (
+        <div className="bok-form">
+            <div className="wbkm-box">
+                {/* Header Nav */}
+                <nav className="db-c wkf-n">
+                    <div className="box df-s">
+                        <div className="row df-l">
+                            <div className="icon icon-ra icon-sm" onClick={handleBack}>
+                                <ArrowLeft />
                             </div>
                         </div>
+                        <div className="row">
+                            <h1>កក់សេវ៉ាកម្ម</h1>
+                        </div>
+                        <div className="row">
+                            <a href="http://facebook.com/vensoeng" className="icon icon-ra icon-sm">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.5997 2.37562 15.1116 3.04346 16.4525C3.22094 16.8088 3.28001 17.2161 3.17712 17.6006L2.58151 19.8267C2.32295 20.793 3.20701 21.677 4.17335 21.4185L6.39939 20.8229C6.78393 20.72 7.19121 20.7791 7.54753 20.9565C8.88837 21.6244 10.4003 22 12 22Z" fill="#1C274C"></path>
+                                        <path d="M15 12C15 12.5523 15.4477 13 16 13C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11C15.4477 11 15 11.4477 15 12Z" fill="white"></path>
+                                        <path d="M11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12Z" fill="white"></path>
+                                        <path d="M7 12C7 12.5523 7.44772 13 8 13C8.55228 13 9 12.5523 9 12C9 11.4477 8.55228 11 8 11C7.44772 11 7 11.4477 7 12Z" fill="white"></path>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div className="foot">
-                    <div className="fbox">
-                        <button className="btn" type="submit">បញ្ចូនការកក់</button>
+                </nav>
+
+                {submitting && (
+                    <WebLoader>កំពុងរក្សាទុកទិន្នន័យ សូមរង់ចាំបន្តិច...</WebLoader>
+                )}
+
+                {/* Form Content */}
+                <form onSubmit={handleSubmit} className="wbkm-c">
+                    <div className="box">
+                        {/* User Information */}
+                        <div className="head df-l">
+                            <div className="icon icon-sm icon-ra">
+                                <SecurityUser />
+                            </div>
+                            <h2>ព័ត៌មានទំនាក់ទំនង</h2>
+                        </div>
+                        <div className="infor">
+                            <ul className="if-box">
+                                <li>
+                                    <div className="li-box">
+                                        <label htmlFor="x_user_name">*ឈ្មោះរបស់អ្នក</label>
+                                        <div className="db-c">
+                                            <User />
+                                            <input 
+                                                type="text" 
+                                                id="x_user_name"
+                                                name="x_user_name" 
+                                                value={formData.x_user_name}
+                                                onChange={handleChange} 
+                                                placeholder="Ex: Vensoeng" 
+                                                required 
+                                            />
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className="li-box">
+                                        <label htmlFor="x_phone">*លេខទូរស័ព្ទ</label>
+                                        <div className="db-c">
+                                            <CallCalling />
+                                            <input 
+                                                type="text" 
+                                                id="x_phone"
+                                                name="x_phone" 
+                                                value={formData.x_phone}
+                                                onChange={handleChange} 
+                                                placeholder="000-000-000" 
+                                                required 
+                                            />
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className="li-box">
+                                        <label htmlFor="x_email">*គណនីអ៊ីម៉ែល</label>
+                                        <div className="db-c">
+                                            <Message />
+                                            <input 
+                                                type="email" 
+                                                id="x_email"
+                                                name="x_email" 
+                                                value={formData.x_email}
+                                                onChange={handleChange} 
+                                                placeholder="example@gmail.com" 
+                                                required 
+                                            />
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        {/* Service Information */}
+                        <div className="head df-l">
+                            <div className="icon icon-sm icon-ra">
+                                <Box />
+                            </div>
+                            <h2>ព័ត៌មានសេវ៉ាកម្ម</h2>
+                        </div>
+                        <div className="ifs">
+                            <ul className="ifs-box">
+                                <li>
+                                    <div className="li-box">
+                                        <label htmlFor="x_service_id">ឈ្មោះសេវ៉ាកម្ម</label>
+                                        <div className="db-c">
+                                            <Box />
+                                            <select disabled name="x_service_id" value={service?.id || ''}>
+                                                <option value={service?.id}>{service?.title_kh}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className="li-box">
+                                        <label htmlFor="x_type_contact">*ប្រភេទទាក់ទង</label>
+                                        <div className="db-c">
+                                            <Cd/>
+                                            <select 
+                                                name="x_type_contact" 
+                                                value={formData.x_type_contact} 
+                                                onChange={handleChange}
+                                            >
+                                                <option value="កក់សេរវ៉ាកម្ម">កក់សេរវ៉ាកម្ម</option>
+                                                <option value="ពិភាក្សាសេវ៉ាកម្ម">ពិភាក្សាសេវ៉ាកម្ម</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className="li-box">
+                                        <label htmlFor="x_company_name">ឈ្មោះក្រុមហ៊ុនរបស់អ្នក</label>
+                                        <div className="db-c">
+                                            <Happyemoji />
+                                            <input 
+                                                type="text" 
+                                                id="x_company_name"
+                                                name="x_company_name" 
+                                                value={formData.x_company_name}
+                                                onChange={handleChange} 
+                                                placeholder="Ex: XYZ" 
+                                            />
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className="li-box">
+                                        <label htmlFor="x_date">ជ្រើសរើសកាលបរិច្ឆេទចង់ណាត់ជួប</label>
+                                        <div className="db-c">
+                                            <Calendar />
+                                            <input 
+                                                type="date" 
+                                                id="x_date"
+                                                name="x_date" 
+                                                value={formData.x_date}
+                                                onChange={handleChange} 
+                                            />
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className="li-box">
+                                        <label htmlFor="x_des">ពិពណ៌នាបន្ថែម</label>
+                                        <div className="db-c">
+                                            <textarea 
+                                                id="x_des"
+                                                name="x_des" 
+                                                value={formData.x_des}
+                                                onChange={handleChange} 
+                                            ></textarea>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                    {/* footer  */}
+                    <div className="foot">
+                        <div className="fbox">
+                            <button className="btn" type="submit" disabled={submitting}>
+                                {submitting ? "កំពុងបញ្ជូន..." : "បញ្ចូនការកក់"}
+                            </button>
+                        </div>
+                    </div> 
+                </form>
             </div>
+            
+            <Footer />
         </div>
-        {/* this is footer */}
-        <Footer />
-    </div>
     );
 }

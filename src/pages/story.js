@@ -55,7 +55,7 @@ export default function StoryPage({active = true})
                                                             មិនមានទិន្នន័យអត្ថបទឡើយ។
                                                         </li>
                                                     ) : (
-                                                        [...blogs].reverse().map((blog, index) => (
+                                                        blogs.map((blog, index) => (
                                                             <StoryCard
                                                                 key={index}
                                                                 blog={blog}

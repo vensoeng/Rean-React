@@ -23,8 +23,24 @@
 .wkf-n .box .row .icon{
     cursor: pointer;
 }
+.wkf-n .box .row:last-child .icon{
+    width: 2.8rem;
+    height: 2.8rem;
+    min-width: 2.8rem;
+}
+.wkf-n .box .row:last-child .icon svg{
+    width: 2rem;
+}
+.wkf-n .box .row:last-child .icon path{
+    stroke: var(--sg-bglight);
+    fill: var(--sg-color-brand);
+}
 .wkf-n .box h1{
     font-size: 1.2rem;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    overflow: hidden;
 }
 .wkf-n .box .row button{
     cursor: pointer;
@@ -59,7 +75,7 @@
     width: 1.6rem;
 }
 .bok-form .head .icon path{
-    stroke: var(--sg-color-brand);
+    /* stroke: var(--sg-color-brand); */
 }
 .bok-form .infor ul{
     display: grid;
@@ -209,4 +225,5 @@
     color: var(--sg-bglight);
     font-size: 1.5rem;
     cursor: pointer;
+    background: var(--colorText-00);
 }
