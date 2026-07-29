@@ -18,6 +18,9 @@ import {
 
 
 import '../assets/css/storyDetail.css';
+
+import Footer from '../components/layout/footer';
+
 export default function StoryDetail() {
     
     const navigate = useNavigate();
@@ -261,6 +264,8 @@ export default function StoryDetail() {
                     </div>
                 )
             }
+
+            <Footer />
         </div>
     );    
 }
