@@ -137,7 +137,7 @@ export default function Services() {
                         <div className="smh-row">
                             <h2>ហាងតូចរបស់ Admin</h2>
                             <blockquote>
-                                <p>Professional solutions for your digital needs. រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត。</p>
+                                <p>Professional solutions for your digital needs. រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត។</p>
                             </blockquote>
                         </div>
                     </div>
@@ -251,7 +251,7 @@ export default function Services() {
                                                     <div className='slf-row'>
                                                         <blockquote>
                                                             <p>តម្លៃចាប់ផ្ដើម</p>
-                                                            <h2>{s.price_start}</h2>
+                                                            <h2>${s.price_start}</h2>
                                                         </blockquote>
                                                     </div>
                                                     <div className='slf-row'>

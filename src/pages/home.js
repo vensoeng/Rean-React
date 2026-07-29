@@ -15,12 +15,15 @@ import StarryBackground from '../components/common/StarryBackground';
 // import StudyList from '../components/common/ListStudy';
 // import Screenslider from '../components/common/Screenslider';
 
-import { Book1, ArrowRight} from 'iconsax-reactjs';
+import { Send2, ArrowRight} from 'iconsax-reactjs';
 //webpage add on
 // import AboutPage from './about';
 import Questions from './question';
 import ServiceSuggestion from '../components/web/Service_suggestion';
 // import StoryPage from './story';
+
+// background header section 
+import BackgroundHeadSection from '../components/common/BackgroundHeadSection';
 
 const fetchBlogsFromServer = async () => {
     const res = await fetch(`${API_URL}/blogs?limit=4`);
@@ -54,14 +57,15 @@ export default function HomePage() {
                             <div className='list-btn'>
                                 <div className='df-c'>
                                     <NavLink to='/services' className='btn'>ស្វែងរកសេវ៉ាកម្ម</NavLink>
-                                    <NavLink to='/storys' className='btn'>
-                                        <Book1 />
-                                        អានអត្ថបទ
-                                    </NavLink>
+                                    <a href="https://t.me/vensoeng" className='btn'>
+                                        <Send2 />
+                                        ទំនាក់ទំនង
+                                    </a>
                                 </div>
                                 <p>Waiting for work!</p>
                             </div>
                         </blockquote>
+                        <BackgroundHeadSection />
                     </section>
                     {/* this is service suggestion */}
                     <ServiceSuggestion />

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { API_URL, STORAGE } from '../utils/auth';
+import QRCode from "react-qr-code";
 
 import WebLoader from '../components/common/WebLoader';
 import
@@ -12,9 +13,19 @@ import
     Location,
     DollarCircle,
     BrifecaseTick,
-    Note1
-
+    Note1,
+    Link21
 } from 'iconsax-reactjs';
+
+import {
+    FaFacebookF,
+    FaTelegramPlane,
+    FaLinkedinIn,
+    FaWhatsapp,
+    FaTimes
+} from "react-icons/fa";
+
+
 import NotFoundPage from './404';
 
 import '../assets/css/serviceDetail.css';
@@ -133,7 +144,6 @@ export default function ServicesDetail() {
                 setLoading(false);
             }
         };
-
         // const fetchDesigns = async (currentService) => {
         //     if (!currentService || !currentService.list_id) return;
 
@@ -183,6 +193,32 @@ export default function ServicesDetail() {
         
     }, [id]);
 
+    const [showShare, setShowShare] = useState(false);
+    const shareUrl = `https://vensoeng.vercel.app/share/service/${id}`;
+    const copyLink = async () => {
+        try {
+            await navigator.clipboard.writeText(shareUrl);
+            alert('Link copied successfully');
+        } catch (err) {
+            console.error(err);
+        }
+    };
+    const handleShare = async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: service.title,
+                    text: service.description,
+                    url: shareUrl,
+                });
+            } catch (err) {
+                console.log(err);
+            }
+        } else {
+            setShowShare(true);
+        }
+    };
+
     if (loading) {
         return (
             <section id="wsd">
@@ -196,7 +232,13 @@ export default function ServicesDetail() {
                         <div className="wsdn-row">
                             <h2>ព័ត៌មានសេវាកម្ម</h2>
                         </div>
-                        <div className="wsdn-row">
+                        <div className="wsdn-row df-r">
+                            <button 
+                                className='icon icon-sm icon-ra'
+                                onClick={handleShare}
+                            >
+                                <Link21 />
+                            </button>
                             <div className="icon icon-sm icon-ra">
                                 <BrushSquare />
                             </div>
@@ -229,6 +271,12 @@ export default function ServicesDetail() {
                         <a className="icon icon-sm icon-ra" href={'/booking/service/' + service.id}>
                             <BrushSquare />
                         </a>
+                        <button 
+                            className='icon icon-sm icon-ra'
+                            onClick={handleShare}
+                        >
+                            <Link21 />
+                        </button>
                     </div>
                 </div>
             </nav>
@@ -401,6 +449,73 @@ export default function ServicesDetail() {
                     </div>
                 </div>
             </div>
+            
+            {/* share modal */}
+            {
+            showShare && (
+                <div className="share-overlay">
+                    <div className="share-modal">
+                        <button
+                            className="share-close btn icon-ra icon-sm"
+                            onClick={() => setShowShare(false)}
+                        >
+                            <FaTimes />
+                        </button>
+                        <h3>ចែករំលែក</h3>
+                        <div className="share-qr">
+                            <QRCode
+                                value={shareUrl}
+                                size={160}
+                            />
+                        </div>
+                        <div className="share-socials">
+                            <a
+                                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <FaFacebookF />
+                                <span>Facebook</span>
+                            </a>
+                            <a
+                                href={`https://t.me/share/url?url=${encodeURIComponent(shareUrl)}`}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <FaTelegramPlane />
+                                <span>Telegram</span>
+                            </a>
+                            <a
+                                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <FaLinkedinIn />
+                                <span>LinkedIn</span>
+                            </a>
+                            <a
+                                href={`https://wa.me/?text=${encodeURIComponent(shareUrl)}`}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <FaWhatsapp />
+                                <span>WhatsApp</span>
+                            </a>
+                        </div>
+                        <div className="share-copy">
+                            <input
+                                value={shareUrl}
+                                readOnly
+                            />
+                            <button onClick={copyLink}>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )
+                        }
+
             <Footer />
         </section>
     );    
