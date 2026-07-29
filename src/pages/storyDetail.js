@@ -18,7 +18,6 @@ import {
 
 
 import '../assets/css/storyDetail.css';
-
 import Footer from '../components/layout/footer';
 
 export default function StoryDetail() {
