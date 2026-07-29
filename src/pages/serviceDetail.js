@@ -6,7 +6,7 @@ import WebLoader from '../components/common/WebLoader';
 import
 { 
     ArrowLeft,
-    Category,
+    BrushSquare,
     ArrowRight,
     TimerStart,
     Location,
@@ -19,7 +19,7 @@ import NotFoundPage from './404';
 
 import '../assets/css/serviceDetail.css';
 import Defualt_img from '../assets/img/defualt_img.webp';
-
+import Footer from '../components/layout/footer';
 
 function ServiceDetailSkeleton() {
     return (
@@ -61,9 +61,39 @@ export default function ServicesDetail() {
     const [htmlContent, setHtmlContent] = useState('');
     const [loading, setLoading] = useState(true);
 
-    const [designs, setDesigns] = useState([]);
+    // const [designs, setDesigns] = useState([]);
+
+    const [ServiceSuggestions, setServiceSuggestions] = useState([]);
 
     useEffect(() => {
+        
+        const fetchServiceSuggestions = async (currentService) => {
+            if (!currentService || !currentService.list_id) {
+                setServiceSuggestions([]);
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_URL}/services?list_id=${currentService.list_id}&status=true`);
+                if (!res.ok) {
+                    setServiceSuggestions([]);
+                    return;
+                }
+
+                const result = await res.json();
+
+                // Ensure result.data is an array before calling .filter()
+                if (result && result.success && Array.isArray(result.data)) {
+                    const actualSuggestions = result.data.filter(s => s.id !== currentService.id);
+                    setServiceSuggestions(actualSuggestions);
+                } else {
+                    setServiceSuggestions([]);
+                }
+            } catch (err) {
+                console.error("Error fetching service suggestions:", err);
+                setServiceSuggestions([]);
+            }
+        };
 
         const fetchSingleService = async () => {
             try {
@@ -91,8 +121,8 @@ export default function ServicesDetail() {
                         }
                     }
                     
-                    await fetchDesigns(actualData);
-
+                    // await fetchDesigns(actualData);
+                   await fetchServiceSuggestions(actualData);
                 } else {
                     setService(null);
                 }
@@ -104,48 +134,48 @@ export default function ServicesDetail() {
             }
         };
 
-        const fetchDesigns = async (currentService) => {
-            if (!currentService || !currentService.list_id) return;
+        // const fetchDesigns = async (currentService) => {
+        //     if (!currentService || !currentService.list_id) return;
 
-            const serviceIdMap = [
-                { name: 'photo', list_id: 1, ds_carId: [4, 5] },
-                { name: 'video', list_id: 2, ds_carId: [1] },
-                { name: 'designs', list_id: 3, ds_carId: [1, 2, 3, 4, 5] },
-                { name: 'website', list_id: 4, ds_carId: [6] }
-            ];
+        //     const serviceIdMap = [
+        //         { name: 'photo', list_id: 1, ds_carId: [4, 5] },
+        //         { name: 'video', list_id: 2, ds_carId: [1] },
+        //         { name: 'designs', list_id: 3, ds_carId: [1, 2, 3, 4, 5] },
+        //         { name: 'website', list_id: 4, ds_carId: [6] }
+        //     ];
 
-            const matchedConfig = serviceIdMap.find(
-                item => String(item.list_id) === String(currentService.list_id)
-            );
+        //     const matchedConfig = serviceIdMap.find(
+        //         item => String(item.list_id) === String(currentService.list_id)
+        //     );
 
-            if (!matchedConfig || !matchedConfig.ds_carId || matchedConfig.ds_carId.length === 0) {
-                setDesigns([]);
-                return;
-            }
+        //     if (!matchedConfig || !matchedConfig.ds_carId || matchedConfig.ds_carId.length === 0) {
+        //         setDesigns([]);
+        //         return;
+        //     }
 
-            try {
-                const catIdsString = matchedConfig.ds_carId.join(',');
-                const response = await fetch(
-                    `${API_URL}/designs?cat_id=${catIdsString}&limit=4&random=true`
-                );
+        //     try {
+        //         const catIdsString = matchedConfig.ds_carId.join(',');
+        //         const response = await fetch(
+        //             `${API_URL}/designs?cat_id=${catIdsString}&limit=4&random=true`
+        //         );
                 
-                if (!response.ok) {
-                    setDesigns([]);
-                    return;
-                }
+        //         if (!response.ok) {
+        //             setDesigns([]);
+        //             return;
+        //         }
 
-                const result = await response.json();
+        //         const result = await response.json();
                 
-                if (result && result.success && result.data) {
-                    setDesigns(result.data);
-                } else {
-                    setDesigns([]);
-                }
-            } catch (err) {
-                console.error("Error fetching designs:", err);
-                setDesigns([]);
-            }
-        };
+        //         if (result && result.success && result.data) {
+        //             setDesigns(result.data);
+        //         } else {
+        //             setDesigns([]);
+        //         }
+        //     } catch (err) {
+        //         console.error("Error fetching designs:", err);
+        //         setDesigns([]);
+        //     }
+        // };
 
         if (id) {
             fetchSingleService();
@@ -162,11 +192,13 @@ export default function ServicesDetail() {
                             <div className="icon icon-sm icon-ra" onClick={() => navigate(-1)} style={{ cursor: 'pointer' }}>
                                 <ArrowLeft />
                             </div>
+                        </div>
+                        <div className="wsdn-row">
                             <h2>ព័ត៌មានសេវាកម្ម</h2>
                         </div>
                         <div className="wsdn-row">
                             <div className="icon icon-sm icon-ra">
-                                <Category />
+                                <BrushSquare />
                             </div>
                         </div>
                     </div>
@@ -187,14 +219,16 @@ export default function ServicesDetail() {
                 <div className="wsdn-box df-s">
                     <div className="wsdn-row df-l">
                         <div className="icon icon-sm icon-ra" onClick={() => navigate(-1)} style={{ cursor: 'pointer' }}>
-                          <ArrowLeft />
+                            <ArrowLeft />
                         </div>
-                        <h2>ព័ត៌មានសេវាកម្ម</h2>
                     </div>
                     <div className="wsdn-row">
-                        <div className="icon icon-sm icon-ra">
-                          <Category />
-                        </div>
+                        <h2>ព័ត៌មានសេវាកម្ម</h2>
+                    </div>
+                    <div className="wsdn-row df-r">
+                        <a className="icon icon-sm icon-ra" href={'/booking/service/' + service.id}>
+                            <BrushSquare />
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -217,20 +251,20 @@ export default function ServicesDetail() {
                                     />
                                 </div>
                                 
-                                {designs && (
+                                {ServiceSuggestions && (
                                     <div className="img-slide scroll-x">
                                         <ul className="df-l">
-                                            {designs.map((d, i) => (
-                                                <li key={i}>
+                                            {ServiceSuggestions.map((e, i) => (
+                                                <li key={i} onClick={() => navigate(`/services/detail/${e.id}`)}>
                                                     <div className="box">
                                                         <div className="btn">
                                                             <ArrowRight />
                                                         </div>
                                                         <div className="img">
-                                                            <img className="img-c" src={`${API_URL}${STORAGE}${d.img}`} alt={`Slide ${i + 1}`} />
+                                                            <img className="img-c" src={`${API_URL}${STORAGE}${e.img}`} alt={`Slide ${i + 1}`} />
                                                         </div>
                                                         <blockquote>
-                                                            <p>{d.title}</p>
+                                                            <p>{e.title_kh || e.title}</p>
                                                         </blockquote>
                                                     </div>
                                                 </li>
@@ -239,11 +273,11 @@ export default function ServicesDetail() {
                                     </div>
                                 )}
 
-                                <div className="action df-s">
+                                {/* <div className="action df-s">
                                     <h2>អ្វីដែលខ្ញុំធ្លាប់ធ្វើពីមុន</h2>
                                     <span></span>
                                     <button className="btn">មើលបន្ថែម</button>
-                                </div>
+                                </div> */}
                             </div>
 
                             {/* radner HTML content */}
@@ -367,6 +401,7 @@ export default function ServicesDetail() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </section>
     );    
 }

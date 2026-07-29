@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/share/service/:id",
+      "destination": "/api/service?id=:id"
+    },
+    {
       "source": "/share/story/:id",
       "destination": "/api/story?id=:id"
     },

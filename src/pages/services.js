@@ -251,7 +251,7 @@ export default function Services() {
                                                     <div className='slf-row'>
                                                         <blockquote>
                                                             <p>តម្លៃចាប់ផ្ដើម</p>
-                                                            <h2>{s.price}</h2>
+                                                            <h2>{s.price_start}</h2>
                                                         </blockquote>
                                                     </div>
                                                     <div className='slf-row'>

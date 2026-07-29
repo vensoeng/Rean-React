@@ -114,6 +114,7 @@ body:has(#wsd) header {
 #wsd .wsdcr-box .img-slide li{
     display: block;
     cursor: pointer;
+    position: relative;
 }
 #wsd .wsdcr-box .img-slide li .box{
     display: flex;
@@ -151,7 +152,20 @@ body:has(#wsd) header {
    stroke: var(--sg-bglight);
 }
 #wsd .wsdcr-box .img-slide li .img{
-    border-radius: 0.8rem;
+    border-radius: 0.2rem;
+}
+#wsd .wsdcr-box .img-slide li .img::before{
+    position: absolute;
+    content: '';
+    top: 0rem;
+    left: 0rem;
+    width: 100%;
+    height: 100%;
+    /* background-color: black; */
+    opacity: 0.85;
+    z-index: 0;
+    background: linear-gradient(
+359deg, black 30%, transparent);
 }
 #wsd .wsdcr-box .img-slide li .img img {
     width: 100%;
@@ -174,6 +188,7 @@ body:has(#wsd) header {
     overflow: hidden;
     position: relative;
     color: var(--sg-bglight);
+    z-index: 2;
 }
 #wsd .wsdcr-box .cr-h .action span{
     display: block;
@@ -384,6 +399,9 @@ body:has(#wsd) header {
         padding: 1rem 0.8rem;
         border-radius: 0.8rem 0.8rem 0 0;
         z-index: 9999;
+    }
+    .footer-container{
+        display: none !important;
     }
 }
 @media screen and (max-width: 430px){
