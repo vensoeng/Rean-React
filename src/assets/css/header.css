@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 .pageon .box{
     position: fixed;
     top: 10%;
@@ -384,5 +385,26 @@
     }
     .wh-box .logo img{
         object-fit: contain;
+    }
+    .webhead .link-box{
+        display: none;
+    }
+    .webhead .logo{
+        width: 45px;
+        min-width: 45px;
+        height: 45px;
+    }
+    .webhead .logo-text{
+        flex: 1;
+        text-align: center;
+        display: block;
+        width: calc(100% - 100px);
+    }
+    .webhead .logo-text h1{
+        font-size: 1.22rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        /* color: var(--sg-color-brand); */
+        font-family: "Bruno Ace SC", sans-serif;;
     }
 }

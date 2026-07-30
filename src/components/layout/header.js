@@ -40,6 +40,10 @@ export default function Header()
                 {/* Desktop Menu: No action required on click */}
                 <ListRoute />
                 
+                {/* This is for text logo  */}
+                <div className="logo-text dn">
+                    <h1>VenSoeng</h1>
+                </div>
                 {/* Main Button layout row */}
                 <div className="btn-main df-r">
                     <a href="/services" className="btn" onClick={handleClose}>
