@@ -1,3 +1,7 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /admin
+Allow: /
+
+# បញ្ជាក់ទីតាំង Sitemap សម្រាប់ Google
+Sitemap: https://vensoeng.vercel.app/sitemap.xml
