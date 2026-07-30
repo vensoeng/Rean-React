@@ -110,7 +110,14 @@ function RoutePage() {
 
 function App() {
   return (
-    <HelmetProvider>
+    // <HelmetProvider>
+    //   <QueryClientProvider client={queryClient}>
+    //     <Router>
+    //       <RoutePage />
+    //     </Router>
+    //   </QueryClientProvider>
+    // </HelmetProvider>
+    <HelmetProvider prioritizeSeoTags>
       <QueryClientProvider client={queryClient}>
         <Router>
           <RoutePage />
