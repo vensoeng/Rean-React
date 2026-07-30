@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { API_URL } from '../utils/auth';
@@ -116,6 +117,15 @@ export default function Services() {
     
     return (
         <div className="main-service mser">
+            {/* update priview card share  */}
+            <Helmet>
+                <title>VenSoeng - Business Services</title>
+                <meta name="description" content="Professional solutions for your digital needs. រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត។" />
+                <meta property="og:title" content="VenSoeng - Business Services" />
+                <meta property="og:description" content="Professional solutions for your digital needs. រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត។" />
+                <meta property="og:url" content="https://vensoeng.vercel.app/services" />
+            </Helmet>
+            {/* all element */}
             <div className="mser-box">
                 {/* Header */}
                 <div className="msh">

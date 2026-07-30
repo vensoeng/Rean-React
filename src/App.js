@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Outlet} from 'react-router-dom';
 //inport from @tanstack/react-query installed 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
+//for helmet async
+import { HelmetProvider } from 'react-helmet-async';
 // webpage layout 
 import Header from "./components/layout/header";
 import Footer from './components/layout/footer';
@@ -109,11 +110,13 @@ function RoutePage() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Router>
-        <RoutePage />
-      </Router>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <RoutePage />
+        </Router>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 }
 
