@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { API_URL, STORAGE } from '../utils/auth';
 import QRCode from "react-qr-code";
 
@@ -257,6 +258,13 @@ export default function ServicesDetail() {
 
     return (
         <section id="wsd">
+            {/* update priview card share  */}
+            <Helmet>
+                <title>{`VenSoeng - Business ${service?.title || ''}`}</title>
+                <meta name="description" content={`${service?.description || ''}`} />
+                <meta property="og:title" content={`VenSoeng - Business ${service?.title || ''}`} />
+                <meta property="og:description" content={`${service?.description || ''}`} />
+            </Helmet>
             <nav className="wsdn">
                 <div className="wsdn-box df-s">
                     <div className="wsdn-row df-l">

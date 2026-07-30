@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { API_URL } from '../utils/auth';
+import { Helmet } from 'react-helmet-async';
 
 import WebLoader from '../components/common/WebLoader';
 import DesignsCard from '../components/common/DesignsCard_sm'; 
@@ -32,6 +33,14 @@ function DesignsPage() {
 
     return (
         <section className="wd-section web-designs wds">
+            {/* update priview card share  */}
+            <Helmet>
+                <title>VenSoeng - Business Designs</title>
+                <meta name="description" content="Creative poster design for events and social media. Professional banners for printing and digital use." />
+                <meta property="og:title" content="VenSoeng - Business Designs" />
+                <meta property="og:description" content="Creative poster design for events and social media. Professional banners for printing and digital use." />
+                <meta property="og:url" content="https://vensoeng.vercel.app/services" />
+            </Helmet>
             <div className="wds-box">
                 <div className="wdsb-row wdsbrc">
                     <div className="dsbr-box">

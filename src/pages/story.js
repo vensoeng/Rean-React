@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { NavLink } from 'react-router-dom';
 import { API_URL } from '../utils/auth';
+import { Helmet } from 'react-helmet-async';
 
 import WebLoader from '../components/common/WebLoader';
 
@@ -27,6 +28,14 @@ export default function StoryPage({active = true})
 
     return (
         <main  className={active ? "web-main web-main-active" : "web-main"}>
+            {/* update priview card share  */}
+            <Helmet>
+                <title>VenSoeng - Business Blog</title>
+                <meta name="description" content="ស្វែងរក និងអានព្រឹត្តិការណ៍ផ្សេងៗដែលមានការបង្កើតជាប្រចាំ!" />
+                <meta property="og:title" content="VenSoeng - Business Blog" />
+                <meta property="og:description" content="ស្វែងរក និងអានព្រឹត្តិការណ៍ផ្សេងៗដែលមានការបង្កើតជាប្រចាំ!" />
+                <meta property="og:url" content="https://vensoeng.vercel.app/storys" />
+            </Helmet>
             <div className="main-body">
                 <div className="mb-box">
                     <section className="me-story">

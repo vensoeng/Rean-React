@@ -1,3 +1,5 @@
+import { Helmet } from 'react-helmet-async';
+
 import './../assets/css/about.css';
 import aboutImg from './../assets/img/vensoeng.png';
 import nmuLogo from './../assets/img/nmu_logo.jpg';
@@ -10,6 +12,14 @@ export default function AboutPage({active = true})
 {
  return (
    <main className={active ? "web-main about-main-active" : "web-main"}>
+      {/* update priview card share  */}
+      <Helmet>
+          <title>VenSoeng - About Business</title>
+          <meta name="description" content="Creative and effective solutions for websites and mobile." />
+          <meta property="og:title" content="VenSoeng - About Business" />
+          <meta property="og:description" content="Creative and effective solutions for websites and mobile." />
+          <meta property="og:url" content="https://vensoeng.vercel.app/storys" />
+      </Helmet>
       <div className="main-body">
          <div className="mb-box">
             {/* -----about-----  */}

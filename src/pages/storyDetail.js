@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 import { API_URL, STORAGE } from '../utils/auth';
 
@@ -100,6 +101,13 @@ export default function StoryDetail() {
     
     return (
         <div className={toogleTheme ? 'styde styde-dark' : 'styde styde-light'}>
+            {/* update priview card share  */}
+            <Helmet>
+                <title>{`VenSoeng | ${blog?.title || ''}`}</title>
+                <meta name="description" content={`${blog?.des || ''}`} />
+                <meta property="og:title" content={`VenSoeng | ${blog?.title || ''}`} />
+                <meta property="og:description" content={`${blog?.des || ''}`} />
+            </Helmet>
             {/* this Is header  */}
             <div className='styde-head'>
                 <div className='stydh-box df-s'>
