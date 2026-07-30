@@ -3,21 +3,39 @@
     margin: 2rem auto;
 }
 .wbsv .wbsvc{
-    max-width: 1320px;
+    max-width: 2560px;
     margin: 0 auto;
 }
 .wbsv .wbsvc ul{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(900px, 1fr));
     gap: 0.8rem;
-    @media screen and (max-width: 1030px) {
+    padding: 0rem 0.8rem;
+}
+@media screen and (max-width: 1850px) {
+    .wbsv .wbsvc ul{
+        grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+    }
+}
+@media screen and (max-width: 1550px) {
+    .wbsv .wbsvc ul{
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    }
+}
+@media screen and (max-width: 1038px) {
+    .wbsv .wbsvc ul{
         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     }
-    @media screen and (max-width: 830px) {
+}
+/* @media screen and (max-width: 830px) {
+    .wbsv .wbsvc ul{
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
-    @media screen and (max-width: 612px) {
+} */
+@media screen and (max-width: 830px) {
+    .wbsv .wbsvc ul{
         gap: 0.5rem;
+        padding: 0rem 0.5rem;
     }
 }
 .wbsv .wbsvc ul li{
@@ -26,6 +44,11 @@
     background: var(--sg-color-def);
     @media screen and (max-width: 612px) {
        min-height: 200px;
+    }
+}
+@media screen and (max-width: 612px) {
+    .wbsv .wbsvc ul li{
+        min-height: 200px;
     }
 }
 .wbsv .wbsvc ul li::before,
@@ -250,4 +273,31 @@
   100%{
     transform:translateX(350px);
   }
+}
+
+@media screen and (max-width: 500px) {
+    .wbsv .wbsvc ul{
+       display: flex;
+       flex-direction: column;
+       gap: 0.5rem;
+    }
+    .wbsv .wbsvc ul li{
+        color: var(--sg-color-def);
+        background: var(--sg-color-def) !important;
+    }
+    .wbsv .wbsvc ul li blockquote{
+        /* color: var(--sg-color-def); */
+    }
+    .wbsv .wbsvc ul li::before,
+    .wbsv .wbsvc ul li::after{
+        display: none;
+    }
+    .wbsv .wbsvc ul li .box{
+        position: initial;
+        padding: 1.5rem 0rem;
+        color: var(--sg-color-def);
+    }
+    .wbsv .wbsvc ul li:last-child{
+        background: var(--sg-bgblack) !important;
+    }
 }
