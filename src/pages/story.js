@@ -43,9 +43,9 @@ export default function StoryPage({active = true})
                         <div className="ms-box">
                             <div className="ms-head">
                                 <div className="msh-box">
-                                    <h2>ព្រឹត្តិការណ៍</h2>
+                                    <h2>អត្ថបទ និងបទពិសោធន៍</h2>
                                     <blockquote>
-                                        <p>ស្វែងរក និងអានព្រឹត្តិការណ៍ផ្សេងៗដែលមានការបង្កើតជាប្រចាំ!</p>
+                                        <p>ចែករំលែកបទពិសោធន៍ ដំណោះស្រាយឌីជីថល និងសមិទ្ធផលការងារថ្មីៗ!</p>
                                     </blockquote>
                                 </div>
                             </div>
