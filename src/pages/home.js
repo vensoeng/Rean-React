@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useQuery } from '@tanstack/react-query';
 import { NavLink } from 'react-router-dom';
 import { API_URL } from '../utils/auth';
@@ -42,6 +43,35 @@ export default function HomePage() {
 
     return (
         <main className="web-main">
+            {/* update priview card share  */}
+            <Helmet>
+                <title>VenSoeng - Home Business </title>
+                <meta property="og:title" content="VenSoeng" />
+                <meta property="og:description" content="Hello! I'm VenSoeng, a passionate and dedicated developer with a strong focus on Web & App  development."/>
+                <meta name="author" content="VenSoeng"/>
+                <meta name="keywords" content="VenSoeng, vensoeng, វិនសឹង្ហ, ស៊ីមវិនសឹង្ហ,frontend developer,web developer,Cambodia,JavaScript,HTML,CSS,React,web instructor,content creator,portfolio"/>
+                <meta name="creator" content="VenSoeng"/>
+                <meta property="og:url" content="https://vensoeng.vercel.app/" />
+                <meta property="og:type" content="website"/>
+                <meta property="og:site_name" content="VenSoeng"/>
+                <meta property="og:locale" content="en_US"/>
+                {/* <!-- Image Tags --> */}
+                <meta property="og:image" content="https://github.com/vensoeng/My-photo/blob/main/vensoeng/vensoeng_og.jpg?raw=true"/>
+                <meta property="og:image:secure_url" content="https://github.com/vensoeng/My-photo/blob/main/vensoeng/vensoeng_og.jpg?raw=true"/>
+                <meta property="og:image:width" content="1200"/>
+                <meta property="og:image:height" content="515"/>
+                <meta property="og:image:alt" content="vensoeng Portfolio Preview"/>
+                <meta property="og:image:type" content="https://github.com/vensoeng/My-photo/blob/main/vensoeng/vensoeng_og.jpg?raw=true"/>
+                {/* <!-- Twitter Card Meta Tags --> */}
+                <meta name="twitter:card" content="summary_large_image"/>
+                <meta name="twitter:title" content="VenSoeng"/>
+                <meta name="twitter:description" content="Hello! I'm VenSoeng, a passionate and dedicated developer with a strong focus on Web & App  development."/>
+                <meta name="twitter:image" content="https://github.com/vensoeng/My-photo/blob/main/vensoeng/vensoeng_og.jpg?raw=true"/>
+                {/* <!-- Other Meta Tags --> */}
+                <meta property="profile:username" content="vensoeng" />
+                <meta name="msapplication-TileImage" content="https://github.com/vensoeng/My-photo/blob/main/vensoeng/vensoeng_og.jpg?raw=true" />
+            </Helmet>
+
             {/* <AlienBackground /> */}
             {/* <AdvertisementPopup /> */}
             <div className="main-body">
