@@ -3,7 +3,7 @@
   width: 100%;
   max-width: 1000px;
   margin: 2rem auto;
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   display: flex;
   flex-direction: column;
   gap: 0.5rem; 
@@ -32,6 +32,9 @@
   overflow: hidden;
   width: 100%;
   display: flex;
+  border: 1px solid var(--sg-border-00);
+  border-right: none;
+  border-left: none;
 }
 
 .rncon-cn {
@@ -53,17 +56,20 @@
 /* Layout for individual items */
 .rncon-cn ul li.df-c {
   padding: 0rem 0.2rem;
+  border-right: 1px solid var(--sg-border-00);
 }
-
+.rncon-cn ul li:first-child{
+  border-left: 1px solid var(--sg-border-00);
+}
 .rn-con blockquote {
     margin: 0.5rem auto;
-    padding: 10px 20px;
+    padding: 18px 20px;
     font-size: 0.9rem;
     font-weight: 800;
     color: rgb(82 82 91 / 100);
     background: var(--sg-bglight);
     border-radius: 50rem;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
 }
 
 /* KEYFRAMES: Left to Right Loop

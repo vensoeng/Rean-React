@@ -21,6 +21,7 @@ import { Send2, ArrowRight} from 'iconsax-reactjs';
 // import AboutPage from './about';
 import Questions from './question';
 import ServiceSuggestion from '../components/web/Service_suggestion';
+import DesignsSuggestion from '../components/web/DesignSuggestion';
 // import StoryPage from './story';
 
 // background header section 
@@ -141,6 +142,8 @@ export default function HomePage() {
                             </div>
                         </div>
                     </section>
+                    {/* this is design suggestion webpage */}
+                    <DesignsSuggestion />
                     {/* this is question webpage  */}
                     <Questions />
                     {/* 1. Purple CTA Card Section */}

@@ -1,6 +1,6 @@
 .me-story{
     position: relative;
-    z-index: 100000;
+    /* z-index: 100000; */
     margin: 0rem auto;
     /* margin-top: 0rem; */
     background: linear-gradient(298deg, rgb(15, 15, 15) 0%, var(--sg-color-def) 74%);
@@ -141,7 +141,7 @@ body:has(.web-main-active) .me-story .msh-box{
 }
 .my-story-body .box ul li .image img{
     position: relative;
-    border-radius: 0.8rem;
+    border-radius: 0.2rem;
     z-index: 5;
 }
 .my-story-body .box ul li > .text,
@@ -280,7 +280,7 @@ body:has(.web-main-active) .me-story .msh-box{
     width: 100%;
     aspect-ratio: 16 / 9;
     background: #1e1e24; 
-    border-radius: 8px;
+    border-radius: 0.2rem;
 }
 
 /* Image states */

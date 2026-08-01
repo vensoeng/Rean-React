@@ -86,7 +86,6 @@ export default function Footer()
       </div>
 
       <hr className="footer-divider" />
-
       {/* 3. Bottom Legal & Socials Section */}
       <div className="footer-bottom">
         <p className="copyright">© 2026 VenSoeng</p>
@@ -128,6 +127,7 @@ export default function Footer()
           </a>
         </div>
       </div>
+      
     </footer>
   );
 

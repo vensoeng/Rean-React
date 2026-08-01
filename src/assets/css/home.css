@@ -72,6 +72,9 @@
     color: var(--sg-bglight);
     background: var(--sg-color-brand);
 }
+.mb-box > .head blockquote .btn:last-child{
+    background-color: var(--sg-bglight);
+}
 .mb-box > .head blockquote .btn svg{
     width: 1.1rem;
     height: initial;

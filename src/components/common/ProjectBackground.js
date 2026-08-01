@@ -7,12 +7,17 @@ const ProjectBackground = () => {
     "Static Website Project",
     "E-Library Management System",
     "Pagoda Management System",
-    "E-Portfolio Website"
+    "E-Portfolio Website",
+    "NGConvertor",
+    "NGAlert",
+    "zuAcar",
+    "zuAhouse",
+    "LuAcar",
   ];
 
   const list2 = [
     "Pagoda Management System",
-    "E-commerce Website"
+    "E-commerce Website",
   ];
 
   // Helper component to prevent repeating markup
