@@ -7,7 +7,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Header from "./components/layout/header";
 import Footer from './components/layout/footer';
 import ScrollToTop from './components/ScrollToTop';
-//pages
+//pages 
 import HomePage from './pages/home'; 
 import LoginPage from './pages/auth/login';
 import RegisterPage from './pages/auth/signup';
