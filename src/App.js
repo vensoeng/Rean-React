@@ -6,6 +6,7 @@ import { HelmetProvider } from 'react-helmet-async';
 // webpage layout 
 import Header from "./components/layout/header";
 import Footer from './components/layout/footer';
+import ScrollToTop from './components/ScrollToTop';
 //pages
 import HomePage from './pages/home'; 
 import LoginPage from './pages/auth/login';
@@ -120,6 +121,7 @@ function App() {
     <HelmetProvider prioritizeSeoTags>
       <QueryClientProvider client={queryClient}>
         <Router>
+          <ScrollToTop />
           <RoutePage />
         </Router>
       </QueryClientProvider>

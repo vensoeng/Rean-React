@@ -66,11 +66,24 @@ body:has(.styde-dark){
     background: transparent;
     min-width: max-content;
 }
+.styde-head .stydh-box .row:last-child .ibtn:last-child{
+    gap: 0.2rem;
+    font-size: 1.1rem;
+    background: var(--sg-bgblack);
+}
+.styde-head .stydh-box .row:last-child .ibtn:last-child svg{
+    overflow: initial;
+    padding: 0.1rem;
+    opacity: 0.8;
+}
 .styde-head .ibtn:hover{
     background: var(--sg-ibnt-bg-hover);
 }
 .styde-head .ibtn path{
     stroke: var(--sg-txt-color);  
+}
+.styde-head .stydh-box .row:last-child .ibtn:last-child path{
+    stroke: var(--sg-color-def);
 }
 .styde-head .btn-home{
     border-radius: 50rem;

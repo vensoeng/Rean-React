@@ -37,9 +37,9 @@ body:has(.main-service){
     background: var(--sg-bgblack);
 }
 body:has(.main-service) .webhead{
-   display: none;
-   position: initial;
-   background: var(--sg-bglight);
+   /* display: none; */
+   /* position: initial; */
+   /* background: var(--sg-bglight); */
 }
 /* body:has(.main-service) .webhead .wh-box{
     max-width: 1280px;
@@ -70,6 +70,7 @@ body:has(.main-service) *{
 }
 /* ==========nav top  */
 .mser-box .msh nav{
+    display: none;
     border-bottom: 1px solid var(--colorBorder-00);
 }
 .mshn-box {
@@ -128,6 +129,8 @@ body:has(.main-service) *{
 
 .msh-box .smh-row{
     max-width: 670px;
+    margin: 0 auto;
+    text-align: center;
 }
 .msh-box h2{
     font-size: 40px;
@@ -143,7 +146,7 @@ body:has(.main-service) *{
 }
 /* ============nav  */
 .main-service .ms-nav{
-    position: sticky;
+    /* position: sticky; */
     top: 0rem;
     background: var(--sg-bglight);
     z-index: 10;
@@ -161,6 +164,8 @@ body:has(.main-service) *{
 }
 .mser .smn-box ul{
     gap: 0.5rem;
+    max-width: max-content;
+    margin: 0 auto;
 }
 .mser .smn-box .btn{
     font-size: 1rem;

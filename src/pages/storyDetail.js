@@ -5,7 +5,12 @@ import { useParams } from 'react-router-dom';
 import { API_URL, STORAGE } from '../utils/auth';
 
 import WebLoader from '../components/common/WebLoader';
-import { ArrowLeft, Moon, Link21, Sun1 } from 'iconsax-reactjs';
+import { 
+    ArrowLeft,
+    Moon,
+    // Link21,
+    Sun1 
+} from 'iconsax-reactjs';
 import NotFoundPage from './404';
 
 import QRCode from "react-qr-code";
@@ -33,30 +38,45 @@ export default function StoryDetail() {
     const [loadingHtml, setLoadingHtml] = useState(false);
     const [toogleTheme, setToggleTheme] = useState(false);
 
+    const [copyText, setCopyText] = useState('ចម្លងតំណរ');
+
     const [showShare, setShowShare] = useState(false);
     const shareUrl = `https://vensoeng.vercel.app/share/story/${id}`;
     const copyLink = async () => {
         try {
+            setCopyText('កំពុងចម្លង...');
+
             await navigator.clipboard.writeText(shareUrl);
-            alert('Link copied successfully');
+            
+            setCopyText('បានចម្លង!');
+
+            setTimeout(() => {
+                setCopyText('ចម្លងតំណរ');
+            }, 2000);
+
         } catch (err) {
-            console.error(err);
+            console.error("Error copying link:", err);
+            setCopyText('បរាជ័យ!');
+            setTimeout(() => {
+                setCopyText('ចម្លងតំណរ');
+            }, 2000);
         }
     };
     const handleShare = async () => {
-        if (navigator.share) {
-            try {
-                await navigator.share({
-                    title: blog.title,
-                    text: blog.des,
-                    url: shareUrl,
-                });
-            } catch (err) {
-                console.log(err);
-            }
-        } else {
-            setShowShare(true);
-        }
+        // if (navigator.share) {
+        //     try {
+        //         await navigator.share({
+        //             title: blog.title,
+        //             text: blog.des,
+        //             url: shareUrl,
+        //         });
+        //     } catch (err) {
+        //         console.log(err);
+        //     }
+        // } else {
+        //     setShowShare(true);
+        // }
+        setShowShare(true);
     };
 
     useEffect(() => {
@@ -98,7 +118,15 @@ export default function StoryDetail() {
     if (!blog || Number(blog.status) !== 1) {
         return <NotFoundPage />;
     }
-    
+
+    const handleBack = () => {
+        if (window.history.length > 2) {
+            navigate(-1);
+        } else {
+            navigate('/storys');
+        }
+    };
+
     return (
         <div className={toogleTheme ? 'styde styde-dark' : 'styde styde-light'}>
             {/* update priview card share  */}
@@ -114,7 +142,7 @@ export default function StoryDetail() {
                     <button 
                         type='button'
                         className='btn-home row btn ibtn'
-                        onClick={() => navigate(-1)}
+                        onClick={handleBack}
                     >
                         <ArrowLeft />
                     </button>
@@ -129,7 +157,11 @@ export default function StoryDetail() {
                             className='btn ibtn'
                             onClick={handleShare}
                         >
-                            <Link21 />
+                        ចែករំលេក
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                            <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
+                        </svg>
+                            {/* <Link21 /> */}
                         </button>
                     </div>
                 </div>
@@ -260,8 +292,15 @@ export default function StoryDetail() {
                                     readOnly
                                 />
 
-                                <button onClick={copyLink}>
-                                    Copy
+                                <button 
+                                    onClick={copyLink}
+                                    style={{
+                                        backgroundColor: copyText === 'បានចម្លង!' ? 'var(--sg-color-brand)' : '',
+                                        color: copyText === 'បានចម្លង!' ? '#ffffff' : '',
+                                        transition: 'all 0.2s ease-in-out'
+                                    }}
+                                >
+                                    {copyText}
                                 </button>
 
                             </div>
