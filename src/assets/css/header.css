@@ -406,10 +406,32 @@
         width: calc(100% - 100px);
     }
     .webhead .logo-text h1{
+        width: max-content;
         font-size: 1.22rem;
+        margin: 0 auto;
         font-weight: 600;
         text-transform: uppercase;
         /* color: var(--sg-color-brand); */
-        font-family: "Bruno Ace SC", sans-serif;;
+        font-family: "Bruno Ace SC", sans-serif;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        color: var(--sg-bglight);
+        background: var(--sg-color-def);
+            -webkit-clip-path: polygon(
+            14px 0%,
+            100% 0%,
+            100% calc(100% - 14px),
+            calc(100% - 14px) 100%,
+            0% 100%,
+            0% 14px
+        );
+        clip-path: polygon(
+            14px 0%,
+            100% 0%,
+            100% calc(100% - 14px),
+            calc(100% - 14px) 100%,
+            0% 100%,
+            0% 14px
+        );
     }
 }

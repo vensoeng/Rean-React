@@ -42,8 +42,8 @@ export default function WebHeader() {
                             </h2>
                             <p>រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត。</p>
                             <div className="action df-l">
-                                <div className="btn">ស្វែងរកសេវ៉ាកម្ម</div>
-                                <div className="btn">ទំនាក់ទំនង</div>
+                                <a href="/services" className="btn">ស្វែងរកសេវ៉ាកម្ម</a>
+                                <a href="http://facebook.com/vensoeng" className="btn">ទំនាក់ទំនង</a>
                             </div>
                         </blockquote>
                         <div className="txt">Waiting for work!</div>
@@ -127,10 +127,10 @@ function Slider({ services = [] }) {
             <div className="wbshs-box">
                 <blockquote>
                     <div className="text">
-                        {services[currentIndex]?.title_kh || services[currentIndex]?.title}
+                        <p>{services[currentIndex]?.title_kh || services[currentIndex]?.title}</p>
                     </div>
                     <div className="sub">
-                        {services[currentIndex]?.description_kh || services[currentIndex]?.description}
+                       <p>{services[currentIndex]?.description_kh || services[currentIndex]?.description}</p>
                     </div>
                 </blockquote>
 

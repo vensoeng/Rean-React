@@ -318,8 +318,27 @@
     }
 }
 @media screen and (max-width: 600px) {
+    .my-story-body .box ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
     .me-story .msh-box h2{
         font-size: 2rem;
+    }
+    .my-story-body{
+        padding: 2rem 0rem;
+        border: none;
+    }
+    .ms-con{
+        margin: 0rem auto;
+    }
+    .my-story-body .box ul li{
+        padding: 1rem 0.8rem;
+        border-bottom: 1px dashed var(--sg-border-00);
+    }
+    .my-story-body{
+        padding: 0rem;
     }
 }
 

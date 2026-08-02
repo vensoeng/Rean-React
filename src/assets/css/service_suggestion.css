@@ -322,8 +322,18 @@
         flex-direction: column;
         gap: 2.5rem;
     }
+    .wbsv .wbsvc ul li .l-img{
+        margin: 0rem auto;
+        border: none;
+    }
     .wbsv .wbsvc ul li:last-child .l-img img{
         border: none;
+    }
+    .wbsv .wbsvc ul li .l-img img, .wbsv .wbsvc ul li .l-img .img{
+        margin: 0 auto;
+    }
+    .wbsv .wbsvc ul li:last-child .l-img::before{
+        display: none;
     }
     .wbsv .wbsvc ul li{
         position: relative;

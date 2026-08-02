@@ -131,6 +131,14 @@
     width: 100%;
     background: var(--sg-bgblack);
 }
+.uh09 .uh09-box .row:last-child .text p,
+.uh09 .uh09-box .row:last-child .sub p{
+    display: -webkit-box;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
 .uh09 .uh09-box .row:last-child .sub{
     top: auto;
     bottom: 1px;
@@ -199,6 +207,16 @@
 @media only screen and (max-width: 850px) {
     .uh09 .uh09-box{
         display: block;
+    }
+    .uh09 .uh09-box .row:first-child .rbox blockquote h2,
+    .uh09 .uh09-box .row:first-child .rbox blockquote p{
+        text-align: center;
+    }
+    .uh09 .uh09-box .row:first-child .rbox .action{
+        justify-content: center !important;
+    }
+    .uh09 .uh09-box .row:first-child .txt{
+        text-align: center;
     }
     .uh09 .uh09-box .row{
         width: initial;
