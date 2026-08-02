@@ -1,12 +1,16 @@
 import { Helmet } from 'react-helmet-async';
 import { useQuery } from '@tanstack/react-query';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { API_URL } from '../utils/auth';
 
 import WebLoader from '../components/common/WebLoader';
 
 // import '../assets/css/story.css';
 import '../assets/css/home.css';
+
+// this is web header 
+import WebHeader from '../components/common/WebHeader';
+
 // import Button from '../components/common/button';
 import ProjectBackground from '../components/common/ProjectBackground';
 // import AlienBackground from '../components/common/AlienBackground';
@@ -16,7 +20,7 @@ import StarryBackground from '../components/common/StarryBackground';
 // import StudyList from '../components/common/ListStudy';
 // import Screenslider from '../components/common/Screenslider';
 
-import { Send2, ArrowRight} from 'iconsax-reactjs';
+import { ArrowRight} from 'iconsax-reactjs';
 //webpage add on
 // import AboutPage from './about';
 import Questions from './question';
@@ -25,7 +29,8 @@ import DesignsSuggestion from '../components/web/DesignSuggestion';
 // import StoryPage from './story';
 
 // background header section 
-import BackgroundHeadSection from '../components/common/BackgroundHeadSection';
+// import BackgroundHeadSection from '../components/common/BackgroundHeadSection';
+
 
 const fetchBlogsFromServer = async () => {
     const res = await fetch(`${API_URL}/blogs?limit=4`);
@@ -52,27 +57,7 @@ export default function HomePage() {
             {/* <AdvertisementPopup /> */}
             <div className="main-body">
                 <div className="mb-box">
-                    {/* this is is head of home page  */}
-                    <section className="head">
-                        <blockquote>
-                            <h2>
-                                បង្កើតដំណោះស្រាយប្រកបដោយភាពច្នៃប្រឌិត និងមានប្រសិទ្ធភាព
-                                គេហទំព័រនិងទូរស័ព្ទ។
-                            </h2>
-                            <p>រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត។</p>
-                            <div className='list-btn'>
-                                <div className='df-c'>
-                                    <NavLink to='/services' className='btn'>ស្វែងរកសេវ៉ាកម្ម</NavLink>
-                                    <a href="https://t.me/vensoeng" className='btn'>
-                                        <Send2 />
-                                        ទំនាក់ទំនង
-                                    </a>
-                                </div>
-                                <p>Waiting for work!</p>
-                            </div>
-                        </blockquote>
-                        <BackgroundHeadSection />
-                    </section>
+                    <WebHeader />
                     {/* this is service suggestion */}
                     <ServiceSuggestion />
                     {/* this is is about my skill  */}

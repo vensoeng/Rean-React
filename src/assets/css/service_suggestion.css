@@ -1,6 +1,41 @@
 .wbsv{
+    position: relative;
     display: block;
-    margin: 2rem auto;
+    margin: 0rem auto;
+    padding: 4rem 0rem;
+    overflow: hidden;
+    background: var(--sg-color-brand);
+    -webkit-clip-path: polygon(
+        14px 0%,
+        100% 0%,
+        100% calc(100% - 14px),
+        calc(100% - 14px) 100%,
+        0% 100%,
+        0% 14px
+    );
+    clip-path: polygon(
+        14px 0%,
+        100% 0%,
+        100% calc(100% - 14px),
+        calc(100% - 14px) 100%,
+        0% 100%,
+        0% 14px
+    );
+    margin-top: -1.5rem;
+    z-index: 8;
+}
+.wbsv::before,
+.wbsv::after{
+    width: 36px;
+    height: 88px;
+    top: -35px;
+    left: -8px;
+}
+.wbsv::after{
+    top: auto;
+    left: auto;
+    right: -8px;
+    bottom: -33px;
 }
 .wbsv .wbsvc{
     max-width: 2560px;
@@ -22,97 +57,36 @@
         grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     }
 }
-@media screen and (max-width: 1038px) {
+@media screen and (max-width: 1070px) {
     .wbsv .wbsvc ul{
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
 }
-/* @media screen and (max-width: 830px) {
+@media screen and (max-width: 870px) {
     .wbsv .wbsvc ul{
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-} */
-@media screen and (max-width: 830px) {
-    .wbsv .wbsvc ul{
-        gap: 0.5rem;
-        padding: 0rem 0.5rem;
     }
 }
 .wbsv .wbsvc ul li{
     position: relative;
     width: 100%;
-    background: var(--sg-color-def);
-    @media screen and (max-width: 612px) {
-       min-height: 200px;
-    }
+    border: 1px dashed var(--sg-border-00);
+    background: transparent;
 }
 @media screen and (max-width: 612px) {
     .wbsv .wbsvc ul li{
         min-height: 200px;
     }
 }
-.wbsv .wbsvc ul li::before,
-.wbsv .wbsvc ul li::after{
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 100%;
-    left: 0rem;
-    top: 0rem;
-    z-index: 2;
-}
-.wbsv .wbsvc ul li::after{
-    background: linear-gradient(0deg, var(--sg-color-brand) 20%, #0000 30%);
-}
-.wbsv .wbsvc ul li::before{
-    background: linear-gradient(180deg, var(--sg-color-brand) 15%, #0000 30%);
-}
-/* this is first child  */
-.wbsv .wbsvc ul li:first-child{
-    background: var(--sg-color-brand);
-}.wbsv .wbsvc ul li:first-child:after{
-    background: linear-gradient(0deg, var(--sg-color-brand) 5%, #0000 30%);
-}.wbsv .wbsvc ul li:first-child::before{
-    background: linear-gradient(180deg, var(--sg-color-brand) 15%, #0000 30%);
-}
-/* nt child 2 */
-.wbsv .wbsvc ul li:nth-child(2):after{
-    background: linear-gradient(0deg, var(--sg-color-def) 5%, #0000 30%);
-}.wbsv .wbsvc ul li:nth-child(2)::before{
-    background: linear-gradient(180deg, var(--sg-color-def) 15%, #0000 30%);
-}
+
 .wbsv .wbsvc ul .skeleton-wbsvc::before,
 .wbsv .wbsvc ul .skeleton-wbsvc::after{
     display: none !important;
-}
-/* nt child 3 */
-/* .wbsv .wbsvc ul li:nth-child(3):after {
-    content: ""; 
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: var(--bg-url);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}.wbsv .wbsvc ul li:nth-child(3)::before{
-    background: transparent;
-} */
-.wbsv .wbsvc ul li:nth-child(3){
-    background: var(--sg-color-def);
-}
-.wbsv .wbsvc ul li:nth-child(3):after{
-    background: linear-gradient(0deg, var(--sg-color-def) 5%, #0000 30%);
-}.wbsv .wbsvc ul li:nth-child(3)::before{
-    background: linear-gradient(180deg, var(--sg-color-def) 15%, #0000 30%);
 }
 
 /* last child  */
 .wbsv .wbsvc ul li:last-child{
     grid-column: 1 / -1;
-    background: var(--sg-bgblack);
 }.wbsv .wbsvc ul li:last-child:after{
     background: linear-gradient(0deg, var(--sg-bgblack) 5%, #0000 30%);
 }.wbsv .wbsvc ul li:last-child::before{
@@ -120,15 +94,8 @@
 }
 
 .wbsv .wbsvc ul li .box{
-    position: absolute;
     width: 100%;
-    left: 0rem;
-    top: 0rem;
-    z-index: 12;
-    padding-top: 2.5rem;
-    /* @media screen and (max-width: 612px) {
-       position: relative;
-    } */
+    border-bottom: 1px dashed var(--sg-border-00);
 }
 .wbsv .wbsvc ul li blockquote{
     text-align: center;
@@ -136,7 +103,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-    color: var(--sg-bglight);
+    padding: 1.8rem 0rem;
 }
 .wbsv .wbsvc ul li blockquote h2{
     overflow: hidden;
@@ -156,30 +123,82 @@
     -webkit-line-clamp: 1;
 }
 .wbsv .wbsvc ul li .svl-action{
-    margin-top: 1rem;
+    margin: 1rem auto;
+    margin-bottom: 0rem;
+    border-top: 1px dashed var(--sg-border-00);
 }
-.wbsv .wbsvc ul li .svla-box{
-    gap: 0.8rem;
+.wbsv .wbsvc ul li .svl-action .svla-box{
+    padding: 1rem 0rem;
+    position: relative;
+}
+.wbsv .wbsvc ul li .svl-action .svla-box{
+    gap: 1.2rem;
+}
+.wbsv .wbsvc ul li .svl-action .svla-box::before{
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.5px;
+    height: 100%;
+    background: var(--sg-border-00);
 }
 .wbsv .wbsvc ul li .svla-box .btn{
-    border-radius: 50rem;
+    width: 110px;
+    font-family: var(--font-brand);
+    min-width: max-content;
     padding: 0rem 0.8rem;
     cursor: pointer;
-    color: var(--sg-bglight);
+    color: var(--sg-color-def);
+    background: var(--sg-bglight);
 }
 .wbsv .wbsvc ul li .svla-box .btn:last-child{
-    border: 1px solid var(--sg-color-brand);
-    color: var(--sg-color-brand);
     box-sizing: border-box;
+    color: var(--sg-color-brand);
+    background: var(--sg-color-def);
+}
+.wbsv .wbsvc ul li:last-child .l-img img{
+    border: 1px dashed var(--sg-border-00);
+    border-top: none;
+    border-bottom: none;
+}
+.wbsv .wbsvc ul li:last-child .l-img::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: calc(100% - 8rem);
+    aspect-ratio: 16 / 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: transparent;
+    border: 1px dashed var(--sg-border-00);
+    border-left: none;
+    border-right: none;
+}
+.wbsv .wbsvc ul li .svla-box .btn::before,
+.wbsv .wbsvc ul li .svla-box .btn::after{
+    background: var(--sg-color-brand);
 }
 
 .wbsv .wbsvc ul li .l-img{
     position: relative;
+    border: 1px dashed var(--sg-border-00);
+    margin: 0rem 4rem;
+    border-top: none;
+    border-bottom: none;
 }
-.wbsv .wbsvc ul li .l-img img{
+.wbsv .wbsvc ul li .l-img img,
+.wbsv .wbsvc ul li .l-img .img{
     width: 100%;
+    aspect-ratio: 1 / 1;
     object-fit: contain;
+    margin: 4rem auto;
+    border: 1px dashed var(--sg-border-00);
+    border-left: none;
+    border-right: none;
+    background: var(--sg-bgblack);
 }
 .wbsv .wbsvc ul li .img-loader-placeholder{
     border-radius: 0px;
@@ -190,14 +209,6 @@
 }
 .wbsv .wbsvc ul li:last-child .box{
     position: relative;
-}
-.wbsv .wbsvc ul li:first-child .svla-box .btn:first-child{
-    color: var(--sg-color-brand);
-    background: var(--sg-bglight);
-}
-.wbsv .wbsvc ul li:first-child .svla-box .btn:last-child{
-    color: var(--sg-bglight);
-    border-color: var(--sg-bglight);
 }
 .wbsv .wbsvc ul li:last-child blockquote{
     color: var(--sg-color-def);
@@ -275,29 +286,60 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+
+.wbsv .wbsvc ul li::before,
+.wbsv .wbsvc ul li::after,
+.wbsv .wbsvc ul li .box::before{
+    position: absolute;
+    content: "";
+    width: 0.5px;
+    height: 0.8rem;
+    left: -1px;
+    bottom: -0.8rem;
+    background: var(--sg-border-00);
+}
+.wbsv .wbsvc ul li .box::before{
+    width: 0.8rem;
+    height: 0.5px;
+    right: -0.8rem;
+    top: -1px;
+    left: auto;
+    bottom: auto;
+}
+.wbsv .wbsvc ul li:nth-last-child(2) .box::before,
+.wbsv .wbsvc ul li:nth-last-child(4) .box::before,
+.wbsv .wbsvc ul li:last-child .box::before{
+    display: none;
+}
+.wbsv .wbsvc ul li::after{
+    left: auto;
+    right: 0;
+}
+
+@media screen and (max-width: 650px) {
     .wbsv .wbsvc ul{
-       display: flex;
-       flex-direction: column;
-       gap: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    .wbsv .wbsvc ul li:last-child .l-img img{
+        border: none;
     }
     .wbsv .wbsvc ul li{
-        color: var(--sg-color-def);
-        background: var(--sg-color-def) !important;
+        position: relative;
     }
-    .wbsv .wbsvc ul li blockquote{
-        /* color: var(--sg-color-def); */
+    .wbsv .wbsvc ul li .box::before,
+    .wbsv .wbsvc ul li .box::after{
+        display: none;
     }
     .wbsv .wbsvc ul li::before,
     .wbsv .wbsvc ul li::after{
-        display: none;
+        height: 2.5rem;
+        width: 0.5px;
+        bottom: -2.5rem;
     }
-    .wbsv .wbsvc ul li .box{
-        position: initial;
-        padding: 1.5rem 0rem;
-        color: var(--sg-color-def);
-    }
-    .wbsv .wbsvc ul li:last-child{
-        background: var(--sg-bgblack) !important;
-    }
+
+}
+@media screen and (max-width: 500px) {
+
 }

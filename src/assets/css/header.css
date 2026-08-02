@@ -95,6 +95,7 @@
     margin-right: 0rem;
     color: var(--sg-bglight);
     border: none;
+    border-radius: 0rem;
     background: var(--sg-color-def);
 }
 .webhead .btn-main .btn:first-child .ip{
@@ -145,6 +146,7 @@
     height: 100%;
     font-weight: 500;
     position: relative;
+    font-family: var(--font-brand);
 }
 .webhead .link-box ul li a.active{
     color: var(--sg-color-brand);
@@ -325,7 +327,7 @@
     } */
     .webhead .wh-box{
         width: calc(100% - 32px);
-        height: 55px;
+        height: 60px;
         margin: 0rem auto;
         overflow-x: scroll;
         scrollbar-width: none;
@@ -362,6 +364,9 @@
         display: flex;
         height: 100%;
         border-radius: 5px;
+    }
+    .webhead .btn-main .btn:last-child svg{
+        width: 1.8rem;
     }
 }
 /* @media screen and (max-width: 530px) {

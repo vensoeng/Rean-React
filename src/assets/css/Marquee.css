@@ -1,18 +1,76 @@
 /* Base container */
 .rn-con {
   width: 100%;
-  max-width: 1000px;
-  margin: 2rem auto;
-  /* margin-top: 4rem; */
+  max-width: 2560px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 0.5rem; 
-  padding: 20px 0;
   background-color: transparent; 
   overflow: hidden;
   position: relative;
+  padding: 2rem 0rem;
+  border: 1px solid var(--sg-border-00);
+  border-top: none;
+  border-bottom: none;
+  background: var(--sg-bglight);
 }
-.rn-con::before,
+.rn-con .rncn-hbox{
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.5rem;
+  position: relative;
+  max-width: 500px;
+  margin: 1rem;
+}
+.rn-con .rncn-hbox::before,
+.rn-con .rncn-hbox::after,
+.rn-con .rncn-hbox h2::before,
+.rn-con .rncn-hbox h2::after
+{
+  position: absolute;
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  left: -0.25rem;
+  top: -0.5rem;
+  background: var(--sg-color-brand);
+}
+.rn-con .rncn-hbox::after{
+  right: -0.25rem;
+  left: auto;
+}
+.rn-con .rncn-hbox h2::before{
+  top: auto;
+  bottom: -0.5rem;
+}
+.rn-con .rncn-hbox h2::after{
+  left: auto;
+  top: auto;
+  right: -0.25rem;
+  bottom: -0.25rem;
+}
+.rn-con .rncn-hbox h2{
+  font-size: 1.8rem;
+}
+.rn-con .rncn-hbox p{
+  font-size: 1rem;
+  display: block;
+  width: max-content;
+  max-width: calc(100% - 1.6rem);
+  background: var(--sg-bgblack);
+  color: rgb(82 82 91 / 100);
+  padding: 0.8rem;
+  line-height: 1.5;
+}
+@media (max-width: 2560px) {
+  .rn-con {
+    margin: 0rem 0.8rem;
+    width: calc(100% - 1.6rem);
+  }
+}
+/* .rn-con::before,
 .rn-con::after{
     position: absolute;
     content: '';
@@ -27,12 +85,12 @@
     left: auto;
     right: -5rem;
     background: linear-gradient(-90deg, var(--sg-bglight) 35%, transparent);
-}
+} */
 .rncon-track {
   overflow: hidden;
   width: 100%;
   display: flex;
-  border: 1px solid var(--sg-border-00);
+  border: 1px dashed var(--sg-border-00);
   border-right: none;
   border-left: none;
 }
@@ -56,10 +114,16 @@
 /* Layout for individual items */
 .rncon-cn ul li.df-c {
   padding: 0rem 0.2rem;
-  border-right: 1px solid var(--sg-border-00);
+  border-right: 1px dashed var(--sg-border-00);
 }
 .rncon-cn ul li:first-child{
-  border-left: 1px solid var(--sg-border-00);
+  border-left: 1px dashed var(--sg-border-00);
+}
+.rncon-cn:last-child ul li:first-child{
+  border-left: none;
+}
+.rncon-cn:last-child ul li:last-child{
+  border-right: none;
 }
 .rn-con blockquote {
     margin: 0.5rem auto;

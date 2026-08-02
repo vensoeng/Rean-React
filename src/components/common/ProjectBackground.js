@@ -35,6 +35,12 @@ const ProjectBackground = () => {
 
   return (
     <div className="rn-con">
+      <div className="rncn-h">
+        <div className="rncn-hbox">
+          <h2>គម្រោងដែលបានឆ្លងកាត់</h2>
+          <p>ខាងក្រោមនេះគឺជាគម្រោងថ្មីៗមួយចំនួនរបស់ខ្ញុំដែលបង្ហាញពីជំនាញ និងបទពិសោធន៍ក្នុងការអភិវឌ្ឍ។</p>
+        </div>
+      </div>
       {/* Track 1: First set of projects */}
       <div className="rncon-track">
         <div className="rncon-cn">

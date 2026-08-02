@@ -46,7 +46,7 @@ export default function Header()
                 </div>
                 {/* Main Button layout row */}
                 <div className="btn-main df-r">
-                    <a href="/services" className="btn" onClick={handleClose}>
+                    <a href="/services" className="btn btn-style" onClick={handleClose}>
                         <p>សេវាកម្ម</p>
                         <div className="icon icon-ra icon-sm ip">
                             <Flash/>

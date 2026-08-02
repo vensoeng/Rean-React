@@ -8,6 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hanuman:wght@100..900&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -68,6 +69,7 @@ a{
     --sg-fontMolpali: "Moulpali", sans-serif;
     --sg-fontMol: "Moul", serif;
     --sg-fontNotoKH: "Nokora", sans-serif;
+    --font-brand: "Kdam Thmor Pro", sans-serif;
     --bgcolor-Light: #fff;
     --bgcolor-black: #f0f2f5;
     /* --sg-color-brand: rgb(255, 138, 101); */
@@ -338,6 +340,31 @@ h1,h2,h3{
     font-size: 1rem;
     font-weight: 700;
     font-family: var(--sg-fontKous);
+}
+.btn-style{
+    /* transform: rotate(45deg); */
+    position: relative;
+    overflow: hidden !important;
+    border-radius: 0rem;
+}
+.btn-style::before,
+.btn-style::after{
+    position: absolute;
+    content: '';
+    flex: none;
+    width: 18px;
+    height: 26px;
+    top: -12px;
+    left: -8px;
+    background: var(--sg-bglight);
+    transform: rotate(45deg);
+}
+.btn-style::after{
+    left: auto;
+    top: auto;
+    transform: rotate(45deg);
+    bottom: -12px;
+    right: -8px;
 }
 .btn-i {
     margin: 0 0.3rem;

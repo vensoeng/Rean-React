@@ -1,7 +1,6 @@
 .wqu{
     position: relative;
     margin: 0 auto;
-    padding: 5rem 0rem;
     background: var(--sg-bglight);
 }
 /* .wqu::before{
@@ -15,28 +14,44 @@
 } */
 .wqu-box{
     position: relative;
-    display: block;
-    margin: 0 auto;
-    max-width: 670px;
+    display: flex;
+    max-width: 2560px;
     z-index: 2;
-    @media screen and (max-width: 670px) {
-        margin: 0 1rem;
+    border: 1px solid var(--sg-border-00);
+    border-top: none;
+}
+@media only screen and (max-width: 2560px){
+    .wqu-box{
+        margin:0rem 0.8rem;
     }
 }
+.wqu .wqu-h{
+
+}
 .wqu .wquh-box{
-    padding-bottom: 2rem;
+    padding: 1.5rem;
 }
 .wqu .wqu-h h2{
     font-size: 2rem;
 }
+.wqu .wqu-c{
+    width: calc(100% - 450px);
+
+}
 .wqu .wquc-box{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    box-sizing: border-box;
+    border-left: 1px solid var(--sg-border-00);
 }
 .wqu .wquc-box li{
     /* margin: 0 auto; */
+    padding: 1rem;
     border-top: 1px solid var(--sg-border-00);
+    background: var(--sg-bgblack);
+}
+.wqu .wquc-box li:first-child{
+    border-top: none;
 }
 .wqu .wquc-box .qulh-box{
     min-height: 50px;
@@ -51,7 +66,10 @@
     min-width: 2.5rem;
     height: 2.5rem;
     cursor: pointer;
+    border-radius: 0rem;
     background: var(--sg-bglight);
+    box-sizing: border-box;
+    border: 1px dashed var(--sg-color-def);
 }
 .wqu .wquc-box .qulh-box .icon svg{
     width: 1.8rem;
@@ -72,6 +90,30 @@
 .wqu .wquc-box .qulc-box p{
     line-height: 1.4;
     font-size: 1rem;
+}
+@media screen and (max-width: 900px){
+    .wqu .wqu-c{
+        width: calc(100% - 350px);
+    }
+}
+@media screen and (max-width: 750px){
+    .wqu .wqu-c{
+        width: calc(100% - 250px);
+    }
+}
+@media screen and (max-width: 650px){
+    .wqu-box{
+        display: block;
+    }
+    .wqu .wqu-c{
+        width: initial;
+    }
+    .wqu .wquc-box{
+        border-left: none;
+    }
+    .wqu .wquc-box li:first-child{
+        border-top: 1px solid var(--sg-border-00);
+    }
 }
 @media screen and (max-width: 600px) {
     .wqu .wqu-h h2{

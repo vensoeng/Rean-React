@@ -73,7 +73,7 @@ function DesignCard({ item }) {
                 </blockquote>
 
                 <div className="action">
-                    <div className="btn">មើលបន្ថែម</div>
+                    <div className="btn btn-style">មើលបន្ថែម</div>
                 </div>
             </div>
         </li>
@@ -105,8 +105,8 @@ export default function DesignSuggestion() {
                         <p>ក្រៅពីការសរសេរកូដ ខ្ញុំក៏ចូលចិត្តការរចនាក្រាហ្វិក និងការថតរូបផងដែរ</p>
                     </blockquote>
                     <div className="action df-c">
-                        <a href='/services/detail/7' className="btn">សេវ៉ាកម្ម</a>
-                        <a href='/booking/service/7' className="btn">កក់ឥឡូវ</a>
+                        <a href='/services/detail/7' className="btn btn-style">សេវ៉ាកម្ម</a>
+                        <a href='/booking/service/7' className="btn btn-style">កក់ឥឡូវ</a>
                     </div>
                 </div>
                 <div className="dsl-09">
@@ -140,7 +140,7 @@ export default function DesignSuggestion() {
                 </div>
                 <div className="dsf-09">
                     <div className="dsf09-box df-c">
-                        <a href="/designs" className="btn">
+                        <a href="/designs" className="btn btn-style">
                             មើលការរចនាទាំងអស់ 
                         </a>
                     </div>
