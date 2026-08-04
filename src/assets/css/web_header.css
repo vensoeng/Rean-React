@@ -7,14 +7,14 @@
     position: relative;
     margin: 0 auto;
     max-width: 2560px;
-    height: 100vh;
+    /* height: 100vh; */
     min-height: max-content;
     border: 1px solid var(--sg-border-00);
     box-sizing: border-box;
     border-top: none;
     border-bottom: none;
     z-index: 5;
-    background: #ffffffbf;
+    /* background: #ffffffbf; */
     align-items: stretch;
 }
 @media only screen and (max-width: 2560px) {
@@ -31,6 +31,9 @@
     min-height: max-content;
     padding: 2rem 0rem;
     padding-bottom: 3.5rem;
+}
+.uh09 .uh09-box .row:first-child{
+    background: var(--sg-bglight);
 }
 .uh09 .uh09-box .row:first-child .rbox{
     max-width: 600px;

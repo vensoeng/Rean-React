@@ -16,6 +16,7 @@
     position: relative;
     display: flex;
     max-width: 2560px;
+    margin: 0 auto;
     z-index: 2;
     border: 1px solid var(--sg-border-00);
     border-top: none;

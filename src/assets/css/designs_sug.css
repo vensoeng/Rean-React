@@ -31,6 +31,9 @@
     border-left: none;
     border-right: none;
     padding: 1.5rem 0rem;
+    background: var(--sg-bglight);
+    position: relative;
+    z-index: 5;
 }
 .ds-09-head blockquote{
     position: relative;
@@ -156,6 +159,14 @@
     z-index: 5;
     padding: 1.5rem;
     -user-select: none;
+    
+    corner-shape: inherit;
+    inset: 0px;
+    background-image: var(--sg-bg-svg);
+    background-repeat: repeat;
+    background-position: left top;
+    background-size: 16.5px;
+
 }
 .dsl-09-box .dsli09-box .dsl-09-img{
     aspect-ratio: 3/4;
@@ -201,9 +212,16 @@
     border: 1px solid var(--sg-border-00);
     /* border-left: none;
     border-right: none; */
-    background: var(--sg-bglight);
+    background-color: var(--sg-bglight);
     position: relative;
     z-index: 4;
+    
+     corner-shape: inherit;
+    inset: 0px;
+    background-image: var(--sg-bg-png);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 150px;
 }
 .dsf-09 .dsf09-box{
     padding: 1.5rem;

@@ -36,7 +36,7 @@ export default function StoryPage({active = true})
                 <meta property="og:description" content="ស្វែងរក និងអានព្រឹត្តិការណ៍ផ្សេងៗដែលមានការបង្កើតជាប្រចាំ!" />
                 <meta property="og:url" content="https://vensoeng.vercel.app/storys" />
             </Helmet>
-            <div className="main-body">
+            <div className="main-body mbs09">
                 <div className="mb-box">
                     <section className="me-story">
                         

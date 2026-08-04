@@ -32,47 +32,53 @@ function DesignsPage() {
     const isLoading = queryResult.isLoading;
 
     return (
-        <section className="wd-section web-designs wds">
-            {/* update priview card share  */}
-            <Helmet>
-                <title>VenSoeng - Business Designs</title>
-                <meta name="description" content="Creative poster design for events and social media. Professional banners for printing and digital use." />
-                <meta property="og:title" content="VenSoeng - Business Designs" />
-                <meta property="og:description" content="Creative poster design for events and social media. Professional banners for printing and digital use." />
-                <meta property="og:url" content="https://vensoeng.vercel.app/services" />
-            </Helmet>
-            <div className="wds-box">
-                <div className="wdsb-row wdsbrc">
-                    <div className="dsbr-box">
-                        <ul>
-                          {
-                            isLoading ? (
-                              <>
-                              <WebLoader>
-                                រង់ចាំបន្ដិចយើងកំពុងទាញយកទិន្នន័យដើម្បីដំណើរការ
-                              </WebLoader>
-                              { Array(3).fill(0).map((_, index) => (
-                                <DesignsCardSkeleton key={index} />
-                              ))}
-                              </>
-                            ) : designs.length === 0 ? (
-                              <li style={{ textAlign: 'center', padding: '30px', color: '#64748b' }}>
-                                មិនមានទិន្នន័យអត្ថបទឡើយ។
-                              </li>
-                            ) : (
-                              [...designs].map((blog, index) => (
-                                <DesignsCard
-                                  key={blog.id || index}
-                                  designs={blog}
-                                />
-                              ))
-                            )
-                          }
-                        </ul>
-                    </div>
+      <div className="ds01">
+        {/* update priview card share  */}
+        <Helmet>
+            <title>VenSoeng - Business Designs</title>
+            <meta name="description" content="Creative poster design for events and social media. Professional banners for printing and digital use." />
+            <meta property="og:title" content="VenSoeng - Business Designs" />
+            <meta property="og:description" content="Creative poster design for events and social media. Professional banners for printing and digital use." />
+            <meta property="og:url" content="https://vensoeng.vercel.app/services" />
+        </Helmet>
+        <div className="d01-box">
+            {/* <!-- this Is head  --> */}
+            <div className="d01h">
+                <div className="d01h-box">
+                    <h2>ចំណង់ចំណូចចិត្តប្រចាំថ្ងៃ</h2>
+                    <p>ក្រៅពីការសរសេរកូដ ខ្ញុំក៏ចូលចិត្តការរចនាក្រាហ្វិក និងការថតរូបផងដែរ</p>
                 </div>
             </div>
-        </section>
+            {/* <!-- this is content  --> */}
+            <div className="d01c">
+                <div className="d01c-box">
+                  {
+                    isLoading ? (
+                      <>
+                      <WebLoader>
+                        រង់ចាំបន្ដិចយើងកំពុងទាញយកទិន្នន័យដើម្បីដំណើរការ
+                      </WebLoader>
+                      { Array(3).fill(0).map((_, index) => (
+                        <DesignsCardSkeleton key={index} />
+                      ))}
+                      </>
+                    ) : designs.length === 0 ? (
+                      <li style={{ textAlign: 'center', padding: '30px', color: '#64748b' }}>
+                        មិនមានទិន្នន័យអត្ថបទឡើយ។
+                      </li>
+                    ) : (
+                      [...designs].map((blog, index) => (
+                        <DesignsCard
+                          key={blog.id || index}
+                          designs={blog}
+                        />
+                      ))
+                    )
+                  }
+                </div>
+            </div>
+        </div>
+    </div>
     );   
 }
 

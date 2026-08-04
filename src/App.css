@@ -83,6 +83,8 @@ a{
     --colorBoder-input: #e0e3e8;
     --colorText-00: rgb(0, 0, 0);
     --colorText-01: #918a8a;
+    --sg-bg-png: url('./assets/img/web_bg.png');
+    --sg-bg-svg: url('./assets/img/web_bg.svg');
 }
 h1,h2,h3{
     font-size: 1rem;
