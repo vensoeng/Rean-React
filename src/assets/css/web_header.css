@@ -48,6 +48,12 @@
 .uh09 .uh09-box .row:first-child .rbox blockquote h2{
     font-size: 2.2rem;
     line-height: 1.5;
+    font-weight: 600;
+}
+@media screen and (max-width: 550px) {
+    .uh09 .uh09-box .row:first-child .rbox blockquote h2{
+        font-size: 2rem;
+    }
 }
 .uh09 .uh09-box .row:first-child .rbox blockquote p{
     color: var(--colorText-01);
