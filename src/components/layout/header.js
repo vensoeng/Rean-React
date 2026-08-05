@@ -41,9 +41,9 @@ export default function Header()
                 <ListRoute />
                 
                 {/* This is for text logo  */}
-                <div className="logo-text dn">
+                <a href='/' className="logo-text dn">
                     <h1>VenSoeng</h1>
-                </div>
+                </a>
                 {/* Main Button layout row */}
                 <div className="btn-main df-r">
                     <a href="/services" className="btn btn-style" onClick={handleClose}>

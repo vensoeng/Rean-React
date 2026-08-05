@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { API_URL, STORAGE } from '../../utils/auth'; 
+import { API_URL } from '../../utils/auth'; 
 import imgTest from '../../assets/img/defualt_img.webp';
+import CambodiaFlag from '../../assets/img/cambodia_flag.png';
 
 import '../../assets/css/slider.css';
 import '../../assets/css/web_header.css';
@@ -38,9 +39,9 @@ export default function WebHeader() {
                     <div className="rbox">
                         <blockquote>
                             <h2 className="web">
-                                បង្កើតដំណោះស្រាយប្រកបដោយភាពច្នៃប្រឌិត និងមានប្រសិទ្ធភាព គេហទំព័រនិងទូរស័ព្ទ។
+                                ធ្វើឱ្យការគ្រប់គ្រងអាជីវកម្មរបស់អ្នក កាន់តែងាយស្រួលជាមួយដំណោះស្រាយឌីជីថល
                             </h2>
-                            <p>រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត។</p>
+                            <p>យើងជួយអាជីវកម្មបង្កើត Website, Mobile App, ប្រព័ន្ធគ្រប់គ្រង និងដំណោះស្រាយឌីជីថល ដែលសមស្របទៅតាមតម្រូវការជាក់ស្តែងនៃអាជីវកម្មរបស់លោកអ្នក។</p>
                             <div className="action df-l">
                                 <a href="/services" className="btn">ស្វែងរកសេវ៉ាកម្ម</a>
                                 <a href="http://facebook.com/vensoeng" className="btn">ទំនាក់ទំនង</a>
@@ -144,7 +145,8 @@ function Slider({ services = [] }) {
                             <img 
                                 key={index} 
                                 className="img-co" 
-                                src={API_URL + STORAGE + url } 
+                                // src={API_URL + STORAGE + url } 
+                                src={CambodiaFlag}
                                 alt={`slide-${index}`} 
                                 loading="lazy"
                                 onError={(e) => { e.target.src = imgTest; }}

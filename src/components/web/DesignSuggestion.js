@@ -101,8 +101,8 @@ export default function DesignSuggestion() {
             <div className="ds-09-box">
                 <div className="ds-09-head">
                     <blockquote>
-                        <h2>ចំណង់ចំណូចចិត្តប្រចាំថ្ងៃ</h2>
-                        <p>ក្រៅពីការសរសេរកូដ ខ្ញុំក៏ចូលចិត្តការរចនាក្រាហ្វិក និងការថតរូបផងដែរ</p>
+                        <h2>រចនាថ្មីៗនេះ</h2>
+                        <p>មើលស្នាដៃរចនាមួយចំនួនរបស់យើង ដែលបង្កើតឡើងសម្រាប់ការផ្សព្វផ្សាយ ការកសាងម៉ាក និងការបោះពុម្ព។</p>
                     </blockquote>
                     <div className="action df-c">
                         <a href='/services/detail/7' className="btn btn-style">សេវ៉ាកម្ម</a>

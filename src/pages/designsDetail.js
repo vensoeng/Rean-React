@@ -259,7 +259,7 @@ export default function DesignsDetail() {
                                     </>
                                 ) : designsSuggestions.length === 0 ? (
                                     <p style={{ textAlign: 'center', padding: '30px', color: '#64748b' }}>
-                                        មិនមានទិន្នន័យអត្ថបទឡើយ។
+                                        មិនមានទិន្នន័យដែលបានណែនាំឡើយ។
                                     </p>
                                 ) : (
                                     designsSuggestions.map((item, index) => (
