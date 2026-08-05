@@ -15,6 +15,7 @@ import AboutPage from './pages/about';
 import CreatorPage from './pages/creator';
 import EducationPage from './pages/education';
 import DesignsPage from './pages/designs';
+import DesignsDetail from './pages/designsDetail';
 import WebsitePage from './pages/website';
 import Services from './pages/services';
 import ServicesDetail from './pages/serviceDetail';
@@ -86,6 +87,7 @@ function RoutePage() {
       <Route path="/storys/detail/:id" element={<StoryDetail />} />
       <Route path="/services/detail/:id" element={<ServicesDetail />} />
       <Route path="/booking/service/:id" element={<BookingForm />} />
+      <Route path="/designs/detail/:id" element={<DesignsDetail />} />
       {/* this is shopping  */}
       <Route path='/shopping' element={<Shopping />} />
       {/* register */}

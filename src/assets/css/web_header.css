@@ -33,7 +33,13 @@
     padding-bottom: 3.5rem;
 }
 .uh09 .uh09-box .row:first-child{
-    background: var(--sg-bglight);
+    corner-shape: inherit;
+    inset: 0px;
+    background-image: var(--sg-bg-png);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 150px;
+    background-color: var(--sg-bglight);
 }
 .uh09 .uh09-box .row:first-child .rbox{
     max-width: 600px;
@@ -90,8 +96,8 @@
 }
 .uh09 .uh09-box .row:first-child .rbox .action .btn:last-child{
     color: var(--sg-color-brand);
-    border: 1px dashed var(--sg-border-00);
-    background: var(--sg-bglight);
+    /* border: 1px dashed var(--sg-border-00); */
+    background: var(--sg-color-def);
 }
 .uh09 .uh09-box .row:first-child{
     border-right: 1px solid var(--sg-border-00);

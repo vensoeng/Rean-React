@@ -73,7 +73,7 @@ function DesignCard({ item }) {
                 </blockquote>
 
                 <div className="action">
-                    <div className="btn btn-style">មើលបន្ថែម</div>
+                    <a href={`/designs/detail/` + item.id} className="btn btn-style">មើលបន្ថែម</a>
                 </div>
             </div>
         </li>

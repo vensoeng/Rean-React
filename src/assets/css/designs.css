@@ -204,6 +204,7 @@
 
 .d01i .d01ir:last-child{
     aspect-ratio: 3 / 4;
+    min-width: 250px;
     position: relative;
 }
 .d01i .d01ir .d01img{
@@ -242,6 +243,7 @@
         max-width: 500px;
         height: max-content;
         aspect-ratio: initial;
+        min-width: initial;
     }
     .d01i .d01ir:first-child{
         order: 2;

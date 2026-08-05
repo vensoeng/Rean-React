@@ -2,11 +2,24 @@ import { useState, useEffect, useRef } from 'react';
 import { API_URL, STORAGE } from '../../utils/auth';
 import Logo from '../../assets/img/logo192.png';
 
+import QRCode from "react-qr-code";
+import {
+    FaFacebookF,
+    FaTelegramPlane,
+    FaLinkedinIn,
+    FaWhatsapp,
+    FaTimes
+} from "react-icons/fa";
+
 ///main import item
 export default function DesignsCard({ designs = {}, index = 0, newStory = false }) {
     const [isFullyLoaded, setIsFullyLoaded] = useState(false);
     const imageRef = useRef(null);
-    
+
+    const [copyText, setCopyText] = useState('ចម្លងតំណរ');
+    const [showShare, setShowShare] = useState(false);
+    const shareUrl = `http://vensoeng.vercel.app/share/designs/${designs.id}`;
+
     const imageUrl = designs?.img ? `${API_URL}${STORAGE}${designs.img}` : Logo;
 
     useEffect(() => {
@@ -43,6 +56,27 @@ export default function DesignsCard({ designs = {}, index = 0, newStory = false 
     if (!designs || Object.keys(designs).length === 0 || !isVisible) {
         return null; 
     }
+    
+    const copyLink = async () => {
+        try {
+            setCopyText('កំពុងចម្លង...');
+            await navigator.clipboard.writeText(shareUrl);
+            setCopyText('បានចម្លង!');
+            setTimeout(() => {
+                setCopyText('ចម្លងតំណរ');
+            }, 2000);
+        } catch (err) {
+            console.error("Error copying link:", err);
+            setCopyText('បរាជ័យ!');
+            setTimeout(() => {
+                setCopyText('ចម្លងតំណរ');
+            }, 2000);
+        }
+    };
+    
+    const handleShare = () => {
+        setShowShare(true);
+    };
 
     return (
         <div className="d01i">
@@ -63,16 +97,20 @@ export default function DesignsCard({ designs = {}, index = 0, newStory = false 
                                 <p>{designs.des}</p>
                             </blockquote>
                             <div className="action df-l">
-                                <div className="btn btn-style btn-more">
+                                <a href={'/designs/detail/' + designs.id} className="btn btn-style btn-more">
                                     <p>មើលបន្ថែម</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 3h9v9M21 3 3 21M6.6 6.6l10.8 10.8" stroke="#FF8A65" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                </div>
-                                <div className="btn btn-style btn-share">
+                                </a>
+                                <button className="btn btn-style btn-share"
+                                    onClick={handleShare}
+                                >
+                                
                                     <p>ចែករំលែក</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-share" viewBox="0 0 16 16"><path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></svg>
-                                </div>
+                                </button>
                             </div>
                             <div className="has">
+
                                 <div className="hs-box df-l">
                                     {designs.tags && typeof designs.tags === 'string' && 
                                         designs.tags.split(/\s+/).filter(Boolean).map((tag, i) => (
@@ -111,6 +149,75 @@ export default function DesignsCard({ designs = {}, index = 0, newStory = false 
                     </div>
                 </div>
             </div>
+            {showShare && (
+                <div className="share-overlay">
+                    <div className="share-modal">
+                        <button
+                            className="share-close btn icon-ra icon-sm"
+                            onClick={() => setShowShare(false)}
+                        >
+                            <FaTimes />
+                        </button>
+                        <h3>ចែករំលែក</h3>
+                        <div className="share-qr">
+                            <QRCode
+                                value={shareUrl}
+                                size={160}
+                            />
+                        </div>
+                        <div className="share-socials">
+                            <a
+                                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <FaFacebookF />
+                                <span>Facebook</span>
+                            </a>
+                            <a
+                                href={`https://t.me/share/url?url=${encodeURIComponent(shareUrl)}`}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <FaTelegramPlane />
+                                <span>Telegram</span>
+                            </a>
+                            <a
+                                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <FaLinkedinIn />
+                                <span>LinkedIn</span>
+                            </a>
+                            <a
+                                href={`https://wa.me/?text=${encodeURIComponent(shareUrl)}`}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <FaWhatsapp />
+                                <span>WhatsApp</span>
+                            </a>
+                        </div>
+                        <div className="share-copy">
+                            <input
+                                value={shareUrl}
+                                readOnly
+                            />
+                            <button 
+                                onClick={copyLink}
+                                style={{
+                                    backgroundColor: copyText === 'បានចម្លង!' ? 'var(--sg-color-brand)' : '',
+                                    color: copyText === 'បានចម្លង!' ? '#ffffff' : '',
+                                    transition: 'all 0.2s ease-in-out'
+                                }}
+                            >
+                                {copyText}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

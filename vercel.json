@@ -9,6 +9,10 @@
       "destination": "/api/story?id=:id"
     },
     {
+      "source": "/share/designs/:id",
+      "destination": "/api/designs?id=:id"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
