@@ -9,17 +9,22 @@ export default async function handler(req, res) {
 
   try {
     if (isBot) {
-      const apiRes = await fetch(`${API_URL}/designs/${id}`);
+
+        const apiRes = await fetch(`${API_URL}/designs/${id}`);
 
       if (!apiRes.ok) {
-        return res.status(404).send('Story not found');
+        return res.status(404).send('Service not found');
       }
 
-      const designs = await apiRes.json();
+      const json = await apiRes.json();
+
+      const designs = json.data || json; 
+      const title = designs.title || 'ចំណង់ចំណូចចិត្តប្រចាំថ្ងៃ';
+      const description = designs.des || 'ក្រៅពីការសរសេរកូដ ខ្ញុំក៏ចូលចិត្តការរចនាក្រាហ្វិក និងការថតរូបផងដែរ';
 
       const image = designs.img
-        ? `${API_URL}${STORAGE}${designs.img}`
-        : 'https://vensoeng.vercel.app/default-cover.jpg';
+              ? `${API_URL}${STORAGE}${designs.img}`
+              : 'https://vensoeng.vercel.app/default-cover.jpg';
 
       const shareUrl = `https://vensoeng.vercel.app/share/story/${id}`;
 
@@ -28,17 +33,17 @@ export default async function handler(req, res) {
           <html>
           <head>
           <meta charset="utf-8">
-          <title>${designs.title}</title>
+          <title>${title}</title>
 
-          <meta property="og:title" content="${designs.title}" />
-          <meta property="og:description" content="${designs.des || ''}" />
+          <meta property="og:title" content="${title}" />
+          <meta property="og:description" content="${description}" />
           <meta property="og:image" content="${image}" />
           <meta property="og:url" content="${shareUrl}" />
           <meta property="og:type" content="article" />
 
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="${designs.title}" />
-          <meta name="twitter:description" content="${designs.des || ''}" />
+          <meta name="twitter:title" content="${title}" />
+          <meta name="twitter:description" content="${description}" />
           <meta name="twitter:image" content="${image}" />
           </head>
           <body>
