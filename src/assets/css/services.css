@@ -153,6 +153,16 @@
 .ns01 .nsi .nsi-box .title h2{
     font-size: 2rem;
 }
+.ns01 .nsi .nsi-box .title h2:hover{
+    text-decoration: underline;
+}
+.ns01 .nsi .nsi-box .descript p{
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.ns01 .nsi .nsi-box .descript p:hover{
+    text-decoration: underline;
+}
 .ns01 .nsi .nsi-box .status{
     position: relative;
 }
@@ -173,6 +183,11 @@
 }
 .ns01 .nsi .nsi-box .has{
     margin: 2rem auto;
+    background: transparent;
+    border: none;
+}
+.ns01 .nsi .nsi-box .has > .cpsl{
+    display: none;
 }
 .ns01 .nsi .nsi-box .hasbox{
     display: flex;
@@ -228,14 +243,21 @@
     font-size: 0.8rem;
     /* color: var(--sg-bglight); */
     font-family: var(--font-brand);
-    background: var(--sg-bglight);
+    /* background: var(--sg-bglight); */
     cursor: pointer;
     gap: 0.5rem;
-    border: 1px solid var(--sg-color-def);
+    /* border: 1px solid var(--sg-color-def); */
+    color: var(--sg-bglight);
+    background: var(--sg-color-def);
 }
 .ns01 .nsi .nsi-box .nsir:last-child .action .btn svg{
     width: 1.2rem;
     rotate: 358deg;
+    fill: var(--sg-bglight);
+}
+.ns01 .nsi .nsi-box .nsir:last-child .action .btn path{
+    stroke: var(--sg-bglight);
+    fill: var(--sg-bglight);
 }
 
 @media only screen and (max-width: 1260px) {
@@ -286,6 +308,23 @@
         /* display: flex; */
         width: 100%;
     }
+}
+@media only screen and (max-width: 650px){
+    .ns01 .nsi .nsi-box .has{
+        border: 1px solid var(--sg-border-00);
+        background: var(--sg-bglight);
+    }
+    .ns01 .nsi .nsi-box .has .cpsl{
+        display: block;
+    }
+    .ns01 .nsi .nsi-box .hasbox .hi .cpsl{
+        display: none;
+    }
+     .ns01 .nsi .nsi-box .hasbox .hi{
+        border: none;
+        max-width: initial;
+        padding: 0rem 0.8rem;
+     }
 }
 @media only screen and (max-width: 400px){
     .ns-box .nsn{

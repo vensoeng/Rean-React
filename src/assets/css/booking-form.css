@@ -223,7 +223,8 @@
     border-radius: 0.5rem;
     height: 3rem;
     color: var(--sg-bglight);
-    font-size: 1.5rem;
+    font-size: 1rem;
+    font-family: var(--font-brand);
     cursor: pointer;
     background: var(--colorText-00);
 }

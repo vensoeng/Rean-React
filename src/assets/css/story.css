@@ -256,6 +256,9 @@
     -webkit-line-clamp: 1;
     overflow: hidden;
 }
+.my-story-body .box ul li .text h2:hover{
+    text-decoration: underline;
+}
 .my-story-body .box ul li .text-main blockquote p{
     line-height: 1.3;
     font-size: 1rem;

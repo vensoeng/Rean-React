@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 
-import { API_URL } from '../utils/auth';
+import { API_URL, STORAGE } from '../utils/auth';
 import WebLoader from './../components/common/WebLoader';
 import {
     TimerStart,
@@ -82,6 +82,11 @@ export default function Services() {
             setIsTransitioning(false);
         }, 250);
     };
+
+    // location to other location 
+    const locat = (url) => {
+        navigate(url);
+    }
 
     const renderSkeletons = () => {
         return Array(3).fill(0).map((_, idx) => (
@@ -166,12 +171,13 @@ export default function Services() {
                                                         <p>{s.status === 'true' || s.status === true ? 'បើកដំណើរការ' : 'ផ្អាកដំណើរការ'}</p>
                                                     </div>
                                                     <div className="title">
-                                                        <h2>{s.title_kh}</h2>
+                                                        <h2 onClick={ () => locat('/services/detail/' + s.id)}>{s.title_kh}</h2>
                                                     </div>
                                                     <div className="descript">
-                                                        <p>{s.description_kh || s.des_kh}</p>
+                                                        <p onClick={ () => locat('/services/detail/' + s.id)}>{s.description_kh || s.des_kh}</p>
                                                     </div>
-                                                    <div className="has">
+                                                    <div className="has crop-style">
+                                                        <span className="cpsl cp1"></span><span className="cpsl cp2"></span><span className="cpsl cp3"></span><span className="cpsl cp4"></span>
                                                         <div className="hasbox">
                                                             {s.tags_kh && (typeof s.tags_kh === 'string' ? s.tags_kh.split(',') : s.tags_kh).map((tag, tagIndex) => (
                                                                 <div key={tagIndex} className="hi btn crop-style">
@@ -233,9 +239,9 @@ export default function Services() {
 
                                         <div className="nsir">
                                             <div className="nsir-box">
-                                                <div className="mimg crop-style">
+                                                <div className="mimg crop-style" onClick={ () => locat('/services/detail/' + s.id)}>
                                                     <span className="cpsl cp1"></span><span className="cpsl cp2"></span><span className="cpsl cp3"></span><span className="cpsl cp4"></span>
-                                                    <img className="img-c" src="https://vensoengapi.vercel.app/images/storage/1782567641658.webp" alt={s.title_kh || "service"} />
+                                                    <img className="img-c" src={API_URL + STORAGE + s.img} alt={s.title_kh || "service"} loading='lazy' />
                                                 </div>
                                                 <div className="action">
                                                     <div className="action-box df-s">

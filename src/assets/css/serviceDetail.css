@@ -371,10 +371,10 @@ body:has(#wsd) header {
         gap: 1rem;
     }
     #wsd .wsdc-row:first-child{
-        width: initial;
+        width: 100%;
     }
-     #wsd .wsdc-row:last-child{
-        width: initial;
+    #wsd .wsdc-row:last-child{
+        width: 100%;
     }
 }
 @media screen and (max-width: 640px){
