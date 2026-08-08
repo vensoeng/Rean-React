@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function ServiceCard({ service, fallbackImg, apiUrl, storageUrl }) {
     const [isFullyLoaded, setIsFullyLoaded] = useState(false);
 
     const imageUrl = service.img ? `${apiUrl}${storageUrl}${service.img}` : fallbackImg;
+
+    const navigate = useNavigate();
+    const locate = () =>{
+        navigate('/services/detail/' + service.id);
+    }
 
     return (
         <li>
@@ -24,7 +30,9 @@ export default function ServiceCard({ service, fallbackImg, apiUrl, storageUrl }
             </div>
 
             {/* Image Wrapper Container */}
-            <div className="l-img img-box"  style={!isFullyLoaded ? { position: 'relative', overflow: 'hidden', aspectRatio: '1 /1', } : { position: 'relative', overflow: 'hidden' } }  >
+            <div className="l-img img-box"  
+                onClick={() => locate()}
+                style={!isFullyLoaded ? { position: 'relative', overflow: 'hidden', aspectRatio: '1 /1', } : { position: 'relative', overflow: 'hidden' } }  >
                 {!isFullyLoaded && (
                     <div 
                         className="img-loader-placeholder" 

@@ -1223,3 +1223,62 @@ textarea  {
         margin: 0rem 0.5rem;
     }
 }
+
+/* ==custome style====> */
+.crop-style{
+    position: relative;
+    border-radius: 0rem;
+    border: 1px solid var(--sg-border-00);
+    background: var(--sg-bglight);
+    user-select: none;
+}
+.crop-style .cpsl{
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    top: -1px;
+    left: -1px;
+    background: var(--sg-color-def);
+    overflow: hidden;
+}
+.crop-style .cpsl::before{
+    position: absolute;
+    content: '';
+    top: 1px;
+    left: 1px;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--sg-bglight);
+}
+.crop-style .cpsl.cp2,
+.crop-style .cpsl.cp3{
+    right: -1px;
+    left: auto;
+}
+.crop-style .cpsl.cp2::before{
+    left: auto;
+    right: 1px;
+}
+.crop-style .cpsl.cp3{
+    top: auto;
+    bottom: -1px;
+}
+.crop-style .cpsl.cp3::before{
+    left: auto;
+    top: auto;
+    right: 1px;
+    bottom: 1px;
+}
+.crop-style .cpsl.cp4{
+    top: auto;
+    bottom: -1px;
+}
+.crop-style .cpsl.cp4::before{
+    top: auto;
+    bottom: 1px;
+}
+.crop-style .cpslc{
+    position: relative;
+    z-index: 5;
+    background: var(--sg-bglight);
+}

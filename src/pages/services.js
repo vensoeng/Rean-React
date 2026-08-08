@@ -1,33 +1,24 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 
 import { API_URL } from '../utils/auth';
-
 import WebLoader from './../components/common/WebLoader';
-import Questions from './question';
 import {
     TimerStart,
     Location,
     DollarCircle,
     BrifecaseTick,
-    Note1,
-    ArrowRight,
-    // Sms,
-    ArrowLeft
+    Note1
 } from 'iconsax-reactjs';
 
-import imgTest from './../assets/img/logo192.png';
-import servicesBg from './../assets/img/services_bg.jpg';
 import './../assets/css/services.css';
 
 const CATEGORIES_CONFIG = [
     { slug: 'all', ids: [], name: 'ទាំងអស់' },
-    // { slug: 'photo', ids: [1], name: 'រូបថត' },     
-    // { slug: 'video', ids: [2], name: 'វីដេអូ' },      
+    { slug: 'web', ids: [4], name: 'កម្មវិធី' },
     { slug: 'design', ids: [3], name: 'ការរចនា' },    
-    { slug: 'web', ids: [4], name: 'គេហទំព័រ' }
 ];
 
 const fetchServicesData = async () => {
@@ -94,193 +85,201 @@ export default function Services() {
 
     const renderSkeletons = () => {
         return Array(3).fill(0).map((_, idx) => (
-            <li key={`skeleton-${idx}`}>
-                <div className='service-list skeleton-card-loading'>
-                    <div className='sl-h df-l' style={{ background: '#e0e0e0', height: '80px', position: 'relative', overflow: 'hidden' }}>
-                        <div className='skeleton-shimmer'></div>
-                    </div>
-                    <div className='sl-c'>
-                        <div className='slc-box' style={{ padding: '1.5rem' }}>
-                            <div className='skeleton-line title' style={{ width: '60%', height: '20px', background: '#e0e0e0', marginBottom: '15px', borderRadius: '4px', position: 'relative', overflow: 'hidden' }}><div className='skeleton-shimmer'></div></div>
-                            <div className='skeleton-line desc' style={{ width: '90%', height: '14px', background: '#e0e0e0', marginBottom: '10px', borderRadius: '4px', position: 'relative', overflow: 'hidden' }}><div className='skeleton-shimmer'></div></div>
-                            <div className='skeleton-line desc' style={{ width: '40%', height: '14px', background: '#e0e0e0', marginBottom: '20px', borderRadius: '4px', position: 'relative', overflow: 'hidden' }}><div className='skeleton-shimmer'></div></div>
-                            <div className='sl-sp' style={{ display: 'flex', gap: '8px' }}>
-                                <div style={{ width: '60px', height: '25px', background: '#e0e0e0', borderRadius: '4px', position: 'relative', overflow: 'hidden' }}><div className='skeleton-shimmer'></div></div>
-                                <div style={{ width: '80px', height: '25px', background: '#e0e0e0', borderRadius: '4px', position: 'relative', overflow: 'hidden' }}><div className='skeleton-shimmer'></div></div>
-                            </div>
+            <div key={`skeleton-${idx}`} className='service-list skeleton-card-loading'>
+                <div className='sl-h df-l' style={{ background: '#e0e0e0', height: '80px', position: 'relative', overflow: 'hidden' }}>
+                    <div className='skeleton-shimmer'></div>
+                </div>
+                <div className='sl-c'>
+                    <div className='slc-box' style={{ padding: '1.5rem' }}>
+                        <div className='skeleton-line title' style={{ width: '60%', height: '20px', background: '#e0e0e0', marginBottom: '15px', borderRadius: '4px', position: 'relative', overflow: 'hidden' }}><div className='skeleton-shimmer'></div></div>
+                        <div className='skeleton-line desc' style={{ width: '90%', height: '14px', background: '#e0e0e0', marginBottom: '10px', borderRadius: '4px', position: 'relative', overflow: 'hidden' }}><div className='skeleton-shimmer'></div></div>
+                        <div className='skeleton-line desc' style={{ width: '40%', height: '14px', background: '#e0e0e0', marginBottom: '20px', borderRadius: '4px', position: 'relative', overflow: 'hidden' }}><div className='skeleton-shimmer'></div></div>
+                        <div className='sl-sp' style={{ display: 'flex', gap: '8px' }}>
+                            <div style={{ width: '60px', height: '25px', background: '#e0e0e0', borderRadius: '4px', position: 'relative', overflow: 'hidden' }}><div className='skeleton-shimmer'></div></div>
+                            <div style={{ width: '80px', height: '25px', background: '#e0e0e0', borderRadius: '4px', position: 'relative', overflow: 'hidden' }}><div className='skeleton-shimmer'></div></div>
                         </div>
                     </div>
                 </div>
-            </li>
+            </div>
         ));
     };
     
     return (
-        <div className="main-service mser">
-            {/* update priview card share  */}
+        <div className="ns01">
             <Helmet>
                 <title>VenSoeng - Business Services</title>
-                <meta name="description" content="Professional solutions for your digital needs. រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត។" />
+                <meta name="description" content="Professional solutions for your digital needs. រកសេវាកម្មល្អៗបាននៅទីនេះ!" />
                 <meta property="og:title" content="VenSoeng - Business Services" />
-                <meta property="og:description" content="Professional solutions for your digital needs. រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត។" />
+                <meta property="og:description" content="Professional solutions for your digital needs. រកសេវាកម្មល្អៗបាននៅទីនេះ!" />
                 <meta property="og:url" content="https://vensoeng.vercel.app/services" />
             </Helmet>
-            {/* all element */}
-            <div className="mser-box">
-                {/* Header */}
-                <div className="msh">
-                    <nav className='db-c'>
-                        <div className='mshn-box df-s'>
-                            <button className='btn' onClick={() => navigate(-1)}>
-                                <ArrowLeft/>
+            <div className="ns-box">
+                {/* Header Hero */}
+                <div className="nsh">
+                    <div className="nshc df-c crop-style">
+                        <span className="cpsl cp1"></span><span className="cpsl cp2"></span><span className="cpsl cp3"></span><span className="cpsl cp4"></span>
+                        <div className="nsh-box">
+                            <h2>ស្វែងរកសេវាកម្មដែលសមនឹងអាជីវកម្មរបស់អ្នក</h2>
+                            <p>ជ្រើសរើសសេវាកម្មដែលសមស្រប មិនថាជាការអភិវឌ្ឍ Website, Mobile App, Business System ឬការរចនាសម្រាប់អាជីវកម្ម។</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Category Navigation */}
+                <nav className="nsn">
+                    <div className="nsn-box df-c">
+                        {CATEGORIES_CONFIG.map((cat) => (
+                            <button 
+                                key={cat.slug}
+                                className={`btn btn-style ${activeCategory === cat.slug ? 'active' : ''}`}
+                                onClick={() => handleCategoryChange(cat.slug)}
+                            >
+                                {cat.name}
                             </button>
-                            <div className="smh-row">
-                                <a href="https://t.me/vensoeng" className='btn'>
-                                    {/* <Sms/> */}
-                                    <i class="fa-brands fa-telegram"></i>
-                                    ទាក់ទងមកបង!
-                                </a>
-                            </div>
-                        </div>
-                    </nav>
-                    <div className="msh-box">
-                        <div className="smh-row">
-                            <h2>ហាងតូចរបស់ Admin</h2>
-                            <blockquote>
-                                <p>Professional solutions for your digital needs. រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត។</p>
-                            </blockquote>
-                        </div>
+                        ))}
                     </div>
-                </div>
+                </nav>
 
-                {/* Navigation */}
-                <div className="ms-nav">
-                    <div className="smn-box">
-                        <ul className='df-l'>
-                            {CATEGORIES_CONFIG.map((cat, index) => (
-                                <li key={index}>
-                                    <button 
-                                        className={`btn ${activeCategory === cat.slug ? 'active' : ''}`}
-                                        onClick={() => handleCategoryChange(cat.slug)}
-                                    >
-                                        {cat.name}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-
-                {/* Content */}
-                <div className='mscon'>
-                    <div className='mscon-box'>
-                        <ul>
-                            {/* 3. Combined local animation state with query state */}
-                            {isLoading || isTransitioning ? (
-                                <>
-                                    <WebLoader>រង់ចាំបន្ដិចយើងកំពុងទាញយកទិន្នន័យដើម្បីដំណើរការ</WebLoader>
-                                    {renderSkeletons()}
-                                </>
-                            ) : isError ? (
-                                <p style={{ textAlign: 'center', padding: '2rem', color: 'red' }}>
-                                    មានបញ្ហាក្នុងការទាញយកទិន្នន័យ: {error.message}
-                                </p>
-                            ) : filteredServices.length === 0 ? (
-                                <p style={{ textAlign: 'center', padding: '2rem' }}>មិនមានសេវាកម្មឡើយ</p>
-                            ) : (
-                                filteredServices.map((s, index) => (
-                                    <li key={s.id || index} data-category={s?.list_id}>
-                                        <div className='service-list'>
-                                            {/* List Header */}
-                                            <div className='sl-h df-l'>
-                                                <div className='sl-box df-s'>
-                                                    <div className='sl-avata icon icon-sm over-h'>
-                                                        <img className='img-c' src={imgTest} loading='lazy' alt='profile' />
+                {/* Content Section */}
+                <div className="nsc">
+                    <div className="nsc-box">
+                        {isLoading || isTransitioning ? (
+                            <>
+                                <WebLoader>រង់ចាំបន្ដិចយើងកំពុងទាញយកទិន្នន័យដើម្បីដំណើរការ</WebLoader>
+                                {renderSkeletons()}
+                            </>
+                        ) : isError ? (
+                            <p style={{ textAlign: 'center', padding: '2rem', color: 'red' }}>
+                                មានបញ្ហាក្នុងការទាញយកទិន្នន័យ: {error.message}
+                            </p>
+                        ) : filteredServices.length === 0 ? (
+                            <p style={{ textAlign: 'center', padding: '2rem' }}>មិនមានសេវាកម្មឡើយ</p>
+                        ) : (
+                            filteredServices.map((s, index) => (
+                                <div className="nsi" key={s.id || index} data-category={s?.list_id}>
+                                    <div className="nsi-box df-c">
+                                        <div className="nsir">
+                                            <div className="nsir-box">
+                                                <div className="nsirh">
+                                                    <div className="status">
+                                                        <span></span>
+                                                        <p>{s.status === 'true' || s.status === true ? 'បើកដំណើរការ' : 'ផ្អាកដំណើរការ'}</p>
                                                     </div>
-                                                    <div className='sl-status'>
-                                                        <blockquote className={s.status === 'true' ? 'btn active' : 'btn'}>
-                                                            <p>{s.status === 'true' ? 'បើកដំណើរការ' : 'ផ្អាកដំណើរការ'}</p>
-                                                        </blockquote>
-                                                    </div>
-                                                    <div className='slh-bg'>
-                                                        <img className='img-c' src={servicesBg} loading='lazy' alt='background' />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            {/* List Content */}
-                                            <div className='sl-c'>
-                                                <div className='slc-box'>
-                                                    <blockquote>
+                                                    <div className="title">
                                                         <h2>{s.title_kh}</h2>
-                                                        <p>{s.description_kh || s.des_kh}</p> 
-                                                    </blockquote>
-                                                    
-                                                    {/* Tags Section */}
-                                                    <div className='sl-sp'>
-                                                        {s.tags_kh && (typeof s.tags_kh === 'string' ? s.tags_kh.split(',') : s.tags_kh).map((tag, tagIndex) => (
-                                                            <span key={tagIndex} className='btn'>
-                                                                {tag.trim()}
-                                                            </span>
-                                                        ))}
-                                                        {s.tags_active_kh && (typeof s.tags_active_kh === 'string' ? s.tags_active_kh.split(',') : s.tags_active_kh).map((activeTag, activeIndex) => (
-                                                            <span key={activeIndex} className='btn active'>
-                                                                {activeTag.trim()}
-                                                            </span>
-                                                        ))}
                                                     </div>
-
-                                                    <div className='slls-main'>
-                                                        <div className='sll-l df-l'>
-                                                            <div className='icon icon-sm icon-ra'><TimerStart /></div>
-                                                            <blockquote><p>{s.time_kh}</p></blockquote>
-                                                        </div>
-                                                        <div className='sll-l df-l'>
-                                                            <div className='icon icon-sm icon-ra'><Location /></div>
-                                                            <blockquote><p>{s.location_kh}</p></blockquote>
-                                                        </div>
-                                                        <div className='sll-l df-l'>
-                                                            <div className='icon icon-sm icon-ra'><DollarCircle /></div>
-                                                            <blockquote><p>ប្រាក់កក់: {s.deposit}</p></blockquote>
-                                                        </div>
-                                                        <div className='sll-l df-l'>
-                                                            <div className='icon icon-sm icon-ra'><BrifecaseTick /></div>
-                                                            <blockquote><p>ការធានា: {s.warranty_kh}</p></blockquote>
-                                                        </div>
-                                                        <div className='sll-l df-l'>
-                                                            <div className='icon icon-sm icon-ra'><Note1 /></div>
-                                                            <blockquote><p>{s.re_change_kh || 'អាចស្នើប្ដូរបាន'}</p></blockquote>
+                                                    <div className="descript">
+                                                        <p>{s.description_kh || s.des_kh}</p>
+                                                    </div>
+                                                    <div className="has">
+                                                        <div className="hasbox">
+                                                            {s.tags_kh && (typeof s.tags_kh === 'string' ? s.tags_kh.split(',') : s.tags_kh).map((tag, tagIndex) => (
+                                                                <div key={tagIndex} className="hi btn crop-style">
+                                                                    <span className="cpsl cp1"></span><span className="cpsl cp2"></span><span className="cpsl cp3"></span><span className="cpsl cp4"></span>
+                                                                    <div className="hi-box">
+                                                                        <p>{tag.trim()}</p>
+                                                                    </div>
+                                                                </div>
+                                                            ))}
+                                                            {s.tags_active_kh && (typeof s.tags_active_kh === 'string' ? s.tags_active_kh.split(',') : s.tags_active_kh).map((activeTag, activeIndex) => (
+                                                                <div key={activeIndex} className="hi btn crop-style active">
+                                                                    <span className="cpsl cp1"></span><span className="cpsl cp2"></span><span className="cpsl cp3"></span><span className="cpsl cp4"></span>
+                                                                    <div className="hi-box">
+                                                                        <p>{activeTag.trim()}</p>
+                                                                    </div>
+                                                                </div>
+                                                            ))}                                                
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                            {/* List Footer */}
-                                            <div className='sl-f'>
-                                                <div className='slf-box df-s'>
-                                                    <div className='slf-row'>
-                                                        <blockquote>
-                                                            <p>តម្លៃចាប់ផ្ដើម</p>
-                                                            <h2>${s.price_start}</h2>
-                                                        </blockquote>
-                                                    </div>
-                                                    <div className='slf-row'>
-                                                        <a href={`/services/detail/${s.id}`} className='btn'>
-                                                            ព័ត៌មានលំអិត
-                                                            <ArrowRight/>
-                                                        </a>
+                                                <div className="note crop-style">
+                                                    <span className="cpsl cp1"></span><span className="cpsl cp2"></span><span className="cpsl cp3"></span><span className="cpsl cp4"></span>
+                                                    <div className="not-box">
+                                                        <div className="nti">
+                                                            <div className="nti-box df-l">
+                                                                <div className="icon icon-ra icon-sm"><TimerStart /></div>
+                                                                <div className="txt"><p>{s.time_kh}</p></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="nti">
+                                                            <div className="nti-box df-l">
+                                                                <div className="icon icon-ra icon-sm"><Location /></div>
+                                                                <div className="txt"><p>{s.location_kh}</p></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="nti">
+                                                            <div className="nti-box df-l">
+                                                                <div className="icon icon-ra icon-sm"><DollarCircle /></div>
+                                                                <div className="txt"><p>ប្រាក់កក់: {s.deposit}</p></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="nti">
+                                                            <div className="nti-box df-l">
+                                                                <div className="icon icon-ra icon-sm"><BrifecaseTick /></div>
+                                                                <div className="txt"><p>ការធានា: {s.warranty_kh}</p></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="nti">
+                                                            <div className="nti-box df-l">
+                                                                <div className="icon icon-ra icon-sm"><Note1 /></div>
+                                                                <div className="txt"><p>{s.re_change_kh || 'អាចស្នើប្ដូរបាន'}</p></div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
-                                ))
-                            )}
-                        </ul>
+
+                                        <div className="nsir">
+                                            <div className="nsir-box">
+                                                <div className="mimg crop-style">
+                                                    <span className="cpsl cp1"></span><span className="cpsl cp2"></span><span className="cpsl cp3"></span><span className="cpsl cp4"></span>
+                                                    <img className="img-c" src="https://vensoengapi.vercel.app/images/storage/1782567641658.webp" alt={s.title_kh || "service"} />
+                                                </div>
+                                                <div className="action">
+                                                    <div className="action-box df-s">
+                                                        <div className="atr">
+                                                            <p>តម្លៃចាប់ផ្ដើម</p>
+                                                            <h2>${s.price_start}</h2>
+                                                        </div>
+                                                        <div className="atr">
+                                                            <Link className="btn btn-style" to={`/services/detail/${s.id}`}>
+                                                                <svg fill="#000000" viewBox="0 0 400 400" id="Send" version="1.1" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+                                                                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                                                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                                                                    <g id="SVGRepo_iconCarrier">
+                                                                        <g id="XMLID_3_">
+                                                                            <polygon id="XMLID_4_" points="373.3,0 346.7,0 320,0 320,26.7 346.7,26.7 373.3,26.7 373.3,53.3 373.3,80 400,80 400,53.3 400,26.7 400,0 "></polygon>
+                                                                            <polygon id="XMLID_299_" points="293.3,53.3 320,53.3 320,26.7 293.3,26.7 266.7,26.7 240,26.7 240,53.3 266.7,53.3 "></polygon>
+                                                                            <polygon id="XMLID_300_" points="213.3,80 240,80 240,53.3 213.3,53.3 186.7,53.3 160,53.3 160,80 186.7,80 "></polygon>
+                                                                            <polygon id="XMLID_301_" points="133.3,106.7 160,106.7 160,80 133.3,80 106.7,80 80,80 80,106.7 106.7,106.7 "></polygon>
+                                                                            <polygon id="XMLID_302_" points="346.7,106.7 346.7,133.3 346.7,160 373.3,160 373.3,133.3 373.3,106.7 373.3,80 346.7,80 "></polygon>
+                                                                            <polygon id="XMLID_313_" points="80,133.3 80,106.7 53.3,106.7 26.7,106.7 26.7,133.3 53.3,133.3 "></polygon>
+                                                                            <rect height="26.7" id="XMLID_314_" width="26.7" x="0" y="133.3"></rect>
+                                                                            <polygon id="XMLID_315_" points="186.7,160 160,160 133.3,160 106.7,160 80,160 53.3,160 26.7,160 26.7,186.7 53.3,186.7 80,186.7 106.7,186.7 133.3,186.7 160,186.7 186.7,186.7 213.3,186.7 213.3,160 "></polygon>
+                                                                            <polygon id="XMLID_316_" points="320,186.7 320,213.3 320,240 346.7,240 346.7,213.3 346.7,186.7 346.7,160 320,160 "></polygon>
+                                                                            <polygon id="XMLID_317_" points="293.3,266.7 293.3,293.3 293.3,320 320,320 320,293.3 320,266.7 320,240 293.3,240 "></polygon>
+                                                                            <polygon id="XMLID_318_" points="240,320 240,293.3 240,266.7 240,240 240,213.3 240,186.7 213.3,186.7 213.3,213.3 213.3,240 213.3,266.7 213.3,293.3 213.3,320 213.3,346.7 213.3,373.3 240,373.3 240,346.7 "></polygon>
+                                                                            <polygon id="XMLID_319_" points="266.7,346.7 266.7,373.3 293.3,373.3 293.3,346.7 293.3,320 266.7,320 "></polygon>
+                                                                            <rect height="26.7" id="XMLID_320_" width="26.7" x="240" y="373.3"></rect>
+                                                                        </g>
+                                                                    </g>
+                                                                </svg>
+                                                                ព័ត៌មានលំអិត
+                                                            </Link>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
+                        )}                    
                     </div>
                 </div>
             </div>
-            <Questions/>
-       </div> 
+        </div>
     );
 }

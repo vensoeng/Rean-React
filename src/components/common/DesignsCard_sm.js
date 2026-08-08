@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import { API_URL, STORAGE } from '../../utils/auth';
 import Logo from '../../assets/img/logo192.png';
 
@@ -21,6 +22,8 @@ export default function DesignsCard({ designs = {}, index = 0, newStory = false 
     const shareUrl = `http://vensoeng.vercel.app/share/designs/${designs.id}`;
 
     const imageUrl = designs?.img ? `${API_URL}${STORAGE}${designs.img}` : Logo;
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         let isMounted = true;
@@ -78,6 +81,10 @@ export default function DesignsCard({ designs = {}, index = 0, newStory = false 
         setShowShare(true);
     };
 
+    const locate = (url) =>{
+        navigate('/designs/detail/' + designs.id);
+    }
+
     return (
         <div className="d01i">
             <div className="d01i-box df-c">
@@ -125,7 +132,8 @@ export default function DesignsCard({ designs = {}, index = 0, newStory = false 
                 {/* <!-- this is row image  --> */}
                 <div className="d01ir">
                     <div className="d01ir-box">
-                        <div className="d01img">
+                        <div className="d01img" 
+                        onClick={() => locate()}>
                             {!isFullyLoaded && (
                                 <div className="img-loader-placeholder">
                                     <div className="spinner"></div>

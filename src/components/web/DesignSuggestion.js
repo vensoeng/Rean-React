@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import { useQuery } from '@tanstack/react-query';
 import { API_URL, STORAGE} from '../../utils/auth'; 
 import imgTest from '../../assets/img/defualt_img.webp';
@@ -17,11 +18,16 @@ function DesignCard({ item }) {
     const [isFullyLoaded, setIsFullyLoaded] = useState(false);
     const imageUrl = item.img ? `${API_URL}${STORAGE}${item.img}` : imgTest;
 
+    const navigate = useNavigate();
+    const locate = (url) =>{
+        navigate(url);
+    }
+
     return (
         <li className="dsl-09-item">
             <div className="dsli09-box">
                 {/* Image Wrapper Container */}
-                <div 
+                <div onClick={() => locate('/designs/detail/' + item.id)}
                     className="dsl-09-img" 
                     style={{ 
                         position: 'relative', 
