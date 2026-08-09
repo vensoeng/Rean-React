@@ -321,6 +321,7 @@
        display: block;
        margin-top: -15.5rem;
     }
+
     .dsl-09-box .dsl-09-item:nth-child(-n+2) {
         padding-top: 0rem !important;
         border-top: none;
@@ -352,5 +353,8 @@
     }
     .ds-09-head{
         border-bottom: none;
+    }
+    .dsl-09-box .dsli09-box .dsl-09-img{
+        aspect-ratio: initial;
     }
 }
