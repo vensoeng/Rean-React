@@ -469,9 +469,9 @@ export default function AboutPage({active = true})
                         </blockquote>
                     </div>
                     <div className="action">
-                        <div className="btn btn-style">
+                        <a href='https://vensoeng.github.io/' className="btn btn-style">
                             ប្រវត្តិរូបខ្ញុំ
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

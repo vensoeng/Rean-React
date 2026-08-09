@@ -391,6 +391,7 @@ body:has(.abus08){
     font-family: var(--font-brand);
     color: var(--sg-bglight);
     background: var(--sg-color-def);
+    min-width: 100px;
 }
 body:has(.abus08) .footer-container{
     background: var(--sg-color-brand);
