@@ -153,7 +153,7 @@ export default function AboutPage({active = true})
                                 <p>ពិភាក្សាជាមួយយើង ដើម្បីស្វែងរកវិធីដែលសមស្របសម្រាប់អាជីវកម្មរបស់អ្នក។</p>
                             </blockquote>
                             <div className="action">
-                                <div className="btn btn-style">ទំនាក់ទំនងឥឡូវនេះ</div>
+                                <a href="https://t.me/vensoeng" className="btn btn-style">ទំនាក់ទំនងឥឡូវនេះ</a>
                             </div>
                         </div>
                     </div>
