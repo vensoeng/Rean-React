@@ -121,9 +121,9 @@ export default function DesignsDetail() {
     return (
         <div className="dsd09">
             <Helmet>
-                <title>{`VenSoeng Designs | ${designs.title || ''}`}</title>
+                <title>{`VenSoeng DigitalCore | ${designs.title || ''}`}</title>
                 <meta name="description" content={designs.des || ''} />
-                <meta property="og:title" content={`VenSoeng | ${designs.title || ''}`} />
+                <meta property="og:title" content={`VenSoeng DigitalCore | ${designs.title || ''}`} />
                 <meta property="og:description" content={designs.des || ''} />
             </Helmet>
 

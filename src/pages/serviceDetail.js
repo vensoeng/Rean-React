@@ -200,9 +200,9 @@ export default function ServicesDetail() {
         <section id="wsd">
             {/* update priview card share  */}
             <Helmet>
-                <title>{`VenSoeng - Business ${service?.title || ''}`}</title>
+                <title>{`VenSoeng DigitalCore | ${service?.title || ''}`}</title>
                 <meta name="description" content={`${service?.description || ''}`} />
-                <meta property="og:title" content={`VenSoeng - Business ${service?.title || ''}`} />
+                <meta property="og:title" content={`VenSoeng DigitalCore | ${service?.title || ''}`} />
                 <meta property="og:description" content={`${service?.description || ''}`} />
             </Helmet>
             {/* <nav className="wsdn">

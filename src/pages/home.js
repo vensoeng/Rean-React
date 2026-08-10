@@ -51,7 +51,7 @@ export default function HomePage() {
         <main className="web-main">
             {/* update priview card share  */}
             <Helmet>
-                <title>VenSoeng - Home Business </title>
+                <title>VenSoeng DigitalCore Cambodia</title>
             </Helmet>
             {/* <AlienBackground /> */}
             {/* <AdvertisementPopup /> */}

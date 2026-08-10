@@ -30,7 +30,7 @@ export default function StoryPage({active = true})
         <main  className={active ? "web-main web-main-active" : "web-main"}>
             {/* update priview card share  */}
             <Helmet>
-                <title>VenSoeng - Business Blog</title>
+                <title>VenSoeng DigitalCore | Blog</title>
                 <meta name="description" content="ស្វែងរក និងអានព្រឹត្តិការណ៍ផ្សេងៗដែលមានការបង្កើតជាប្រចាំ!" />
                 <meta property="og:title" content="VenSoeng - Business Blog" />
                 <meta property="og:description" content="ស្វែងរក និងអានព្រឹត្តិការណ៍ផ្សេងៗដែលមានការបង្កើតជាប្រចាំ!" />
