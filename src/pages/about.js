@@ -303,7 +303,7 @@ export default function AboutPage({active = true})
                 {/* <!-- list  --> */}
                 <div className="stsl df-c">
                     <div className="stslb">
-                        <h3>2004</h3>
+                        <h3>2024</h3>
                         <p>បានចាប់ផ្ដើម</p>
                     </div>
                 </div>
