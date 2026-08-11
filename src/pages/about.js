@@ -27,7 +27,7 @@ export default function AboutPage({active = true})
    <main className={active ? "web-main about-main-active" : "web-main"}>
       {/* update priview card share  */}
       <Helmet>
-          <title>VenSoeng DigitalCore | About Business</title>
+          <title>About Business | VenSoeng DigitalCore </title>
           <meta name="description" content="Creative and effective solutions for websites and mobile." />
           <meta property="og:title" content="VenSoeng - About Business" />
           <meta property="og:description" content="Creative and effective solutions for websites and mobile." />
@@ -93,7 +93,7 @@ export default function AboutPage({active = true})
                                 <h3>ដំណោះស្រាយស្របតាមអាជីវកម្ម</h3>
                             </div>
                             <blockquote>
-                                <p>យើងសិក្សាពីតម្រូវការអាជីវកម្មរបស់អ្នក ដើម្បីបង្កើតដំណោះស្រាយដែលសមស្រប និងអាចប្រើប្រាស់បានពិតប្រាកដ។</p>
+                                <p>មុនពេលចាប់ផ្តើមរចនា ឬអភិវឌ្ឍ យើងសិក្សាពីតម្រូវការ និងបញ្ហារបស់អាជីវកម្មជាមុន ដើម្បីឱ្យអ្វីដែលយើងបង្កើតសមនឹងការងារជាក់ស្តែងរបស់អ្នក។</p>
                             </blockquote>
                         </div>
                     </div>
@@ -101,10 +101,10 @@ export default function AboutPage({active = true})
                     <div className="item">
                         <div className="ibox">
                             <div className="ih">
-                                <h3>គិតពីការរីកចម្រើនរបស់អាជីវកម្ម</h3>
+                                <h3>គិតពីតម្រូវការនាពេលអនាគត</h3>
                             </div>
                             <blockquote>
-                                <p>យើងមិនត្រឹមតែអភិវឌ្ឍគម្រោងសម្រាប់ថ្ងៃនេះទេ ប៉ុន្តែគិតគូរអំពីការពង្រីក និងការអភិវឌ្ឍនាពេលអនាគត ដើម្បីឱ្យប្រព័ន្ធអាចរីកចម្រើនជាមួយអាជីវកម្មរបស់អ្នក។</p>
+                                <p>យើងមិនត្រឹមតែអភិវឌ្ឍគម្រោងសម្រាប់ថ្ងៃនេះទេ ប៉ុន្តែគិតគូរអំពីការពង្រីក និងការអភិវឌ្ឍនាពេលអនាគត ដើម្បីឱ្យប្រព័ន្ធអាចបន្ថែម ឬកែសម្រួលបាននៅពេលអាជីវកម្មត្រូវការ</p>
                             </blockquote>
                         </div>
                     </div>
@@ -112,7 +112,7 @@ export default function AboutPage({active = true})
                     <div className="item">
                         <div className="ibox">
                             <div className="ih">
-                                <h3>ទំនាក់ទំនងច្បាស់លាស់ និងធ្វើការជាដៃគូ</h3>
+                                <h3>ទំនាក់ទំនងច្បាស់លាស់</h3>
                             </div>
                             <blockquote>
                                 <p>យើងស្តាប់គំនិត និងតម្រូវការរបស់អ្នក រាយការណ៍វឌ្ឍនភាពជាប្រចាំ និងធ្វើការរួមគ្នានៅគ្រប់ដំណាក់កាល ដើម្បីឱ្យលទ្ធផលចុងក្រោយស្របតាមគោលដៅអាជីវកម្ម។</p>
@@ -123,10 +123,10 @@ export default function AboutPage({active = true})
                     <div className="item">
                         <div className="ibox">
                             <div className="ih">
-                                <h3>បច្ចេកវិទ្យាទំនើប និងប្រសិទ្ធភាពខ្ពស់</h3>
+                                <h3>ផ្តោតលើភាពងាយស្រួលប្រើ</h3>
                             </div>
                             <blockquote>
-                                <p>យើងប្រើបច្ចេកវិទ្យាទំនើបដើម្បីអភិវឌ្ឍប្រព័ន្ធដែលមានល្បឿនលឿន សុវត្ថិភាព និងអាចពង្រីកបន្ថែមនាពេលអនាគត។</p>
+                                <p>យើងគិតពីអ្នកប្រើប្រាស់តាំងពីដំណាក់កាលរចនា ដើម្បីឱ្យ Website ឬប្រព័ន្ធមានរបៀបប្រើប្រាស់ច្បាស់ និងមិនបង្កើតភាពស្មុគស្មាញដែលមិនចាំបាច់។</p>
                             </blockquote>
                         </div>
                     </div>
@@ -283,21 +283,14 @@ export default function AboutPage({active = true})
                 <div className="stsl df-c">
                     <div className="stslb">
                         <h3>15+</h3>
-                        <p>គម្រោងដែលបានបញ្ចប់</p>
+                        <p>គម្រោងបានបញ្ចប់</p>
                     </div>
                 </div>
                 {/* <!-- list  --> */}
                 <div className="stsl df-c">
                     <div className="stslb">
                         <h3>3+</h3>
-                        <p>អតិថិជនដែកំពុងសហការ</p>
-                    </div>
-                </div>
-                {/* <!-- list  --> */}
-                <div className="stsl df-c">
-                    <div className="stslb">
-                        <h3>99.9%</h3>
-                        <p>ដំណោះស្រាយដែលបានអភិវឌ្ឍ</p>
+                        <p>អតិថិជនកំពុងសហការ</p>
                     </div>
                 </div>
                 {/* <!-- list  --> */}
@@ -305,6 +298,13 @@ export default function AboutPage({active = true})
                     <div className="stslb">
                         <h3>5+</h3>
                         <p>មើលថែ(Support)</p>
+                    </div>
+                </div>
+                {/* <!-- list  --> */}
+                <div className="stsl df-c">
+                    <div className="stslb">
+                        <h3>2004</h3>
+                        <p>បានចាប់ផ្ដើម</p>
                     </div>
                 </div>
             </div>
@@ -328,7 +328,7 @@ export default function AboutPage({active = true})
                             <p>Teamwork Project</p>
                         </div>
                         <div className="title">
-                            <h2>គម្រោងចាស់ៗ ដែលយើងបានធ្វើការងារជាក្រុម?</h2>
+                            <h2>គម្រោងដែលយើងបានធ្វើការរួមគ្នា</h2>
                         </div>
                         <div className="twpn">
                             <p>កម្មវិធីឌីជីថលស្ដីពីកសិករកម្ពុជា <br /> Digital Agri-App Cambodia.</p>
@@ -361,7 +361,7 @@ export default function AboutPage({active = true})
                                 </div>
                                 <blockquote>
                                     <h2>Reangsey</h2>
-                                    <p>English Speaker</p>
+                                    <p>Project Presenter</p>
                                 </blockquote>
                             </div>
                         </div>
@@ -461,7 +461,7 @@ export default function AboutPage({active = true})
             <div className="abt09r">
                 <div className="abt09rb">
                     <div className="abt09rh">
-                        <h2>អ្នកនៅពីក្រោយចក្ខុវិស័យ និងការរីកចម្រើន</h2>
+                        <h2>អ្នកនៅពីក្រោយចក្ខុវិស័យ និងការរីកចម្រើន (Founder)</h2>
                     </div>
                     <div className="abt09rd">
                         <blockquote>

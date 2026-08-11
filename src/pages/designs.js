@@ -35,7 +35,7 @@ function DesignsPage() {
       <div className="ds01">
         {/* update priview card share  */}
         <Helmet>
-            <title>VenSoeng DigitalCore | Designs</title>
+            <title>Designs | VenSoeng DigitalCore</title>
             <meta name="description" content="Creative poster design for events and social media. Professional banners for printing and digital use." />
             <meta property="og:title" content="VenSoeng - Business Designs" />
             <meta property="og:description" content="Creative poster design for events and social media. Professional banners for printing and digital use." />

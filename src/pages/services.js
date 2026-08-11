@@ -112,7 +112,7 @@ export default function Services() {
     return (
         <div className="ns01">
             <Helmet>
-                <title>VenSoeng DigitalCore | Services</title>
+                <title>Services | VenSoeng DigitalCore</title>
                 <meta name="description" content="Professional solutions for your digital needs. រកសេវាកម្មល្អៗបាននៅទីនេះ!" />
                 <meta property="og:title" content="VenSoeng - Business Services" />
                 <meta property="og:description" content="Professional solutions for your digital needs. រកសេវាកម្មល្អៗបាននៅទីនេះ!" />
