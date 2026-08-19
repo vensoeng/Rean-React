@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import '../../assets/css/header.css';
-import favIcon from '../../assets/img/logo192.png';
+// import favIcon from '../../assets/img/logo192.png';
+import favIcon from '../../assets/img/VenSoeng_DigitalCore_Logo.png';
 import { Flash, HamburgerMenu, Add } from 'iconsax-reactjs';
 // import Pageon from '../common/page';
 import { useState } from 'react';
@@ -31,7 +32,7 @@ export default function Header()
     return(
         <>
         {/* <Pageon /> */}
-        <header className="webhead">
+        <header className="webhead wuser-wbhead">
             <div className="wh-box df-s scroll-x">
                 <NavLink to="/" className="logo icon icon-ra icon-sm" onClick={handleClose}>
                     <img className='img-c' src={favIcon} alt=''/>
@@ -41,9 +42,9 @@ export default function Header()
                 <ListRoute />
                 
                 {/* This is for text logo  */}
-                <a href='/' className="logo-text dn">
+                {/* <a href='/' className="logo-text dn">
                     <h1>VenSoeng</h1>
-                </a>
+                </a> */}
                 {/* Main Button layout row */}
                 <div className="btn-main df-r">
                     <a href="/services" className="btn btn-style" onClick={handleClose}>

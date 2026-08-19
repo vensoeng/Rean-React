@@ -55,12 +55,13 @@
     -ms-overflow-style: none; 
     scrollbar-width: none;
 }
-.webhead .logo{
-    width: 50px;
+.webhead.wuser-wbhead .logo{
+    width: 160px;
     height: 50px;
     font-weight: 800;
     color: var(--sg-bglight);
     margin: 0rem 0.5rem;
+    border-radius: 0rem;
     /* background: var(--sg-color-text); */
 }
 .wh-box .logo img{
@@ -354,6 +355,9 @@
     } */
 }
 @media screen and (max-width: 670px){
+    .webhead.wuser-wbhead .logo{
+        width: 120px;
+    }
     .webhead .btn-main{
         gap: 0.1rem;
     }
@@ -367,6 +371,11 @@
     }
     .webhead .btn-main .btn:last-child svg{
         width: 1.8rem;
+    }
+}
+@media screen and (max-width: 650px){
+    .webhead .link-box{
+        display: none;
     }
 }
 /* @media screen and (max-width: 530px) {
