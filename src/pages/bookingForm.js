@@ -341,7 +341,7 @@ export default function BookingForm() {
                     <div className="foot">
                         <div className="fbox">
                             <button className="btn" type="submit" disabled={submitting}>
-                                {submitting ? "កំពុងបញ្ជូន..." : "បញ្ចូនការកក់"}
+                                {submitting ? "កំពុងបញ្ជូន..." : "បញ្ចូន"}
                             </button>
                         </div>
                     </div> 

@@ -385,7 +385,7 @@ export default function ServicesDetail() {
                                     </div>
                                     <div className="gtfix">
                                         <div className="wsdaf-a">
-                                            <a href={`/booking/service/${service.id}`} className="wsdaf-btn btn">កក់ឥឡូវនេះ</a>
+                                            <a href={`/booking/service/${service.id}`} className="wsdaf-btn btn">ពិភាក្សាគម្រោង</a>
                                         </div>
                                         <div className="wsdaf df-c">
                                             <p>{service.note_kh || "មិនគិតថ្លៃសម្រាប់ការពិគ្រោះយោបល់ដំបូង"}</p>

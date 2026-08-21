@@ -6,6 +6,7 @@ import { API_URL } from '../utils/auth';
 import WebLoader from '../components/common/WebLoader';
 
 // import '../assets/css/story.css';
+import './../assets/css/about.css';
 import '../assets/css/home.css';
 
 // this is web header 
@@ -149,6 +150,36 @@ export default function HomePage() {
                             </form>
                         </div>
                     </section> */}
+
+                    {/* <!-- style  --> */}
+                    <section className="abs01  abt09">
+                        <div className="abs01-box df-c abt09-box">
+                            {/* <!-- row  --> */}
+                            <div className="abt09r">
+                                <div className="abt09rb">
+                                    <img className="img-c" src="https://vensoengapi.vercel.app/storage/data/url/1786240220462.webp" alt="vensoeng" />
+                                </div>
+                            </div>
+                            {/* <!-- row  --> */}
+                            <div className="abt09r">
+                                <div className="abt09rb">
+                                    <div className="abt09rh">
+                                        <h2>អ្នកនៅពីក្រោយចក្ខុវិស័យ និងការរីកចម្រើន(Founder)</h2>
+                                    </div>
+                                    <div className="abt09rd">
+                                        <blockquote>
+                                            <p>VenSoeng DigitalCore ត្រូវបានបង្កើតឡើងដោយចក្ខុវិស័យរួមក្នុងការបង្កើតដំណោះស្រាយឌីជីថលដែលមានគុណភាព និងអាចជួយអាជីវកម្មឱ្យរីកចម្រើន។ យើងជឿជាក់លើការសហការ ការសិក្សាជាបន្តបន្ទាប់ និងការបង្កើតតម្លៃពិតប្រាកដសម្រាប់អតិថិជនតាមរយៈបច្ចេកវិទ្យា។</p>
+                                        </blockquote>
+                                    </div>
+                                    <div className="action">
+                                        <a href='/about' className="btn btn-style">
+                                            អំពីយើង
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
         </main>

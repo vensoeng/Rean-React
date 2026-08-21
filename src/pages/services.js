@@ -229,7 +229,7 @@ export default function Services() {
                                                         <div className="nti">
                                                             <div className="nti-box df-l">
                                                                 <div className="icon icon-ra icon-sm"><Note1 /></div>
-                                                                <div className="txt"><p>{s.re_change_kh || 'អាចស្នើប្ដូរបាន'}</p></div>
+                                                                <div className="txt"><p>{s.note_kh || 'ទំនាក់ទំនងដើម្បីទទួលបានតម្លៃល្អ'}</p></div>
                                                             </div>
                                                         </div>
                                                     </div>
