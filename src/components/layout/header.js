@@ -18,6 +18,7 @@ const ListRoute = ({ onItemClick }) => {
                 <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/storys">អត្ថបទ</NavLink></li>
                 <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/designs">ការរចនា</NavLink></li>
                 {/* <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/creator">មាតិការ</NavLink></li> */}
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/pricing">កញ្ចប់សេវា</NavLink></li>
                 <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/about">អំពីយើង</NavLink></li>
             </ul>
         </div>

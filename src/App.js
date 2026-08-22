@@ -21,6 +21,7 @@ import Services from './pages/services';
 import ServicesDetail from './pages/serviceDetail';
 import Story from './pages/story';
 import StoryDetail from './pages/storyDetail';
+import PricingPage from './pages/pricing';
 //shop
 import Shopping from './pages/shop';
 //this is booking form
@@ -82,6 +83,7 @@ function RoutePage() {
         <Route path='/storys' element={<Story />} />
         <Route path='/website' element={<WebsitePage />} />
         <Route path='/services' element={<Services />} />
+        <Route path='/pricing' element={<PricingPage />} />
       </Route>
       {/* user route doesn't layout  */}
       <Route path="/storys/detail/:id" element={<StoryDetail />} />

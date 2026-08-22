@@ -135,7 +135,7 @@
     display: none;
 }
 .webhead .link-box ul li{
-    margin: 0rem 1rem;
+    margin: 0rem 0.8rem;
     height: 100%;
 }
 .webhead .link-box ul li:first-child{

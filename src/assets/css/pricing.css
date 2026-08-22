@@ -1,0 +1,212 @@
+.price08{
+    max-width: 2560px;
+    min-height: 100vh;
+    margin: 0 auto;
+    inset: 0px;
+    background-image: var(--sg-bg-svg);
+    background-repeat: repeat;
+    background-position: left top;
+    background-size: 16.5px;
+}
+@media only screen and (max-width: 2560px){
+    .price08{
+        margin: 0rem 0.8rem;
+    }
+}
+.price08 .pb08{
+    border: 1px solid var(--sg-border-00);
+    border-top: none;
+    border-bottom: none;
+    min-height: 100vh;
+    padding: 4rem 0rem;
+}
+.price08 .ph08{
+    border-left: none;
+    border-right: none;
+    margin-bottom: 3rem;
+}
+.price08 .ph08 .phb{
+    min-height: 250px;
+    height: max-content;
+    max-width: 600px;
+    width: calc(100% - 2rem);
+    margin: 0 auto;
+    text-align: center;
+}
+.price08 .ph08 .phb blockquote{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.price08 .ph08 .phb h2{
+    font-size: 2rem;
+    font-weight: 600;
+}
+.price08 .ph08 .phb p{
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 500px;
+}
+/* ==========content============ */
+.pcb08 .pul8{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.pcb08 .pcl{
+    border: 1px solid var(--sg-border-00);
+    border-left: none;
+    border-right: none;
+    background: var(--sg-bglight);
+}
+.pcb08 .pcl:first-child{
+    background: var(--sg-color-def);
+}
+.pcb08 .pcl:nth-child(even){background-color: var(--sg-bgblack)}
+
+.pcb08 .pcl .pl08{
+    padding: 0rem 0.8rem;
+    align-items: stretch;
+}
+.pcb08 .pcl .ll08{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 0.8rem;
+    width: calc(25% - 1.6rem);
+    min-height: 150px;
+    border-right: 1px solid var(--sg-border-00);
+    position: relative;
+}
+.pcb08 .pcl .ll08::before{
+    content: '';
+    position: absolute;
+    width: 0.5px;
+    height: 100%;
+    right: -0.5px;
+    top: -3rem;
+    min-height: 3rem;
+    background: var(--sg-border-00);
+}
+.pcb08 .pcl .ll08:last-child:before{
+    display: none;
+}
+.pcb08 .pcl .ll08:last-child{
+    border: none;
+}
+.pcb08 .pcl:first-child .ll08{
+    min-height: 140px;
+    height: max-content;
+    padding: 0.8rem;
+}
+.pcb08 .pcl:first-child .ll08 h2{
+    color: var(--sg-bglight);
+    font-size: 1.25rem;
+}
+.pcb08 .pcl .pn8 h3{
+
+    font-size: 1.15rem;
+}
+.pcb08 .pcl .pn8 .btn{
+    gap: 0.1rem;
+    height: 1.5rem;
+    padding: 0rem 0.2rem;
+    font-size: 0.8rem;
+    border-radius: 0.2rem;
+    margin-right: auto;
+    background: var(--sg-color-light-spec);
+}
+.pcb08 .pcl .pn8 .btn svg{
+    width: 0.8rem;
+}
+.pcb08 .pcl .pd8 .ac8 p{
+    line-height: 1.5;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    overflow: hidden;
+}
+.pcb08 .pcl .pd8 .ac8 p:hover{
+    text-decoration: underline;
+}
+.pcb08 .pcl .pp8 p{
+    font-size: 0.8rem;
+}
+.pcb08 .pcl .pp8 h3{
+    font-size: 1.5rem;
+}
+.pcb08 .pcl .pc8{
+    align-items: center;
+}
+.pcb08 .pcl .pc8 .action{
+    font-size: 0.8rem;
+    color: var(--sg-color-brand);
+    text-decoration: underline;
+}
+.pcb08 .pcl .pc8 .action:hover{
+    opacity: 0.8;
+}
+.pcb08 .pcl .pc8 .btn{
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--sg-bglight);
+    padding: 0rem 1rem;
+    cursor: pointer;
+    font-family: var(--font-brand);
+}
+.pcb08 .pcl .pc8 .btn:hover{
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 700px) {
+    .price08 .ph08 .phb{
+        min-height: 200px;
+    }
+    .pcb08 .pcl:first-child{
+        display: none;
+    }
+    .pcb08 .pcl .pl08{
+        padding: 0.8rem;
+        gap: 1rem;
+        flex-direction: column;
+    }
+    .pcb08 .pcl .ll08{
+        width: initial;
+        max-width: 100%;
+        min-height: initial;
+        border: none;
+        padding: 0rem;
+    }
+    .pcb08 .pcl .ll08::before{
+        display: none;
+    }
+    .pcb08 .pcl .ll08.pd8{
+        display: none;
+    }
+    .pcb08 .pcl .ll08:last-child{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+    .pcb08 .pcl .pn8 h3{
+        font-size: 1.5rem;
+    }
+    .pcb08 .pcl .pp8 h3{
+        font-size: 2rem;
+    }
+    .pcb08 .pcl .pc8 .action{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.2rem;
+        /* border: 1px solid var(--sg-color-def); */
+        /* color: var(--sg-color-def); */
+        border-radius: 0.1rem;
+    }
+    .pcb08 .pcl .pc8 .btn{
+        background: var(--sg-color-def);
+    }
+}

@@ -217,7 +217,7 @@ export default function Services() {
                                                         <div className="nti">
                                                             <div className="nti-box df-l">
                                                                 <div className="icon icon-ra icon-sm"><DollarCircle /></div>
-                                                                <div className="txt"><p>ប្រាក់កក់: {s.deposit}</p></div>
+                                                                <div className="txt"><p>ប្រាក់កក់: {s.deposit}%</p></div>
                                                             </div>
                                                         </div>
                                                         <div className="nti">

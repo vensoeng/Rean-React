@@ -31,7 +31,7 @@ export default function BookingForm() {
         x_phone: '',
         x_email: '',
         x_service_id: '',
-        x_type_contact: 'កក់សេរវ៉ាកម្ម',
+        x_type_contact: 'ពិភាក្សាសេវ៉ាកម្ម',
         x_date: '',
         x_des: ''
     });
@@ -89,7 +89,7 @@ export default function BookingForm() {
                     x_phone: '',
                     x_email: '',
                     x_service_id: '',
-                    x_type_contact: 'កក់សេរវ៉ាកម្ម',
+                    x_type_contact: 'ពិភាក្សាគម្រោង',
                     x_date: '',
                     x_des: ''
                 });
@@ -128,7 +128,7 @@ export default function BookingForm() {
                         </div>
                     </div>
                     <div className="row">
-                        <h1>កក់សេវ៉ាកម្ម</h1>
+                        <h1>ពិភាក្សាគម្រោង</h1>
                     </div>
                     <div className="row">
                         <a href="http://facebook.com/vensoeng" className="icon icon-ra icon-sm">
@@ -166,7 +166,7 @@ export default function BookingForm() {
                             </div>
                         </div>
                         <div className="row">
-                            <h1>កក់សេវ៉ាកម្ម</h1>
+                            <h1>ពិភាក្សាគម្រោង</h1>
                         </div>
                         <div className="row">
                             <a href="http://facebook.com/vensoeng" className="icon icon-ra icon-sm">
@@ -284,8 +284,8 @@ export default function BookingForm() {
                                                 value={formData.x_type_contact} 
                                                 onChange={handleChange}
                                             >
-                                                <option value="កក់សេរវ៉ាកម្ម">កក់សេរវ៉ាកម្ម</option>
                                                 <option value="ពិភាក្សាសេវ៉ាកម្ម">ពិភាក្សាសេវ៉ាកម្ម</option>
+                                                <option value="កក់សេរវ៉ាកម្ម">កក់សេរវ៉ាកម្ម</option>
                                             </select>
                                         </div>
                                     </div>

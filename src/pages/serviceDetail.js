@@ -369,26 +369,30 @@ export default function ServicesDetail() {
                             {/* Booking Action Box */}
                             <div className="wsd-actin">
                                 <div className="wsda">
-                                    <div className="wsdah df-s">
+                                    <div className="wsdah df-c">
                                         <div className="wsdah-row">
                                             <blockquote>
                                                 <p>តម្លៃផ្ដើមពី</p>
-                                                <h2>${service.price_start || "--"}</h2>
+                                                <h2>
+                                                    {service.price_start != null
+                                                    ? Number(service.price_start).toFixed(2)
+                                                    : "--"}
+                                                </h2>
                                             </blockquote>
                                         </div>
-                                        <div className="wsdah-row">
+                                        {/* <div className="wsdah-row">
                                             <blockquote>
                                                 <p>ទំនួលខុសត្រូវខ្ពស់ពី</p>
                                                 <h2>©VenSoeng</h2>
                                             </blockquote>
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <div className="gtfix">
                                         <div className="wsdaf-a">
                                             <a href={`/booking/service/${service.id}`} className="wsdaf-btn btn">ពិភាក្សាគម្រោង</a>
                                         </div>
                                         <div className="wsdaf df-c">
-                                            <p>{service.note_kh || "មិនគិតថ្លៃសម្រាប់ការពិគ្រោះយោបល់ដំបូង"}</p>
+                                            <p>ទំនួលខុសត្រូវខ្ពស់ពី ©VenSoeng</p>
                                         </div>
                                     </div>
                                 </div>
