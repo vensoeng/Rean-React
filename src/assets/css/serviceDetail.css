@@ -395,12 +395,6 @@ body:has(#wsd) header {
     }
 }
 @media screen and (max-width: 430px){
-    #wsd .wsd-c{
-        padding-top: 0.5rem;
-    }
-    #wsd .wsdc-box{
-        margin: 0 0.5rem;
-    }
     #wsd .wsdc-row:last-child .wsd-actin .wsda{
         width: calc(100% + 1rem);
         left: -0.5rem;
