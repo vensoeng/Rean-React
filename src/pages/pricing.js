@@ -28,7 +28,7 @@ export default function PricingPage() {
     <>
     <section className="price08">
         <Helmet>
-          <title>Soeng DigitalCore | Pricing</title>
+          <title>SOENG DigitalCore | Pricing</title>
           <meta name="description" content="Creative and effective solutions for websites and mobile." />
           <meta property="og:title" content="Soeng DigitalCore | Pricing" />
           <meta property="og:description" content="Creative and effective solutions for websites and mobile." />

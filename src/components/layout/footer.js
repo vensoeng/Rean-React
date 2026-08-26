@@ -38,7 +38,7 @@ export default function Footer()
           <div className="footer-column newsletter-col">
             <h3>គោលបំណងគេហទំព័រ</h3>
             <p>
-              បង្កើតដំណោះស្រាយប្រកបដោយភាពច្នៃប្រឌិត និងមានប្រសិទ្ធភាព គេហទំព័រនិងទូរស័ព្ទ។ រកសេវាកម្មល្អៗបាននៅទីនេះ! រាល់ការគាំទ្ររបស់បងៗ គឺជាកម្លាំងចិត្តឱ្យ ខ្ញុំបន្តស្វែងរកអ្វីដែលថ្មី និងឥតគិតថ្លៃមកចែករំលែកបន្តទៀត។
+              SOENG DigitalCore បានបង្កើតឡើងក្នុងកំឡុងឆ្នាំ២០២៤ ជាស្នូលឌីជីថលជួយអាជីវកម្មបង្កើត Website, Mobile App, ប្រព័ន្ធគ្រប់គ្រង និងដំណោះស្រាយឌីជីថល ដែលសមស្របទៅតាមតម្រូវការជាក់ស្តែង។
             </p>
             <a href="http://facebook.com/vensoeng" className="newsletter-btn">ទំនាក់ទំនង</a>
           </div>
@@ -48,7 +48,7 @@ export default function Footer()
             <h3>មុីនូផ្សេងៗ</h3>
             <ul>
               <li><a href="/">ទំព័រដើម</a></li>
-              <li><a href="/shopping">ហាងបងស្រី</a></li>
+              {/* <li><a href="/shopping">ហាងបងស្រី</a></li> */}
               <li><a href="/storys">ព្រឹត្តិការណ៍</a></li>
               <li><a href="/designs">ការរចនា</a></li>
               <li><a href="/contents">មាតិការ</a></li>
@@ -60,7 +60,7 @@ export default function Footer()
             <h3>ជម្រើសសេវាកម្ម</h3>
             <ul>
               <li><a href="/services?category=web">Building website</a></li>
-              <li><a href="/services?category=design">Desings</a></li>
+              <li><a href="/services?category=design">Graphic design</a></li>
               {/* <li><a href="/services?category=video">Video editing</a></li> */}
               {/* <li><a href="/services?category=photo">Photographer</a></li> */}
             </ul>
@@ -71,7 +71,7 @@ export default function Footer()
             <h3>ទំនួលខុសត្រូវ</h3>
             <ul>
               <li><a href="/about">អំពីយើង</a></li>
-              <li><a href="/questions">ជំនួយ</a></li>
+              <li><a href="https://t.me/vensoeng">ទាក់ទងជំនួយ</a></li>
             </ul>
             
             <div className="app-badges">
@@ -89,7 +89,7 @@ export default function Footer()
       <hr className="footer-divider" />
       {/* 3. Bottom Legal & Socials Section */}
       <div className="footer-bottom">
-        <p className="copyright">© 2026 VenSoeng</p>
+        <p className="copyright">© 2024 VenSoeng</p>
         <div className="social-icons">
           {/* github */}
           <a href="https://github.com/vensoeng" aria-label="github">

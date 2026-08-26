@@ -27,7 +27,7 @@ export default function AboutPage({active = true})
    <main className={active ? "web-main about-main-active" : "web-main"}>
       {/* update priview card share  */}
       <Helmet>
-          <title>About Business | VenSoeng DigitalCore </title>
+          <title>SOENG DigitalCore | About Business</title>
           <meta name="description" content="Creative and effective solutions for websites and mobile." />
           <meta property="og:title" content="VenSoeng - About Business" />
           <meta property="og:description" content="Creative and effective solutions for websites and mobile." />
@@ -42,7 +42,7 @@ export default function AboutPage({active = true})
                         <blockquote>
                             <h2 className="web">បង្កើត Website & App ដែលសមនឹងអាជីវកម្មរបស់លោកអ្នក</h2>
                             <p>
-                                VenSoeng DigitalCore គឺជាស្ទូឌីយោឌីជីថលដែលផ្តោតលើការអភិវឌ្ឍ Web & App សម្រាប់អាជីវកម្មខ្នាតតូច និងមធ្យម។ យើងជួយអតិថិជនបង្កើតដំណោះស្រាយឌីជីថលដែលមានភាពទំនើប ងាយស្រួលប្រើប្រាស់ មានសុវត្ថិភាព និងអាចអភិវឌ្ឍបន្ថែមបានតាមតម្រូវការរបស់អាជីវកម្មនាពេលអនាគត់។
+                                SOENG DigitalCore គឺជាស្ទូឌីយោឌីជីថលដែលផ្តោតលើការអភិវឌ្ឍ Web & App សម្រាប់អាជីវកម្មខ្នាតតូច និងមធ្យម។ យើងជួយអតិថិជនបង្កើតដំណោះស្រាយឌីជីថលដែលមានភាពទំនើប ងាយស្រួលប្រើប្រាស់ មានសុវត្ថិភាព និងអាចអភិវឌ្ឍបន្ថែមបានតាមតម្រូវការរបស់អាជីវកម្មនាពេលអនាគត់។
                             </p>
                             <div className="action df-l">
                                 <a href="/services" className="btn">មើលសេវាកម្ម</a>
@@ -80,7 +80,7 @@ export default function AboutPage({active = true})
                 <div className="sh-box">
                     <h2>
                         ហេតុអ្វីត្រូវជ្រើសរើស
-                        VenSoeng DigitalCore?
+                        SOENG DigitalCore?
                     </h2>
                 </div>
             </div>
@@ -172,7 +172,7 @@ export default function AboutPage({active = true})
                     {/* <!-- head  --> */}
                     <div className="stlrh">
                         <blockquote>
-                            <h2>អំពី VenSoeng DigitalCore</h2>
+                            <h2>អំពី SOENG DigitalCore</h2>
                             <p>ចាប់ផ្តើមពីគំនិតតូចមួយ ដើម្បីបង្កើតដំណោះស្រាយឌីជីថលដែលមានតម្លៃសម្រាប់អាជីវកម្ម។</p>
                         </blockquote>
                     </div>
@@ -202,7 +202,7 @@ export default function AboutPage({active = true})
                         <div className="db-c">
                             <blockquote className="crop-style">
                                 <span className="cpsl cp1"></span><span className="cpsl cp2"></span><span className="cpsl cp3"></span><span className="cpsl cp4"></span>
-                                <p>VenSoeng DigitalCore ត្រូវបានបង្កើតឡើងដោយមានគោលបំណងជួយអាជីវកម្មបង្កើត Web & APP និងដំណោះស្រាយឌីជីថលដែលមានគុណភាព ទំនើប និងអាចអភិវឌ្ឍបន្ថែមបានទៅតាមការរីកចម្រើនៃអាជីវកម្ម។ យើងផ្តោតលើការយល់ដឹងពីតម្រូវការរបស់អតិថិជនមុន ចាប់ផ្ដើមរចនា និងអភិវឌ្ឍដំណោះស្រាយដែលសមស្របទៅតាមគោលដៅអាជីវកម្មរបស់របស់ពួកគេ។</p>
+                                <p>SOENG DigitalCore ត្រូវបានបង្កើតឡើងដោយមានគោលបំណងជួយអាជីវកម្មបង្កើត Web & APP និងដំណោះស្រាយឌីជីថលដែលមានគុណភាព ទំនើប និងអាចអភិវឌ្ឍបន្ថែមបានទៅតាមការរីកចម្រើនៃអាជីវកម្ម។ យើងផ្តោតលើការយល់ដឹងពីតម្រូវការរបស់អតិថិជនមុន ចាប់ផ្ដើមរចនា និងអភិវឌ្ឍដំណោះស្រាយដែលសមស្របទៅតាមគោលដៅអាជីវកម្មរបស់របស់ពួកគេ។</p>
                             </blockquote>
                         </div>
                     </div>
@@ -256,7 +256,7 @@ export default function AboutPage({active = true})
                         <blockquote>
                             <h2>បេសកកម្ម</h2>
                             <p><strong>បង្កើតដំណោះស្រាយឌីជីថលដែលមានគុណភាព និងមានតម្លៃសម្រាប់អាជីវកម្ម</strong></p>
-                            <p>VenSoeng DigitalCore ជួយអាជីវកម្មបង្កើតគេហទំព័រ WEB & APP និងដំណោះស្រាយឌីជីថលដែលមានគុណភាព ស្របតាមតម្រូវការជាក់ស្តែង និងអាចជួយបង្កើនប្រសិទ្ធភាពការងារ។ យើងផ្តោតលើការរចនាដែលងាយស្រួលប្រើ ការអភិវឌ្ឍដែលមានស្ថិរភាព និងផ្ដល់ការធានាបន្ទាប់ពីដាក់ឱ្យប្រើប្រាស់ ដើម្បីឱ្យអតិថិជនអាចប្រើប្រាស់ប្រព័ន្ធបានដោយទំនុកចិត្ត។</p>
+                            <p>SOENG DigitalCore ជួយអាជីវកម្មបង្កើតគេហទំព័រ WEB & APP និងដំណោះស្រាយឌីជីថលដែលមានគុណភាព ស្របតាមតម្រូវការជាក់ស្តែង និងអាចជួយបង្កើនប្រសិទ្ធភាពការងារ។ យើងផ្តោតលើការរចនាដែលងាយស្រួលប្រើ ការអភិវឌ្ឍដែលមានស្ថិរភាព និងផ្ដល់ការធានាបន្ទាប់ពីដាក់ឱ្យប្រើប្រាស់ ដើម្បីឱ្យអតិថិជនអាចប្រើប្រាស់ប្រព័ន្ធបានដោយទំនុកចិត្ត។</p>
                         </blockquote>
                     </div>
                 </div>
@@ -461,11 +461,11 @@ export default function AboutPage({active = true})
             <div className="abt09r">
                 <div className="abt09rb">
                     <div className="abt09rh">
-                        <h2>អ្នកនៅពីក្រោយចក្ខុវិស័យ និងការរីកចម្រើន (Founder)</h2>
+                        <h2>ស្ថាបនិក(Founder)</h2>
                     </div>
                     <div className="abt09rd">
                         <blockquote>
-                            <p>VenSoeng DigitalCore ត្រូវបានបង្កើតឡើងដោយចក្ខុវិស័យរួមក្នុងការបង្កើតដំណោះស្រាយឌីជីថលដែលមានគុណភាព និងអាចជួយអាជីវកម្មឱ្យរីកចម្រើន។ យើងជឿជាក់លើការសហការ ការសិក្សាជាបន្តបន្ទាប់ និងការបង្កើតតម្លៃពិតប្រាកដសម្រាប់អតិថិជនតាមរយៈបច្ចេកវិទ្យា។</p>
+                            <p>SOENG DigitalCore ត្រូវបានបង្កើតឡើងដោយចក្ខុវិស័យរួមក្នុងការបង្កើតដំណោះស្រាយឌីជីថលដែលមានគុណភាព និងអាចជួយអាជីវកម្មឱ្យរីកចម្រើន។ យើងជឿជាក់លើការសហការ ការសិក្សា និងការបង្កើតតម្លៃពិតប្រាកដសម្រាប់អតិថិជនតាមរយៈបច្ចេកវិទ្យា។</p>
                         </blockquote>
                     </div>
                     <div className="action">

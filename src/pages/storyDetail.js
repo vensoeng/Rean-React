@@ -131,9 +131,9 @@ export default function StoryDetail() {
         <div className={toogleTheme ? 'styde styde-dark' : 'styde styde-light'}>
             {/* update priview card share  */}
             <Helmet>
-                <title>{`VenSoeng DigitalCore | ${blog?.title || ''}`}</title>
+                <title>{`SOENG DigitalCore | ${blog?.title || ''}`}</title>
                 <meta name="description" content={`${blog?.des || ''}`} />
-                <meta property="og:title" content={`VenSoeng DigitalCore | ${blog?.title || ''}`} />
+                <meta property="og:title" content={`SOENG DigitalCore | ${blog?.title || ''}`} />
                 <meta property="og:description" content={`${blog?.des || ''}`} />
             </Helmet>
             {/* this Is header  */}
