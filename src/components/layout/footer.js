@@ -1,26 +1,18 @@
 
-import React from 'react';
+// import React from 'react';
+import { useTranslation } from 'react-i18next';
 // import { NavLink } from 'react-router-dom';
-
+import { API_URL} from '../../utils/auth';
 import '../../assets/css/footer.css';
 // import imgFoot from '../../assets/img/footer_website.webp';
 export default function Footer()
 {
-    // return(
-    //     <footer className="web-footer">
-    //         <div className="footer-box df-s">
-    //             <blockquote>
-    //                 <p>
-    //                     ចាប់ផ្ដើមតាមដានខ្ញុំនៅលើបណ្ដាញសង្គម<br/>
-    //                     តោះពេលនេះ !                </p>
-    //             </blockquote>
-    //             <div className="button">
-    //                 <a href="https://vensoeng.free.nf/about/linkme.html" className="btn icon icon-ra">ចាប់ផ្ដើមពេលនេះ !</a>
-    //                 <p>© Copyright soeng</p>
-    //             </div>
-    //         </div>
-    //     </footer>
-    // );
+    const { t , i18n } = useTranslation();
+
+    const changeLanguage = (lng) => {
+      i18n.changeLanguage(lng);
+    };
+    
     return (
     <footer className="footer-container">
       {/* <div className='footc-top'>
@@ -36,31 +28,32 @@ export default function Footer()
         <div className="footer-links-grid">
           {/* Newsletter Column */}
           <div className="footer-column newsletter-col">
-            <h3>គោលបំណងគេហទំព័រ</h3>
+            <h3>{t('footer.purpose.title')}</h3>
             <p>
-              SOENG DigitalCore បានបង្កើតឡើងក្នុងកំឡុងឆ្នាំ២០២៤ ជាស្នូលឌីជីថលជួយអាជីវកម្មបង្កើត Website, Mobile App, ប្រព័ន្ធគ្រប់គ្រង និងដំណោះស្រាយឌីជីថល ដែលសមស្របទៅតាមតម្រូវការជាក់ស្តែង។
+            {t('footer.purpose.desc')}
             </p>
-            <a href="http://facebook.com/vensoeng" className="newsletter-btn">ទំនាក់ទំនង</a>
+            <a href="http://facebook.com/vensoeng" className="newsletter-btn">{t('homePage.hero.contact')}</a>
           </div>
 
           {/* Help Column */}
           <div className="footer-column">
-            <h3>មុីនូផ្សេងៗ</h3>
+            <h3>{t('footer.menu')}</h3>
             <ul>
-              <li><a href="/">ទំព័រដើម</a></li>
+              <li><a href="/">{t('home')}</a></li>
               {/* <li><a href="/shopping">ហាងបងស្រី</a></li> */}
-              <li><a href="/storys">ព្រឹត្តិការណ៍</a></li>
-              <li><a href="/designs">ការរចនា</a></li>
-              <li><a href="/contents">មាតិការ</a></li>
+              <li><a href="/storys">{t('service')}</a></li>
+              <li><a href="/storys">{t('pricing')}</a></li>
+              <li><a href="/storys">{t('blog')}</a></li>
+              <li><a href="/designs">{t('design')}</a></li>
             </ul>
           </div>
 
           {/* Explore Column */}
           <div className="footer-column">
-            <h3>ជម្រើសសេវាកម្ម</h3>
+            <h3>{t('footer.services')}</h3>
             <ul>
-              <li><a href="/services?category=web">Building website</a></li>
-              <li><a href="/services?category=design">Graphic design</a></li>
+              <li><a href="/services?category=web">{t('footer.web')}</a></li>
+              <li><a href="/services?category=design">{t('footer.design')}</a></li>
               {/* <li><a href="/services?category=video">Video editing</a></li> */}
               {/* <li><a href="/services?category=photo">Photographer</a></li> */}
             </ul>
@@ -68,21 +61,21 @@ export default function Footer()
 
           {/* Other Possibilities & App Badges Column */}
           <div className="footer-column apps-col">
-            <h3>ទំនួលខុសត្រូវ</h3>
+            <h3>{t('footer.responsibility')}</h3>
             <ul>
-              <li><a href="/about">អំពីយើង</a></li>
-              <li><a href="https://t.me/vensoeng">ទាក់ទងជំនួយ</a></li>
+              <li><a href="/about">{t('aboutUs')}</a></li>
+              <li><a href="https://t.me/vensoeng">{t('footer.support')}</a></li>
             </ul>
             
             <div className="app-badges">
-              {/* Replace '#' with actual store links */}
-              {/* <a href="#" className="app-badge">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" />
+              <a href="https://facebook.com/vensoeng" className="app-badge">
+                <img src={API_URL + '/storage/data/url/1787909952206.webp'} alt="Get it on Facebook page." />
               </a>
-              <a href="#" className="app-badge">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" />
-              </a> */}
+              <a href="https://facebook.com/vensoeng" className="app-badge">
+                <img src={API_URL + '/storage/data/url/1787910092758.webp'}  alt="Get it on Facebook Telegram." />
+              </a>
             </div>
+
           </div>
         </div>
       </div>
@@ -126,6 +119,19 @@ export default function Footer()
               <path fill="currentColor" d="M18 3a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-2.586l-2.707 2.707a1 1 0 0 1-1.32.083l-.094-.083L8.585 19H6a4 4 0 0 1-3.995-3.8L2 15V7a4 4 0 0 1 4-4zm-4 9H8a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2m2-4H8a1 1 0 1 0 0 2h8a1 1 0 0 0 0-2" />
             </svg>
           </a>
+          <span className='slac05'></span>
+          <button 
+            onClick={() => changeLanguage('kh')}
+            className={i18n.language === 'kh' ? 'active-lang btn btnlng' : 'btn btnlng'}
+          >
+           {t('khmer')}
+          </button>
+          <button 
+            onClick={() => changeLanguage('en')}
+            className={i18n.language === 'en' ? 'active-lang btn btnlng' : 'btn btnlng'}
+          >
+            {t('english')}
+          </button>
         </div>
       </div>
       

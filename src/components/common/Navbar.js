@@ -1,7 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'iconsax-reactjs';
 import QRCode from "react-qr-code";
+
 import {
     FaFacebookF,
     FaTelegramPlane,
@@ -11,29 +13,31 @@ import {
 } from "react-icons/fa";
 
 export default function NavBar({ 
-    text = 'ព័ត៌មានលំអិត', 
+    text, 
     shareLink = 'http://vensoeng.vercel.app', 
     linkBack = '/' 
 }) {
+    const { t } = useTranslation();
+    const displayText = text || t('homePage.services.more');
     const navigate = useNavigate();
     
-    const [copyText, setCopyText] = useState('ចម្លងតំណរ');
+    const [copyText, setCopyText] = useState(t('blogPage.copy'));
     const [showShare, setShowShare] = useState(false);
     const shareUrl = shareLink;
-
+    
     const copyLink = async () => {
         try {
-            setCopyText('កំពុងចម្លង...');
+            setCopyText(t('blogPage.copying'));
             await navigator.clipboard.writeText(shareUrl);
-            setCopyText('បានចម្លង!');
+            setCopyText(t('blogPage.copied'));
             setTimeout(() => {
-                setCopyText('ចម្លងតំណរ');
+                setCopyText(t('blogPage.copy'));
             }, 2000);
         } catch (err) {
             console.error("Error copying link:", err);
             setCopyText('បរាជ័យ!');
             setTimeout(() => {
-                setCopyText('ចម្លងតំណរ');
+                setCopyText(t('blogPage.copy'));
             }, 2000);
         }
     };
@@ -62,11 +66,11 @@ export default function NavBar({
                         <ArrowLeft />
                     </button>
                     <div className="row">
-                        <h2>{text}</h2>
+                        <h2>{displayText}</h2>
                     </div>
                     <div className="row df-l btn-style">
                         <button className="btn btn-share" onClick={handleShare}>
-                            ចែករំលេក
+                            {t('designsPage.hero.share')}
                             <svg xmlns="http://www.w3.org/2000/svg" width="16"
                             height="16" fill="currentColor" className="bi bi-share" viewBox="0 0 16 16">
                             <path
@@ -87,7 +91,7 @@ export default function NavBar({
                         >
                             <FaTimes />
                         </button>
-                        <h3>ចែករំលែក</h3>
+                        <h3>{t('designsPage.hero.share')}</h3>
                         <div className="share-qr">
                             <QRCode
                                 value={shareUrl}
@@ -136,8 +140,8 @@ export default function NavBar({
                             <button 
                                 onClick={copyLink}
                                 style={{
-                                    backgroundColor: copyText === 'បានចម្លង!' ? 'var(--sg-color-brand)' : '',
-                                    color: copyText === 'បានចម្លង!' ? '#ffffff' : '',
+                                    backgroundColor: copyText === t('blogPage.copied') ? 'var(--sg-color-brand)' : '',
+                                    color: copyText === t('blogPage.copied') ? '#ffffff' : '',
                                     transition: 'all 0.2s ease-in-out'
                                 }}
                             >

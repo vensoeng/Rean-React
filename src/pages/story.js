@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { API_URL } from '../utils/auth';
 import { Helmet } from 'react-helmet-async';
@@ -26,6 +27,8 @@ export default function StoryPage({active = true})
         staleTime: 5 * 60 * 1000,     
     });
 
+    const { t } = useTranslation();
+
     return (
         <main  className={active ? "web-main web-main-active" : "web-main"}>
             {/* update priview card share  */}
@@ -43,9 +46,9 @@ export default function StoryPage({active = true})
                         <div className="ms-box">
                             <div className="ms-head">
                                 <div className="msh-box">
-                                    <h2>អត្ថបទ និងបទពិសោធន៍</h2>
+                                    <h2>{t('homePage.blog.title')}</h2>
                                     <blockquote>
-                                        <p>ចែករំលែកបទពិសោធន៍ ដំណោះស្រាយឌីជីថល និងសមិទ្ធផលការងារថ្មីៗ!</p>
+                                        <p>{t('homePage.blog.desc')}!</p>
                                     </blockquote>
                                 </div>
                             </div>
@@ -57,11 +60,11 @@ export default function StoryPage({active = true})
                                                 {
                                                     isLoading ? (
                                                         <WebLoader>
-                                                            រង់ចាំបន្ដិចយើងកំពុងទាញយកទិន្នន័យដើម្បីដំណើរការ
+                                                            {t('common.loading')}
                                                         </WebLoader>
                                                     ) : blogs.length === 0 ? (
                                                         <li style={{ textAlign: 'center', padding: '30px', color: '#64748b' }}>
-                                                            មិនមានទិន្នន័យអត្ថបទឡើយ។
+                                                            {t('blogPage.noData')}
                                                         </li>
                                                     ) : (
                                                         blogs.map((blog, index) => (
@@ -82,7 +85,7 @@ export default function StoryPage({active = true})
                             ):(
                             <div className='story-main-btn df-c'>
                                 <NavLink to='/' className="btn">
-                                    ទៅកាន់ទំេព័រដើម
+                                    {t('blogPage.homePage')}
                                 </NavLink>
                             </div>
                             )}

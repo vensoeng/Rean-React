@@ -96,8 +96,11 @@
     margin-right: 0rem;
     color: var(--sg-bglight);
     border: none;
-    border-radius: 0rem;
+    border-radius: 0rem;;
     background: var(--sg-color-def);
+}
+.webhead .btn-main .btn:first-child p{
+    font-family: var(--font-brand);
 }
 .webhead .btn-main .btn:first-child .ip{
     min-width: 1.1rem;
@@ -137,6 +140,7 @@
 .webhead .link-box ul li{
     margin: 0rem 0.8rem;
     height: 100%;
+    position: relative;
 }
 .webhead .link-box ul li:first-child{
     display: none;
@@ -144,15 +148,19 @@
 .webhead .link-box ul li a{
     font-size: 1rem;
     line-height: 0;
-    height: 100%;
     font-weight: 500;
     position: relative;
+    text-transform: lowercase;
     font-family: var(--font-brand);
+    display: block;
+}
+.webhead .link-box ul li a::first-letter{
+    text-transform: uppercase;
 }
 .webhead .link-box ul li a.active{
     color: var(--sg-color-brand);
 }
-.webhead .link-box ul li a.active::before{
+.webhead .link-box ul li:has(a.active)::before{
     position: absolute;
     content: '';
     width: 100%;

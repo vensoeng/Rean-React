@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom'; 
 import { useQuery } from '@tanstack/react-query';
 import { API_URL, STORAGE} from '../../utils/auth'; 
@@ -15,6 +16,7 @@ const fetchDesignsSugFromServer = async () => {
 
 
 function DesignCard({ item }) {
+    const { t } = useTranslation();
     const [isFullyLoaded, setIsFullyLoaded] = useState(false);
     const imageUrl = item.img ? `${API_URL}${STORAGE}${item.img}` : imgTest;
 
@@ -53,7 +55,7 @@ function DesignCard({ item }) {
                         >
                             <div className="spinner"></div>
                             <span style={{ fontSize: '12px', color: '#64748b', marginTop: '8px' }}>
-                                កំពុងផ្ទុក...
+                                {t('homePage.services.loading')}...
                             </span>
                         </div>
                     )}
@@ -79,7 +81,7 @@ function DesignCard({ item }) {
                 </blockquote>
 
                 <div className="action">
-                    <a href={`/designs/detail/` + item.id} className="btn btn-style">មើលបន្ថែម</a>
+                    <a href={`/designs/detail/` + item.id} className="btn btn-style">{t('homePage.design.more')}</a>
                 </div>
             </div>
         </li>
@@ -89,6 +91,8 @@ function DesignCard({ item }) {
 // =========For Export===================
 
 export default function DesignSuggestion() {
+
+    const { t } = useTranslation();
 
     const { data: responseData, isLoading } = useQuery({
         queryKey: ['designSuggestion'],
@@ -107,12 +111,12 @@ export default function DesignSuggestion() {
             <div className="ds-09-box">
                 <div className="ds-09-head">
                     <blockquote>
-                        <h2>រចនាថ្មីៗនេះ</h2>
-                        <p>មើលស្នាដៃរចនាមួយចំនួនរបស់យើង ដែលបង្កើតឡើងសម្រាប់ការផ្សព្វផ្សាយ ការកសាងម៉ាក និងការបោះពុម្ព។</p>
+                        <h2>{t('homePage.design.title')}</h2>
+                        <p>{t('homePage.design.desc')}</p>
                     </blockquote>
                     <div className="action df-c">
-                        <a href='/services/detail/7' className="btn btn-style">សេវ៉ាកម្ម</a>
-                        <a href='/booking/service/7' className="btn btn-style">កក់ឥឡូវ</a>
+                        <a href='/services/detail/7' className="btn btn-style">{t('homePage.services.more')}</a>
+                        <a href='/booking/service/7' className="btn btn-style">{t('homePage.design.book')}</a>
                     </div>
                 </div>
                 <div className="dsl-09">
@@ -135,7 +139,7 @@ export default function DesignSuggestion() {
                             ))
                         ) : designsSugs.length === 0 ? (
                             <li style={{ textAlign: 'center', padding: '30px', color: '#64748b' }}>
-                                មិនមានទិន្នន័យអត្ថបទឡើយ។
+                                {t('designsPage.noData')}
                             </li>
                         ) : (
                             designsSugs.map((d, index) => (
@@ -147,7 +151,7 @@ export default function DesignSuggestion() {
                 <div className="dsf-09">
                     <div className="dsf09-box df-c">
                         <a href="/designs" className="btn btn-style">
-                            មើលការរចនាទាំងអស់ 
+                            {t('homePage.design.all')}
                         </a>
                     </div>
                 </div>

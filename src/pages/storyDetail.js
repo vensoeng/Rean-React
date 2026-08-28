@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
@@ -27,7 +28,9 @@ import '../assets/css/storyDetail.css';
 import Footer from '../components/layout/footer';
 
 export default function StoryDetail() {
-    
+
+    const { t } = useTranslation();
+
     const navigate = useNavigate();
 
     const { id } = useParams(); 
@@ -38,27 +41,27 @@ export default function StoryDetail() {
     const [loadingHtml, setLoadingHtml] = useState(false);
     const [toogleTheme, setToggleTheme] = useState(false);
 
-    const [copyText, setCopyText] = useState('ចម្លងតំណរ');
+    const [copyText, setCopyText] = useState(t('blogPage.copied'));
 
     const [showShare, setShowShare] = useState(false);
     const shareUrl = `https://vensoeng.vercel.app/share/story/${id}`;
     const copyLink = async () => {
         try {
-            setCopyText('កំពុងចម្លង...');
+            setCopyText(t('blogPage.copying'));
 
             await navigator.clipboard.writeText(shareUrl);
             
-            setCopyText('បានចម្លង!');
+            setCopyText(t('blogPage.copied'));
 
             setTimeout(() => {
-                setCopyText('ចម្លងតំណរ');
+                setCopyText(t('blogPage.copy'));
             }, 2000);
 
         } catch (err) {
             console.error("Error copying link:", err);
             setCopyText('បរាជ័យ!');
             setTimeout(() => {
-                setCopyText('ចម្លងតំណរ');
+                setCopyText(t('blogPage.copy'));
             }, 2000);
         }
     };
@@ -110,7 +113,7 @@ export default function StoryDetail() {
     if (loading) {
         return (
             <WebLoader>
-                យើងកំពុងធ្វើការទាញយកទិន្នន័យ...
+                {t('common.loading')}...
             </WebLoader>
         );
     }
@@ -157,7 +160,7 @@ export default function StoryDetail() {
                             className='btn ibtn'
                             onClick={handleShare}
                         >
-                        ចែករំលេក
+                        {t('designsPage.hero.share')}
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
                             <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
                         </svg>
@@ -168,7 +171,7 @@ export default function StoryDetail() {
             </div>
             {/* this is header of content */}
             <div className='stydebox'>
-                {loading && <WebLoader>យើងកំពុងធ្វើការទាញយកទិន្នន័យ..</WebLoader>}
+                {loading && <WebLoader>{t('common.loading')}...</WebLoader>}
 
                 {!loading && (!blog || Number(blog.status) !== 1) ? (
                     // <p style={{ padding: '20px', textAlign: 'center' }}>
@@ -207,7 +210,7 @@ export default function StoryDetail() {
                             </div>
                             {/* content writting */}
                             {loadingHtml ? (
-                                <p style={{ color: '#94a3b8' }}>កំពុងទាញយកខ្លឹមសារអត្ថបទពីប្រព័ន្ធ...</p>
+                                <p style={{ color: '#94a3b8' }}>{t('common.loading')}...</p>
                             ) : (
                                 <div
                                     className="html-render-zone"
@@ -234,7 +237,7 @@ export default function StoryDetail() {
                                 <FaTimes />
                             </button>
 
-                            <h3>ចែករំលែក</h3>
+                            <h3>{t('designsPage.hero.share')}</h3>
 
                             <div className="share-qr">
 
@@ -295,8 +298,8 @@ export default function StoryDetail() {
                                 <button 
                                     onClick={copyLink}
                                     style={{
-                                        backgroundColor: copyText === 'បានចម្លង!' ? 'var(--sg-color-brand)' : '',
-                                        color: copyText === 'បានចម្លង!' ? '#ffffff' : '',
+                                        backgroundColor: copyText === t('blogPage.copied') ? 'var(--sg-color-brand)' : '',
+                                        color: copyText === t('blogPage.copied') ? '#ffffff' : '',
                                         transition: 'all 0.2s ease-in-out'
                                     }}
                                 >

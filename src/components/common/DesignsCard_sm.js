@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom'; 
 import { API_URL, STORAGE } from '../../utils/auth';
 import Logo from '../../assets/img/logo192.png';
@@ -14,10 +15,11 @@ import {
 
 ///main import item
 export default function DesignsCard({ designs = {}, index = 0, newStory = false }) {
+    const { t } = useTranslation();
     const [isFullyLoaded, setIsFullyLoaded] = useState(false);
     const imageRef = useRef(null);
 
-    const [copyText, setCopyText] = useState('ចម្លងតំណរ');
+    const [copyText, setCopyText] = useState(t('copy'));
     const [showShare, setShowShare] = useState(false);
     const shareUrl = `http://vensoeng.vercel.app/share/designs/${designs.id}`;
 
@@ -62,17 +64,17 @@ export default function DesignsCard({ designs = {}, index = 0, newStory = false 
     
     const copyLink = async () => {
         try {
-            setCopyText('កំពុងចម្លង...');
+            setCopyText(t('blogPage.copying') + '...');
             await navigator.clipboard.writeText(shareUrl);
-            setCopyText('បានចម្លង!');
+            setCopyText(t('blogPage.copied'));
             setTimeout(() => {
-                setCopyText('ចម្លងតំណរ');
+                setCopyText(t('blogPage.copy'));
             }, 2000);
         } catch (err) {
             console.error("Error copying link:", err);
             setCopyText('បរាជ័យ!');
             setTimeout(() => {
-                setCopyText('ចម្លងតំណរ');
+                setCopyText(t('blogPage.copy'));
             }, 2000);
         }
     };
@@ -105,14 +107,14 @@ export default function DesignsCard({ designs = {}, index = 0, newStory = false 
                             </blockquote>
                             <div className="action df-l">
                                 <a href={'/designs/detail/' + designs.id} className="btn btn-style btn-more">
-                                    <p>មើលបន្ថែម</p>
+                                    <p>{t('homePage.design.more')}</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 3h9v9M21 3 3 21M6.6 6.6l10.8 10.8" stroke="#FF8A65" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                                 </a>
                                 <button className="btn btn-style btn-share"
                                     onClick={handleShare}
                                 >
                                 
-                                    <p>ចែករំលែក</p>
+                                    <p>{t('designsPage.hero.share')}</p>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-share" viewBox="0 0 16 16"><path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></svg>
                                 </button>
                             </div>
@@ -166,7 +168,7 @@ export default function DesignsCard({ designs = {}, index = 0, newStory = false 
                         >
                             <FaTimes />
                         </button>
-                        <h3>ចែករំលែក</h3>
+                        <h3>{t('designsPage.hero.share')}</h3>
                         <div className="share-qr">
                             <QRCode
                                 value={shareUrl}
@@ -215,8 +217,8 @@ export default function DesignsCard({ designs = {}, index = 0, newStory = false 
                             <button 
                                 onClick={copyLink}
                                 style={{
-                                    backgroundColor: copyText === 'បានចម្លង!' ? 'var(--sg-color-brand)' : '',
-                                    color: copyText === 'បានចម្លង!' ? '#ffffff' : '',
+                                    backgroundColor: copyText === t('blogPage.copied') ? 'var(--sg-color-brand)' : '',
+                                    color: copyText === t('blogPage.copied') ? '#ffffff' : '',
                                     transition: 'all 0.2s ease-in-out'
                                 }}
                             >

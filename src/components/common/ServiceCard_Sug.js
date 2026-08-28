@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 export default function ServiceCard({ service, fallbackImg, apiUrl, storageUrl }) {
@@ -11,20 +12,21 @@ export default function ServiceCard({ service, fallbackImg, apiUrl, storageUrl }
         navigate('/services/detail/' + service.id);
     }
 
+    const { t, i18n } = useTranslation();
+
     return (
         <li>
             <div className="box">
                 <blockquote>
-                    <h2>{service.title_kh || "ប្រព័ន្ធគ្រប់គ្រងបែប Premium"}</h2>
+                    <h2>{i18n.language === 'kh' ? service.title_kh :  service.title}</h2>
                     <p>
-                        {service.description_kh || 
-                        "ជួយបង្កើនប្រសិទ្ធភាពការងារប្រចាំថ្ងៃរបស់អ្នកដោយប្រព័ន្ធគ្រប់គ្រងទិន្នន័យផ្ទាល់ខ្លួន និងមានសុវត្ថិភាព។"}
+                        {i18n.language === 'kh' ? service.description_kh : service.description}
                     </p>
                 </blockquote>
                 <div className="svl-action">
                     <div className="svla-box df-c">
-                        <a href={'/services/detail/' + service.id} className="btn btn-style">ព័ត៌មានលំអិត</a>
-                        <a href={'/booking/service/' + service.id} className="btn btn-style">ការកក់</a>
+                        <a href={'/services/detail/' + service.id} className="btn btn-style">{t('homePage.services.more')}</a>
+                        <a href={'/booking/service/' + service.id} className="btn btn-style">{t('homePage.services.discuss')}</a>
                     </div>
                 </div>
             </div>
@@ -52,7 +54,7 @@ export default function ServiceCard({ service, fallbackImg, apiUrl, storageUrl }
                     >
                         <div className="spinner"></div>
                         <span style={{ fontSize: '12px', color: '#64748b', marginTop: '8px' }}>
-                            កំពុងផ្ទុក...
+                            {t('homePage.services.loading')}
                         </span>
                     </div>
                 )}

@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useQuery } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 // import { NavLink } from 'react-router-dom';
 import { API_URL } from '../utils/auth';
 
@@ -20,8 +21,10 @@ import StarryBackground from '../components/common/StarryBackground';
 // import AdvertisementPopup from '../components/common/AdvertisementPopup';
 // import StudyList from '../components/common/ListStudy';
 // import Screenslider from '../components/common/Screenslider';
+// founder Component
+import Founder from '../components/common/founder';
 
-import { ArrowRight} from 'iconsax-reactjs';
+import { ArrowRight } from 'iconsax-reactjs';
 //webpage add on
 // import AboutPage from './about';
 import Questions from './question';
@@ -47,6 +50,8 @@ export default function HomePage() {
         queryFn: fetchBlogsFromServer,
         staleTime: 5 * 60 * 1000,
     });
+
+    const { t } = useTranslation();
 
     return (
         <main className="web-main">
@@ -81,9 +86,9 @@ export default function HomePage() {
                                     <div className="ms-box">
                                         <div className="ms-head">
                                             <div className="msh-box">
-                                                <h2>អត្ថបទ និងបទពិសោធន៍</h2>
+                                                <h2>{t('homePage.blog.title')}</h2>
                                                 <blockquote>
-                                                    <p>ចែករំលែកបទពិសោធន៍ ដំណោះស្រាយឌីជីថល និងសមិទ្ធផលការងារថ្មីៗ!</p>
+                                                    <p>{t('homePage.blog.desc')}</p>
                                                 </blockquote>
                                             </div>
                                         </div>
@@ -95,11 +100,11 @@ export default function HomePage() {
                                                             {
                                                                 isLoading ? (
                                                                     <WebLoader>
-                                                                        រង់ចាំបន្ដិចយើងកំពុងទាញយកទិន្នន័យដើម្បីដំណើរការ
+                                                                        {t('common.loading')}
                                                                     </WebLoader>
                                                                 ) : blogs.length === 0 ? (
                                                                     <li style={{ textAlign: 'center', padding: '30px', color: '#64748b' }}>
-                                                                        មិនមានទិន្នន័យអត្ថបទឡើយ។
+                                                                        {t('blogPage.noData')}
                                                                     </li>
                                                                 ) : (
                                                                     blogs.map((blog, index) => (
@@ -118,7 +123,7 @@ export default function HomePage() {
                                         </div>
                                         <div className='story-main-btn df-c'>
                                             <a href='/storys' className="btn">
-                                                មើលបន្ថែមទៀត
+                                                {t('homePage.blog.more')}
                                                 <ArrowRight />
                                             </a>
                                         </div>
@@ -152,34 +157,7 @@ export default function HomePage() {
                     </section> */}
 
                     {/* <!-- style  --> */}
-                    <section className="abs01  abt09">
-                        <div className="abs01-box df-c abt09-box">
-                            {/* <!-- row  --> */}
-                            <div className="abt09r">
-                                <div className="abt09rb">
-                                    <img className="img-c" src="https://vensoengapi.vercel.app/storage/data/url/1786240220462.webp" alt="vensoeng" />
-                                </div>
-                            </div>
-                            {/* <!-- row  --> */}
-                            <div className="abt09r">
-                                <div className="abt09rb">
-                                    <div className="abt09rh">
-                                        <h2>ស្ថាបនិក(Founder)</h2>
-                                    </div>
-                                    <div className="abt09rd">
-                                        <blockquote>
-                                            <p>SOENG DigitalCore ត្រូវបានបង្កើតឡើងដោយចក្ខុវិស័យរួមក្នុងការបង្កើតដំណោះស្រាយឌីជីថលដែលមានគុណភាព និងអាចជួយអាជីវកម្មឱ្យរីកចម្រើន។ យើងជឿជាក់លើការសហការ ការសិក្សា និងការបង្កើតតម្លៃពិតប្រាកដសម្រាប់អតិថិជនតាមរយៈបច្ចេកវិទ្យា។</p>
-                                        </blockquote>
-                                    </div>
-                                    <div className="action">
-                                        <a href='/about' className="btn btn-style">
-                                            អំពីយើង
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    <Founder />
                 </div>
             </div>
         </main>

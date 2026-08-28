@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../assets/css/Marquee.css';
+import { useTranslation } from 'react-i18next';
 
 const ProjectBackground = () => {
   const list1 = [
@@ -32,13 +33,13 @@ const ProjectBackground = () => {
       ))}
     </ul>
   );
-
+  const { t } = useTranslation();
   return (
     <div className="rn-con">
       <div className="rncn-h">
         <div className="rncn-hbox">
-          <h2>គម្រោងដែលបានឆ្លងកាត់</h2>
-          <p>ខាងក្រោមនេះគឺជាគម្រោងថ្មីៗមួយចំនួនរបស់ខ្ញុំដែលបង្ហាញពីជំនាញ និងបទពិសោធន៍ក្នុងការអភិវឌ្ឍ។</p>
+          <h2>{t('homePage.projects.title')}</h2>
+          <p>{t('homePage.projects.desc')}</p>
         </div>
       </div>
       {/* Track 1: First set of projects */}

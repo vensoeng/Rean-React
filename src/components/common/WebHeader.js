@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
 import { API_URL } from '../../utils/auth'; 
 import imgTest from '../../assets/img/defualt_img.webp';
@@ -31,6 +32,8 @@ export default function WebHeader() {
             ? responseData.data 
             : [];
 
+    const { t } = useTranslation();
+
     return (
         <div className="uh09">
             <div className="uh09-box df-c">
@@ -39,15 +42,15 @@ export default function WebHeader() {
                     <div className="rbox">
                         <blockquote>
                             <h2 className="web">
-                                ធ្វើឱ្យការគ្រប់គ្រងអាជីវកម្មរបស់អ្នក កាន់តែងាយស្រួលជាមួយដំណោះស្រាយឌីជីថល
+                                {t('homePage.hero.title')}
                             </h2>
-                            <p>យើងជួយអាជីវកម្មបង្កើត Website, Mobile App, ប្រព័ន្ធគ្រប់គ្រង និងដំណោះស្រាយឌីជីថល ដែលសមស្របទៅតាមតម្រូវការជាក់ស្តែងនៃអាជីវកម្មរបស់លោកអ្នក។</p>
+                            <p>{t('homePage.hero.desc')}</p>
                             <div className="action df-l">
-                                <a href="/services" className="btn">ស្វែងរកសេវ៉ាកម្ម</a>
-                                <a href="http://facebook.com/vensoeng" className="btn">ទំនាក់ទំនង</a>
+                                <a href="/services" className="btn">{t('homePage.hero.services')}</a>
+                                <a href="http://facebook.com/vensoeng" className="btn">{t('homePage.hero.contact')}</a>
                             </div>
                         </blockquote>
-                        <div className="txt">Waiting for work!</div>
+                        <div className="txt">{t('homePage.hero.work')}!</div>
                     </div>
                 </div>
 
@@ -63,7 +66,7 @@ export default function WebHeader() {
                                     <div className="wbsl-load-an"></div>
                                 ) : servicSugs.length === 0 ? (
                                     <div style={{ textAlign: 'center', padding: '30px', color: '#64748b' }}>
-                                        មិនមានទិន្នន័យដែលត្រូវទាញមក។
+                                        {t('common.loading')}
                                     </div>
                                 ) : (
                                     <Slider services={servicSugs} />
@@ -82,6 +85,9 @@ export default function WebHeader() {
 }
 
 function Slider({ services = [] }) {
+
+    const { i18n } = useTranslation();
+
     const [currentIndex, setCurrentIndex] = useState(0);
     const timeoutRef = useRef(null);
 
@@ -128,10 +134,10 @@ function Slider({ services = [] }) {
             <div className="wbshs-box">
                 <blockquote>
                     <div className="text">
-                        <p>{services[currentIndex]?.title_kh || services[currentIndex]?.title}</p>
+                        <p>{i18n.language === 'kh' ? services[currentIndex].title_kh : services[currentIndex].title}</p>
                     </div>
                     <div className="sub">
-                       <p>{services[currentIndex]?.description_kh || services[currentIndex]?.description}</p>
+                       <p>{i18n.language === 'kh' ? services[currentIndex].description_kh : services[currentIndex].description}</p>
                     </div>
                 </blockquote>
 

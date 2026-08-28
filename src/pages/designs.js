@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 import { API_URL } from '../utils/auth';
 import { Helmet } from 'react-helmet-async';
 
@@ -19,6 +20,8 @@ const fetchDesignsFromServer = async () => {
 };
 
 function DesignsPage() {
+
+    const { t } = useTranslation();
 
     // 2. React Query
     const queryResult = useQuery({
@@ -45,8 +48,8 @@ function DesignsPage() {
             {/* <!-- this Is head  --> */}
             <div className="d01h">
                 <div className="d01h-box">
-                    <h2>ទំព័ររចនា</h2>
-                    <p>មើលស្នាដៃរចនាមួយចំនួនរបស់យើង ដែលបង្កើតឡើងសម្រាប់ការផ្សព្វផ្សាយ ការកសាងម៉ាក និងការបោះពុម្ព។</p>
+                    <h2>{t('designsPage.hero.title')}</h2>
+                    <p>{t('designsPage.hero.desc')}</p>
                 </div>
             </div>
             {/* <!-- this is content  --> */}
@@ -56,7 +59,7 @@ function DesignsPage() {
                     isLoading ? (
                       <>
                       <WebLoader>
-                        រង់ចាំបន្ដិចយើងកំពុងទាញយកទិន្នន័យដើម្បីដំណើរការ
+                        {t('common.loading')}
                       </WebLoader>
                       { Array(3).fill(0).map((_, index) => (
                         <DesignsCardSkeleton key={index} />
@@ -64,7 +67,7 @@ function DesignsPage() {
                       </>
                     ) : designs.length === 0 ? (
                       <li style={{ textAlign: 'center', padding: '30px', color: '#64748b' }}>
-                        មិនមានទិន្នន័យអត្ថបទឡើយ។
+                        {t('designsPage.noData')}
                       </li>
                     ) : (
                       [...designs].map((blog, index) => (

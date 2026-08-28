@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../../assets/css/header.css';
 // import favIcon from '../../assets/img/logo192.png';
 import favIcon from '../../assets/img/VenSoeng_DigitalCore_Logo.png';
@@ -9,17 +10,18 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ListRoute = ({ onItemClick }) => {
+    const { t } = useTranslation();
     return(
         <div className="link-box">
             <ul className="df-s">
-                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/">ទំព័រដើម</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/">{t('home')}</NavLink></li>
                 {/* <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/shopping">ហាងតូច</NavLink></li> */}
-                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/services">សេវាកម្ម</NavLink></li>
-                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/storys">អត្ថបទ</NavLink></li>
-                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/designs">ការរចនា</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/services">{t('service')}</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/storys">{t('blog')}</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/designs">{t('design')}</NavLink></li>
                 {/* <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/creator">មាតិការ</NavLink></li> */}
-                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/pricing">កញ្ចប់សេវា</NavLink></li>
-                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/about">អំពីយើង</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/pricing">{t('pricing')}</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/about">{t('aboutUs')}</NavLink></li>
             </ul>
         </div>
     )
@@ -29,7 +31,7 @@ export default function Header()
 {
     const [loadAside, setLoadAside] = useState(false);
     const handleClose = () => setLoadAside(false);
-    
+    const { t } = useTranslation();
     return(
         <>
         {/* <Pageon /> */}
@@ -49,7 +51,7 @@ export default function Header()
                 {/* Main Button layout row */}
                 <div className="btn-main df-r">
                     <a href="/services" className="btn btn-style" onClick={handleClose}>
-                        <p>សេវាកម្ម</p>
+                        <p>{t('service')}</p>
                         <div className="icon icon-ra icon-sm ip">
                             <Flash/>
                         </div>

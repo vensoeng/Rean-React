@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { API_URL, STORAGE } from '../utils/auth';
@@ -15,6 +16,9 @@ import './../assets/css/designs.css';
 import '../assets/css/designDetail.css';
 
 export default function DesignsDetail() {
+
+    const { t } = useTranslation();
+
     const { id } = useParams(); 
     
     const [designs, setDesigns] = useState(null);
@@ -92,7 +96,7 @@ export default function DesignsDetail() {
     if (loading) {
         return (
             <WebLoader>
-                យើងកំពុងធ្វើការទាញយកទិន្នន័យ...
+                {t('common.loading')}...
             </WebLoader>
         );
     }
@@ -128,7 +132,7 @@ export default function DesignsDetail() {
             </Helmet>
 
             <div className="dsd-box">
-                <NavBar text={designs?.title || 'ពត៌មានការរចនា'} shareLink={shareURL} linkBack={'/designs'}/>
+                <NavBar text={designs?.title} shareLink={shareURL} linkBack={'/designs'}/>
                 
                 <div className="dsd-con">
                     <div className="dsdc-box df-c d07">
@@ -171,7 +175,7 @@ export default function DesignsDetail() {
                                                 >
                                                     <div className="spinner"></div>
                                                     <span style={{ fontSize: '12px', color: '#64748b', marginTop: '8px' }}>
-                                                        កំពុងផ្ទុក...
+                                                        {t('homePage.services.loading')}...
                                                     </span>
                                                 </div>
                                             )}
@@ -207,7 +211,7 @@ export default function DesignsDetail() {
 
                                 <div className="rtxt">
                                     <div className="rtxt-box">
-                                        <p>{designs.detail || 'មិនមានការសរសេរបន្ថែមឡើយ!'}</p>
+                                        <p>{designs.detail || t('designsPage.noData')}</p>
                                     </div>
                                 </div>
                             </div>
@@ -216,7 +220,7 @@ export default function DesignsDetail() {
                         <div className="row list-img">
                             <div className="rli-h">
                                 <div className="rlih-box">
-                                    <h2>រូបភាពរចនាបន្ថែម</h2>
+                                    <h2>{t('designsPage.detail.more')}</h2>
                                 </div>
                             </div>
                             <div className="rlibox rbox">
@@ -228,7 +232,7 @@ export default function DesignsDetail() {
                                             aspectRatio: '16 / 9',
                                         }}
                                     >
-                                        <div className="rli-box">មិនមានទិន្នន័យរូបភាព</div>
+                                        <div className="rli-box">{t('designsPage.detail.emptyImage')}</div>
                                     </div>
                                 ) : (
                                     galleryImages.map((imgPath, index) => (
@@ -245,8 +249,8 @@ export default function DesignsDetail() {
                     <div className="d01-box">
                         <div className="d01h">
                             <div className="d01h-box">
-                                <h2>រចនាដែលណែនាំ</h2>
-                                <p>ការរចនាដែលអ្នកអាចនិងចូលចិត្ត</p>
+                                <h2>{t('designsPage.detail.recommended')}</h2>
+                                <p>{t('designsPage.detail.related')}</p>
                             </div>
                         </div>
                         <div className="d01c">
@@ -259,7 +263,7 @@ export default function DesignsDetail() {
                                     </>
                                 ) : designsSuggestions.length === 0 ? (
                                     <p style={{ textAlign: 'center', padding: '30px', color: '#64748b' }}>
-                                        មិនមានទិន្នន័យដែលបានណែនាំឡើយ។
+                                        {t('designsPage.noData')}
                                     </p>
                                 ) : (
                                     designsSuggestions.map((item, index) => (

@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 import { API_URL, STORAGE} from '../../utils/auth'; 
 import imgTest from '../../assets/img/defualt_img.webp';
 import ServiceCard from '../common/ServiceCard_Sug';
@@ -26,6 +27,7 @@ export default function ServiceSuggestion() {
             ? responseData.data 
             : [];
 
+    const { t } = useTranslation();
     return (
         <div className="wbsv">
 
@@ -48,7 +50,7 @@ export default function ServiceSuggestion() {
                         ))
                     ) : servicSugs.length === 0 ? (
                         <li style={{ textAlign: 'center', padding: '30px', color: '#64748b' }}>
-                            មិនមានទិន្នន័យអត្ថបទឡើយ។
+                            {t('servicePage.noData')}
                         </li>
                     ) : (
                         servicSugs.map((s, index) => (

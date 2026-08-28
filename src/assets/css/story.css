@@ -294,6 +294,9 @@
     color: var(--sg-border-mainApp);
     opacity: 0.9;
 }
+.my-story-body .box ul li .list strong{
+    min-width: max-content;
+}
 .my-story-body .box ul li .list .btn{
     color: var(--sg-bglight);
     border-radius: 50rem;

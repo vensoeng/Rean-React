@@ -1,0 +1,255 @@
+{
+    "home": "Home",
+    "service": "service",
+    "blog": "blog",
+    "design": "design",
+    "pricing": "pricing",
+    "aboutUs": "about us",
+    "selectLang": "Please select your language!",
+    "khmer": "Khmer",
+    "english": "English",
+
+    "common": {
+        "loading": "Please wait a moment, fetching data to process",
+        "noData": "Sorry, no data"
+    },
+    
+    "homePage": {
+        "hero": {
+            "title": "Make Your Business Easier to Manage with Digital Solutions",
+            "desc": "We help businesses build Websites, Mobile Apps, Management Systems, and digital solutions tailored to their real business needs.",
+            "services": "Explore Services",
+            "contact": "Contact Us",
+            "work": "Work With Us"
+        },
+
+        "services": {
+            "more": "View Details",
+            "discuss": "Discuss Service",
+            "loading": "Loading"
+        },
+
+        "projects": {
+            "title": "Projects We've Worked On",
+            "desc": "Explore some of our recent projects that showcase our development skills and experience."
+        },
+
+        "blog": {
+            "title": "Insights & Experiences",
+            "desc": "Sharing our experiences, digital solutions, and latest work.",
+            "latest": "Latest",
+            "articles": "Articles",
+            "tags": "Article Tags",
+            "more": "View More Articles"
+        },
+
+        "design": {
+            "title": "Recent Designs",
+            "desc": "Explore selected designs created for promotion, branding, and print.",
+            "book": "Book Now",
+            "more": "View More",
+            "all": "View All Designs"
+        }        
+    },
+
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "q1": "What services does SOENG DigitalCore provide?",
+        "a1": "SOENG DigitalCore provides digital development and design services for businesses, including Websites, Web Systems, Mobile Apps, Automation & Integration, UI/UX Design, and Graphic Design. We can support you from planning and design through development, delivery, and post-launch support.",
+        
+        "q2": "I don't know what system I need. Can I discuss my needs first?",
+        "a2": "Absolutely. You can start by telling us about the problems your business is facing. You don't need to know exactly what system you need. We can help analyze your needs and recommend a suitable solution.",
+        
+        "q3": "How is the service price determined?",
+        "a3": "Pricing depends on the project scope, number of features, design requirements, integrations, and specific business needs. Services with a clear starting price will show the price on their service page, while custom projects will be discussed before development.",
+        
+        "q4": "How long does it take to complete a project?",
+        "a4": "The timeline depends on the size and complexity of the project. We will define the scope and timeline with you before starting.",
+        
+        "q5": "Do you provide support after delivering a Website or System?",
+        "a5": "Each service has different warranty or support terms, which are shown on the Service Detail page. Changes or additional features outside the warranty may require an additional fee.",
+        
+        "q6": "What do I need to prepare before starting a project?",
+        "a6": "Generally, you can prepare your project goals, business information, logo or brand assets, desired features, and examples you like. If you're not sure yet, we can start with a discussion about your needs.",
+        
+        "q7": "How many revisions can I request?",
+        "a7": "During the UI/UX Design stage, you can request revisions until you are satisfied. After approving the design and moving into development, additional changes will depend on the agreed project scope.",
+        
+        "q8": "How can I contact SOENG DigitalCore to start a project?",
+        "a8": "You can contact us through the communication channels available on our Website. Tell us what you want to build or what problem your business is facing, and we'll discuss your needs and the next steps."
+    },
+
+    "founder": {
+        "title": "Founder",
+        "desc": "SOENG DigitalCore was founded with a vision to create quality digital solutions that deliver real value to businesses. We believe in collaboration, continuous learning, and using technology to solve real business problems.",
+        "about": "About Us"
+    },
+
+    "footer": {
+        "purpose": {
+        "title": "Our Purpose",
+        "desc": "SOENG DigitalCore was established in 2024 to help businesses build Websites, Mobile Apps, Management Systems, and digital solutions tailored to their real business needs."
+        },
+        "menu": "Other Menu",
+        "services": "Services",
+        "web": "Web App Development",
+        "design": "Design Services",
+        "responsibility": "Responsibility",
+        "support": "Contact Support"
+    },
+
+    "servicePage": {
+        "hero": {
+            "title": "Find Services That Fit Your Business",
+            "desc": "Choose the right service for your needs, from Website and Mobile App development to Business Systems and Design."
+        },
+        "filter": {
+            "all": "All",
+            "app": "Apps",
+            "design": "Design"
+        },
+        "card": {
+            "deposit": "Deposit",
+            "warranty": "Warranty",
+            "detail": "View Details",
+            "starting": "Starting Price",
+            "available": "Available",
+            "unAvailable": "Unavailable"
+        },
+        "additional": "We Also Recommend",
+        "noData": "No services data available."
+    },
+
+    "designsPage": {
+        "hero": {
+            "title": "Design",
+            "desc": "Explore selected designs created for promotion, branding, and print.",
+            "share": "Share"
+        },
+        "detail": {
+            "more": "More Design Images",
+            "emptyImage": "No image data available",
+            "emptyText": "No additional description available.",
+            "recommended": "Recommended Designs",
+            "related": "You May Also Like"
+        },
+        "noData": "No Designs graphics data available."
+    },
+
+    "pricingPage": {
+        "hero": {
+        "title": "Services & Pricing",
+        "desc": "Choose the services you need to reduce manual work, improve productivity, and make your business operations more efficient."
+        },
+        "table": {
+        "service": "Service",
+        "desc": "Description",
+        "price": "Service Price",
+        "other": "Other"
+        }
+    },
+
+    "aboutPage": {
+        "hero": {
+            "title": "Websites & Apps Built for Your Business",
+            "desc": "SOENG DigitalCore is a digital studio focused on Web & App development for small and medium-sized businesses. We create modern, user-friendly, secure, and scalable digital solutions based on real business needs.",
+            "business": "Our Business"
+        },
+
+        "why": {
+        "title": "Why Choose SOENG DigitalCore?",
+
+        "fit": {
+            "title": "Solutions Built Around Your Business",
+            "desc": "Before we design or develop, we first understand your business needs and challenges so the solution fits your actual workflow."
+        },
+
+        "future": {
+            "title": "Built with the Future in Mind",
+            "desc": "We consider future growth and expansion so your system can be extended or adapted as your business needs change."
+        },
+
+        "communication": {
+            "title": "Clear Communication",
+            "desc": "We listen to your ideas and requirements, keep you updated, and work with you throughout every stage of the project."
+        },
+
+        "usable": {
+            "title": "Focused on Usability",
+            "desc": "We consider the user experience from the design stage to make your Website or system clear, intuitive, and free from unnecessary complexity."
+        },
+
+        "support": {
+            "title": "Support After Launch",
+            "desc": "Our work does not simply end when the project is delivered. We provide warranty, issue resolution, and guidance according to the service terms."
+        }
+        },
+
+        "cta": {
+        "title": "Have a Project in Mind?",
+        "desc": "Talk with us to find the right approach for your business.",
+        "button": "Contact Us"
+        },
+
+        "story": {
+        "title": "About SOENG DigitalCore",
+        "intro": "Starting from a simple idea to create digital solutions that deliver real value to businesses.",
+        "year": "Established in 2024.",
+        "p1": "As technology becomes an essential part of doing business, we believe businesses of all sizes should have access to quality digital solutions.",
+        "p2": "SOENG DigitalCore was created to help businesses build quality, modern, and scalable Web & App solutions based on their actual needs.",
+        "p3": "We believe a Website or system should be more than visually attractive. It should help businesses work more efficiently and remain easy to use over the long term.",
+        "p4": "We pay attention to every stage of the process, from project discussion and planning to UI/UX Design, development, testing, and post-launch support.",
+        "p5": "For us, success is not measured only by the number of completed projects, but by the value we create for businesses and the trust our clients place in us."
+        },
+
+        "vision": {
+        "title": "Vision",
+        "headline": "To become a trusted digital partner for businesses seeking long-term growth",
+        "desc": "We aim to become a trusted partner for businesses when they need Web & App development and digital services."
+        },
+
+        "mission": {
+        "title": "Mission",
+        "headline": "Create quality digital solutions that deliver real value to businesses",
+        "desc": "We help businesses build Web & App solutions and digital systems based on real needs, with a focus on usability, stability, and support after launch."
+        },
+
+        "stats": {
+        "title": "Numbers That Reflect Our Growth and Commitment",
+        "projects": "Projects Completed",
+        "clients": "Active Clients",
+        "support": "Support",
+        "started": "Started"
+        },
+
+        "team": {
+        "title": "Projects We've Worked on Together",
+        "agri": "Digital Agriculture App for Cambodia",
+        "agriEn": "Agri-App",
+        "shop": "Online Shopping Platform",
+        "shopEn": "VNCSHOP"
+        }
+    },
+
+    "blogPage": {
+        "copy": "Copy Link",
+        "copied": "Copied",
+        "copying": "Copying",
+        "noData": "No article data available.",
+        "homePage": "Go to home page."
+    },
+
+    "bookingPage": {
+        "contact": "Contact Information",
+        "name": "Your Name",
+        "phone": "Phone Number",
+        "email": "Email",
+        "service": "Service Information",
+        "serviceName": "Service Name",
+        "type": "Contact Type",
+        "company": "Your Company Name",
+        "date": "Select Appointment Date",
+        "message": "Additional Details",
+        "submit": "Submit"
+    }
+}
