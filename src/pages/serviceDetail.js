@@ -53,6 +53,7 @@ function ServiceDetailSkeleton() {
 
 export default function ServicesDetail() {
     const { t, i18n } = useTranslation();
+    const [translatedHtml, setTranslatedHtml] = useState("");
     const { id } = useParams(); 
     const [service, setService] = useState(null);
     const [htmlContent, setHtmlContent] = useState('');
@@ -137,6 +138,131 @@ export default function ServicesDetail() {
         
     }, [id]);
 
+    useEffect(() => {
+
+        if (!htmlContent) {
+            setTranslatedHtml("");
+            return;
+        }
+
+        try {
+
+            // Parse HTML
+            const parser = new DOMParser();
+
+            const doc = parser.parseFromString(
+                htmlContent,
+                "text/html"
+            );
+
+
+            // Get translation JSON
+            const translationElement =
+                doc.querySelector("#translations");
+
+
+            if (!translationElement) {
+
+                console.warn(
+                    "Translation JSON not found in HTML"
+                );
+
+                setTranslatedHtml(htmlContent);
+
+                return;
+            }
+
+
+            // Parse JSON
+            const translations =
+                JSON.parse(
+                    translationElement.textContent
+                );
+
+
+            // Current language
+            const lang = i18n.language === "en"
+                ? "en"
+                : "kh";
+
+
+            const currentTranslation =
+                translations[lang];
+
+
+            if (!currentTranslation) {
+
+                console.warn( lang );
+
+                setTranslatedHtml(htmlContent);
+
+                return;
+            }
+
+
+            // Get nested value
+            const getValue = (object, path) => {
+
+                return path
+                    .split(".")
+                    .reduce(
+                        (result, key) =>
+                            result?.[key],
+                        object
+                    );
+
+            };
+
+
+            // Find all elements
+            const elements =
+                doc.querySelectorAll("[data-i18n]");
+
+
+            elements.forEach((element) => {
+
+                const key =
+                    element.getAttribute("data-i18n");
+
+                const value =
+                    getValue(
+                        currentTranslation,
+                        key
+                    );
+
+
+                if (value !== undefined) {
+
+                    element.textContent = value;
+
+                }
+
+            });
+
+
+            // Remove translation JSON
+            translationElement.remove();
+
+
+            // Return translated HTML
+            setTranslatedHtml(
+                doc.body.innerHTML
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "HTML translation error:",
+                error
+            );
+
+            setTranslatedHtml(htmlContent);
+
+        }
+
+    }, [htmlContent, i18n.language]);
+
     const shareUrl = `https://vensoeng.vercel.app/share/service/${id}`;
 
     if (loading) {
@@ -169,9 +295,20 @@ export default function ServicesDetail() {
             <div className="wsd-c">
                 <div className="wsdc-box">
                     {/* ផ្នែកខាងឆ្វេង៖ រូបភាព និង HTML Content */}
-                    {htmlContent && (
+                    
+                    {/* {htmlContent && (
                         <div className="html-fetched-content" dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                    )} */}
+
+                    {translatedHtml && (
+                        <div
+                            className="html-fetched-content"
+                            dangerouslySetInnerHTML={{
+                                __html: translatedHtml
+                            }}
+                        />
                     )}
+
                 </div>
             </div>
             
