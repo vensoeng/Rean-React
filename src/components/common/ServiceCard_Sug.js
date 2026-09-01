@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+// AOS Animation 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function ServiceCard({ service, fallbackImg, apiUrl, storageUrl }) {
     const [isFullyLoaded, setIsFullyLoaded] = useState(false);
@@ -14,12 +17,20 @@ export default function ServiceCard({ service, fallbackImg, apiUrl, storageUrl }
 
     const { t, i18n } = useTranslation();
 
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, 
+            once: true, 
+        });
+    }, []);
     return (
         <li>
             <div className="box">
-                <blockquote>
-                    <h2>{i18n.language === 'kh' ? service.title_kh :  service.title}</h2>
-                    <p>
+                <blockquote className="over-h">
+                    <h2 data-aos="fade-up" data-aos-delay="100">
+                        {i18n.language === 'kh' ? service.title_kh :  service.title}
+                    </h2>
+                    <p data-aos="fade-up" data-aos-delay="200">
                         {i18n.language === 'kh' ? service.description_kh : service.description}
                     </p>
                 </blockquote>

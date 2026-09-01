@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@tanstack/react-query';
+// AOS Animation 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import { API_URL } from '../../utils/auth'; 
 import imgTest from '../../assets/img/defualt_img.webp';
 import CambodiaFlag from '../../assets/img/cambodia_flag.png';
@@ -34,17 +38,24 @@ export default function WebHeader() {
 
     const { t } = useTranslation();
 
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, 
+            once: true, 
+        });
+    }, []);
+    
     return (
         <div className="uh09">
             <div className="uh09-box df-c">
                 {/* row text */}
                 <div className="row">
                     <div className="rbox">
-                        <blockquote>
-                            <h2 className="web">
+                        <blockquote className="over-h">
+                            <h2 className="web" data-aos="fade-up" data-aos-delay="100">
                                 {t('homePage.hero.title')}
                             </h2>
-                            <p>{t('homePage.hero.desc')}</p>
+                            <p data-aos="fade-right">{t('homePage.hero.desc')}</p>
                             <div className="action df-l">
                                 <a href="/services" className="btn">{t('homePage.hero.services')}</a>
                                 <a href="http://facebook.com/vensoeng" className="btn">{t('homePage.hero.contact')}</a>
@@ -56,7 +67,7 @@ export default function WebHeader() {
 
                 {/* row service */}
                 <div className="row">
-                    <div className="rbox">
+                    <div className="rbox over-h" data-aos="fade-left" >
                         <div className="rbh df-c">
                             <p>+service suggestion+</p>
                         </div>

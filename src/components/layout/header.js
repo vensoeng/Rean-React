@@ -17,7 +17,7 @@ const ListRoute = ({ onItemClick }) => {
                 <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/">{t('home')}</NavLink></li>
                 {/* <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/shopping">ហាងតូច</NavLink></li> */}
                 <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/services">{t('service')}</NavLink></li>
-                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/storys">{t('blog')}</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/blogs">{t('blog')}</NavLink></li>
                 <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/designs">{t('design')}</NavLink></li>
                 {/* <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/creator">មាតិការ</NavLink></li> */}
                 <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/pricing">{t('pricing')}</NavLink></li>
