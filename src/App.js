@@ -47,6 +47,8 @@ import AdminCategory from './pages/admin/category';
 import AdminProduct from './pages/admin/product';
 //Not fould webpage 
 import NotFoundPage from './pages/404';
+//project
+import AdminProject from './pages/admin/project';
 
 //for user queryClient
 const queryClient = new QueryClient();
@@ -109,6 +111,8 @@ function RoutePage() {
         {/* shop */}
         <Route path='admin/category' element={<AdminCategory/>}/>
         <Route path='admin/product' element={<AdminProduct/>}/>
+        {/* project */}
+        <Route path='admin/project' element={<AdminProject/>}/>
       </Route>
       {/* Not Found  */}
       <Route path="*" element={<NotFoundPage />} />

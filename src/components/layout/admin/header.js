@@ -17,6 +17,7 @@ import {
     Shop,
     Add,
     ArrowRight2,
+    Briefcase,
 } from 'iconsax-reactjs';
 export const API_URL = process.env.API_URL || 'https://vensoengapi.vercel.app';
 export const STORAGE = process.env.STORAGE || "/images/storage/";
@@ -40,6 +41,8 @@ export default function AdminHeader() {
                 return 'ផលិតផល';
             case '/admin/category':
                 return 'ប្រភេទផលិតផល';
+            case '/admin/project':
+                return 'គម្រោងណែនាំ';
             default:
                 return 'ផ្ទាំងគ្រប់គ្រង';
         }
@@ -123,6 +126,14 @@ export default function AdminHeader() {
                                             <Magicpen />
                                         </div>
                                         <p>ផ្សព្វផ្សាយ</p>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink className={({ isActive }) => isActive ? "df-l active" : "df-l"} to="/admin/project">
+                                        <div className='icon icon-sm over-h df-c'>
+                                            <Briefcase />
+                                        </div>
+                                        <p>គម្រោងបង្ហាញ</p>
                                     </NavLink>
                                 </li>
                                 <li className='list-main-active'>
