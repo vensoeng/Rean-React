@@ -20,6 +20,7 @@ import DesignsPage from './pages/designs';
 import DesignsDetail from './pages/designsDetail';
 import WebsitePage from './pages/website';
 import Services from './pages/services';
+import Project from './pages/project';
 import ServicesDetail from './pages/serviceDetail';
 import Story from './pages/story';
 import StoryDetail from './pages/storyDetail';
@@ -88,6 +89,7 @@ function RoutePage() {
         <Route path='/blogs' element={<Story />} />
         <Route path='/website' element={<WebsitePage />} />
         <Route path='/services' element={<Services />} />
+        <Route path='/projects' element={<Project />} />
         <Route path='/pricing' element={<PricingPage />} />
       </Route>
       {/* user route doesn't layout  */}

@@ -119,7 +119,15 @@
         "additional": "We Also Recommend",
         "noData": "No services data available."
     },
-
+    "projectPage": {
+       "hero": {
+            "title": "Projects We've Worked On",
+            "desc": " Explore our websites, UX/UI designs, and digital systems built to meet the needs of modern businesses."
+        },
+        "seeMore": "View More Projects",
+        "demo": "View Demo",
+        "noData": "No projects data available."
+    },
     "designsPage": {
         "hero": {
             "title": "Design",

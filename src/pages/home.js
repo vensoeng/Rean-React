@@ -30,6 +30,7 @@ import { ArrowRight } from 'iconsax-reactjs';
 import Questions from './question';
 import ServiceSuggestion from '../components/web/Service_suggestion';
 import DesignsSuggestion from '../components/web/DesignSuggestion';
+import ProjectsSuggestion from '../components/web/projects_sug';
 // import StoryPage from './story';
 
 // background header section 
@@ -77,6 +78,7 @@ export default function HomePage() {
                         mainTitle={"DESIGNS"}
                         mainDes={"ចង់ឱ្យផលិតផលរបស់អ្នកលេចធ្លោ និងទទួលបានការចាប់អារម្មណ៍ខ្លាំងមែនទេ? ការរចនា Poster ប្រកបដោយគំនិតច្នៃប្រឌិតពីយើង នឹងជួយផ្សព្វផ្សាយម៉ាកយីហោរបស់អ្នកឱ្យកាន់តែរីកសុះសាយ ព្រមទាំងជួយឱ្យអតិថិជនយល់ដឹងពីព័ត៌មានសំខាន់ៗបានភ្លាមៗត្រឹមមួយវិនាទី!"}
                     /> */}
+                    <ProjectsSuggestion />
                     {/* this is show my story  */}
                     <section className="web-main">
                         <div className="main-body">

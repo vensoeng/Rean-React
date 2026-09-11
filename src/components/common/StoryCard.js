@@ -62,7 +62,7 @@ export default function StoryPage({blog = {} , index = 0, newStory = false}) {
                 {!isFullyLoaded && (
                         <div className="img-loader-placeholder">
                             <div className="spinner"></div>
-                            <span style={{ fontSize: '12px', color: '#64748b', marginTop: '8px' }}>{t('homePage.service.loading')}...</span>
+                            <span style={{ fontSize: '12px', color: '#64748b', marginTop: '8px' }}>{t('homePage.services.loading')}...</span>
                         </div>
                 )}
                 <img 
