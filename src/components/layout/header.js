@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import TopNav from './topNav';
+
 import '../../assets/css/header.css';
 // import favIcon from '../../assets/img/logo192.png';
 import favIcon from '../../assets/img/VenSoeng_DigitalCore_Logo.png';
@@ -17,6 +19,7 @@ const ListRoute = ({ onItemClick }) => {
                 <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/">{t('home')}</NavLink></li>
                 {/* <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/shopping">ហាងតូច</NavLink></li> */}
                 <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/services">{t('service')}</NavLink></li>
+                <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/projects">{t('project')}</NavLink></li>
                 <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/blogs">{t('blog')}</NavLink></li>
                 <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/designs">{t('design')}</NavLink></li>
                 {/* <li className='df-c'><NavLink onClick={onItemClick} className={({ isActive }) => isActive ? "df-c active" : "df-c"} to="/creator">មាតិការ</NavLink></li> */}
@@ -34,6 +37,8 @@ export default function Header()
     const { t } = useTranslation();
     return(
         <>
+        {/* this is top nav  */}
+        <TopNav />
         {/* <Pageon /> */}
         <header className="webhead wuser-wbhead">
             <div className="wh-box df-s scroll-x">

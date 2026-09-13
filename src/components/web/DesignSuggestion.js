@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom'; 
 import { useQuery } from '@tanstack/react-query';
 import { API_URL, STORAGE} from '../../utils/auth'; 
+import { ArrowRight } from 'iconsax-reactjs';
 import imgTest from '../../assets/img/defualt_img.webp';
 import '../../assets/css/designs_sug.css';
 
@@ -152,6 +153,7 @@ export default function DesignSuggestion() {
                     <div className="dsf09-box df-c">
                         <a href="/designs" className="btn btn-style">
                             {t('homePage.design.all')}
+                            <ArrowRight/>
                         </a>
                     </div>
                 </div>

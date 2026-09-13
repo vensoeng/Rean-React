@@ -5,10 +5,11 @@
     "design": "design",
     "pricing": "pricing",
     "aboutUs": "about us",
+    "project": "Project",
     "selectLang": "Please select your language!",
     "khmer": "Khmer",
     "english": "English",
-
+    "telegram": "Telegram",
     "common": {
         "loading": "Please wait a moment, fetching data to process",
         "noData": "Sorry, no data"
@@ -26,7 +27,8 @@
         "services": {
             "more": "View Details",
             "discuss": "Discuss Service",
-            "loading": "Loading"
+            "loading": "Loading",
+            "moreService": "See more services"
         },
 
         "projects": {

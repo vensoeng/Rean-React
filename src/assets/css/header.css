@@ -43,7 +43,7 @@
 }
 .webhead .wh-box{
     width: 100%;
-    max-height: 60px;
+    max-height: 80px;
     max-width: 1200px;
     margin: 0rem auto;
     border-radius: 50rem;
@@ -467,5 +467,139 @@
             0% 100%,
             0% 14px
         );
+    }
+}
+
+
+/* ==========this is top nav =============== */
+.wbth{
+    position: relative;
+    max-width: 100%;
+    background: var(--sg-color-brand);
+    background-size: 200% auto;
+    background-image: linear-gradient(to right, #0575E6 0%, #021B79 51%, #0575E6 100%);
+}
+.wbth .wbth-bx{
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0.2rem 0rem;
+}
+.wbth .wbth-bx svg path{
+    stroke: var(--sg-color-brand);
+    fill: var(--sg-bglight);
+    stroke-width: 0px;
+}
+.wbth .wbth-bx svg{
+    width: 1.5rem;
+}
+.wbth .wbth-bx .btn{
+    gap: 0.3rem;
+    cursor: pointer;
+}
+.wbth .wbth-bx .btn,
+.wbth .wbth-bx .btn span{
+    font-size: 0.75rem;
+    color: var(--sg-bglight);
+    font-family: var(--font-brand);
+    background: transparent;
+}
+.wbth .wbth-bx .btn-customer svg{
+    width: 1.9rem;
+}
+.wbth .wbth-bx .mlang{
+    height: 100%;
+    border-left: 0.5px solid var(--sg-bglight);
+}
+.wbth .wbth-bx .btn-lang .icon{
+    width: 1.5rem;
+    height: fit-content;
+    border-radius: 0rem;
+    padding: 0rem;
+
+}
+.wbth .wbtrw:last-child{
+    gap: 0rem;
+}
+@media only screen and (max-width: 550px) {
+    .wbth .wbth-bx .mlang{
+        border: none;
+    }
+    .wbth .wbth-bx .btn-ms span,
+    .wbth .wbth-bx .btn-telegram span{
+        display: none;
+    }
+    .wbth .wbth-bx .btn-telegram svg{
+        width: 2.5rem;
+    }
+    .wbth .wbtrw:last-child{
+        gap: 0.5rem;
+    }
+    .wbth .wbth-bx .btn-ms,
+    .wbth .wbth-bx .btn-telegram{
+        display: none;
+    }
+    .wbth .wbth-bx .btn-lang .icon{
+        aspect-ratio: 16/9;
+        width: 1.8rem;
+    }
+}
+/* ==========this Is button main web============= */
+.wb-main-action {
+    position: fixed;
+    bottom: -100%;
+    right: -100%;
+    bottom: 1.5rem;
+    z-index: 9999;
+    background: transparent;
+    opacity: 0;
+    transition: opacity 0.3s ease, right 0.3s ease-in-out;
+}
+
+.wb-main-action.wb-show {
+    opacity: 1;
+    right: 1.5rem;
+}
+
+.wb-main-action .wbma-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    
+}
+.wb-main-action .wbma-box .icon:first-child svg{
+    width: 2rem;
+}
+.wb-main-action .wbma-box .icon:first-child path{
+    stroke: var(--sg-bglight);
+}
+.wb-main-action .wbma-box .icon {
+    width: 3.5rem;
+    height: 3.5rem;
+     border-radius: 0rem;
+    background: var(--sg-color-brand);
+    cursor: pointer;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.wb-main-action .wbma-box .icon path {
+    stroke: var(--sg-color-brand);
+}
+
+.wb-main-action .wbma-box .icon:last-child {
+    background: var(--sg-bglight);
+}
+
+.wb-main-action .wbma-box .icon:last-child path {
+    stroke: var(--sg-color-brand);
+    fill: var(--sg-color-brand);
+}
+.wb-main-action .wbma-box .icon:last-child svg{
+    overflow: initial;
+    width: 2.2rem;
+}
+@media screen and (max-width: 1000px) {
+    .wb-main-action.wb-show {
+        right: 0.5rem;
     }
 }

@@ -19,7 +19,8 @@
     /* font-family: "Kantumruy Pro", system-ui; */
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
-    font-family: "Google Sans", sans-serif;
+    /* font-family: "Google Sans", sans-serif; */
+    font-family: "Kdam Thmor Pro", "Google Sans", sans-serif;
 }
 svg{
     width: 1.4rem;

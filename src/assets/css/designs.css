@@ -57,7 +57,7 @@
 }
 .d01h h2{
     font-size: 1.8rem;
-    font-weight: 600;
+    /* font-weight: 600; */
     margin-bottom: 0.6rem;
 }
 .d01h p{

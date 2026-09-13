@@ -132,6 +132,9 @@
     text-transform: uppercase;
     background: var(--sg-bgblack);
 }
+.wpj02-bx .wpj02-lt-bx .data-text .tags span{
+    font-size: 0.8rem;
+}
 .wpj02-bx .wpj02-lt-bx .data-action .data-date{
     gap: 0.3rem;
 }

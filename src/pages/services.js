@@ -3,7 +3,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation} from 'react-router-dom';
-
+import { ArrowRight } from 'iconsax-reactjs';
 import { API_URL} from '../utils/auth';
 import WebLoader from './../components/common/WebLoader';
 // card
@@ -160,6 +160,13 @@ export default function Services() {
                                 />
                             ))
                         )}                    
+                    </div>
+                    {/* this is btn back home  */}
+                    <div className="wbsvc-action df-c">
+                        <a href='/services' className='btn btn-style'>
+                            {t('blogPage.homePage')}
+                            <ArrowRight/>
+                        </a>
                     </div>
                 </div>
             </div>

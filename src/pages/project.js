@@ -1,7 +1,6 @@
 
 import { Helmet } from 'react-helmet-async';
 import ProjectsSuggestion from '../components/web/projects_sug';
-import '../assets/css/story.css';
 
 export default function ProjectPage()
 {    

@@ -4,7 +4,8 @@
     margin: 0rem auto;
     padding: 4rem 0rem;
     overflow: hidden;
-    background: var(--sg-color-brand);
+    /* background: var(--sg-color-brand); */
+    background: var(--sg-color-def);
     -webkit-clip-path: polygon(
         14px 0%,
         100% 0%,
@@ -104,6 +105,7 @@
     flex-direction: column;
     gap: 0.4rem;
     padding: 1.8rem 0rem;
+    color: var(--sg-bglight);
 }
 .wbsv .wbsvc ul li blockquote h2{
     overflow: hidden;
@@ -111,7 +113,9 @@
     -webkit-line-clamp: 1;
     display: -webkit-box;
     font-size: 1.8rem;
-    font-weight: 800;
+    /* font-weight: 800; */
+    font-weight: 300;
+    color: var(--sg-bglight);
 }
 .wbsv .wbsvc ul li blockquote p {
     max-width: 250px;
@@ -121,6 +125,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
+    color: var(--sg-bgblack);
 }
 .wbsv .wbsvc ul li .svl-action{
     margin: 1rem auto;
@@ -155,8 +160,10 @@
 }
 .wbsv .wbsvc ul li .svla-box .btn:last-child{
     box-sizing: border-box;
-    color: var(--sg-color-brand);
-    background: var(--sg-color-def);
+    /* color: var(--sg-color-brand); */
+    /* background: var(--sg-color-def); */
+    color: var(--sg-bglight);
+    background: var(--sg-color-brand);
 }
 .wbsv .wbsvc ul li:last-child .l-img img{
     border: 1px dashed var(--sg-border-00);
@@ -316,6 +323,23 @@
     right: 0;
 }
 
+.wbsv .wbsvc-action{
+    padding: 1rem 0rem;
+    margin: 1.8rem auto;
+    padding-bottom: 0rem;
+}
+.wbsv .wbsvc-action .btn{
+    padding: 0rem 1rem;
+    color: var(--sg-bglight);
+    cursor: pointer;
+    height: 2.8rem;
+    font-family: var(--font-brand);
+    background: var(--sg-color-brand);
+    gap: 0.2rem;
+}
+.wbsv .wbsvc-action .btn path{
+    stroke: var(--sg-bglight);
+}
 @media screen and (max-width: 650px) {
     .wbsv .wbsvc ul{
         display: flex;

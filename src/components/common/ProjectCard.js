@@ -89,7 +89,7 @@ export default function ProjectCard({item = {} , index = 0}) {
                     <div className="tags">
                         {item.tags && item.tags.split(/\s+/).filter(Boolean).map((tag, i) => (
                             <span className='btn' key={i}>
-                                <p>{tag}</p>
+                                {tag}
                             </span>
                         ))}
                     </div>

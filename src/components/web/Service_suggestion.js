@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
+import { ArrowRight } from 'iconsax-reactjs';
 import { API_URL, STORAGE} from '../../utils/auth'; 
 import imgTest from '../../assets/img/defualt_img.webp';
 import ServiceCard from '../common/ServiceCard_Sug';
@@ -30,7 +31,6 @@ export default function ServiceSuggestion() {
     const { t } = useTranslation();
     return (
         <div className="wbsv">
-
             <div className="wbsvc">
                 <ul>
                     {isLoading ? (
@@ -65,6 +65,13 @@ export default function ServiceSuggestion() {
                     )}
                     
                 </ul>
+            </div>
+            {/* <!-- this is action for see more item --> */}
+            <div className="wbsvc-action df-c">
+                <a href='/services' className='btn btn-style'>
+                    {t('homePage.services.moreService')}
+                    <ArrowRight/>
+                </a>
             </div>
         </div>
     );

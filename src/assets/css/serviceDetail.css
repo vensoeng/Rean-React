@@ -456,7 +456,7 @@ body:has(#wsd) header {
 }
 .sdh02 .sdhb02 blockquote h2{
     font-size: 2rem;
-    font-weight: 600;
+    /* font-weight: 600; */
 }
 .sdh02 .sdhb02 blockquote p{
     font-size: 1rem;
@@ -488,7 +488,7 @@ body:has(#wsd) header {
 }
 .pb02 .pbb02 > .txt h2{
     font-size: 2rem;
-    font-weight: 600;
+    /* font-weight: 600; */
 }
 .pb02 .pbb02 > .txt > p{
     line-height: 1.5;
@@ -535,7 +535,7 @@ body:has(#wsd) header {
 }
 .sdfqa .sdfqab .txtb h2{
     font-size: 2rem;
-    font-weight: 600;
+    /* font-weight: 600; */
 }
 .sdfqa .sdfqab li.df-s{
     padding: 1rem;
@@ -582,7 +582,7 @@ body:has(#wsd) header {
 }
 .sdcta .sdcta-box h2{
     font-size: 2rem;
-    font-weight: 600;
+    /* font-weight: 600; */
 }
 .sdcta .sdcta-box h2 p{
     font-size: 1rem;

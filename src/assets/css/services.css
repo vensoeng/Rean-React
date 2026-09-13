@@ -47,7 +47,7 @@
 }
 .nsh-box h2{
     font-size: 2rem;
-    font-weight: 600;
+    /* font-weight: 600; */
 }
 .nsh-box p{
     max-width: 500px;
@@ -258,6 +258,21 @@
 .ns01 .nsi .nsi-box .nsir:last-child .action .btn path{
     stroke: var(--sg-bglight);
     fill: var(--sg-bglight);
+}
+.ns01 .wbsvc-action{
+    min-height: 100px;
+    padding: 1rem 0rem;
+    /* border-bottom: 1px solid var(--sg-border-00); */
+    /* margin: 1.8rem auto; */
+    padding-top: 0rem;
+}
+.ns01 .wbsvc-action .btn{
+    padding: 0rem 1rem;
+    color: var(--sg-bglight);
+    cursor: pointer;
+    height: 2.8rem;
+    font-family: var(--font-brand);
+    gap: 0.2rem;
 }
 
 @media only screen and (max-width: 1260px) {
