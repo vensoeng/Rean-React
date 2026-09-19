@@ -234,6 +234,10 @@
   background-color: #ffffff;
   color: #000000;
 }
+body:has(.abus08) .newsletter-btn{
+  color: var(--sg-color-brand);
+  background: var(--sg-bglight);
+}
 
 /* Badges Alignment */
 .apps-col {

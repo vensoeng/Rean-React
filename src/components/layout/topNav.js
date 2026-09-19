@@ -67,7 +67,7 @@ export default function TopNav() {
             <div onClick={scrollToTop} class="icon icon-ra icon-sm btn-action-wb-scroll-top" data-action="scroll-top">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><path stroke="#FF8A65" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="M18.07 9.57L12 3.5 5.93 9.57M12 20.5V3.67"></path></svg>
             </div>
-            <a href='href="https://m.me/105919675870254"' class="icon icon-ra icon-sm btn-action-customer-service" data-action="customer-service">
+            <a href='https://m.me/105919675870254' class="icon icon-ra icon-sm btn-action-customer-service" data-action="customer-service">
               <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M0 15.521c0-8.922 6.984-15.521 16-15.521s16 6.599 16 15.521c0 8.917-6.984 15.521-16 15.521-1.615 0-3.172-0.214-4.625-0.615-0.286-0.078-0.589-0.052-0.854 0.068l-3.188 1.401c-0.833 0.37-1.776-0.224-1.802-1.135l-0.094-2.854c-0.010-0.349-0.167-0.672-0.422-0.906-3.245-2.927-5.073-7.109-5.016-11.479zM11.094 12.599l-4.693 7.469c-0.469 0.703 0.427 1.521 1.094 1l5.052-3.828c0.349-0.266 0.802-0.266 1.161 0l3.729 2.802c1.125 0.839 2.724 0.531 3.469-0.641l4.693-7.469c0.469-0.703-0.427-1.505-1.094-1l-5.052 3.828c-0.333 0.266-0.802 0.266-1.146 0l-3.734-2.802c-1.125-0.849-2.729-0.552-3.479 0.641z"></path> </g></svg>
             </a>
         </div>
