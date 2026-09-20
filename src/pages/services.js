@@ -163,7 +163,7 @@ export default function Services() {
                     </div>
                     {/* this is btn back home  */}
                     <div className="wbsvc-action df-c">
-                        <a href='/services' className='btn btn-style'>
+                        <a href='/' className='btn btn-style'>
                             {t('blogPage.homePage')}
                             <ArrowRight/>
                         </a>

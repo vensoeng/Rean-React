@@ -4,6 +4,9 @@ body:has(.styde) .webhead,
 body:has(.styde) .web-footer{
     display: none;
 }
+body:has(.story-content) *{
+    font-family: "Google Sans", sans-serif;
+}
 body:has(.styde-light){
     --sg-txt-color:  rgb(0, 0, 0);
     --sg-bg-color: #fff;
