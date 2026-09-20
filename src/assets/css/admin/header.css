@@ -1,3 +1,6 @@
+body:has(.admin-shell) * {
+    font-family: "Google Sans", sans-serif !important;
+}
 .web-head{
     position: fixed;
     right: 0rem;

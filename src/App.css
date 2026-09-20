@@ -1322,7 +1322,7 @@ textarea  {
 
 .m08-modal-header h2 {
     font-size: 1.5rem;
-    font-weight: 700;
+    /* font-weight: 700; */
     color: var(--sg-bglight);
 }
 
@@ -1410,7 +1410,7 @@ textarea  {
 
 .m08-details .m08-title {
     font-size: 1.05rem;
-    font-weight: 700;
+    /* font-weight: 700; */
     color: var(--sg-color-def);
 }
 
