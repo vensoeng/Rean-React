@@ -20,14 +20,14 @@ export default async function handler(req, res) {
 
       const titleEn = service.title || service.name || '';
       const titleKh = service.title_kh || '';
-      const titleZh = service.title_zh || '';
+      // const titleZh = service.title_zh || '';
 
       const descEn = service.description || '';
       const descKh = service.description_kh || '';
-      const descZh = service.description_zh || '';
+      // const descZh = service.description_zh || '';
 
-      const fullTitle = [titleEn, titleKh, titleZh].filter(Boolean).join(' | ') || 'Service Detail';
-      const fullDesc = [descEn, descKh, descZh].filter(Boolean).join(' | ') || 'Check out our service detail.';
+      const fullTitle = [titleEn, titleKh].filter(Boolean).join(' | ') || 'Service Detail';
+      const fullDesc = [descEn, descKh].filter(Boolean).join(' | ') || 'Check out our service detail.';
 
       const image = service.img
         ? `${API_URL}${STORAGE}${service.img}`
