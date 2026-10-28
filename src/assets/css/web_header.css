@@ -7,8 +7,8 @@
     position: relative;
     margin: 0 auto;
     max-width: 2560px;
-    /* height: 100vh; */
-    min-height: max-content;
+    height: max-content;
+    min-height: 750px;
     border: 1px solid var(--sg-border-00);
     box-sizing: border-box;
     border-top: none;
@@ -169,6 +169,11 @@
 .uh09 .uh09-box .row:last-child .wbsh-slide .wbshs-box{
     position: initial;
     height: 100%;
+    aspect-ratio: 16 / 9;
+}
+.uh09 .uh09-box .row:last-child .wbsh-slide .wbshs-box{
+    aspect-ratio: 16 / 9;
+    width: 100%;
 }
 .uh09 .uh09-box .row:last-child .wbsh-slide .list-img,
 .uh09 .uh09-box .row:last-child .li-box{
@@ -244,5 +249,10 @@
     .uh09 .uh09-box .row:first-child .rbox{
         max-width: initial;
         padding: 2rem 0.8rem;
+    }
+}
+@media only screen and (max-width: 650px){
+    .uh09 .uh09-box{
+        min-height: 400px;
     }
 }
